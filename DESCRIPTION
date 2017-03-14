@@ -1,10 +1,17 @@
 Package: PQTool
+Title: Parliamentary Questions Tool
 Version: 0.1
-Title: PQ Tool
-Depends:
-    R (>= 3.1)
+Authors@R: c(person("Ross", "Kennedy", email = "Ross.Kennedy@justice.gsi.gov.uk",
+                  role = c("aut", "cre")),
+             person("Samuel", "Tazzyman", email = "Samuel.Tazzyman@justice.gsi.gov.uk",
+                  role = c("aut", "cre")))
+Description: This package helps people to answer PQs
+Depends: R (>= 3.1.0)
 Imports:
     lsa,
     tm,
     cluster,
-    LSAfun
+    LSAfun,
+    lintr
+License: MIT License
+LazyData: true
