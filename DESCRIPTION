@@ -2,9 +2,10 @@ Package: PQTool
 Title: Parliamentary Questions Tool
 Version: 0.1
 Authors@R: c(person("Ross", "Kennedy", email = "Ross.Kennedy@justice.gsi.gov.uk",
-                  role = c("aut", "cre")),
+                  role = c("aut")),
              person("Samuel", "Tazzyman", email = "Samuel.Tazzyman@justice.gsi.gov.uk",
                   role = c("aut", "cre")))
+Maintainer: Samuel Tazzyman <Samuel.Tazzyman@justice.gsi.gov.uk>
 Description: This package helps people to answer PQs
 Depends: R (>= 3.1.0)
 Imports:
