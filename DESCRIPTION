@@ -1,0 +1,11 @@
+Package: PQTool
+Version: 0.1
+Title: PQ Tool
+
+Depends:
+    R (>= 3.1)
+Imports:
+    lsa,
+    tm,
+    cluster,
+    LSAFun
