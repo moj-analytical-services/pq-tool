@@ -181,6 +181,3 @@ meds[1000]
 #We might be able to do better than arbitrarily picking 1000 by defining some function of
 #median and silhouette and maximising it (although then the function definition is still
 #arbitary).
-
-
-
