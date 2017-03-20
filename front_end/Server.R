@@ -1,111 +1,107 @@
-# Define R_date date type - to read in Long Date format in csv
-setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
-setClass('R_date')
-myColClasses = c("Date" = "R_date",
-                 "Answer_Date" = "R_date")
+library(tm)
+library(lsa)
+library(cluster)
+library(LSAfun)
+library(shiny)
+library(DT)
+
+#SCRIPT
+#This loads stuff created by the DataCreator.R script
+
+load(file = "lsaOut.rda")
+load(file = "tdm.rda")
+load(file = "klusters.rda")
 
 # Import similarity score function simQuery()
 source("/Users/admin/Documents/PQtools/Front End/lsaPreamble.R")
 
 # Shiny App
-library(shiny)
-library(DT)
 
-rawData = (read.csv('/Users/admin/Documents/PQtools/Data/MoJallPQsforTableau.csv', colClasses = myColClasses))
-d = data.frame(rawData)
+# Define R_date date type - to read in Long Date format in csv
+setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
+setClass('R_date')
+myColClasses = c("Date" = "R_date", "Answer_Date" = "R_date")
 
-############# UI
-ui <- fluidPage(
-  shinyUI(navbarPage("PQ Text Analysis",
-                     tabPanel("Component 1"),
-                     tabPanel("Component 2"),
-                     tabPanel("Component 3"))),
-  #titlePanel("PQ Text Analysis"),
-  fluidRow(
-    column(4,
-      textInput(inputId = "question", 
-              label = "Search Text",
-              value = "Insert Question Here")
-    ),
-  
-    column(3,
-      sliderInput(inputId = "q_date_range", 
-              label = "Question Date Range", 
-              min = min(rawData$Date), 
-              max = max(rawData$Date),
-              value = c(min(rawData$Date),max(rawData$Date))
-              )
-    ),
-    
-    column(1),
-    
-    column(3,
-       sliderInput(inputId = "a_date_range", 
-              label = "Answer Date Range", 
-              min = min(rawData$Date), 
-              max = max(rawData$Date),
-              value = c(min(rawData$Date),max(rawData$Date))
-           )
-    )
-  ),
-  fluidRow(
-    column(6,DT::dataTableOutput('dt')
-    ),
-    column(6,plotOutput("plot")),
-  
-  plotOutput("plt")
-  
-  )
-)
+rawData = read.csv('/Users/admin/Documents/PQtools/Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
+d = data.frame(rawData )
 
 ############### Server
 
 server <- function(input, output) {
   
-  #Filter() = reactive({
-  #tableDF = tableDF[tableDF$d.Date > input$q_date_range[1] & tableDF$d.Date < input$q_date_range[2]]
-  #})
+  stopwordList <- c(
+    stopwords(),'a','b','c','d','i','ii','iii','iv',
+    'secretary','state','ministry','majesty',
+    'government','many','ask','whether',
+    'assessment','further','pursuant','justice',
+    'minister','steps','department','question'
+  )
   
-  
-
-  
-  #output$plot <- renderPlot({    
-  #  c(tableDF$d.Date, similarityScore())
-  #
-  #})
-  
-  filt_data = function(Data, Bound){
-  return(reactive({Data >= Bound[1] & Data <= Bound[2]}))
+  cleanCorpus <- function(corp) {
+    corp <-tm_map(corp, content_transformer(function(x) iconv(x, to='UTF-8-MAC', sub='byte')))
+    toSpace <- content_transformer(function(x, pattern) { return (gsub(pattern, ' ', x))})
+    corp <- tm_map(corp, toSpace, '-')
+    corp <- tm_map(corp, toSpace, '’')
+    corp <- tm_map(corp, toSpace, '‘')
+    corp <- tm_map(corp, toSpace, '•')
+    corp <- tm_map(corp, toSpace, '”')
+    corp <- tm_map(corp, toSpace, '“')
+    corp <- tm_map(corp,content_transformer(tolower))
+    corp <- tm_map(corp,removePunctuation)
+    corp <- tm_map(corp,stripWhitespace)
+    corp <- tm_map(corp, function(x) removeWords(x,stopwordList))
   }
-  filt_q_date = filt_data(d$Date, input$q_date_range)
-  filt_a_date = filt_data(d$Answer_Date, input$a_date_range)
   
-  data_frame = reactive({
-    rawData[filt_q_date]
+  #the following is a similarity query function
+  simQuery <- reactive({
+    qtext.stems <- tm_map(cleanCorpus(Corpus(VectorSource(input$question))),stemDocument)
+    stemqText<-data.frame(text=unlist(sapply(qtext.stems, '[', 'content')), stringsAsFactors=F)
+    SOTCorp <- tm_map(cleanCorpus(Corpus(VectorSource(d$Question_Text))),stemDocument)
+    stemSOT <- data.frame(text=unlist(sapply(SOTCorp, '[', 'content')), stringsAsFactors=F)
+    start.time <- Sys.time()
+    print(start.time)
+    sapply(X=stemSOT$text,function(x){ 
+      print(x)
+      costring(stemqText$text,x, tvectors=data.frame(lsaOut$tk)) },USE.NAMES = F)
+    end.time <- Sys.time()
+    print(end.time)
+    time.taken <- end.time - start.time
+    print(time.taken)
   })
-  similarity_score = reactive({
-    simQuery(input$question, data_frame$Question_Text)
+  
+  SimilarityScore = reactive({
+    data.frame(simQuery())
   })
-  data_frame2 = 
-    cbind2(data_frame, similarity_score)
   
+  add_to_df = function(){
+    d$Sim_Score = NA
+    nRows = nrow(d)
+    d()$Sim_Score = simQuery()
+    return(d) 
+  }
   
+  Update_df <- reactive({
+    add_to_df() %>%
+      filter(
+        d$Date >= input$q_date_range[1] &
+          d$Date <= input$q_date_range[2] &
+          d$Date >= input$a_date_range[1] &
+          d$Date <= input$a_date_range[2] )%>%
+      as.data.frame()
+  })
   
-  output$dt <- DT::renderDataTable({
+  output$dt <- renderDataTable({
     
-    DT::datatable(data = data_frame2,
-      colnames = c("Document #", "Question Date","Answer Date", "Cluster"),
-      class = 'display',
-      width = 25,
-      #filter = 'top',
-      options = list(deferRender = TRUE,
-                     scrollY = 400,
-                     scroller = TRUE,
-                     searching = FALSE,
-                     paging = FALSE)
+    datatable(data = add_to_df(), #[,c("Date", "Answer_Date","Cluster")],
+              #colnames = c("Document #", "Question Date","Answer Date", "Cluster"), #,"Similarity Score"),
+              class = 'display',
+              width = 25,
+              #filter = 'top',
+              options = list(deferRender = TRUE,
+                             scrollY = 400,
+                             scroller = TRUE,
+                             searching = FALSE,
+                             paging = FALSE)
     )
   })
-  
 }
-
-shinyApp(ui = ui, server = server)
