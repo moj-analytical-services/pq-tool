@@ -1,3 +1,5 @@
+source(file = 'global.R')
+
 ############### Server
 
 function(input, output) {
@@ -11,29 +13,21 @@ function(input, output) {
   #  sapply(X=stemSOT$text,function(x){ 
   #    costring(stemqText$text,x, tvectors=data.frame(lsaOut$tk)) },USE.NAMES = F)
   #})
-  sq  = reactive({
-    SQ
-    })
+  sq  = SQ
   
-  add_to_df = function(){
-    d$Sim_Score = sq()  ####### CHANGE LATER
-    return(d) 
+  d$Sim_Score = sq ####### CHANGE LATER
+  
+  df = function(){
+    dplyr::filter(d, (d$Date >= input$q_date_range[1] &
+                        d$Date <= input$q_date_range[2] &
+                        d$Date >= input$a_date_range[1] &
+                        d$Date <= input$a_date_range[2] ))
   }
-  
-  Update_df <- reactive({
-    add_to_df() %>%
-      filter(
-        d$Date >= input$q_date_range[1] &
-          d$Date <= input$q_date_range[2] &
-          d$Date >= input$a_date_range[1] &
-          d$Date <= input$a_date_range[2] )%>%
-      as.data.frame()
-  })
-  
+
   output$dt <- renderDataTable({
     
-    datatable(data = add_to_df()[,c('Date', 'Answer_Date', 'Cluster', 'Sim_Score')], #[c("Date", "Answer_Date","Cluster","Similarity Score")],
-              #colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
+    datatable(data = df()[,c('Date', 'Answer_Date', 'Cluster','Sim_Score')], #[c("Date", "Answer_Date","Cluster","Similarity Score")],
+              colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
               class = 'display',
               width = 25,
               #filter = 'top',
@@ -44,4 +38,8 @@ function(input, output) {
                              paging = FALSE)
     )
   })
+  output$plot <- renderPlot({
+    plot(df()$Date,df()$Sim_Score,
+         xlab = 'Question Date', ylab = 'Similarity Score')
+      })
 }
