@@ -1,4 +1,4 @@
-source(file = "server.R")
+source(file = "global.R")
 ############# UI
 
 navbarPage("PQ Text Analysis",
@@ -34,12 +34,12 @@ navbarPage("PQ Text Analysis",
             )
       ),
     fluidRow(
-      column(6,DT::dataTableOutput('dt')
+      column(6,
+             DT::dataTableOutput('dt')
              ),
-      column(6,plotOutput("plot")),
-      plotOutput("plt")
-      )
-    ),
+      column(6,plotOutput("plot")
+            )
+    )),
   tabPanel("Component 2"),
   tabPanel("Component 3")
 )
