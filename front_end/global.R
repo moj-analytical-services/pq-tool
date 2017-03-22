@@ -4,6 +4,8 @@ library(cluster)
 library(LSAfun)
 library(shiny)
 library(DT)
+library(dplyr)
+library(ggplot2)
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
@@ -13,6 +15,7 @@ myColClasses = c("Date" = "R_date",
 
 rawData = read.csv('/Users/admin/Documents/PQtools/Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
 d = data.frame(rawData )
+cluster_data = read.csv("/Users/admin/Documents/PQtools/Data/topDozen.csv")
 
 #This loads stuff created by the DataCreator.R script
 
@@ -42,3 +45,9 @@ cleanCorpus <- function(corp) {
   corp <- tm_map(corp,stripWhitespace)
   corp <- tm_map(corp, function(x) removeWords(x,stopwordList))
 }
+
+col_names = c('Document #', 'Question ID', 'Question', 'Answer', 'Question MP', 'Answer MP', 'Q Date','A Date', 'Cluster','Similarity Score')
+
+#MPChoice <- function(){
+#  dplyr::filter(d, (d$Cluster == input$x6))
+#  d$Question_MP
