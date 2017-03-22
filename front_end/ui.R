@@ -44,35 +44,39 @@ navbarPage("PQ Text Analysis",
   tabPanel("Cluster",
            fluidRow(
              column(12,
-             selectInput("x3", "Choose Cluster:",
-                         choices = unique(d$Cluster))
+             selectizeInput(inputId = "x3",
+                            label = "Choose Cluster:",
+                            choices = unique(d$Cluster)
+                            )
              )
            ),
            fluidRow(
              column(12,
-             plotOutput('x4')
+             plotOutput('x3')
              )
            ),
            fluidRow(
              column(12,
-             dataTableOutput("x3")
+             dataTableOutput("x4")
              )
            )
            ),
   
   tabPanel("Q&A Analysis",
            sidebarPanel(
-             selectInput(inputId ="x6",
+             selectInput(inputId ="constituency_choice",
                          "Choose a Constituency:",
                          choices = unique(d$MP_Constituency))#,
-             #selectInput("x7", "Choose an MP:",
-             #            choices = unique(MPChoice()))
+             #selectInput(inputID = "mp_choice", 
+                          #"Choose an MP:",
+                          #choices = unique(MPChoice()))
            ),
            mainPanel(
-             plotOutput("x8")
+             plotOutput("x5")
            )
   ),
   tabPanel("Data",
-           dataTableOutput('x5')
+           column(11,
+           dataTableOutput('x6')
            )
-)
+))
