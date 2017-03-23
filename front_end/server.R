@@ -14,25 +14,21 @@ function(input, output) {
       costring(stemqText$text,x, tvectors=data.frame(lsaOut$tk)) },USE.NAMES = F)
   })
   
-  sq = reactive({
-    data.frame(simQuery())
-  })
-  
   dat = reactive({
-    d$Sim_Score = sq()
+    d$Sim_Score = simQuery()
     return(d)
   })
   
-  df = function(){
-    dplyr::filter(dat, (dat()$Date >= input$q_date_range[1] &
-                        dat()$Date <= input$q_date_range[2] &
-                        dat()$Date >= input$a_date_range[1] &
-                        dat()$Date <= input$a_date_range[2] ))
-  }
+  #df = function(){
+  #  dplyr::filter(dat, (dat()$Date >= input$q_date_range[1] &
+  #                      dat()$Date <= input$q_date_range[2] &
+  #                      dat()$Date >= input$a_date_range[1] &
+  #                      dat()$Date <= input$a_date_range[2] ))
+  #}
 
   output$x1 <- renderDataTable({
 #### Progress Bar goes here    
-    datatable(data = dat()[,c('Date', 'Answer_Date', 'Cluster','Sim_Score')], #[c("Date", "Answer_Date","Cluster","Similarity Score")],
+    datatable(data = dat()[,c('Date', 'Answer_Date', 'Cluster','Sim_Score')], 
               colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
               class = 'display',
               width = 25,
@@ -44,11 +40,14 @@ function(input, output) {
                              paging = FALSE)
     )
   })
+  output$please_work <- renderPrint(names(dat()))
+  output$please_please_work <- renderPrint(dat())
+  output$please_please_please_work <- renderPrint(class(simQuery()))
   
   output$x2 <- renderPlot({
     s = input$x1_rows_selected
     par(mar=c(4,4,1,.1))
-    p = ggplot(data = df(), aes(x=Date, y=Sim_Score, color=Cluster))+geom_point(shape = 1)
+    p = ggplot(data = dat(), aes(x=Date, y=Sim_Score, color=Cluster))+geom_point(shape = 1)
     p + labs(title = "Questions arranged by date and similarity to search text",
              x = "Question Date",
              y = "Similarity Score") + 
