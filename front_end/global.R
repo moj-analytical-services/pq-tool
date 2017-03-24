@@ -15,6 +15,7 @@ myColClasses = c("Date" = "R_date",
 
 rawData = read.csv('/Users/admin/Documents/PQtools/Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
 d = data.frame(rawData)
+e = head(d, n=10)
 #d$Date_Count = NA
 #d$Date_Count[i] = sum(d$Date_Count[i]==d$Date_Count)
 cluster_data = read.csv("/Users/admin/Documents/PQtools/Data/topDozen.csv")
