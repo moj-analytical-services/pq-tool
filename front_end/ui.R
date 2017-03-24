@@ -38,7 +38,8 @@ navbarPage("PQ Text Analysis",
       column(6,
              dataTableOutput('x1')
              ),
-      column(6,plotOutput("x2", height = 500)
+      column(6,
+             plotOutput("x2", height = 500)
             )
     )),
   tabPanel("Cluster",
