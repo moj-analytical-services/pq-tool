@@ -11,8 +11,10 @@ function(input, output) {
     SOTCorp <- tm_map(cleanCorpus(Corpus(VectorSource(d$Question_Text))),stemDocument)
     stemSOT <- data.frame(text=unlist(sapply(SOTCorp, '[', 'content')), stringsAsFactors=F)
     sapply(X=stemSOT$text,function(x){ 
-      costring(stemqText$text,x, tvectors=data.frame(lsaOut$tk)) },USE.NAMES = F)
-  })
+      print(Sys.time())
+      costring(stemqText$text,x, tvectors=data.frame(lsaOut$tk))
+      },USE.NAMES = F)
+      })
   
   dat = reactive({
     d$Sim_Score = simQuery()
@@ -40,9 +42,6 @@ function(input, output) {
                              paging = FALSE)
     )
   })
-  output$please_work <- renderPrint(names(dat()))
-  output$please_please_work <- renderPrint(dat())
-  output$please_please_please_work <- renderPrint(class(simQuery()))
   
   output$x2 <- renderPlot({
     s = input$x1_rows_selected
@@ -95,8 +94,4 @@ function(input, output) {
                              #columnDefs = list(list(width = '30%', targets = list(2,3)))
                              ))
   })
-   
-  
-   
-   
 }
