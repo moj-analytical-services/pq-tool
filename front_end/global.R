@@ -13,12 +13,12 @@ setClass('R_date')
 myColClasses = c("Date" = "R_date",
                  "Answer_Date" = "R_date")
 
-rawData = read.csv('/Users/admin/Documents/PQtools/Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
+rawData = read.csv('../Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
 d = data.frame(rawData)
 e = head(d, n=10)
 #d$Date_Count = NA
 #d$Date_Count[i] = sum(d$Date_Count[i]==d$Date_Count)
-cluster_data = read.csv("/Users/admin/Documents/PQtools/Data/topDozen.csv")
+cluster_data = read.csv("../Data/topDozen.csv")
 
 #This loads stuff created by the DataCreator.R script
 
