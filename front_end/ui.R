@@ -23,7 +23,6 @@ navbarPage("PQ Text Analysis",
                     )
             ),
                      
-                     
       column(3,
             sliderInput(inputId = "a_date_range",   
                         label = "Answer Date Range", 
@@ -39,45 +38,41 @@ navbarPage("PQ Text Analysis",
              dataTableOutput('x1')
              ),
       column(6,
-             plotOutput("x2", height = 500)
+             plotlyOutput("x2", height = 500)
             )
     )),
   tabPanel("Cluster",
-           fluidRow(
-             column(12,
+           fluidRow(column(3,
              selectizeInput(inputId = "x3",
-                            label = "Choose Cluster:",
-                            choices = unique(d$Cluster)
-                            )
-             )
-           ),
+             label = "Choose Cluster:",
+             choices = unique(d$Cluster)
+             )),
+             column(9,
+               plotOutput('wordcloud')
+               )),
            fluidRow(
-             column(12,
-             plotOutput('x3')
-             )
-           ),
-           fluidRow(
-             column(12,
-             dataTableOutput("x4")
-             )
-           )
-           ),
-  
+               plotOutput('x3')
+               ),
+             fluidRow(
+               dataTableOutput("x4")
+               )
+             ),
   tabPanel("Q&A Analysis",
            sidebarPanel(
-             selectInput(inputId ="constituency_choice",
-                         "Choose a Constituency:",
-                         choices = unique(d$MP_Constituency))#,
-             #selectInput(inputID = "mp_choice", 
-                          #"Choose an MP:",
-                          #choices = unique(MPChoice()))
+             wellPanel(radioButtons(inputId = "q_analysis",
+                                    label = "Choose a House",
+                                    choices = c("Lords", "Commons"),
+                                    inline = TRUE)
+                       ),
+             wellPanel(
+               uiOutput("q_analysis_ui")
+             )
            ),
            mainPanel(
-             plotOutput("x5")
+             plotOutput("q_analysis_plot"),
+             dataTableOutput('q_analysis_table')
            )
   ),
   tabPanel("Data",
-           column(11,
            dataTableOutput('x6')
-           )
-))
+  ))
