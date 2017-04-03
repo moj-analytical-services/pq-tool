@@ -5,7 +5,10 @@ library(LSAfun)
 library(shiny)
 library(DT)
 library(dplyr)
+library(plyr)
 library(ggplot2)
+library(plotly)
+library(wordcloud)
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
@@ -13,12 +16,12 @@ setClass('R_date')
 myColClasses = c("Date" = "R_date",
                  "Answer_Date" = "R_date")
 
-rawData = read.csv('../Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
-d = data.frame(rawData)
-e = head(d, n=10)
-#d$Date_Count = NA
-#d$Date_Count[i] = sum(d$Date_Count[i]==d$Date_Count)
-cluster_data = read.csv("../Data/topDozen.csv")
+rawData = read.csv('/../Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
+c = data.frame(rawData)
+c[is.na(c$MP_Constituency)] = "None"
+d = head(c, n=10)
+
+cluster_data = read.csv("/../Data/topDozen.csv")
 
 #This loads stuff created by the DataCreator.R script
 
@@ -51,6 +54,4 @@ cleanCorpus <- function(corp) {
 
 col_names = c('Document #', 'Question ID', 'Question', 'Answer', 'Question MP', 'Answer MP', 'Q Date','A Date', 'Cluster','Similarity Score')
 
-#MPChoice <- function(){
-#  dplyr::filter(d, (d$Cluster == input$x6))
-#  d$Question_MP
+merged_clusters = ddply(d, .(Date, Answer_Date, Cluster), summarize, Question_Text = paste0(Question_Text, collapse = " "))
