@@ -82,7 +82,7 @@ function(input, output) {
   
   output$x1 <- renderDataTable({
 #### Progress Bar goes here    
-    datatable(data = df()[,c('Date', 'Answer_Date', 'Cluster','Score')], 
+    datatable(data = df()[,c('Document_Number','Date', 'Answer_Date', 'Cluster','Score')], 
               colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
               class = 'display',
               width = 25,
@@ -118,7 +118,24 @@ function(input, output) {
     #  scale_fill_gradient2("Cluster")
     #p
   })
+  
+  observeEvent(input$x1_rows_selected, {
+    renderDataTable({
+      data = input$x1_rows_selected
+    })
+    insertUI(
+      selector = '#add',
+      where = "beforeEnd",
+      ui = dataTableOutput(
+        "x1_rows_selected"
+      )
+      )
+  })
+  
 ### Cluster Pane  
+  
+  #input$x3 = input$x1_rows_selected
+  # how to get datatable on 1st tab to link in?
   
   dfClus = function(){
     df = subset(dat(), (dat()$Cluster == input$x3))
