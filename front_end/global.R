@@ -16,12 +16,12 @@ setClass('R_date')
 myColClasses = c("Date" = "R_date",
                  "Answer_Date" = "R_date")
 
-rawData = read.csv('/../Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
+rawData = read.csv('../Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
 c = data.frame(rawData)
 c[is.na(c$MP_Constituency)] = "None"
 d = head(c, n=10)
 
-cluster_data = read.csv("/../Data/topDozen.csv")
+cluster_data = read.csv("../Data/topDozen.csv")
 
 #This loads stuff created by the DataCreator.R script
 
