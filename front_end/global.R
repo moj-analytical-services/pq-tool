@@ -9,6 +9,7 @@ library(plyr)
 library(ggplot2)
 library(plotly)
 library(wordcloud)
+library(slam)
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
@@ -17,9 +18,17 @@ myColClasses = c("Date" = "R_date",
                  "Answer_Date" = "R_date")
 
 rawData = read.csv('../Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
-c = data.frame(rawData)
-c[is.na(c$MP_Constituency)] = "None"
-d = head(c, n=10)
+d = data.frame(rawData)
+d[is.na(d$MP_Constituency)] = "None"
+d["Question_MP"] = lapply(d["Question_MP"], function(x) { 
+  gsub("Mr ", "", x)
+  })
+d["Question_MP"] = lapply(d["Question_MP"], function(x) { 
+  gsub("Mrs ", "", x)
+})
+d["Question_MP"] = lapply(d["Question_MP"], function(x) { 
+  gsub("Ms ", "", x)
+})
 
 cluster_data = read.csv("../Data/topDozen.csv")
 
