@@ -5,85 +5,31 @@ source(file = 'global.R')
 function(input, output) {
 ### Similarity Pane
 
-  cluster_scorer <- reactive({
-    qtext.stems <- tm_map(cleanCorpus(Corpus(VectorSource(input$question))),stemDocument)
-    stemqText<-data.frame(text=unlist(sapply(qtext.stems, '[', 'content')), stringsAsFactors=F)
-    SOTCorp <- tm_map(cleanCorpus(Corpus(VectorSource(merged_clusters$Question_Text))),stemDocument)
-    stemSOT <- data.frame(text=unlist(sapply(SOTCorp, '[', 'content')), stringsAsFactors=F)
-    sapply(X=stemSOT$text,function(x){ 
-      print(Sys.time())
-      costring(stemqText$text,x, tvectors=data.frame(lsaOut$tk))
-    },USE.NAMES = F)
-  })
-
-  merge_clusters = reactive({
-    print("mc")
-    mc = merged_clusters
-    print("mc score")
-    mc$Cluster_Score = cluster_scorer()
-    print(mc)
-    print(Sys.time())
-    print(mc)
-    print("merge_clusters finished")
-    return (mc)
-  })
-  
-  SOT = reactive({
-    ordered_merged_clusters = arrange(merge_clusters(), desc(Cluster_Score))
-    print("omc")
-    top_ordered_merged_clusters = head(ordered_merged_clusters, n=10)
-    print('tomc')
-    set_of_texts = d[top_ordered_merged_clusters$Cluster %in% d$Cluster]
-    set_of_texts$Score = NA
-    print("sot")
-    return(set_of_texts)
-  })
-  
-  #filter_ordered_merge_clusters = reactive({
-  #  fomc = head(ordered_merge_clusters(), n=10)
-  #  print('fomc')
-  #  return(fomc)
-  #})
-  
-  #SOT = reactive({
-  #  sot = d[filter_ordered_merge_clusters()$Cluster %in% d$Cluster]
-  #  print("sot")
-  #  return(sot)
-  #})
-  
-  #the following is a similarity query function
-  simQuery <- reactive({
-    qtext.stems <- tm_map(cleanCorpus(Corpus(VectorSource(input$question))),stemDocument)
-    stemqText<-data.frame(text=unlist(sapply(qtext.stems, '[', 'content')), stringsAsFactors=F)
-    SOTCorp <- tm_map(cleanCorpus(Corpus(VectorSource(SOT()$Question_Text))),stemDocument)
-    stemSOT <- data.frame(text=unlist(sapply(SOTCorp, '[', 'content')), stringsAsFactors=F)
-    sapply(X=stemSOT$text,function(x){ 
-      costring(stemqText$text,x, tvectors=data.frame(lsaOut$tk))
-      },USE.NAMES = F)
-    })
-  
-  dat <- reactive({
-    ordered_merged_clusters = arrange(merge_clusters(), desc(Cluster_Score))
-    #print("omc")
-    top_ordered_merged_clusters = head(ordered_merged_clusters, n=10)
-    #print('tomc')
-    set_of_texts = d[top_ordered_merged_clusters$Cluster %in% d$Cluster]
-    set_of_texts$Score = simQuery()
-    #print("dat assignment finished")
-    return(set_of_texts)
+  #returnNearestMatches(input$question)
+  returnNearestMatches<-reactive({
+      space = search.space
+      foundWords<-which(space$i %in% queryVec(input$question))
+      Document<-space$j[foundWords]
+      vees <-space$v[foundWords]
+      JayVees <- data.table(Document = Document, vees = vees)
+      outGroup <- JayVees[, .("Similarity_score" = sum(vees)), by = Document ][order(-Similarity_score)]
+      table_output = outGroup[1:30]
+      #e = d[d["Document_Number"] %in% table_output["Document"]]
+      data = merge.data.frame(table_output, d, by.x = "Document", by.y = "Document_Number")
+      return(data)
   })
   
   df = function(){
-    subset(dat(), dat()$Date >= input$q_date_range[1] &
-             dat()$Date <= input$q_date_range[2] &
-             dat()$Date >= input$a_date_range[1] &
-             dat()$Date <= input$a_date_range[2] )
+    subset(returnNearestMatches(), returnNearestMatches()$Date >= input$q_date_range[1] &
+             returnNearestMatches()$Date <= input$q_date_range[2])# &
+            # returnNearestMatches()$Answer_Date >= input$a_date_range[1] &
+            # returnNearestMatches()$Answer_Date <= input$a_date_range[2] )
     }
   
   output$x1 <- renderDataTable({
 #### Progress Bar goes here    
-    datatable(data = df()[,c('Document_Number','Date', 'Answer_Date', 'Cluster','Score')], 
-              colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
+    datatable(data = df()[,c('Document','Date', 'Answer_Date', 'Cluster','Similarity_score')], 
+              colnames = c("Rank","Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
               class = 'display',
               width = 25,
               caption = "Questions ranked by similarity to search text:",
@@ -92,19 +38,20 @@ function(input, output) {
                              scroller = TRUE,
                              searching = FALSE,
                              paging = FALSE, #,deferRender = TRUE,
-                             server = TRUE
+                             server = FALSE
                              )
     )
   })
   
   output$x2 <- renderPlotly({
-    gg=plot_ly(x = df()$Date, y = df()$Score,
-            type = 'scatter', mode = 'markers', 
-            hoverinfo = 'text',
-            text = ~paste("Q:", df()$Question_Text,
-                          "<br> Date:", df()$Date,
-                          "<br> Cluster:", df()$Cluster,
-                          "<br> Similarity Score:", df()$Score)) 
+    gg=plot_ly(x = df()$Date, y = df()$Similarity_score,
+            type = 'scatter', mode = 'markers') %>%
+        add_trace(x = input$x1_rows_selected["Date"], y = input$x1_rows_selected["Similarity_score"], type = "scatter", mode = 'markers', name = "Density") 
+           
+     #text = ~paste("Q:", df()$Question_Text,
+            #              "<br> Date:", df()$Date,
+            #              "<br> Cluster:", df()$Cluster,
+            #              "<br> Similarity Score:", df()$Score)) 
     
     #s = input$x1_rows_selected
     #par(mar=c(4,4,1,.1))
@@ -138,7 +85,7 @@ function(input, output) {
   # how to get datatable on 1st tab to link in?
   
   dfClus = function(){
-    df = subset(dat(), (dat()$Cluster == input$x3))
+    df = subset(d, (d$Cluster == input$x3))
   }
   
   wordcloud_df = function(){
@@ -183,7 +130,7 @@ function(input, output) {
   })
   
   dfMP = function(){
-    df = subset(dat(), (dat()$Question_MP == input$person_choice))
+    df = subset(d, (d$Question_MP == input$person_choice))
   }
   
   output$q_analysis_plot <- renderPlot({
