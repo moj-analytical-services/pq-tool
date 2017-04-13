@@ -16,22 +16,22 @@ navbarPage("PQ Text Analysis",
       column(3,
         sliderInput(inputId = "q_date_range", 
                     label = "Question Date Range", 
-                    min = min(rawData$Date), 
-                    max = max(rawData$Date),
+                    min = min(rawData$Date)-1, 
+                    max = max(rawData$Date)+1,
                     value = c(min(rawData$Date),max(rawData$Date)),
-                    step = NULL
+                    step = 1
                     )
-            ),
-                     
-      column(3,
-            sliderInput(inputId = "a_date_range",   
-                        label = "Answer Date Range", 
-                        min = min(rawData$Date), 
-                        max = max(rawData$Date),
-                        value = c(min(rawData$Date),max(rawData$Date)),
-                        step = NULL
-                        )
             )
+                     
+      #column(3,
+      #      sliderInput(inputId = "a_date_range",   
+      #                  label = "Answer Date Range", 
+      #                  min = min(rawData$Date)-1, 
+      #                  value = c(min(rawData$Date),max(rawData$Date)),
+      #                  max = max(rawData$Date)+1,
+      #                  step = 1
+      #                  )
+      #      )
       ),
     fluidRow(
       column(6,
