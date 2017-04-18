@@ -7,26 +7,25 @@ function(input, output) {
 
   #returnNearestMatches(input$question)
   returnNearestMatches<-reactive({
-      space = search.space
-      foundWords<-which(space$i %in% queryVec(input$question))
-      Document<-space$j[foundWords]
-      vees <-space$v[foundWords]
+      space <- search.space
+      foundWords <- which(space$i %in% queryVec(input$question))
+      Document <- space$j[foundWords]
+      vees <- space$v[foundWords]
       JayVees <- data.table(Document = Document, vees = vees)
       outGroup <- JayVees[, .("Similarity_score" = sum(vees)), by = Document ][order(-Similarity_score)]
-      table_output = outGroup[1:30]
-      #e = d[d["Document_Number"] %in% table_output["Document"]]
-      data = merge.data.frame(table_output, d, by.x = "Document", by.y = "Document_Number")
+      table_output <- outGroup[1:30]
+      data <- merge.data.frame(table_output, d, by.x = "Document", by.y = "Document_Number")
       return(data)
   })
   
-  df = function(){
+  df <- reactive({
     subset(returnNearestMatches(), returnNearestMatches()$Date >= input$q_date_range[1] &
              returnNearestMatches()$Date <= input$q_date_range[2])# &
             # returnNearestMatches()$Answer_Date >= input$a_date_range[1] &
             # returnNearestMatches()$Answer_Date <= input$a_date_range[2] )
-    }
+    })
   
-  output$x1 <- renderDataTable({
+  output$similarity_table <- renderDataTable({
 #### Progress Bar goes here    
     datatable(data = df()[,c('Document','Date', 'Answer_Date', 'Cluster','Similarity_score')], 
               colnames = c("Rank","Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
@@ -43,10 +42,10 @@ function(input, output) {
     )
   })
   
-  output$x2 <- renderPlotly({
+  output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = df()$Date, y = df()$Similarity_score,
             type = 'scatter', mode = 'markers') %>%
-        add_trace(x = input$x1_rows_selected["Date"], y = input$x1_rows_selected["Similarity_score"], type = "scatter", mode = 'markers', name = "Density") 
+        add_trace(x = input$similarity_table_rows_selected["Date"], y = input$similarity_table_rows_selected["Similarity_score"], type = "scatter", mode = 'markers', name = "Density") 
            
      #text = ~paste("Q:", df()$Question_Text,
             #              "<br> Date:", df()$Date,
@@ -66,15 +65,15 @@ function(input, output) {
     #p
   })
   
-  observeEvent(input$x1_rows_selected, {
+  observeEvent(input$similarity_table_rows_selected, {
     renderDataTable({
-      data = input$x1_rows_selected
+      data = input$similarity_table_rows_selected
     })
     insertUI(
       selector = '#add',
       where = "beforeEnd",
       ui = dataTableOutput(
-        "x1_rows_selected"
+        "similarity_table_rows_selected"
       )
       )
   })
@@ -84,12 +83,12 @@ function(input, output) {
   #input$x3 = input$x1_rows_selected
   # how to get datatable on 1st tab to link in?
   
-  dfClus = function(){
-    df = subset(d, (d$Cluster == input$x3))
+  dfClus <- function(){
+    df <- subset(data, (data$Cluster == input$cluster_choice))
   }
   
-  wordcloud_df = function(){
-    df = dplyr::filter(cluster_data, (cluster_data$cluster == input$x3))
+  wordcloud_df <- function(){
+    df <- dplyr::filter(cluster_data, (cluster_data$cluster == input$cluster_choice))
   }
   
   output$wordcloud <- renderPlot(
@@ -97,17 +96,17 @@ function(input, output) {
               scale = c(1,4), random.order = TRUE, ordered.colors = TRUE)
   )
   
-  output$x3 <- renderPlot({
-    p = ggplot(data=NULL, aes(x = dfClus()$Date, y = )) +
+  output$cluster_choice <- renderPlot({
+    p <- ggplot(data=NULL, aes(x = dfClus()$Date, y = )) +
       geom_bar(color= 'red',fill = 'red', width = .5)
-    p + xlim(min(d$Date)-1,max(d$Date)+1) +
+    p + xlim(min(data$Date)-1,max(data$Date)+1) +
       labs(title = 'When the questions were asked:',
            x = "Question Date",
            y = "Count") +
       theme(plot.title = element_text(size=17, face = "bold"))
   })
   
-  output$x4 <- renderDataTable({
+  output$cluster_documents <- renderDataTable({
     datatable(data = dfClus()[,c('Question_ID','Question_Text')],
               caption = "Documents contained within the cluster:",
               options = list(scroller = TRUE,
@@ -120,21 +119,21 @@ function(input, output) {
     switch(input$q_analysis, 
            "Lords" = selectInput(inputId = "person_choice",
                                  label = "Choose a Member:",
-                                 choices = sort(unique(d$Question_MP[grepl("HL", d$Question_ID) == TRUE]))
+                                 choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == TRUE]))
                                  ),
            "Commons" = selectInput(inputId = "person_choice", 
                                    label = "Choose an MP:",
-                                   choices = sort(unique(d$Question_MP[grepl("HL", d$Question_ID) == FALSE]))
+                                   choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == FALSE]))
                                    )
     )
   })
   
-  dfMP = function(){
-    df = subset(d, (d$Question_MP == input$person_choice))
+  dfMP <- function(){
+    df <- subset(data, (data$Question_MP == input$person_choice))
   }
   
   output$q_analysis_plot <- renderPlot({
-    p = ggplot(data=NULL, aes(x = dfMP()$Date, y = )) +
+    p <- ggplot(data=NULL, aes(x = dfMP()$Date, y = )) +
       geom_bar(color= 'red',fill = 'red', width = .5)
     p + xlim(min(d$Date)-1,max(d$Date)+1) +
       labs(title = 'When the questions were asked:',
@@ -154,8 +153,8 @@ function(input, output) {
 
 ### Data Pane 
     
-  output$x6 <- renderDataTable({
-    datatable(data=d[,c('Question_ID','Question_Text','Answer_Text','Question_MP','MP_Constituency','Answer_MP',
+  output$data_pane <- renderDataTable({
+    datatable(data=data[,c('Question_ID','Question_Text','Answer_Text','Question_MP','MP_Constituency','Answer_MP',
                         'Date', 'Answer_Date','Cluster')],
               colnames = c("Document #", 'Question ID','Question Text','Answer Text','Question MP','MP Constituency',
                            'Answer MP', "Question Date","Answer Date", "Cluster"),
