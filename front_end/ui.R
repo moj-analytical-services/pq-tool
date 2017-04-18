@@ -9,41 +9,41 @@ navbarPage("PQ Text Analysis",
                   label = "Search Text",
                   width = '100%',
                   value = " To ask Her Majesty's Government whether any complaint has been made to the Judicial Conduct Investigations Office about the conduct of Mrs Justice Hogg in the case of Ellie Butler."
-                  ),
-        actionButton("goButton", "Search")
+                  )#,
+        #actionButton("goButton", "Search")
             ),
                    
       column(3,
         sliderInput(inputId = "q_date_range", 
                     label = "Question Date Range", 
-                    min = min(rawData$Date), 
-                    max = max(rawData$Date),
+                    min = min(rawData$Date)-1, 
+                    max = max(rawData$Date)+1,
                     value = c(min(rawData$Date),max(rawData$Date)),
-                    step = NULL
+                    step = 1
                     )
-            ),
-                     
-      column(3,
-            sliderInput(inputId = "a_date_range",   
-                        label = "Answer Date Range", 
-                        min = min(rawData$Date), 
-                        max = max(rawData$Date),
-                        value = c(min(rawData$Date),max(rawData$Date)),
-                        step = NULL
-                        )
             )
+                     
+      #column(3,
+      #      sliderInput(inputId = "a_date_range",   
+      #                  label = "Answer Date Range", 
+      #                  min = min(rawData$Date)-1, 
+      #                  value = c(min(rawData$Date),max(rawData$Date)),
+      #                  max = max(rawData$Date)+1,
+      #                  step = 1
+      #                  )
+      #      )
       ),
     fluidRow(
       column(6,
-             dataTableOutput('x1')
+             dataTableOutput('similarity_table')
              ),
       column(6,
-             plotlyOutput("x2", height = 500)
+             plotlyOutput("similarity_plot", height = 500)
             )
     )),
   tabPanel("Cluster",
            fluidRow(column(3,
-             selectizeInput(inputId = "x3",
+             selectizeInput(inputId = "cluster_choice",
              label = "Choose Cluster:",
              choices = unique(d$Cluster)
              )),
@@ -51,10 +51,10 @@ navbarPage("PQ Text Analysis",
                plotOutput('wordcloud')
                )),
            fluidRow(
-               plotOutput('x3')
+               plotOutput('cluster_choice')
                ),
              fluidRow(
-               dataTableOutput("x4")
+               dataTableOutput("cluster_documents")
                )
              ),
   tabPanel("Q&A Analysis",
@@ -74,5 +74,5 @@ navbarPage("PQ Text Analysis",
            )
   ),
   tabPanel("Data",
-           dataTableOutput('x6')
+           dataTableOutput('data_pane')
   ))
