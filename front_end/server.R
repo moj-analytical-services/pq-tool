@@ -26,7 +26,6 @@ function(input, output) {
     })
   
   output$similarity_table <- renderDataTable({
-#### Progress Bar goes here    
     datatable(data = df()[,c('Document','Date', 'Answer_Date', 'Cluster','Similarity_score')], 
               colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
               class = 'display',
@@ -50,9 +49,6 @@ function(input, output) {
             text = ~paste("Document:", df()$Document,
                           "<br> Cluster:", df()$Cluster)) #%>%
         #add_trace(x = input$similarity_table_rows_selected["Date"], y = input$similarity_table_rows_selected["Similarity_score"], type = "scatter", mode = 'markers', name = "Density"))
-           
-     
-    
     #s = input$x1_rows_selected
     #par(mar=c(4,4,1,.1))
     #plot_ly(dat())
