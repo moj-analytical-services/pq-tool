@@ -123,6 +123,11 @@ Source: CRAN
 Version: 2.4
 Hash: 6f9efd95fe30fa735c9aa3b4de10b022
 
+Package: data.table
+Source: CRAN
+Version: 1.10.4
+Hash: 2c7c47ccb40d01c7b214c8eff818108d
+
 Package: debugme
 Source: github
 Version: 1.0.2
