@@ -4,7 +4,10 @@
 
 ## Running the tool
 
-To run the tool download the code, point your working directory to the 'front_end' folder then open one global.R, server.R or ui.R in RStudio then hit 'Run App'.
+To run the tool:
+1) Download the code
+2) Point your working directory to the 'front_end' folder 
+3) Open one of global.R, server.R or ui.R in RStudio then hit 'Run App'.
 
 ## Testing
 
