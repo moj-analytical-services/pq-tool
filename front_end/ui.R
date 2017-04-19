@@ -45,7 +45,7 @@ navbarPage("PQ Text Analysis",
            fluidRow(column(3,
              selectizeInput(inputId = "cluster_choice",
              label = "Choose Cluster:",
-             choices = unique(d$Cluster)
+             choices = unique(data$Cluster)
              )),
              column(9,
                plotOutput('wordcloud')
