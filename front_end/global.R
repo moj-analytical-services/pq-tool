@@ -26,7 +26,7 @@ stopwordList <- c(
   'secretary','state','ministry','majesty',
   'government','many','ask','whether',
   'assessment','further','pursuant','justice',
-  'minister','steps','department','question'
+  'minister','steps','department','question')
   
   
 col_names <- c('Document #', 'Question ID', 'Question', 'Answer', 'Question MP', 'Answer MP', 'Q Date','A Date', 'Cluster','Similarity Score')
