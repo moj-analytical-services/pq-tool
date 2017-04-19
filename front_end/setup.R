@@ -10,7 +10,7 @@
 
 #This loads stuff created by the DataCreator.R script
 
-load(file = "lsaOut.rda")
+load(file = "searchSpace.rda")
 load(file = "tdm.rda")
 load(file = "klusters.rda")
 
@@ -18,6 +18,7 @@ library(data.table) #Thanks Karik
 library(tm)
 library(lsa)
 library(cluster)
+library(slam)
 
 #First create global lsa space- lsaDim function lets us produce lsa space of arbitrary dimension
 
