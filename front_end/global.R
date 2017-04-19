@@ -5,6 +5,13 @@ library(plyr)
 library(ggplot2)
 library(plotly)
 library(wordcloud)
+library(tm)
+library(lsa)
+library(cluster)
+library(slam)
+library(data.table) #Thanks Karik
+
+load(file = "searchSpace.rda")
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
@@ -21,6 +28,8 @@ data["Question_MP"] <- lapply(data["Question_MP"], function(x) {
 
 cluster_data <- read.csv("../Data/topDozen.csv")
 
+merged_clusters <- ddply(data, .(Date, Answer_Date, Cluster), summarize, Question_Text = paste0(Question_Text, collapse = " "))
+
 stopwordList <- c(
   stopwords(),'a','b','c','d','i','ii','iii','iv',
   'secretary','state','ministry','majesty',
@@ -28,7 +37,18 @@ stopwordList <- c(
   'assessment','further','pursuant','justice',
   'minister','steps','department','question')
   
-  
-col_names <- c('Document #', 'Question ID', 'Question', 'Answer', 'Question MP', 'Answer MP', 'Q Date','A Date', 'Cluster','Similarity Score')
+#Search space for query vector
+werdz <- search.space$dimnames[[1]]
 
-merged_clusters <- ddply(data, .(Date, Answer_Date, Cluster), summarize, Question_Text = paste0(Question_Text, collapse = " "))
+#Function to vectorize query
+queryVec <- function(query){
+  query <- query%>%tolower()%>%removePunctuation%>%
+    removeWords(stopwordList)%>%
+    strsplit(" ")%>%
+    sapply(stemDocument)%>%
+    (function(vec){
+      return(vec[sapply(vec, function(x) x %in% werdz)])
+    })
+  
+  return(which(werdz %in% query))
+} 
