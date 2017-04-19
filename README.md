@@ -2,6 +2,10 @@
 
 # PQ Tool
 
+## Running the tool
+
+To run the tool download the code, point your working directory to the 'front_end' folder then open one global.R, server.R or ui.R in RStudio then hit 'Run App'.
+
 ## Testing
 
 ### To run the tests you will need [RSelenium][1] and [geckodriver][2]
