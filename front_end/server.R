@@ -128,7 +128,7 @@ function(input, output) {
   output$q_analysis_plot <- renderPlot({
     p <- ggplot(data=NULL, aes(x = dfMP()$Date, y = )) +
       geom_bar(color= 'red',fill = 'red', width = .5)
-    p + xlim(min(d$Date)-1,max(d$Date)+1) +
+    p + xlim(min(data$Date)-1,max(data$Date)+1) +
       labs(title = 'When the questions were asked:',
            x = "Question Date",
            y = "Count") +
