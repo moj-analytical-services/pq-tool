@@ -19,14 +19,14 @@ setClass('R_date')
 myColClasses <- c("Date" = "R_date",
                  "Answer_Date" = "R_date")
 
-rawData <- read.csv('../Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
+rawData <- read.csv('./Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
 data <- data.frame(rawData)
 data[is.na(data$MP_Constituency)] = "None"
 data["Question_MP"] <- lapply(data["Question_MP"], function(x) { 
   gsub("Mr |Mrs |Ms ", "", x)
   })
 
-cluster_data <- read.csv("../Data/topDozen.csv")
+cluster_data <- read.csv("./Data/topDozen.csv")
 
 merged_clusters <- ddply(data, .(Date, Answer_Date, Cluster), summarize, Question_Text = paste0(Question_Text, collapse = " "))
 

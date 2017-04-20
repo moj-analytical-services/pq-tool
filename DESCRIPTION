@@ -8,10 +8,17 @@ Maintainer: Samuel Tazzyman <Samuel.Tazzyman@justice.gsi.gov.uk>
 Description: This package helps people to answer PQs.
 Depends: R (>= 3.1.0)
 Imports:
-    lsa,
+    shiny,
+    DT,
+    dplyr,
+    plyr,
+    ggplot2,
+    plotly,
+    wordcloud,
     tm,
+    lsa,
     cluster,
-    LSAfun,
-    lintr
+    slam,
+    data.table
 License: MIT License
 LazyData: true
