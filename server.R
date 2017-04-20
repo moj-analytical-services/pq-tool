@@ -53,18 +53,18 @@ function(input, output) {
     #par(mar=c(4,4,1,.1))
     #plot_ly(dat())
   })
+  q_text <- reactive({
+    df()[input$similarity_table_rows_selected,]
+  })
   
-  observeEvent(input$similarity_table_rows_selected, {
-    renderDataTable({
-      data = df()[input$similarity_table_rows_selected]
-    })
-    insertUI(
-      selector = '#add',
-      where = "beforeEnd",
-      ui = dataTableOutput(
-        "similarity_table_rows_selected"
-      )
-      )
+  output$q_text_table <- renderDataTable({
+    datatable(data = q_text()[,c("Document","Question_Text")],
+              colnames = c("Document #", "Question Text"),
+              caption = "Choose one or more questions from the table above:",
+              options = list(scroller = TRUE,
+                             searching = FALSE,
+                             paging = FALSE              
+              ))
   })
   
 ### Cluster Pane  
