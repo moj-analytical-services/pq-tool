@@ -60,7 +60,7 @@ function(input, output) {
   output$q_text_table <- renderDataTable({
     datatable(data = q_text()[,c("Document","Question_Text")],
               colnames = c("Document #", "Question Text"),
-              caption = "Choose one or more questions from the table above:",
+              caption = "Question Text:",
               options = list(scroller = TRUE,
                              searching = FALSE,
                              paging = FALSE              
