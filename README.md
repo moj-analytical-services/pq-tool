@@ -1,6 +1,20 @@
 [![Run Status](https://api.shippable.com/projects/58d10e96665a9306000199bb/badge?branch=master)](https://app.shippable.com/github/moj-analytical-services/PQTool)
 
 # PQ Tool
+## Introduction
+This is a prototype tool for analysing and comparing written Parliamentary Questions for answer by the Ministry of Justice. Questions have been scraped from the parliamentary website (http://www.parliament.uk/business/publications/written-questions-answers-statements/written-questions-answers/).
+
+The tool allows the user to input a new question, or a key phrase, and produces a score and ranking of similarity between the input and the bank of past PQs. It also groups questions based on similar subject matter.
+
+The tool is written in R and is based on a technique called Latent Semantic Analysis. For more information, or to provide any feedback/ideas please send an email to samuel.tazzyman@justice.gsi.gov.uk
+
+
+## Running the tool
+
+### To run the tool:
+1) Clone the Repo
+2) Point your working directory to the 'front_end' folder 
+3) Open one of global.R, server.R or ui.R in RStudio then hit 'Run App'.
 
 ## Testing
 

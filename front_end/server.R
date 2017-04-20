@@ -14,21 +14,20 @@ function(input, output) {
       JayVees <- data.table(Document = Document, vees = vees)
       outGroup <- JayVees[, .("Similarity_score" = sum(vees)), by = Document ][order(-Similarity_score)]
       table_output <- outGroup[1:30]
-      data <- merge.data.frame(table_output, d, by.x = "Document", by.y = "Document_Number")
+      data <- merge.data.frame(table_output, data, by.x = "Document", by.y = "Document_Number")
+      data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
+      data <- data[with(data,order(-data["Similarity_score"])),]
       return(data)
   })
   
   df <- reactive({
     subset(returnNearestMatches(), returnNearestMatches()$Date >= input$q_date_range[1] &
-             returnNearestMatches()$Date <= input$q_date_range[2])# &
-            # returnNearestMatches()$Answer_Date >= input$a_date_range[1] &
-            # returnNearestMatches()$Answer_Date <= input$a_date_range[2] )
+             returnNearestMatches()$Date <= input$q_date_range[2])
     })
   
   output$similarity_table <- renderDataTable({
-#### Progress Bar goes here    
     datatable(data = df()[,c('Document','Date', 'Answer_Date', 'Cluster','Similarity_score')], 
-              colnames = c("Rank","Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
+              colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
               class = 'display',
               width = 25,
               caption = "Questions ranked by similarity to search text:",
@@ -36,7 +35,9 @@ function(input, output) {
                              scrollY = 400,
                              scroller = TRUE,
                              searching = FALSE,
-                             paging = FALSE, #,deferRender = TRUE,
+                             paging = FALSE, 
+                             rownames = FALSE,
+                             order = list(5, 'desc'),
                              server = FALSE
                              )
     )
@@ -44,30 +45,18 @@ function(input, output) {
   
   output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = df()$Date, y = df()$Similarity_score,
-            type = 'scatter', mode = 'markers') %>%
-        add_trace(x = input$similarity_table_rows_selected["Date"], y = input$similarity_table_rows_selected["Similarity_score"], type = "scatter", mode = 'markers', name = "Density") 
-           
-     #text = ~paste("Q:", df()$Question_Text,
-            #              "<br> Date:", df()$Date,
-            #              "<br> Cluster:", df()$Cluster,
-            #              "<br> Similarity Score:", df()$Score)) 
-    
+            type = 'scatter', mode = 'markers',
+            text = ~paste("Document:", df()$Document,
+                          "<br> Cluster:", df()$Cluster)) #%>%
+        #add_trace(x = input$similarity_table_rows_selected["Date"], y = input$similarity_table_rows_selected["Similarity_score"], type = "scatter", mode = 'markers', name = "Density"))
     #s = input$x1_rows_selected
     #par(mar=c(4,4,1,.1))
     #plot_ly(dat())
-  #  if (length(s)) points(dat()[s, , drop = FALSE], pch = 19, cex = 2)
-    #p = ggplot(data = dat(), aes(x=Date, y=Score, color=Cluster))+geom_point(shape = 1)
-    #p = p + labs(title = "Questions arranged by date and similarity to search text",
-    #         x = "Question Date",
-    #         y = "Similarity Score") + 
-    #  theme(plot.title = element_text(size=10, face = "bold")) + 
-    #  scale_fill_gradient2("Cluster")
-    #p
   })
   
   observeEvent(input$similarity_table_rows_selected, {
     renderDataTable({
-      data = input$similarity_table_rows_selected
+      data = df()[input$similarity_table_rows_selected]
     })
     insertUI(
       selector = '#add',
@@ -135,7 +124,7 @@ function(input, output) {
   output$q_analysis_plot <- renderPlot({
     p <- ggplot(data=NULL, aes(x = dfMP()$Date, y = )) +
       geom_bar(color= 'red',fill = 'red', width = .5)
-    p + xlim(min(d$Date)-1,max(d$Date)+1) +
+    p + xlim(min(data$Date)-1,max(data$Date)+1) +
       labs(title = 'When the questions were asked:',
            x = "Question Date",
            y = "Count") +
