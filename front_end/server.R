@@ -15,7 +15,7 @@ function(input, output) {
       outGroup <- JayVees[, .("Similarity_score" = sum(vees)), by = Document ][order(-Similarity_score)]
       table_output <- outGroup[1:30]
       data <- merge.data.frame(table_output, data, by.x = "Document", by.y = "Document_Number")
-      data["Similarity_score"] = round(data["Similarity_score"], digits = 2)
+      data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
       data <- data[with(data,order(-data["Similarity_score"])),]
       return(data)
   })
