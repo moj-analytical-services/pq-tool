@@ -1,4 +1,4 @@
-source(file = 'global.R')
+?source(file = 'global.R')
 
 ############### Server
 
@@ -30,7 +30,7 @@ function(input, output) {
               colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
               class = 'display',
               width = 25,
-              caption = "Questions ranked by similarity to search text:",
+              caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:",
               options = list(deferRender = TRUE,
                              scrollY = 400,
                              scroller = TRUE,
@@ -47,7 +47,14 @@ function(input, output) {
     gg=plot_ly(x = df()$Date, y = df()$Similarity_score,
             type = 'scatter', mode = 'markers',
             text = ~paste("Document:", df()$Document,
-                          "<br> Cluster:", df()$Cluster)) #%>%
+                          "<br> Cluster:", df()$Cluster)) %>%
+      layout(title = "When the questions were asked",
+             titlefont=list(
+               family='Arial',
+               size=14,
+               color='#696969'))
+    
+    #%>%
         #add_trace(x = input$similarity_table_rows_selected["Date"], y = input$similarity_table_rows_selected["Similarity_score"], type = "scatter", mode = 'markers', name = "Density"))
     #s = input$x1_rows_selected
     #par(mar=c(4,4,1,.1))
@@ -102,6 +109,44 @@ function(input, output) {
                              searching = FALSE,
                              paging = FALSE))
   }) 
+  
+  ### Q&A Analysis Pane  
+  output$q_analysis_ui <- renderUI({
+    switch(input$q_analysis, 
+           "Lords" = selectInput(inputId = "person_choice",
+                                 label = "Choose a Member:",
+                                 choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == TRUE]))
+           ),
+           "Commons" = selectInput(inputId = "person_choice", 
+                                   label = "Choose an MP:",
+                                   choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == FALSE]))
+           )
+    )
+  })
+  
+  dfMP <- function(){
+    df <- subset(data, (data$Question_MP == input$person_choice))
+  }
+  
+  output$q_analysis_plot <- renderPlot({
+    p <- ggplot(data=NULL, aes(x = dfMP()$Date, y = )) +
+      geom_bar(color= 'red',fill = 'red', width = .5)
+    p + xlim(min(data$Date)-1,max(data$Date)+1) +
+      labs(title = 'When the questions were asked:',
+           x = "Question Date",
+           y = "Count") +
+      theme(plot.title = element_text(size=17, face = "bold"))
+  })
+  
+  output$q_analysis_table <- renderDataTable({
+    datatable(dfMP()[,c('Date','Question_ID','Question_Text','Cluster')]
+              #options = c(
+              #  searching = FALSE#,
+              #colnames = c("Question Date","Question ID", "Question Text", "Cluster")
+              #)
+    )
+  })
+  
   
 ### Data Pane 
     
