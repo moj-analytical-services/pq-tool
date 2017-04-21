@@ -61,22 +61,6 @@ navbarPage("PQ Text Analysis",
                dataTableOutput("cluster_documents")
                )
              ),
-  tabPanel("Q&A Analysis",
-           sidebarPanel(
-             wellPanel(radioButtons(inputId = "q_analysis",
-                                    label = "Choose a House",
-                                    choices = c("Lords", "Commons"),
-                                    inline = TRUE)
-                       ),
-             wellPanel(
-               uiOutput("q_analysis_ui")
-             )
-           ),
-           mainPanel(
-             plotOutput("q_analysis_plot"),
-             dataTableOutput('q_analysis_table')
-           )
-  ),
   tabPanel("Data",
            dataTableOutput('data_pane')
   ))
