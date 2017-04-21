@@ -21,10 +21,6 @@ myColClasses <- c("Date" = "R_date",
 
 rawData <- read.csv('./Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
 data <- data.frame(rawData)
-data[is.na(data$MP_Constituency)] = "None"
-data["Question_MP"] <- lapply(data["Question_MP"], function(x) { 
-  gsub("Mr |Mrs |Ms ", "", x)
-  })
 
 cluster_data <- read.csv("./Data/topDozen.csv")
 

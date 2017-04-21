@@ -60,7 +60,7 @@ function(input, output) {
   output$q_text_table <- renderDataTable({
     datatable(data = q_text()[,c("Document","Question_Text")],
               colnames = c("Document #", "Question Text"),
-              caption = "Choose one or more questions from the table above:",
+              caption = "Question Text:",
               options = list(scroller = TRUE,
                              searching = FALSE,
                              paging = FALSE              
@@ -103,43 +103,6 @@ function(input, output) {
                              paging = FALSE))
   }) 
   
-### Q&A Analysis Pane  
-  output$q_analysis_ui <- renderUI({
-    switch(input$q_analysis, 
-           "Lords" = selectInput(inputId = "person_choice",
-                                 label = "Choose a Member:",
-                                 choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == TRUE]))
-                                 ),
-           "Commons" = selectInput(inputId = "person_choice", 
-                                   label = "Choose an MP:",
-                                   choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == FALSE]))
-                                   )
-    )
-  })
-  
-  dfMP <- function(){
-    df <- subset(data, (data$Question_MP == input$person_choice))
-  }
-  
-  output$q_analysis_plot <- renderPlot({
-    p <- ggplot(data=NULL, aes(x = dfMP()$Date, y = )) +
-      geom_bar(color= 'red',fill = 'red', width = .5)
-    p + xlim(min(data$Date)-1,max(data$Date)+1) +
-      labs(title = 'When the questions were asked:',
-           x = "Question Date",
-           y = "Count") +
-      theme(plot.title = element_text(size=17, face = "bold"))
-  })
-  
-  output$q_analysis_table <- renderDataTable({
-    datatable(dfMP()[,c('Date','Question_ID','Question_Text','Cluster')]
-              #options = c(
-              #  searching = FALSE#,
-                #colnames = c("Question Date","Question ID", "Question Text", "Cluster")
-              #)
-    )
-  })
-
 ### Data Pane 
     
   output$data_pane <- renderDataTable({
