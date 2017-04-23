@@ -38,9 +38,15 @@ navbarPage("PQ Text Analysis",
              dataTableOutput('similarity_table')
              ),
       column(6,
-             plotlyOutput("similarity_plot", height = 500)
-            )
-    )),
+               plotlyOutput("similarity_plot", height = 500)
+               )
+      ),
+    fluidRow(
+      dataTableOutput('q_text_table')
+    )
+    )
+    ,
+    
   tabPanel("Cluster",
            fluidRow(column(3,
              selectizeInput(inputId = "cluster_choice",
