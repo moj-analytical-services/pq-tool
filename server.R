@@ -47,24 +47,32 @@ function(input, output) {
     gg=plot_ly(x = df()$Date, y = df()$Similarity_score,
             type = 'scatter', mode = 'markers',
             text = ~paste("Document:", df()$Document,
-                          "<br> Cluster:", df()$Cluster)) #%>%
+                          "<br> Cluster:", df()$Cluster)) %>%
+      layout(title = "When the questions were asked",
+             titlefont=list(
+               family='Arial',
+               size=14,
+               color='#696969'))
+    
+    #%>%
         #add_trace(x = input$similarity_table_rows_selected["Date"], y = input$similarity_table_rows_selected["Similarity_score"], type = "scatter", mode = 'markers', name = "Density"))
     #s = input$x1_rows_selected
     #par(mar=c(4,4,1,.1))
     #plot_ly(dat())
   })
   
-  observeEvent(input$similarity_table_rows_selected, {
-    renderDataTable({
-      data = df()[input$similarity_table_rows_selected]
-    })
-    insertUI(
-      selector = '#add',
-      where = "beforeEnd",
-      ui = dataTableOutput(
-        "similarity_table_rows_selected"
-      )
-      )
+  q_text <- reactive({
+    df()[input$similarity_table_rows_selected,]
+  })
+  
+  output$q_text_table <- renderDataTable({
+    datatable(data = q_text()[,c("Document","Question_Text")],
+              colnames = c("Document #", "Question Text"),
+              caption = "Select a row from the table above to see the corresponding question text:",
+              options = list(scroller = TRUE,
+                             searching = FALSE,
+                             paging = FALSE              
+              ))
   })
   
 ### Cluster Pane  
