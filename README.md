@@ -13,7 +13,7 @@ The tool is written in R and is based on a technique called Latent Semantic Anal
 
 ### To run the tool:
 1) Clone the Repo
-2) Point your working directory to the 'front_end' folder 
+2) Point your working directory to the 'PQTool_master' folder 
 3) Open one of global.R, server.R or ui.R in RStudio then hit 'Run App'.
 
 ## Testing
