@@ -19,12 +19,12 @@ function(input, output) {
       data <- data[with(data,order(-data["Similarity_score"])),]
       return(data)
   })
-  
+
   df <- reactive({
     subset(returnNearestMatches(), returnNearestMatches()$Date >= input$q_date_range[1] &
              returnNearestMatches()$Date <= input$q_date_range[2])
     })
-  
+
   output$similarity_table <- renderDataTable({
     datatable(data = df()[,c('Document','Date', 'Answer_Date', 'Cluster','Similarity_score')], 
               colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),

@@ -1,3 +1,30 @@
-warnings_are_errors: false
+dist: trusty
 language: r
-cache: packages
+warnings_are_errors: false
+sudo: false
+cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/packrat/src
+    - $TRAVIS_BUILD_DIR/packrat/lib
+  packages: true
+addons:
+  apt:
+    packages:
+      - build-essential
+      - libcurl4-gnutls-dev
+      - libssl-dev
+      - libxml2-dev
+      - r-cran-rgl
+      - libgl1-mesa-dev
+      - libglu1-mesa-dev
+      - openjdk-7-jre-headless
+      - xvfb
+  firefox: '53.0'
+install:
+  - R -e "0" --args --bootstrap-packrat
+script:
+  - selenium/install_and_run.sh &
+  - until nc -z localhost 4444; do sleep 3; echo 'Waiting for Selenium server'; done
+  - R -e "library(shiny); runApp(port=8888)" &
+  - until nc -z localhost 8888; do sleep 3; echo 'Waiting for Shiny server'; done
+  - R -e "devtools::test()"
