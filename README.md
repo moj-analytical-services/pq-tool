@@ -1,5 +1,3 @@
-[![Run Status](https://api.shippable.com/projects/58d10e96665a9306000199bb/badge?branch=master)](https://app.shippable.com/github/moj-analytical-services/PQTool)
-
 # PQ Tool
 ## Introduction
 This is a prototype tool for analysing and comparing written Parliamentary Questions for answer by the Ministry of Justice. Questions have been scraped from the parliamentary website (http://www.parliament.uk/business/publications/written-questions-answers-statements/written-questions-answers/).
