@@ -16,9 +16,12 @@ test_that("entering search terms returns the 30 most similar questions", {
   searchBox  <- remDr$findElement("css selector", "#question")
   query      <- "prison joint enterprise cost"
   searchBox$sendKeysToElement(list(query))
-  oddResultsRows  <- remDr$findElements("css selector", ".odd")
-  evenResultsRows <- remDr$findElements("css selector", ".even")
-  totalRowCount   <- length(oddResultsRows) + length(evenResultsRows)
+  Sys.sleep(2)
+  oddResultsRows  <- length(remDr$findElements("css selector", "#similarity_table .odd"))
+  evenResultsRows <- length(remDr$findElements("css selector", "#similarity_table .even"))
+  totalRowCount   <- oddResultsRows + evenResultsRows
+  expect_equal(oddResultsRows, 15)
+  expect_equal(evenResultsRows, 15)
   expect_equal(totalRowCount, 30)
 })
 
