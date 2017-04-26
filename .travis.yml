@@ -23,8 +23,8 @@ addons:
 install:
   - R -e "0" --args --bootstrap-packrat
 script:
-  - selenium/install_and_run.sh &
+  - selenium/install_and_run.sh >/dev/null &
   - until nc -z localhost 4444; do sleep 3; echo 'Waiting for Selenium server'; done
-  - R -e "library(shiny); runApp(port=8888)" &
+  - R -e "library(shiny); runApp(port=8888)" >/dev/null &
   - until nc -z localhost 8888; do sleep 3; echo 'Waiting for Shiny server'; done
   - R -e "devtools::test()"
