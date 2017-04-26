@@ -50,7 +50,7 @@ navbarPage("PQ Text Analysis",
                )
              ),
     fluidRow(conditionalPanel(
-      condition = "input.similarity_table_rows_selected.length > 0",
+      condition = "typeof(input.similarity_table_rows_selected) != 'undefined' && input.similarity_table_rows_selected.length > 0",
       dataTableOutput('q_text_table')
       )
     ))),
