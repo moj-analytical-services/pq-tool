@@ -1,5 +1,7 @@
 dist: trusty
 language: r
+r:
+  - '3.4.0'
 warnings_are_errors: false
 sudo: false
 cache:
