@@ -49,10 +49,12 @@ navbarPage("PQ Text Analysis",
                plotlyOutput("similarity_plot", height = 500)
                )
              ),
-    fluidRow(conditionalPanel(
+    fluidRow(
+      column(12,
+      conditionalPanel(
       condition = "typeof(input.similarity_table_rows_selected) != 'undefined' && input.similarity_table_rows_selected.length > 0",
       dataTableOutput('q_text_table')
-      )
+      ))
     ))),
   tabPanel("Cluster",
            fluidRow(column(3,
