@@ -17,6 +17,8 @@ function(input, output) {
       data <- merge.data.frame(table_output, data, by.x = "Document", by.y = "Document_Number")
       data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
       data <- data[with(data,order(-data["Similarity_score"])),]
+      #max_value = max(data["Similarity_Score"])
+      #data["Similarity_Score"] = data["Similarity_Score"].apply(lambda x: x/max_value)
       return(data)
   })
 
@@ -65,8 +67,8 @@ function(input, output) {
   })
   
   output$q_text_table <- renderDataTable({
-    datatable(data = q_text()[,c("Document","Question_Text")],
-              colnames = c("Document #", "Question Text"),
+    datatable(data = q_text()[,c("Document","Question_Text", "Answer_Text")],
+              colnames = c("Document #", "Question Text","Answer Text"),
               caption = "Question Text:",
               options = list(scroller = TRUE,
                              searching = FALSE,
