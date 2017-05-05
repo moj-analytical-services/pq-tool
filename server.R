@@ -45,12 +45,17 @@ function(input, output) {
     )
   })
   
+   y_axis <- list(
+    title = "Similarity Score"
+  )
+  
   output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = df()$Date, y = df()$Similarity_score,
             type = 'scatter', mode = 'markers',
             text = ~paste("Document:", df()$Document,
                           "<br> Cluster:", df()$Cluster)) %>%
-      layout(title = "When the questions were asked",
+      layout(yaxis = y_axis,
+             title = "When the questions were asked",
              titlefont=list(
                family='Arial',
                size=14,
