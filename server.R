@@ -91,7 +91,7 @@ function(input, output) {
   
   output$wordcloud <- renderPlot(
     wordcloud(words = wordcloud_df()$word, freq = wordcloud_df()$freq,
-              scale = c(1,4), random.order = TRUE, ordered.colors = TRUE)
+              scale = c(4,1), random.order = TRUE, ordered.colors = TRUE)
   )
   
   output$cluster_choice <- renderPlot({
