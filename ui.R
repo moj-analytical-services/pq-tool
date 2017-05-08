@@ -8,7 +8,7 @@ navbarPage("PQ Text Analysis",
         textInput(inputId = "question", 
                   label = "Search Text",
                   width = '100%',
-                  value = " To ask Her Majesty's Government whether any complaint has been made to the Judicial Conduct Investigations Office about the conduct of Mrs Justice Hogg in the case of Ellie Butler."
+                  value = "Enter search text here"
                   )#,
         #actionButton("goButton", "Search")
             ),

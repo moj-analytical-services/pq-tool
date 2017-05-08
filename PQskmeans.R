@@ -1,11 +1,30 @@
-#This code returns an index of PQ documents of decreasing similarity given a search query.
+#This code returns an index of PQ documents of decreasing similarity given
+#a search query.
 #
-#The idea behind it is to use the sparsity of a normalised lsa space, so that cosine calcuations can be done with fast vector sums.  
+#The idea behind it is to use the sparsity of a normalised lsa space, so that
+#cosine calcuations can be done with fast vector sums.  
 #
-#In a normalised lsa space, we have a rank-reduced term document matrix with columns (corresponding to documents) normalised to length 1.  By pre-processing the query into a binary vector, each query-document dot product q^Td is simply the sum of the entries of the column corresponding to d, but only those entries corresponding to terms (rows) found in the query.  We have q^Td = |q||d|cos(t) (where t is the angle between q and d), |d| = 1 for all documents, and |q| is constant for a given query, we obtain a constant multiple (|q| times) of the cosine between q and d by doing this quick summation (made quicker thanks to Karik introducing me to data.table).
+#In a normalised lsa space, we have a rank-reduced term document matrix with
+#columns (corresponding to documents) normalised to length 1.  By
+#pre-processing the query into a binary vector, each query-document dot product
+#q^Td is simply the sum of the entries of the column corresponding to d, but
+#only those entries corresponding to terms (rows) found in the query. 
+#We have q^Td = |q||d|cos(t) (where t is the angle between q and d), |d| = 1
+#for all documents, and |q| is constant for a given query, we obtain a constant
+#multiple (|q| times) of the cosine between q and d by doing this quick summation
+#(made quicker thanks to Karik introducing me to data.table).
 #
-#CAVEAT: to make this run fast, I have 'sparsified' the normalised rank-reduced tdm by setting all values within 0.01 of zero to zero  and put it into simple-triplet format (which doesn't store zero values in memory).  The result is that |d| is no longer constant across all documents.  They now vary slightly in length, but only differ by 0.035 at most (summary stats on the distribution of lengths can be found in the code) so it's not too uch of a problem.
+#CAVEAT: to make this run fast, I have 'sparsified' the normalised rank-reduced
+#tdm by setting all values within 0.01 of zero to zero  and put it into
+#simple-triplet format (which doesn't store zero values in memory).  The result
+#is that |d| is no longer constant across all documents.
+#They now vary slightly in length, but only differ by 0.035 at most
+#(summary stats on the distribution of lengths can be found in the code)
+#so it's not too much of a problem.
 #
+
+#If you update the data, you will need to save another version of the
+#searchSpace.rda object
 #
 
 
@@ -36,11 +55,14 @@ space.share.norm<-normalize(space.share)
 search.space<-space.share.norm
 search.space[which(abs(search.space)<0.01)]<-0
 ##This is just a check to see that this sparsification doesn't lead to wildly varying document lengths
-collengths<-sapply(1:5461, function(x) normVec(search.space[,x]))
+collengths<-sapply(seq_along(aPQ$Question_ID), function(x) normVec(search.space[,x]))
 summary(collengths)
 ##################
 
 search.space<-as.simple_triplet_matrix(search.space)
+
+#save output to enable shinyapp
+#save(search.space,file='searchSpace.rda')
 
 #Search space for query vector
 werdz<-search.space$dimnames[[1]]
