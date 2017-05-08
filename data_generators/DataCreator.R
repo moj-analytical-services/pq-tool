@@ -134,10 +134,10 @@ topDozen <- data.frame(
 
 #### SAVING ####
 
-#Save the R output to be loaded in to R when Tableau is running
-save(tdm, file='tdm.rda')
-save(lsaOut,file='lsaOut.rda')
-save(klusters,file='klusters.rda')
+#Save the R output to be loaded in to R when Tableau is running - no longer need this as not using Tableau
+#save(tdm, file='tdm.rda')
+#save(lsaOut,file='lsaOut.rda')
+#save(klusters,file='klusters.rda')
 
 #Save data to be directly loaded in to Tableau
 
@@ -173,7 +173,7 @@ load(file='silhouettewidths.rda')
 load(file='medianpercluster.rda')
 
 #if you want to regenerate the data run the following
-#ksilwidths <- sapply(seq(2,4000), function(x) mean(silhouette(cutree(hier,x),distn)[,3]))
+#ksilwidths <- sapply(seq(2,4000), function(x) mean(silhouette(cutree(hier,x),diss)[,3]))
 #if you want to save it
 #save(ksilwidths,file='silhouettewidths.rda')
 #medianNumPerCluster <- function(hierarch,k){

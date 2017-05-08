@@ -37,7 +37,7 @@ library(tm)
 #### PARAMETERS ####
 
 #paste the url for your search set of questions here within the quotation marks
-link = "http://www.parliament.uk/business/publications/written-questions-answers-statements/written-questions-answers/?answered-from=2014-06-04&answered-to=2016-11-11&dept=54&house=commons%2clords&max=100&page=1&questiontype=AllQuestions&use-dates=True"
+link = "http://www.parliament.uk/business/publications/written-questions-answers-statements/written-questions-answers/?answered-from=2014-06-04&answered-to=2017-05-05&dept=54&house=commons%2clords&max=1000&page=1&questiontype=AllQuestions&use-dates=True"
 
 #write the file name - it will save to whatever folder R is standardly writing out to
 saveFile = 'MoJPQsNew.csv'
@@ -156,10 +156,80 @@ while(finished == 0){
 }
 
 
-#I've had to clear up some rogue NAs semi-manually, by scraping those question and inserting
-#the answers in the right place. I think it just throws NAs sometimes when the web connection
-#fails or whatever.
+#I've had to clear up some rogue "N/A"s and "unused"s semi-manually, by scraping those question and 
+#inserting the answers in the right place. I think it just throws NAs sometimes when the web connection
+#fails or whatever. The methodology goes as follows: find the questions that are NAs. Then we can
+#find what page number should be in the URL for them, and how far down that page they are. So
+#for example the 2352nd question is on page 3 (we have 1000 qs per page in the URL framework we're)
+#using, and it's the 352nd question on that page. So we can generate the URL and then grab that
+#specific question, take its data, and overwrite it in the relevant data frames. Obviously this
+#is frighteningly inelegant.
 
+#find the NA questions (assuming they are uniquely those which have "N/A")
+NAs <- which(questionsVec=="N/A")
+#find the question numbers within a page
+NAqNumVec <- NAs%%1000
+#find the page numbers
+NApageNumVec <- NAs%/%1000 + 1
+
+for(i in seq_along(NAs)){
+  #for each NA question
+  #write the URL
+  NAlink = paste0("http://www.parliament.uk/business/publications/written-questions-answers-statements/written-questions-answers/?answered-from=2014-06-04&answered-to=2017-05-05&dept=54&house=commons%2clords&max=1000&page=",
+                    NApageNumVec[i],"&questiontype=AllQuestions&use-dates=True",sep="")
+  
+  #start an html session
+  NAsesh = html_session(NAlink)
+  j <- NAs[i]
+  #scrape the NA question
+  NAQresults <- Qscrape(NAqNumVec[i],NAsesh)
+  #overwrite
+  questionsVec[j] <- NAQresults$question
+  datesVec[j] <- NAQresults$date
+  answerDatesVec[j] <- NAQresults$answerDate
+  correctedDatesVec[j] <- NAQresults$correctedDate
+  questionIDsVec[j] <- NAQresults$questionID
+  answersVec[j] <- NAQresults$answer
+  QMPsVec[j] <- NAQresults$QMP
+  QconstsVec[j] <- NAQresults$Qconst
+  AMPsVec[j] <- NAQresults$AMP
+}
+
+#check that we've now got everything
+length(which(questionsVec=="N/A"))
+
+#find the NA questions (assuming they are uniquely those which have "N/A")
+UUs <- which(questionsVec=="unused")
+#find the question numbers within a page
+UUqNumVec <- UUs%%1000
+#find the page numbers
+UUpageNumVec <- UUs%/%1000 + 1
+
+for(i in seq_along(UUs)){
+  #for each NA question
+  #write the URL
+  UUlink = paste0("http://www.parliament.uk/business/publications/written-questions-answers-statements/written-questions-answers/?answered-from=2014-06-04&answered-to=2017-05-05&dept=54&house=commons%2clords&max=1000&page=",
+                  UUpageNumVec[i],"&questiontype=AllQuestions&use-dates=True",sep="")
+  
+  #start an html session
+  UUsesh = html_session(UUlink)
+  j <- UUs[i]
+  #scrape the NA question
+  UUQresults <- Qscrape(UUqNumVec[i],UUsesh)
+  #overwrite
+  questionsVec[j] <- UUQresults$question
+  datesVec[j] <- UUQresults$date
+  answerDatesVec[j] <- UUQresults$answerDate
+  correctedDatesVec[j] <- UUQresults$correctedDate
+  questionIDsVec[j] <- UUQresults$questionID
+  answersVec[j] <- UUQresults$answer
+  QMPsVec[j] <- UUQresults$QMP
+  QconstsVec[j] <- UUQresults$Qconst
+  AMPsVec[j] <- UUQresults$AMP
+}
+
+#check we've got everything
+length(which(questionsVec=="unused"))
 
 #### OUTPUT RESULTS ####
 
