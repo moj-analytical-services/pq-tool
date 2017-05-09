@@ -8,7 +8,7 @@ The tool allows the user to input a new question, or a key phrase, and produces 
 
 The tool is written in R and is based on a technique called Latent Semantic Analysis. For more information, or to provide any feedback/ideas please send an email to samuel.tazzyman@justice.gsi.gov.uk
 
-To access the deployed tool go to https://edwardandress.shinyapps.io/pqtool/
+To access the deployed tool go to https://ross-kennedy.shinyapps.io/pqtool/
 
 
 ## Running the tool
