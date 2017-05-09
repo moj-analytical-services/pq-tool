@@ -8,3 +8,8 @@ PQTool_0.1.tar.gz
 **/lsaOut.rda
 packrat/lib*/
 packrat/src/
+.Rhistory
+Data/.Rhistory
+Data/klusters.rda
+Data/tdm.rda
+data_generators/.Rhistory
