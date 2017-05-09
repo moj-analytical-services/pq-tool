@@ -135,14 +135,15 @@ topDozen <- data.frame(
 #### SAVING ####
 
 #Save the R output to be loaded in to R when Tableau is running - no longer need this as not using Tableau
-#save(tdm, file='tdm.rda')
-#save(lsaOut,file='lsaOut.rda')
-#save(klusters,file='klusters.rda')
+save(tdm, file='tdm.rda')
+save(lsaOut,file='lsaOut.rda')
+save(klusters,file='klusters.rda')
 
 #Save data to be directly loaded in to Tableau
 
 #The questions and their data (including cluster)
 savedf <- data.frame(
+  Document_Number = seq_along(aPQ$Question_ID),
   Question_ID = aPQ$Question_ID,
   Question_Text = aPQ$Question_Text,
   Answer_Text = aPQ$Answer_Text,
