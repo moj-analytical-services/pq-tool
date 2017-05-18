@@ -7,19 +7,18 @@ function(input, output) {
 
   #returnNearestMatches(input$question)
   returnNearestMatches<-reactive({
-      space <- search.space
-      foundWords <- which(space$i %in% queryVec(input$question))
-      Document <- space$j[foundWords]
-      vees <- space$v[foundWords]
-      JayVees <- data.table(Document = Document, vees = vees)
-      outGroup <- JayVees[, .("Similarity_score" = sum(vees)), by = Document ][order(-Similarity_score)]
-      table_output <- outGroup[1:30]
-      data <- merge.data.frame(table_output, data, by.x = "Document", by.y = "Document_Number")
-      data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
-      data <- data[with(data,order(-data["Similarity_score"])),]
-      #max_value = max(data["Similarity_Score"])
-      #data["Similarity_Score"] = data["Similarity_Score"].apply(lambda x: x/max_value)
-      return(data)
+    space <- search.space
+    foundWords <- which(space$i %in% queryVec(input$question))
+    Document <- space$j[foundWords]
+    vees <- space$v[foundWords]
+    JayVees <- data.table(Document = Document, vees = vees)
+    outGroup <- JayVees[, .("Similarity_score" = sum(vees)), by = Document ][order(-Similarity_score)]
+    table_output <- outGroup[1:30]
+    data <- merge.data.frame(table_output, data, by.x = "Document", by.y = "Document_Number")
+    data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
+    data <- data[with(data,order(-data["Similarity_score"])),]
+    rownames(data) <- 1:nrow(data)
+    return(data)
   })
 
   df <- reactive({
@@ -28,8 +27,8 @@ function(input, output) {
     })
 
   output$similarity_table <- renderDataTable({
-    datatable(data = df()[,c('Document','Date', 'Answer_Date', 'Cluster','Similarity_score')], 
-              colnames = c("Document #", "Question Date","Answer Date", "Cluster","Similarity Score"),
+    datatable(data = df()[,c("Question_MP",'Date', 'Answer_Date', 'Cluster', 'Cluster_Keywords')], 
+              colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
               class = 'display',
               width = 25,
               caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:",
@@ -37,16 +36,17 @@ function(input, output) {
                              scrollY = 400,
                              scroller = TRUE,
                              searching = FALSE,
-                             paging = FALSE, 
-                             rownames = FALSE,
-                             order = list(5, 'desc'),
+                             paging = FALSE,
                              server = FALSE
-                             )
+              )
     )
   })
   
    y_axis <- list(
-    title = "Similarity Score"
+    title = "Similarity",
+    autotick=TRUE,
+    ticks='',
+    showticklabels=FALSE
   )
   
   output$similarity_plot <- renderPlotly({
@@ -55,7 +55,7 @@ function(input, output) {
             text = ~paste("Document:", df()$Document,
                           "<br> Cluster:", df()$Cluster)) %>%
       layout(yaxis = y_axis,
-             title = "When the questions were asked",
+             title = "How similar question is to search phrase, and when it was asked",
              titlefont=list(
                family='Arial',
                size=14,
@@ -72,8 +72,8 @@ function(input, output) {
   })
   
   output$q_text_table <- renderDataTable({
-    datatable(data = q_text()[,c("Document","Question_Text", "Answer_Text")],
-              colnames = c("Document #", "Question Text","Answer Text"),
+    datatable(data = q_text()[,c("Question_Text", "Answer_Text")],
+              colnames = c("Question Text","Answer Text"),
               caption = "Question Text:",
               options = list(scroller = TRUE,
                              searching = FALSE,
@@ -111,8 +111,9 @@ function(input, output) {
   })
   
   output$cluster_documents <- renderDataTable({
-    datatable(data = dfClus()[,c('Question_ID','Question_Text')],
-              caption = "Documents contained within the cluster:",
+    datatable(data = dfClus()[,c('Question_Text', 'Answer_Text')],
+              colnames = c("Question Text","Answer Text"),
+              caption = "Documents contained within the topic:",
               options = list(scroller = TRUE,
                              searching = FALSE,
                              paging = FALSE))
@@ -160,9 +161,9 @@ function(input, output) {
     
   output$data_pane <- renderDataTable({
     datatable(data=data[,c('Question_ID','Question_Text','Answer_Text','Question_MP','MP_Constituency','Answer_MP',
-                        'Date', 'Answer_Date','Cluster')],
+                        'Date', 'Answer_Date','Cluster', "Cluster_Keywords")],
               colnames = c("Document #", 'Question ID','Question Text','Answer Text','Question MP','MP Constituency',
-                           'Answer MP', "Question Date","Answer Date", "Cluster"),
+                           'Answer MP', "Question Date","Answer Date", "Topic Number", "Topic Keywords"),
               filter = 'top',
               options = list(scroller = TRUE,
                              paging = FALSE
