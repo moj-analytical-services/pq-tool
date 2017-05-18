@@ -27,8 +27,8 @@ function(input, output) {
     })
 
   output$similarity_table <- renderDataTable({
-    datatable(data = df()[,c('Date', 'Answer_Date', 'Cluster', 'Cluster_Keywords')], 
-              colnames = c("Similarity Rank","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
+    datatable(data = df()[,c("Question_MP",'Date', 'Answer_Date', 'Cluster', 'Cluster_Keywords')], 
+              colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
               class = 'display',
               width = 25,
               caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:",
