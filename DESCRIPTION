@@ -1,4 +1,4 @@
-Package: PQTool
+Package: pqtool
 Title: Parliamentary Questions Tool
 Version: 0.1
 Author: c(
@@ -19,6 +19,12 @@ Imports:
     lsa,
     cluster,
     slam,
-    data.table
+    data.table,
+    readr,
+    httptest,
+    testthat,
+    lubridate,
+    jsonlite,
+    stringr
 License: MIT License
 LazyData: true
