@@ -13,7 +13,7 @@ function(input, output) {
     vees <- space$v[foundWords]
     JayVees <- data.table(Document = Document, vees = vees)
     outGroup <- JayVees[, .("Similarity_score" = sum(vees)), by = Document ][order(-Similarity_score)]
-    table_output <- outGroup[1:30]
+    table_output <- outGroup#[1:30]
     data <- merge.data.frame(table_output, data, by.x = "Document", by.y = "Document_Number")
     data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
     data <- data[with(data,order(-data["Similarity_score"])),]
@@ -25,9 +25,13 @@ function(input, output) {
     subset(returnNearestMatches(), returnNearestMatches()$Date >= input$q_date_range[1] &
              returnNearestMatches()$Date <= input$q_date_range[2])
     })
+  
+  plot_points <- reactive({
+    df()[1:input$points,]
+  })
 
-  output$similarity_table <- renderDataTable({
-    datatable(data = df()[,c("Question_MP",'Date', 'Answer_Date', 'Cluster', 'Cluster_Keywords')], 
+    output$similarity_table <- renderDataTable({
+    datatable(data = plot_points()[,c("Question_MP",'Date', 'Answer_Date', 'Cluster', 'Cluster_Keywords')], 
               colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
               class = 'display',
               width = 25,
@@ -49,17 +53,18 @@ function(input, output) {
     showticklabels=FALSE
   )
   
-  output$similarity_plot <- renderPlotly({
-    gg=plot_ly(x = df()$Date, y = df()$Similarity_score,
-            type = 'scatter', mode = 'markers',
-            text = ~paste("Document:", df()$Document,
-                          "<br> Cluster:", df()$Cluster)) %>%
-      layout(yaxis = y_axis,
-             title = "How similar question is to search phrase, and when it was asked",
-             titlefont=list(
-               family='Arial',
-               size=14,
-               color='#696969'))
+   output$similarity_plot <- renderPlotly({
+     gg=plot_ly(x = plot_points()$Date) %>%
+       add_markers(y = plot_points()$Similarity_score,
+                   text = ~paste("Document:", plot_points()$Document,
+                                 "<br> Topic #:", plot_points()$Cluster))%>%
+       layout(yaxis = y_axis,
+              title = "How similar question is to search phrase, and when it was asked",
+              titlefont=list(
+                family='Arial',
+                size=14,
+                color='#696969'))#%>%
+     #add_lines(y = plot_points()$Similarity_score, name = "spline", line = list(shape = "spline"))
     
     #%>%
         #add_trace(x = input$similarity_table_rows_selected["Date"], y = input$similarity_table_rows_selected["Similarity_score"], type = "scatter", mode = 'markers', name = "Density"))
