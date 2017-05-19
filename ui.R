@@ -16,26 +16,30 @@ navbarPage("PQ Text Analysis",
       column(3,
              conditionalPanel(
                condition = "input.question.length > 0",
-               sliderInput(inputId = "q_date_range", 
-                           label = "Question Date Range",
-                           min = min(rawData$Date)-1,
-                           max = max(rawData$Date)+1,
-                           value = c(min(rawData$Date),max(rawData$Date)),
-                           step = 1
-                           )
+               # sliderInput(inputId = "q_date_range", 
+               #             label = "Question Date Range",
+               #             min = min(rawData$Date)-1,
+               #             max = max(rawData$Date)+1,
+               #             value = c(min(rawData$Date),max(rawData$Date)),
+               #             step = 1
+               #             )
+               dateRangeInput("q_date_range", 
+                              label = "Question Date Range",
+                              min = min(rawData$Date),
+                              max = max(rawData$Date),
+                              start = min(rawData$Date),
+                              end = max(rawData$Date)
                )
              )
-                     
-      #column(3,
-      #      sliderInput(inputId = "a_date_range",   
-      #                  label = "Answer Date Range", 
-      #                  min = min(rawData$Date)-1, 
-      #                  value = c(min(rawData$Date),max(rawData$Date)),
-      #                  max = max(rawData$Date)+1,
-      #                  step = 1
-      #                  )
-      #      )
       ),
+      
+      column(3,
+             radioButtons("points", label = 'Number of questions to show',
+                          choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
+                          selected = 10, inline = TRUE)
+             #textOutput("test")
+      )
+    ),
     fluidRow(
       column(6,
              conditionalPanel(
