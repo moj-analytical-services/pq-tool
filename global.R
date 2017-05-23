@@ -11,7 +11,7 @@ library(cluster)
 library(slam)
 library(data.table) #Thanks Karik
 
-load(file = "searchSpace.rda")
+load(file = "./Data/searchSpace.rda")
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
@@ -19,10 +19,10 @@ setClass('R_date')
 myColClasses <- c("Date" = "R_date",
                  "Answer_Date" = "R_date")
 
-rawData <- read.csv('./Data/MoJallPQsforTableau.csv',colClasses = myColClasses)
+rawData <- read.csv('./Data/MoJwrittenPQs.csv',colClasses = myColClasses)
 data <- data.frame(rawData)
 
-cluster_data <- read.csv("./Data/topDozen.csv")
+cluster_data <- read.csv("./Data/topDozenWordsPerCluster.csv")
 
 merged_clusters <- ddply(data, .(Date, Answer_Date, Cluster), summarize, Question_Text = paste0(Question_Text, collapse = " "))
 
@@ -30,21 +30,49 @@ stopwordList <- c(
   stopwords(),'a','b','c','d','i','ii','iii','iv',
   'secretary','state','ministry','majesty',
   'government','many','ask','whether',
-  'assessment','further','pursuant','justice',
-  'minister','steps','department','question')
+  'assessment','further','pursuant',
+  'minister','steps','department','question'
+)
   
 #Search space for query vector
-werdz <- search.space$dimnames[[1]]
+vocab <- search.space$dimnames[[1]]
 
-#Function to vectorize query
+#Function to vectorize query - steps here need to match those in the cleanCorpus 
+#function in the DataCreator file so that we are consistent in our treatment.
+#This program requires the argument 'query', which is the search text, and the 
+#global object 'vocab', defined above, which is our global vocabulary comprised
+#of all the words in our corpus of PQs (appropriately stemmed and so on).
+
+#The idea behind it is to use the sparsity of a normalised lsa space, so that
+#cosine calcuations can be done with fast vector sums.  
+#
+#In a normalised lsa space, we have a rank-reduced term document matrix with
+#columns (corresponding to documents) normalised to length 1.  By
+#pre-processing the query into a binary vector, each query-document dot product
+#q^Td is simply the sum of the entries of the column corresponding to d, but
+#only those entries corresponding to terms (rows) found in the query. 
+#We have q^Td = |q||d|cos(t) (where t is the angle between q and d), |d| = 1
+#for all documents, and |q| is constant for a given query, we obtain a constant
+#multiple (|q| times) of the cosine between q and d by doing this quick summation
+#(made quicker thanks to Karik introducing me to data.table).
+
+#If you change this you also need to change cleanCorpus function in
+#the dataCreator.R file
+
 queryVec <- function(query){
-  query <- query%>%tolower()%>%removePunctuation%>%
-    removeWords(stopwordList)%>%
+  query <- query %>% iconv(to="latin1", sub='byte') %>%
+    gsub("[^[:alnum:\\s]]", "", .) %>%
+    removePunctuation() %>%
+    stripWhitespace() %>%
+    removeWords(c("Justice")) %>%
+    tolower() %>%
+    gsub("probation","probatn",.) %>%
+    removeWords(stopwordList) %>%
     strsplit(" ")%>%
     sapply(stemDocument)%>%
     (function(vec){
-      return(vec[sapply(vec, function(x) x %in% werdz)])
+      return(vec[sapply(vec, function(x) x %in% vocab)])
     })
-  
-  return(which(werdz %in% query))
-} 
+  return(which(vocab %in% query))
+}
+
