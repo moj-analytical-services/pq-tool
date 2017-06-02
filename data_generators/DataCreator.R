@@ -105,7 +105,7 @@ summarise <- function(clusterNum,matr,totalClusters,hierarchy,numTerms,listOfVec
   partialCompletion[toFix]<-fixed
   names(termsAndSumsN)<-partialCompletion # update names
   #replace "probatn" with "probation"
-  #names(termsAndSumsN) <- gsub("probatn","probation",names(termsAndSumsN))
+  names(termsAndSumsN) <- gsub("probatn","probation",names(termsAndSumsN))
   
   termsAndSumsN
 }
@@ -163,6 +163,7 @@ hier<-hclust(as.dist(diss),method = "complete")
 
 #We choose k to be the number of clusters into which we divide our set of questions.
 #See the appendix for some sort of reasoning behind this.
+
 klusters <- cutree(hier,k)
 
 m <- as.matrix(tdm)
@@ -225,12 +226,6 @@ write.csv(savedf,'MoJwrittenPQs.csv')
 #The information about the clusters
 write.csv(topDozenWordsPerCluster,'topDozenWordsPerCluster.csv')
 
-##FUNCTIONS
-
-
-
-
-
 
 ##### APPENDIX #####
 
@@ -241,38 +236,43 @@ write.csv(topDozenWordsPerCluster,'topDozenWordsPerCluster.csv')
 #'silhouettewidths.rda' and 'medianpercluster.rda' files. Otherwise you will
 #have to regenerate the value running the code.
 
-load(file='silhouettewidths.rda')
-load(file='medianpercluster.rda')
+#load(file='silhouettewidths.rda')
+#load(file='medianpercluster.rda')
+#load(file='clusterings.rda')
 
 #if you want to regenerate the data run the following
 
-minClust <- 2
-maxClust <- 2000
-clusterings <- sapply(seq(minClust,maxClust), function(x) cutree(hier,x))
+#minClust <- 2
+#maxClust <- 4000
+#clusterings <- sapply(seq(minClust,maxClust), function(x) cutree(hier,x))
 
-kSilWidths <- sapply(seq(minClust,10), function(x) mean(silhouette(clusterings[,x+1-minClust],diss)[,3]))
+#kSilWidths <- sapply(seq(minClust,maxClust), function(x) mean(silhouette(clusterings[,x+1-minClust],diss)[,3]))
+#names(kSilWidths) <- seq(minClust,maxClust)
 
-medianClusterMembership <- median(sapply(seq(minclust,j),function(x)length(which(clusterings[x,]==x))))
+#medianClusterMembership <- sapply(seq(minClust,maxClust),
+#                                  function(x){
+#                                    median(
+#                                      sapply(
+#                                        seq(minClust,x),function(y)length(which(clusterings[,x+1-minClust]==y))
+#                                      )
+#                                    )})
+
 #if you want to save it
-#save(ksilwidths,file='silhouettewidths.rda')
-#medianNumPerCluster <- function(hierarch,k){
-#  klusters <- cutree(hierarch,k)
-#  median(sapply(seq(1,k), function(x) length(which(klusters == x))))
-#}
-#meds <- sapply(seq(2,4000),function(x) medianNumPerCluster(hier,x))
-#save(meds,file='medianpercluster.rda')
+#save(kSilWidths,file='silhouettewidths.rda')
+#save(medianClusterMembership,file='medianpercluster.rda')
+#save(clusterings,file='clusterings.rda')
 
-plot(ksilwidths, type="l")
-which.max(ksilwidths)
-max(ksilwidths)
-meds[which.max(ksilwidths)]
+#plot(kSilWidths, type="l")
+#which.max(kSilWidths)
+#max(kSilWidths)
+#medianClusterMembership[which.max(kSilWidths)]
 #you can see that the 'best' number of clusters is around 2668. However, this results in
 #a median of only two questions per cluster, and the silhouette is still pretty small, at ~0.23.
 #So we probably want more questions per cluster on average, particularly as it's not like the
 #clusterings are 'good' anyway. Hence the arbitrary choice of 1000, which gives a silhouette
 #of ~0.161 and a median of 4 questions per cluster.
-ksilwidths[1000]
-meds[1000]
+#kSilWidths[2000]
+#medianClusterMembership[2000]
 
 #We might be able to do better than arbitrarily picking 1000 by defining some function of
 #median and silhouette and maximising it (although then the function definition is still
