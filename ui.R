@@ -56,10 +56,10 @@ navbarPage("PQ Text Analysis",
       dataTableOutput('q_text_table')
       ))
     ))),
-  tabPanel("Cluster",
+  tabPanel("Topic Analysis",
            fluidRow(column(3,
              selectizeInput(inputId = "cluster_choice",
-             label = "Choose Cluster:",
+             label = "Choose Topic Number:",
              choices = unique(data$Cluster)
              )),
              column(9,

@@ -24,6 +24,7 @@ library(LSAfun)
 
 #PARAMETERS
 
+setwd("../Data")
 file <- 'MoJPQsNew.csv'
 
 #FUNCTIONS
@@ -131,6 +132,8 @@ topDozen <- data.frame(
   freq=unlist(lapply(seq(1,k),function(x) summarise(x,m,k,hier,12,questionsVec))),
   row.names = NULL ,stringsAsFactors = F)
 
+clusterKeywords <- sapply(seq(k),function(x) names(summarise(x,m,k,hier,3,questionsVec)))
+clusterKeywordsVec <- sapply(seq_along(clusterKeywords[1,]),function(x) paste0(clusterKeywords[,x],collapse=", "))
 
 #### SAVING ####
 
@@ -154,6 +157,7 @@ savedf <- data.frame(
   Answer_Date = aPQ$Answer_Date,
   Corrected_Date = aPQ$Corrected_Date,
   Cluster = klusters,
+  Cluster_Keywords = clusterKeywordsVec[klusters],
   stringsAsFactors = FALSE)
 write.csv(savedf,'MoJallPQsforTableau.csv')
 
