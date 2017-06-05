@@ -44,18 +44,18 @@ library(slam)
 #PARAMETERS
 
 setwd("../Data")
-file <- 'MoJPQsNew.csv'
+file <- "MoJPQsNew.csv"
 
 #FUNCTIONS
 
 #a list of stopwords to be removed from the PQs to avoid false similarities on the grounds
 #of questions containing these words
 stopwordList <- c(
-  stopwords(),'a','b','c','d','i','ii','iii','iv',
-  'secretary','state','ministry','majesty',
-  'government','many','ask','whether',
-  'assessment','further','pursuant',
-  'minister','steps','department','question'
+  stopwords(), "a", "b", "c", "d", "i", "ii", "iii", "iv",
+  "secretary", "state", "ministry", "majesty",
+  "government", "many", "ask", "whether",
+  "assessment", "further", "pursuant",
+  "minister", "steps", "department", "question"
 )
 
 #a function to clean a corpus of text, making sure of the encoding, removing punctuation, putting it
@@ -63,7 +63,11 @@ stopwordList <- c(
 #If you update this you also need to update queryVec in global.R to be in line with any changes, so
 #that we are consistent in how we are treating search text and PQ text.
 cleanCorpus <- function(corp) {
-  corp <- corp %>% tm_map(content_transformer(function(x) iconv(x, to='latin1', sub='byte'))) %>%
+  corp <- corp %>%
+            tm_map(
+              content_transformer(
+                function(x) iconv(x, to = "latin1", sub = "byte"))
+              ) %>%
             tm_map(function(x) gsub("[^[:alnum:\\s]]", "", x)) %>%
             tm_map(removePunctuation) %>%
             tm_map(stripWhitespace) %>%
@@ -71,138 +75,155 @@ cleanCorpus <- function(corp) {
   #case, because this deals with the fact that a lot of questions start with 'To ask
   #the Secretary of State for Justice' without losing potential information about eg
   #access to justice related questions
-            tm_map(function(x) removeWords(x,c("Justice"))) %>%
+            tm_map(function(x) removeWords(x, c("Justice"))) %>%
             tm_map(content_transformer(tolower)) %>%
   #now replace instances of the word "probation" with "probatn" to avoid the
   #issue with "probate" and "probation" being stemmed to the same thing.
-            tm_map(content_transformer(function(x) gsub("probation","probatn",x))) %>%
-            tm_map(function(x) removeWords(x,stopwordList))
+            tm_map(content_transformer(
+              function(x) gsub("probation", "probatn", x))
+              ) %>%
+            tm_map(function(x) removeWords(x, stopwordList))
 }
 
 #a function useful in debugging so you can read a given document in a given corpus easily
-writeDoc <- function(num,corpus){
+writeDoc <- function(num, corpus){
   writeLines(as.character(corpus$content[[num]]))
 }
 
 #this will help us unstem words for summary
-fromItoY<-function(word){
+fromItoY <- function(word){
   return(gsub("i$", "y", word))
 }
 
 #a function to summarise the top terms of a given cluster
-summarise <- function(clusterNum,matr,totalClusters,hierarchy,numTerms,listOfVectors){
-  clusterSet <- cutree(hierarchy,totalClusters)
-  relevantQs <- matr[,which(clusterSet==clusterNum)]
-  clusterDict <- cleanCorpus(Corpus(VectorSource(listOfVectors[which(clusterSet==clusterNum)])))
-  termsAndSums <- if(is.null(dim(relevantQs))){relevantQs} else rowSums(relevantQs)
-  termsAndSumsN <- termsAndSums[order(termsAndSums,decreasing=T)[1:numTerms]]
+summarise <- function(clusterNum, matr, totalClusters,
+                      hierarchy, numTerms, listOfVectors){
+  clusterSet <- cutree(hierarchy, totalClusters)
+  relevantQs <- matr[, which(clusterSet == clusterNum)]
+  clusterDict <- cleanCorpus(Corpus(VectorSource(listOfVectors[which(clusterSet == clusterNum)])))
+  termsAndSums <- if (is.null(dim(relevantQs))){
+                    relevantQs
+                  } else rowSums(relevantQs)
+  termsAndSumsN <- termsAndSums[order(termsAndSums, decreasing = T)[1:numTerms]]
   
   #we now complete the word stems, using the fromItoY function to deal with occasions
   #where the unstemming produces blanks
-  partialCompletion<- stemCompletion(names(termsAndSumsN), clusterDict)
-  toFix<-which(partialCompletion=="")
-  fixed<- sapply(names(partialCompletion[toFix]), fromItoY)
-  partialCompletion[toFix]<-fixed
-  names(termsAndSumsN)<-partialCompletion # update names
+  partialCompletion <- stemCompletion(names(termsAndSumsN), clusterDict)
+  toFix <- which(partialCompletion == "")
+  fixed <- sapply(names(partialCompletion[toFix]), fromItoY)
+  partialCompletion[toFix] <- fixed
+  names(termsAndSumsN) <- partialCompletion # update names
   #replace "probatn" with "probation"
-  names(termsAndSumsN) <- gsub("probatn","probation",names(termsAndSumsN))
+  names(termsAndSumsN) <- gsub("probatn", "probation", names(termsAndSumsN))
   
   termsAndSumsN
 }
 
 #This gets the length of a vector
-normVec<-function(vec){return(sqrt(sum(vec^2)))}
+normVec <- function(vec){
+             return(sqrt(sum(vec^2)))
+           }
 
 #This normalises the lengths of a matrix to length 1
-normalize<-function(mat){
-  col.lengths<-sapply(1:ncol(mat), function(x) sqrt(sum(mat[,x]^2)))
-  return(sweep(mat,2,col.lengths,"/"))
+normalize <- function(mat){
+  col.lengths <- sapply(1:ncol(mat), function(x) sqrt(sum(mat[, x]^2)))
+  return(sweep(mat, 2, col.lengths, "/"))
 }
 
 #PARAMETERS
 #Number of clusters, and also rank of LSA space
-k<-1000
+k <- 1000
 
 #SCRIPT
 
 #GETTING DATA
 
 #read in questions
-aPQ <- read.csv(file,stringsAsFactors = F)
+aPQ <- read.csv(file, stringsAsFactors = F)
 questionsVec <- aPQ$Question_Text
 
 #make sure it's in latin-1 format
-questionsVec <- iconv(questionsVec,to="latin1",sub="byte")
+questionsVec <- iconv(questionsVec, to = "latin1", sub = "byte")
 
 #MAKE THE TERM-DOCUMENT MATRIX AND LATENT SEMANTIC ANALYSIS SPACE
 
 #Create the corpus
 PQCorp <- Corpus(VectorSource(questionsVec))
 #Stem the corpus
-PQCorp.stems <- tm_map(cleanCorpus(PQCorp),stemDocument)
+PQCorp.stems <- tm_map(cleanCorpus(PQCorp), stemDocument)
 
 #Create the term-document matrix. For each term in each document we assign a score based on the
 #inverse frequency of the appearance of that term in documents in the corpus, normalised for the
 #document length (in some sense), and zero if the term is absent from the document entirely.
 #Details can be seen by inspecting the help documentation for the weightSMART function.
-tdm<-TermDocumentMatrix(PQCorp.stems,control =list(weighting = function(x) weightSMART(x, spec = "btc")))
+tdm <- TermDocumentMatrix(
+         PQCorp.stems,
+         control = list(
+           weighting = function(x) weightSMART(x, spec = "btc")))
 
 #Create the latent semantic space. The idea is that it creates a basis of variation, like a PCA, and
 #allows you to cut down the number of dimensions you need. 
-lsaAll <- lsa(tdm,dims=dimcalc_raw())
+lsaAll <- lsa(tdm, dims = dimcalc_raw())
 
 #CLUSTERING
 
 #We reduce the LSA space to rank k, and then get the positions of our documents in this latent semantic space.
-posns <-diag(lsaAll$sk[1:k]) %*% t(lsaAll$dk[,1:k])
+posns <- diag(lsaAll$sk[1:k]) %*% t(lsaAll$dk[, 1:k])
 #distances between documents in this space, based on cosine similarity.
-diss <- 1-cosine(posns)
+diss <- 1 - cosine(posns)
 #a hierarchical clustering. At the moment we only use this to define our clusters,
 #by taking a cut through it at the right stage.
-hier<-hclust(as.dist(diss),method = "complete")
+hier <- hclust(as.dist(diss), method = "complete")
 
 #We choose k to be the number of clusters into which we divide our set of questions.
 #See the appendix for some sort of reasoning behind this.
 
-klusters <- cutree(hier,k)
+klusters <- cutree(hier, k)
 
 m <- as.matrix(tdm)
 #this summarises the top 12 terms per cluster using the summarise function from above.
 topDozenWordsPerCluster <- data.frame(
-  cluster=unlist(lapply(seq(1,k),function(x)rep(x,12))),
-  word=unlist(lapply(seq(1,k),function(x) names(summarise(x,m,k,hier,12,questionsVec)))),
-  freq=unlist(lapply(seq(1,k),function(x) summarise(x,m,k,hier,12,questionsVec))),
-  row.names = NULL ,stringsAsFactors = F)
+  cluster = unlist(lapply(seq(1, k), function(x)rep(x, 12))),
+  word = unlist(lapply(seq(1, k),
+           function(x) names(summarise(x, m, k, hier, 12, questionsVec)))),
+  freq = unlist(lapply(seq(1, k),
+           function(x) summarise(x, m, k, hier, 12, questionsVec))),
+  row.names = NULL, stringsAsFactors = F)
 
 #keywords to describe clusters
-clusterKeywords <- sapply(seq(k),function(x) names(summarise(x,m,k,hier,3,questionsVec)))
-clusterKeywordsVec <- sapply(seq_along(clusterKeywords[1,]),function(x) paste0(clusterKeywords[,x],collapse=", "))
+clusterKeywords <- sapply(seq(k),
+                     function(x)
+                       names(summarise(x, m, k, hier, 3, questionsVec)))
+clusterKeywordsVec <- sapply(seq_along(clusterKeywords[1, ]),
+                        function(x)
+                          paste0(clusterKeywords[, x], collapse = ", "))
 
 
 #MAKE SPACE FOR FAST QUERY SEARCHING
 
 #We reduce the dimensionality of the space to be of rank k, where k is our
 #parameter above (also the number of clusters we are going to use)
-lsaOut<-lsaAll$tk[,1:k] %*% diag(lsaAll$sk[1:k]) %*% t(lsaAll$dk[,1:k])
+lsaOut <- lsaAll$tk[, 1:k] %*% diag(lsaAll$sk[1:k]) %*% t(lsaAll$dk[, 1:k])
 #normalise the space
-search.space<-normalize(lsaOut)
+search.space <- normalize(lsaOut)
 #'sparsify' by setting all near-zero terms to zero
-search.space[which(abs(search.space)<0.01)]<-0
+search.space[which(abs(search.space) < 0.01)] <- 0
 
 ##This is just a check to see that this sparsification doesn't lead to wildly varying document lengths
-collengths<-sapply(seq_along(aPQ$Question_ID), function(x) normVec(search.space[,x]))
+collengths <- sapply(seq_along(aPQ$Question_ID),
+                function(x) normVec(search.space[, x]))
 summary(collengths)
 
 #save disk space by saving as simple triplet matrix
-search.space<-as.simple_triplet_matrix(search.space)
+search.space <- as.simple_triplet_matrix(search.space)
 
 
 #### SAVING ####
 
-#save(tdm, file='tdm.rda')
-#save(lsaOut,file='lsaOut.rda')
-#save(klusters,file='klusters.rda')
-save(search.space,file='searchSpace.rda')
+#save(tdm, file = "tdm.rda")
+#save(lsaOut,file = "lsaOut.rda")
+#save(klusters,file = "klusters.rda")
+save(search.space, file = "searchSpace.rda")
 
 #Save data to be directly loaded in to Tableau
 
@@ -221,10 +242,10 @@ savedf <- data.frame(
   Cluster = klusters,
   Cluster_Keywords = clusterKeywordsVec[klusters],
   stringsAsFactors = FALSE)
-write.csv(savedf,'MoJwrittenPQs.csv')
+write.csv(savedf, "MoJwrittenPQs.csv")
 
 #The information about the clusters
-write.csv(topDozenWordsPerCluster,'topDozenWordsPerCluster.csv')
+write.csv(topDozenWordsPerCluster, "topDozenWordsPerCluster.csv")
 
 
 ##### APPENDIX #####
@@ -236,33 +257,43 @@ write.csv(topDozenWordsPerCluster,'topDozenWordsPerCluster.csv')
 #'silhouettewidths.rda' and 'medianpercluster.rda' files. Otherwise you will
 #have to regenerate the value running the code.
 
-#load(file='silhouettewidths.rda')
-#load(file='medianpercluster.rda')
-#load(file='clusterings.rda')
+#load(file = "silhouettewidths.rda")
+#load(file = "medianpercluster.rda")
+#load(file = "clusterings.rda")
 
 #if you want to regenerate the data run the following
 
 #minClust <- 2
 #maxClust <- 4000
-#clusterings <- sapply(seq(minClust,maxClust), function(x) cutree(hier,x))
+#clusterings <- sapply(seq(minClust, maxClust),
+#                 function(x) cutree(hier,x))
 
-#kSilWidths <- sapply(seq(minClust,maxClust), function(x) mean(silhouette(clusterings[,x+1-minClust],diss)[,3]))
-#names(kSilWidths) <- seq(minClust,maxClust)
+#kSilWidths <- sapply(seq(minClust, maxClust),
+#                function(x)
+#                  mean(
+#                    silhouette(
+#                      clusterings[, x + 1 - minClust], diss)[, 3]
+#                  )
+#               )
+#names(kSilWidths) <- seq(minClust, maxClust)
 
-#medianClusterMembership <- sapply(seq(minClust,maxClust),
-#                                  function(x){
-#                                    median(
-#                                      sapply(
-#                                        seq(minClust,x),function(y)length(which(clusterings[,x+1-minClust]==y))
-#                                      )
-#                                    )})
+#medianClusterMembership <- sapply(seq(minClust, maxClust),
+#                             function(x){
+#                               median(
+#                                 sapply(
+#                                   seq(minClust, x),
+#                                     function(y) length(which(clusterings[, x + 1 - minClust] == y))
+#                                 )
+#                               )
+#                             }
+#                            )
 
 #if you want to save it
-#save(kSilWidths,file='silhouettewidths.rda')
-#save(medianClusterMembership,file='medianpercluster.rda')
-#save(clusterings,file='clusterings.rda')
+#save(kSilWidths, file = "silhouettewidths.rda")
+#save(medianClusterMembership, file = "medianpercluster.rda")
+#save(clusterings, file = "clusterings.rda")
 
-#plot(kSilWidths, type="l")
+#plot(kSilWidths, type = "l")
 #which.max(kSilWidths)
 #max(kSilWidths)
 #medianClusterMembership[which.max(kSilWidths)]
