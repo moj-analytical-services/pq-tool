@@ -5,6 +5,10 @@
 function(input, output) {
 ### Similarity Pane
 
+<<<<<<< Lintr
+=======
+  #returnNearestMatches(input$question)
+>>>>>>> local
   returnNearestMatches <- reactive({
     space <- search.space
     foundWords <- which(space$i %in% queryVec(input$question))
@@ -33,10 +37,17 @@ function(input, output) {
 
   output$similarity_table <- renderDataTable({
     datatable(data = df()[, c("Question_MP",
+<<<<<<< Lintr
                               "Date",
                               "Answer_Date",
                               "Cluster",
                               "Cluster_Keywords")],
+=======
+                            "Date",
+                            "Answer_Date",
+                            "Cluster",
+                            "Cluster_Keywords")],
+>>>>>>> local
               colnames = c("Similarity Rank",
                            "Question MP",
                            "Question Date",
@@ -172,7 +183,11 @@ function(input, output) {
   })
 
 
+<<<<<<< Lintr
 ### Data Pane
+=======
+### Data Pane 
+>>>>>>> local
 
   output$data_pane <- renderDataTable({
     datatable(data = data[, c("Question_ID",
