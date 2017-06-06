@@ -10,33 +10,32 @@ navbarPage("PQ Text Analysis",
   tabPanel("Similarity",
     fluidRow(
       column(6,
-        textInput(inputId = "question", 
+        textInput(inputId = "question",
                   label = "Search Text",
-                  width = '100%',
+                  width = "100%",
                   value = "Enter search text here"
-                  )#,
-        #actionButton("goButton", "Search")
+                  )
             ),
-                   
+
       column(3,
              conditionalPanel(
                condition = "input.question.length > 0",
-               sliderInput(inputId = "q_date_range", 
+               sliderInput(inputId = "q_date_range",
                            label = "Question Date Range",
-                           min = min(rawData$Date)-1,
-                           max = max(rawData$Date)+1,
-                           value = c(min(rawData$Date),max(rawData$Date)),
+                           min = min(rawData$Date) - 1,
+                           max = max(rawData$Date) + 1,
+                           value = c(min(rawData$Date), max(rawData$Date)),
                            step = 1
                            )
                )
              )
-                     
+
       #column(3,
-      #      sliderInput(inputId = "a_date_range",   
-      #                  label = "Answer Date Range", 
-      #                  min = min(rawData$Date)-1, 
-      #                  value = c(min(rawData$Date),max(rawData$Date)),
-      #                  max = max(rawData$Date)+1,
+      #      sliderInput(inputId = "a_date_range",
+      #                  label = "Answer Date Range",
+      #                  min = min(rawData$Date) - 1,
+      #                  value = c(min(rawData$Date), max(rawData$Date)),
+      #                  max = max(rawData$Date) + 1,
       #                  step = 1
       #                  )
       #      )
@@ -45,7 +44,7 @@ navbarPage("PQ Text Analysis",
       column(6,
              conditionalPanel(
                condition = "input.question.length > 0",
-               dataTableOutput('similarity_table')
+               dataTableOutput("similarity_table")
                )
              ),
       column(6,
@@ -57,8 +56,9 @@ navbarPage("PQ Text Analysis",
     fluidRow(
       column(12,
       conditionalPanel(
-      condition = "typeof(input.similarity_table_rows_selected) != 'undefined' && input.similarity_table_rows_selected.length > 0",
-      dataTableOutput('q_text_table')
+      condition =
+        "typeof(input.similarity_table_rows_selected) != 'undefined' && input.similarity_table_rows_selected.length > 0",
+      dataTableOutput("q_text_table")
       ))
     ))),
   tabPanel("Topic Analysis",
@@ -70,13 +70,13 @@ navbarPage("PQ Text Analysis",
              column(9,
                     conditionalPanel(
                       condition = "input.cluster_choice.length > 0",
-                      plotOutput('wordcloud')
+                      plotOutput("wordcloud")
                       ))
              ),
            fluidRow(
              conditionalPanel(
                condition = "input.cluster_choice.length > 0",
-               plotOutput('cluster_choice')
+               plotOutput("cluster_choice")
                )
              ),
              fluidRow(
@@ -99,9 +99,9 @@ navbarPage("PQ Text Analysis",
            ),
            mainPanel(
              plotOutput("q_analysis_plot"),
-             dataTableOutput('q_analysis_table')
+             dataTableOutput("q_analysis_table")
            )
   ),
   tabPanel("Data",
-           dataTableOutput('data_pane')
+           dataTableOutput("data_pane")
   ))
