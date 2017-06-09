@@ -13,3 +13,6 @@ Data/.Rhistory
 Data/klusters.rda
 Data/tdm.rda
 data_generators/.Rhistory
+Data/clusterings.rda
+Data/medianpercluster.rda
+Data/silhouettewidths.rda
