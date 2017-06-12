@@ -2,6 +2,11 @@ source(file = "global.R")
 ############# UI
 
 navbarPage("PQ Text Analysis",
+           footer = column(12, helpText(
+               "We would love your feedback on our tool! To complete a quick survey please click",
+               a(href="https://www.surveymonkey.co.uk/r/FV9PCT2", target="_blank", "here")
+             )
+             ),
   tabPanel("Similarity",
            tags$head(includeScript("google-analytics.js")),
     fluidRow(
