@@ -8,7 +8,7 @@ remDr       <- remoteDriver(port = 4444)
 remDr$open(silent = TRUE)
 sysDetails  <- remDr$getStatus()
 browser     <- remDr$sessionInfo$browserName
-appURL      <- "http://127.0.0.1:7058"
+appURL      <- "http://127.0.0.1:8888"
 
 test_that("radio buttons work", {  
   remDr$setImplicitWaitTimeout(10000)
