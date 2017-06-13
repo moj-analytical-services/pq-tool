@@ -15,23 +15,27 @@ load(file = "./Data/searchSpace.rda")
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
-setClass('R_date')
+setClass("R_date")
 myColClasses <- c("Date" = "R_date",
                  "Answer_Date" = "R_date")
 
-rawData <- read.csv('./Data/MoJwrittenPQs.csv',colClasses = myColClasses)
+rawData <- read.csv("./Data/MoJwrittenPQs.csv", colClasses = myColClasses)
 data <- data.frame(rawData)
 
 cluster_data <- read.csv("./Data/topDozenWordsPerCluster.csv")
 
-merged_clusters <- ddply(data, .(Date, Answer_Date, Cluster), summarize, Question_Text = paste0(Question_Text, collapse = " "))
+merged_clusters <- ddply(
+  data,
+  .(Date, Answer_Date, Cluster),
+  summarize,
+  Question_Text = paste0(Question_Text, collapse = " "))
 
 stopwordList <- c(
-  stopwords(),'a','b','c','d','i','ii','iii','iv',
-  'secretary','state','ministry','majesty',
-  'government','many','ask','whether',
-  'assessment','further','pursuant',
-  'minister','steps','department','question'
+  stopwords(), "a", "b", "c", "d", "i", "ii", "iii", "iv",
+  "secretary", "state", "ministry", "majesty",
+  "government", "many", "ask", "whether",
+  "assessment", "further", "pursuant",
+  "minister", "steps", "department", "question"
 )
   
 #Search space for query vector
@@ -39,8 +43,8 @@ vocab <- search.space$dimnames[[1]]
 
 #Function to vectorize query - steps here need to match those in the cleanCorpus 
 #function in the DataCreator file so that we are consistent in our treatment.
-#This program requires the argument 'query', which is the search text, and the 
-#global object 'vocab', defined above, which is our global vocabulary comprised
+#This program requires the argument "query", which is the search text, and the 
+#global object "vocab", defined above, which is our global vocabulary comprised
 #of all the words in our corpus of PQs (appropriately stemmed and so on).
 
 #The idea behind it is to use the sparsity of a normalised lsa space, so that
@@ -60,19 +64,18 @@ vocab <- search.space$dimnames[[1]]
 #the dataCreator.R file
 
 queryVec <- function(query){
-  query <- query %>% iconv(to="latin1", sub='byte') %>%
+  query <- query %>% iconv(to = "latin1", sub = "byte") %>%
     gsub("[^[:alnum:\\s]]", "", .) %>%
     removePunctuation() %>%
     stripWhitespace() %>%
     removeWords(c("Justice")) %>%
     tolower() %>%
-    gsub("probation","probatn",.) %>%
+    gsub("probation", "probatn", .) %>%
     removeWords(stopwordList) %>%
-    strsplit(" ")%>%
-    sapply(stemDocument)%>%
+    strsplit(" ") %>%
+    sapply(stemDocument) %>%
     (function(vec){
       return(vec[sapply(vec, function(x) x %in% vocab)])
     })
   return(which(vocab %in% query))
 }
-
