@@ -8,6 +8,7 @@ navbarPage("PQ Text Analysis",
              )
              ),
   tabPanel("Similarity",
+           tags$head(includeScript("google-analytics.js")),
     fluidRow(
       column(6,
         textInput(inputId = "question",
