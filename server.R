@@ -15,7 +15,7 @@ function(input, output) {
     outGroup <- JayVees[,
                         .("Similarity_score" = sum(vees)),
                         by = Document ][order(-Similarity_score)]
-    table_output <- outGroup[1:30]
+    table_output <- outGroup #[1:30]
     data <- merge.data.frame(table_output,
                              data,
                              by.x = "Document",
@@ -39,7 +39,7 @@ function(input, output) {
 
 
   output$similarity_table <- renderDataTable({
-    datatable(data = df()[, c("Question_MP",
+    datatable(data = plot_points()[, c("Question_MP",
                               "Date",
                               "Answer_Date",
                               "Cluster",
@@ -73,10 +73,10 @@ function(input, output) {
   )
 
   output$similarity_plot <- renderPlotly({
-    gg <- plot_ly(x = df()$Date, y = df()$Similarity_score,
+    gg <- plot_ly(x = plot_points()$Date, y = plot_points()$Similarity_score,
             type = "scatter", mode = "markers",
-            text = ~paste("Document:", df()$Document,
-                          "<br> Cluster:", df()$Cluster)) %>%
+            text = ~paste("Document:", plot_points()$Document,
+                          "<br> Cluster:", plot_points()$Cluster)) %>%
       layout(yaxis = y_axis,
              title = "How similar question is to search phrase, and when it was asked",
              titlefont = list(
