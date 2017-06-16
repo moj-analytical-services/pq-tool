@@ -59,15 +59,16 @@ navbarPage("PQ Text Analysis",
                condition = "input.question.length > 0",
                plotlyOutput("similarity_plot", height = 500)
                )
-             ),
-    fluidRow(
-      column(12,
-      conditionalPanel(
-      condition =
-        "typeof(input.similarity_table_rows_selected) != 'undefined' && input.similarity_table_rows_selected.length > 0",
-      dataTableOutput("q_text_table")
-      ))
-    ))),
+             )#,
+    #fluidRow(
+    #  column(12,
+    #  conditionalPanel(
+    #  condition =
+    #    "typeof(input.similarity_table_rows_selected) != 'undefined' && input.similarity_table_rows_selected.length > 0",
+    #  dataTableOutput("q_text_table")
+    #  ))
+    #)
+          )),
   tabPanel("Topic Analysis",
            fluidRow(column(3,
              selectizeInput(inputId = "cluster_choice",
