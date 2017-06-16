@@ -11,7 +11,6 @@ function(input, output) {
     Document <- space$j[foundWords]
     vees <- space$v[foundWords]
     JayVees <- data.table(Document = Document, vees = vees)
-
     outGroup <- JayVees[,
                         .("Similarity_score" = sum(vees)),
                         by = Document ][order(-Similarity_score)]
@@ -20,10 +19,10 @@ function(input, output) {
                              data,
                              by.x = "Document",
                              by.y = "Document_Number")
-
     data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
     data <- data[with(data, order(-data["Similarity_score"])), ]
     rownames(data) <- 1:nrow(data)
+    data["Rank"] <- as.numeric(rownames(data))
     return(data)
   })
 
