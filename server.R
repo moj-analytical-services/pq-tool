@@ -37,33 +37,48 @@ function(input, output) {
     df()[1:input$points,]
   })
 
-
   output$similarity_table <- renderDataTable({
-    datatable(data = plot_points()[, c("Question_MP",
-                              "Date",
-                              "Answer_Date",
-                              "Cluster",
-                              "Cluster_Keywords")],
-
-              colnames = c("Similarity Rank",
-                           "Question MP",
-                           "Question Date",
-                           "Answer Date",
-                           "Topic Number",
-                           "Topic Keywords"),
-              class = "display",
-
-              width = 25,
-              caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:",
-              options = list(deferRender = TRUE,
-                             scrollY = 400,
-                             scroller = TRUE,
-                             searching = FALSE,
-                             paging = FALSE,
-                             server = FALSE
-              )
-    )
+    datatable(
+    cbind(' ' = '&oplus;', plot_points()), escape = -2,
+    #colnames = c("Similarity Rank",
+                  #"Question MP",
+                  #"Question Date", 
+                  #"Answer Date", 
+                  #"Topic Number", 
+                  #"Topic Keywords"),
+    caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:",
+    options = list(
+      columnDefs = list(
+        list(visible = FALSE, targets = c(0, 2:7, 9:10, 13)),
+        list(orderable = FALSE, className = 'details-control', targets = 1)
+      ),
+      deferRender = TRUE,
+      scrollY = 400,
+      scroller = TRUE,
+      searching = FALSE,
+      paging = FALSE,
+      server = FALSE
+    ),
+    callback = JS("
+                table.column(1).nodes().to$().css({cursor: 'pointer'});
+                var format = function(d) {
+                return '<div style=\"background-color:#eee; padding: .5em;\"> Question Text: ' +
+                d[6] + '</br>' + '</br>' +
+                'Answer Text: ' + d[7] +  '</div>';
+                };
+                table.on('click', 'td.details-control', function() {
+                var td = $(this), row = table.row(td.closest('tr'));
+                if (row.child.isShown()) {
+                row.child.hide();
+                td.html('&oplus;');
+                } else {
+                row.child(format(row.data())).show();
+                td.html('&CircleMinus;');
+                }
+                });"
+    ))
   })
+  
 
    y_axis <- list(
     title = "Similarity",
@@ -94,15 +109,15 @@ function(input, output) {
     df()[input$similarity_table_rows_selected, ]
   })
 
-  output$q_text_table <- renderDataTable({
-    datatable(data = q_text()[, c("Question_Text", "Answer_Text")],
-              colnames = c("Question Text", "Answer Text"),
-              caption = "Question Text:",
-              options = list(scroller = TRUE,
-                             searching = FALSE,
-                             paging = FALSE
-              ))
-  })
+  #output$q_text_table <- renderDataTable({
+  #  datatable(data = q_text()[, c("Question_Text", "Answer_Text")],
+  #            colnames = c("Question Text", "Answer Text"),
+  #            caption = "Question Text:",
+  #            options = list(scroller = TRUE,
+  #                           searching = FALSE,
+  #                           paging = FALSE
+  #            ))
+  #})
 
 ### Cluster Pane
 
