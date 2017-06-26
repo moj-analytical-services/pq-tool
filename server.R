@@ -62,14 +62,12 @@ function(input, output) {
                 d[6] + '</br>' + '</br>' +
                 'Answer Text: ' + d[7] +  '</div>';
                 };
-                table.on('click', 'td.details-control', function() {
-                var td = $(this), row = table.row(td.closest('tr'));
+                table.on('click', 'tr', function() {
+                var row = table.row(this.closest('tr'));
                 if (row.child.isShown()) {
                 row.child.hide();
-                td.html('&oplus;');
                 } else {
                 row.child(format(row.data())).show();
-                td.html('&CircleMinus;');
                 }
                 });"
       ))
