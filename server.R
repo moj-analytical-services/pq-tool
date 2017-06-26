@@ -47,7 +47,6 @@ function(input, output) {
           list(visible = FALSE, targets = c(0, 2:7, 9:10, 13)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
-        caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:",
         deferRender = TRUE,
         scrollY = 400,
         scroller = TRUE,
@@ -63,14 +62,20 @@ function(input, output) {
                 'Answer Text: ' + d[7] +  '</div>';
                 };
                 table.on('click', 'tr', function() {
-                var row = table.row(this.closest('tr'));
-                if (row.child.isShown()) {
-                row.child.hide();
+                var row = this.closest('tr');
+                var showHideIcon = $(row.firstChild);
+                var shinyRow = table.row(row);
+                if (shinyRow.child.isShown()) {
+                shinyRow.child.hide();
+                showHideIcon.html('&oplus;');
                 } else {
-                row.child(format(row.data())).show();
+                shinyRow.child(format(shinyRow.data())).show();
+                showHideIcon.html('&ominus;');
                 }
                 });"
-      ))
+      ),
+      caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:"
+    )
   })
   
   
@@ -97,7 +102,9 @@ function(input, output) {
                color='#696969')) %>%
       add_trace(x = plot_points()$Date[input$similarity_table_rows_selected], 
                 y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
-                type = "scatter", mode = 'markers' 
+                type = "scatter", mode = 'markers', marker = list(size = 12),
+                text = NULL,
+                hoverinfo = "text" 
       ) %>%
       layout(showlegend = FALSE)
   })
