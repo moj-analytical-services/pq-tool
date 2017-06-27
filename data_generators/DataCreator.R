@@ -38,7 +38,7 @@
 library(tm)
 library(lsa)
 library(cluster)
-library(LSAfun)
+library(dplyr)
 library(slam)
 
 #PARAMETERS
@@ -213,7 +213,7 @@ clusterKeywordsVec <- sapply(seq_along(clusterKeywords[1, ]),
 
 #We reduce the dimensionality of the space to be of rank k, where k is our
 #parameter above (also the number of clusters we are going to use)
-lsaOut <- lsaAll$tk[, 1:k] %*% diag(lsaAll$sk[1:k]) %*% t(lsaAll$dk[, 1:k])
+lsaOut <- lsaAll$tk[, 1:k] %*% posns
 #normalise the space
 search.space <- normalize(lsaOut)
 #"sparsify" by setting all near-zero terms to zero
@@ -226,9 +226,6 @@ summary(collengths)
 
 #save disk space by saving as simple triplet matrix
 search.space <- as.simple_triplet_matrix(search.space)
-
-
-
 
 
 
