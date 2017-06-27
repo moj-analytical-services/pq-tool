@@ -169,8 +169,18 @@ lsaAll <- lsa(tdm, dims = dimcalc_raw())
 
 #We reduce the LSA space to rank k, and then get the positions of our documents in this latent semantic space.
 posns <- diag(lsaAll$sk[1:k]) %*% t(lsaAll$dk[, 1:k])
+
 #distances between documents in this space, based on cosine similarity.
-diss <- 1 - cosine(posns)
+#first normalise columns so all have length 1
+normposns <- normalize(posns)
+#then since a . b = |a| |b| cos(theta) and we have normalised so that |a| = |b| = 1
+#we can just get cos(theta) = a.b
+#so we just need to do the dot product between each document
+diss <- 1 - (t(normposns) %*% normposns)
+#we now take out anything 'small' to make sure things that should be 0 aren't
+#rendered tiny and non-zero by floating point arithmetic
+diss[which(abs(diss) < 10^-14)] <- 0
+
 #a hierarchical clustering. At the moment we only use this to define our clusters,
 #by taking a cut through it at the right stage.
 hier <- hclust(as.dist(diss), method = "complete")
@@ -218,6 +228,10 @@ summary(collengths)
 search.space <- as.simple_triplet_matrix(search.space)
 
 
+
+
+
+
 #### SAVING ####
 
 #save(tdm, file = "tdm.rda")
@@ -246,7 +260,6 @@ write.csv(savedf, "MoJwrittenPQs.csv")
 
 #The information about the clusters
 write.csv(topDozenWordsPerCluster, "topDozenWordsPerCluster.csv")
-
 
 ##### APPENDIX #####
 
