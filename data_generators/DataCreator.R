@@ -130,6 +130,42 @@ normalize <- function(mat){
   return(sweep(mat, 2, col.lengths, "/"))
 }
 
+#This cleans up the names of those asking the questions
+nameCleaner <- function(name){
+  #first take out Mr/Mrs/Ms
+  name <- name %>% gsub("Mr |Mrs |Ms ","",.)
+  #we aim to get everyone's name in the format
+  #"surname, {title} firstname {initials}"
+  #get the first occurrence of a space
+  firstSpace <- regexpr(" ", name) %>% as.vector()
+  #use this to get what is usually first name
+  firstname <- substr(name, 1, firstSpace - 1)
+  #first deal with special cases from the Lords'
+  if (firstname == "Lord"|
+      firstname == "Lady"|
+      firstname == "The"|
+      firstname == "Baroness"|
+      firstname == "Baron"|
+      firstname == "Viscount"){
+    #just keep them as Lord/Lady Blah of Blahchester
+    name
+  }
+  #now special cases where someone has a middle initial,
+  #or a title like Sir or Dr that we don't want to chop
+  else if(length(unlist(gregexpr(" ",name))) > 1){
+    #we find the last space, and call everything before it the
+    #first name, and every after it the surname
+    lastSpace <- unlist(gregexpr(" ", name))[length(unlist(gregexpr(" ",name)))]
+    firstname <- substr(name, 1, lastSpace - 1)
+    surname <- substr(name, lastSpace + 1, nchar(name))
+    paste(surname, firstname, sep = ", ")
+  }
+  else {
+    surname <- substr(name, firstSpace + 1, nchar(name))
+    paste(surname, firstname, sep = ", ")
+  }
+}
+
 #PARAMETERS
 #Number of clusters, and also rank of LSA space
 k <- 1000
@@ -228,6 +264,8 @@ summary(collengths)
 search.space <- as.simple_triplet_matrix(search.space)
 
 
+####FIX MP NAMES####
+questionerNames <- sapply(aPQ$Question_MP,nameCleaner)
 
 #### SAVING ####
 
@@ -244,7 +282,7 @@ savedf <- data.frame(
   Question_ID = aPQ$Question_ID,
   Question_Text = aPQ$Question_Text,
   Answer_Text = aPQ$Answer_Text,
-  Question_MP = aPQ$Question_MP,
+  Question_MP = questionerNames,
   MP_Constituency = aPQ$MP_Constituency,
   Answer_MP = aPQ$Answer_MP,
   Date = aPQ$Date,
