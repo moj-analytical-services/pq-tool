@@ -176,10 +176,7 @@ k <- 1000
 
 #read in questions
 aPQ <- read.csv(file, stringsAsFactors = F)
-questionsVec <- aPQ$Question_Text
-
-#make sure it's in latin-1 format
-questionsVec <- iconv(questionsVec, to = "latin1", sub = "byte")
+questionsVec <- aPQ$Question_Text %>% iconv(to = "utf-8", sub = "byte")
 
 #MAKE THE TERM-DOCUMENT MATRIX AND LATENT SEMANTIC ANALYSIS SPACE
 
