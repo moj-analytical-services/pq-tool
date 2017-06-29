@@ -52,7 +52,7 @@ file <- "MoJPQsNew.csv"
 #of questions containing these words
 stopwordList <- c(
   stopwords(), "a", "b", "c", "d", "i", "ii", "iii", "iv",
-  "secretary", "state", "ministry", "majesty",
+  "secretary", "state", "ministry", "majesty","majestys",
   "government", "many", "ask", "whether",
   "assessment", "further", "pursuant",
   "minister", "steps", "department", "question"
@@ -66,7 +66,7 @@ cleanCorpus <- function(corp) {
   corp <- corp %>%
             tm_map(
               content_transformer(
-                function(x) iconv(x, to = "latin1", sub = "byte"))
+                function(x) iconv(x, to = "utf-8", sub = "byte"))
               ) %>%
             tm_map(function(x) gsub("[^[:alnum:\\s]]", "", x)) %>%
             tm_map(removePunctuation) %>%
@@ -176,10 +176,7 @@ k <- 1000
 
 #read in questions
 aPQ <- read.csv(file, stringsAsFactors = F)
-questionsVec <- aPQ$Question_Text
-
-#make sure it's in latin-1 format
-questionsVec <- iconv(questionsVec, to = "latin1", sub = "byte")
+questionsVec <- aPQ$Question_Text %>% iconv(to = "utf-8", sub = "byte")
 
 #MAKE THE TERM-DOCUMENT MATRIX AND LATENT SEMANTIC ANALYSIS SPACE
 
