@@ -32,7 +32,7 @@ merged_clusters <- ddply(
 
 stopwordList <- c(
   stopwords(), "a", "b", "c", "d", "i", "ii", "iii", "iv",
-  "secretary", "state", "ministry", "majesty",
+  "secretary", "state", "ministry", "majesty","majestys",
   "government", "many", "ask", "whether",
   "assessment", "further", "pursuant",
   "minister", "steps", "department", "question"
@@ -64,7 +64,7 @@ vocab <- search.space$dimnames[[1]]
 #the dataCreator.R file
 
 queryVec <- function(query){
-  query <- query %>% iconv(to = "latin1", sub = "byte") %>%
+  query <- query %>% iconv(to = "utf-8", sub = "byte") %>%
     gsub("[^[:alnum:\\s]]", "", .) %>%
     removePunctuation() %>%
     stripWhitespace() %>%
