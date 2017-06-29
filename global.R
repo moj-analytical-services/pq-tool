@@ -64,7 +64,7 @@ vocab <- search.space$dimnames[[1]]
 #the dataCreator.R file
 
 queryVec <- function(query){
-  query <- query %>% iconv(to = "latin1", sub = "byte") %>%
+  query <- query %>% iconv(to = "utf-8", sub = "byte") %>%
     gsub("[^[:alnum:\\s]]", "", .) %>%
     removePunctuation() %>%
     stripWhitespace() %>%

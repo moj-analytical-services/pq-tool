@@ -66,7 +66,7 @@ cleanCorpus <- function(corp) {
   corp <- corp %>%
             tm_map(
               content_transformer(
-                function(x) iconv(x, to = "latin1", sub = "byte"))
+                function(x) iconv(x, to = "utf-8", sub = "byte"))
               ) %>%
             tm_map(function(x) gsub("[^[:alnum:\\s]]", "", x)) %>%
             tm_map(removePunctuation) %>%
