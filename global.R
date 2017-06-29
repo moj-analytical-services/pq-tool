@@ -32,7 +32,7 @@ merged_clusters <- ddply(
 
 stopwordList <- c(
   stopwords(), "a", "b", "c", "d", "i", "ii", "iii", "iv",
-  "secretary", "state", "ministry", "majesty",
+  "secretary", "state", "ministry", "majesty","majestys",
   "government", "many", "ask", "whether",
   "assessment", "further", "pursuant",
   "minister", "steps", "department", "question"
