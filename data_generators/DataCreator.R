@@ -40,11 +40,41 @@ library(lsa)
 library(cluster)
 library(dplyr)
 library(slam)
+library(stringr)
+library(optparse)
+
+#GRAB COMMAND LINE ARGS
+
+option_list = list(
+  make_option(c("-i", "--input_file"),
+    type    = "character",
+    default = str_interp("${SHINY_ROOT}/tests/testthat/examples/lsa_training_sample.csv"), 
+    help    = "dataset file name",
+    metavar = "character"
+  ),
+  make_option(c("-k", "--k_clusters"),
+    type    = "numeric",
+    default = 100, 
+    help    = "number of clusters [default= %default]",
+    metavar = "character"
+  ),
+  make_option(c("-o", "--output_dir"),
+    type    = "character",
+    default = str_interp("${SHINY_ROOT}/tests/testthat/examples/"), 
+    help    = "directory to which outputs are saved [default= %default]",
+    metavar = "character"
+  )
+)
+ 
+opt_parser = OptionParser(option_list=option_list);
+opt = parse_args(opt_parser);
 
 #PARAMETERS
 
-setwd("../Data")
-file <- "MoJPQsNew.csv"
+# The source file for questions should be passed as a command line argument
+# E.g. execute like this -> Rscript DataCreator.R MoJPQsNew.csv
+
+file <- opt$input_file
 
 #FUNCTIONS
 
@@ -168,18 +198,21 @@ nameCleaner <- function(name){
 
 #PARAMETERS
 #Number of clusters, and also rank of LSA space
-k <- 1000
+
+k <- opt$k_clusters
+print(str_interp('K has been set to ${k}'))
 
 #SCRIPT
 
 #GETTING DATA
 
 #read in questions
+print('Reading questions')
 aPQ <- read.csv(file, stringsAsFactors = F)
 questionsVec <- aPQ$Question_Text %>% iconv(to = "utf-8", sub = "byte")
 
 #MAKE THE TERM-DOCUMENT MATRIX AND LATENT SEMANTIC ANALYSIS SPACE
-
+print('Making the TDM')
 #Create the corpus
 PQCorp <- Corpus(VectorSource(questionsVec))
 #Stem the corpus
@@ -199,7 +232,7 @@ tdm <- TermDocumentMatrix(
 lsaAll <- lsa(tdm, dims = dimcalc_raw())
 
 #CLUSTERING
-
+print('Doing some clustering')
 #We reduce the LSA space to rank k, and then get the positions of our documents in this latent semantic space.
 posns <- diag(lsaAll$sk[1:k]) %*% t(lsaAll$dk[, 1:k])
 
@@ -243,7 +276,7 @@ clusterKeywordsVec <- sapply(seq_along(clusterKeywords[1, ]),
 
 
 #MAKE SPACE FOR FAST QUERY SEARCHING
-
+print('Making the search space')
 #We reduce the dimensionality of the space to be of rank k, where k is our
 #parameter above (also the number of clusters we are going to use)
 lsaOut <- lsaAll$tk[, 1:k] %*% posns
@@ -265,10 +298,14 @@ search.space <- as.simple_triplet_matrix(search.space)
 questionerNames <- sapply(aPQ$Question_MP,nameCleaner)
 
 #### SAVING ####
-
+print('Saving the output')
 #save(tdm, file = "tdm.rda")
 #save(lsaOut,file = "lsaOut.rda")
 #save(klusters,file = "klusters.rda")
+
+save_location = opt$output_dir
+setwd(save_location)
+
 save(search.space, file = "searchSpace.rda")
 
 #Save data to be directly loaded in to Tableau
