@@ -22,15 +22,9 @@ navbarPage("PQ Text Analysis",
              conditionalPanel(
                condition = "input.question.length > 0",
 
-               # sliderInput(inputId = "q_date_range", 
-               #             label = "Question Date Range",
-               #             min = min(rawData$Date)-1,
-               #             max = max(rawData$Date)+1,
-               #             value = c(min(rawData$Date),max(rawData$Date)),
-               #             step = 1
-               #             )
                dateRangeInput("q_date_range", 
                               label = "Question Date Range",
+                              format = "dd-mm-yyyy",
                               min = min(rawData$Date),
                               max = max(rawData$Date),
                               start = min(rawData$Date),
@@ -41,10 +35,13 @@ navbarPage("PQ Text Analysis",
       ),
       
       column(3,
-             radioButtons("points", label = 'Number of questions to show',
-                          choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
-                          selected = 10, inline = TRUE)
-             #textOutput("test")
+             conditionalPanel(
+               condition = "input.question.length > 0",
+               radioButtons("points", label = 'Number of questions to show',
+                            choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
+                            selected = 10, inline = TRUE)
+               #textOutput("test")
+             )
       )
     ),
     fluidRow(
@@ -59,15 +56,9 @@ navbarPage("PQ Text Analysis",
                condition = "input.question.length > 0",
                plotlyOutput("similarity_plot", height = 500)
                )
-             ),
-    fluidRow(
-      column(12,
-      conditionalPanel(
-      condition =
-        "typeof(input.similarity_table_rows_selected) != 'undefined' && input.similarity_table_rows_selected.length > 0",
-      dataTableOutput("q_text_table")
-      ))
-    ))),
+             )
+      )
+    ),
   tabPanel("Topic Analysis",
            fluidRow(column(3,
              selectizeInput(inputId = "cluster_choice",

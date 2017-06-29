@@ -24,6 +24,7 @@ function(input, output) {
     data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
     data <- data[with(data, order(-data["Similarity_score"])), ]
     rownames(data) <- 1:nrow(data)
+    data["Rank"] <- as.numeric(rownames(data))
     return(data)
   })
 
@@ -37,34 +38,47 @@ function(input, output) {
     df()[1:input$points,]
   })
 
-
   output$similarity_table <- renderDataTable({
-    datatable(data = plot_points()[, c("Question_MP",
-                              "Date",
-                              "Answer_Date",
-                              "Cluster",
-                              "Cluster_Keywords")],
-
-              colnames = c("Similarity Rank",
-                           "Question MP",
-                           "Question Date",
-                           "Answer Date",
-                           "Topic Number",
-                           "Topic Keywords"),
-              class = "display",
-
-              width = 25,
-              caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:",
-              options = list(deferRender = TRUE,
-                             scrollY = 400,
-                             scroller = TRUE,
-                             searching = FALSE,
-                             paging = FALSE,
-                             server = FALSE
-              )
+    datatable(
+      cbind(' ' = '&oplus;', plot_points()), escape = -2,
+      #colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
+      options = list(
+        columnDefs = list(
+          list(visible = FALSE, targets = c(0, 2:7, 9:10, 13)),
+          list(orderable = FALSE, className = 'details-control', targets = 1)
+        ),
+        deferRender = TRUE,
+        scrollY = 400,
+        scroller = TRUE,
+        searching = FALSE,
+        paging = FALSE,
+        server = FALSE
+      ),
+      callback = JS("
+                table.column(1).nodes().to$().css({cursor: 'pointer'});
+                var format = function(d) {
+                return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
+                d[6] + '</br>' + '</br>' +
+                'Answer Text: ' + d[7] +  '</div>';
+                };
+                table.on('click', 'tr', function() {
+                var row = this.closest('tr');
+                var showHideIcon = $(row.firstChild);
+                var shinyRow = table.row(row);
+                if (shinyRow.child.isShown()) {
+                shinyRow.child.hide();
+                showHideIcon.html('&oplus;');
+                } else {
+                shinyRow.child(format(shinyRow.data())).show();
+                showHideIcon.html('&ominus;');
+                }
+                });"
+      ),
+      caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:"
     )
   })
-
+  
+  
    y_axis <- list(
     title = "Similarity",
     autotick = TRUE,
@@ -73,36 +87,43 @@ function(input, output) {
   )
 
   output$similarity_plot <- renderPlotly({
-    gg <- plot_ly(x = plot_points()$Date, y = plot_points()$Similarity_score,
-            type = "scatter", mode = "markers",
-            text = ~paste("Document:", plot_points()$Document,
-                          "<br> Cluster:", plot_points()$Cluster)) %>%
+    gg=plot_ly(x = plot_points()$Date) %>%
+      add_markers(y = plot_points()$Similarity_score,
+                  text = ~paste("Rank:", plot_points()$Rank,
+                                "<br> Member HoC/HoL:", plot_points()$Question_MP,
+                                "<br> Date:", plot_points()$Date ),
+                  hoverinfo = "text"
+      )%>%
       layout(yaxis = y_axis,
              title = "How similar question is to search phrase, and when it was asked",
-             titlefont = list(
-               family = "Arial",
-               size = 14,
-               color = "#696969"))
-
-    #%>%
-        #add_trace(x = input$similarity_table_rows_selected["Date"], y = input$similarity_table_rows_selected["Similarity_score"], type = "scatter", mode = "markers", name = "Density"))
-    #s = input$x1_rows_selected
-    #par(mar=c(4,4,1,.1))
-    #plot_ly(dat())
+             titlefont=list(
+               family='Arial',
+               size=14,
+               color='#696969')) %>%
+      add_trace(x = plot_points()$Date[input$similarity_table_rows_selected], 
+                y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
+                type = "scatter", mode = 'markers', marker = list(size = 12),
+                text = NULL,
+                hoverinfo = "text" 
+      ) %>%
+      layout(showlegend = FALSE)
   })
-  q_text <- reactive({
-    df()[input$similarity_table_rows_selected, ]
-  })
-
-  output$q_text_table <- renderDataTable({
-    datatable(data = q_text()[, c("Question_Text", "Answer_Text")],
-              colnames = c("Question Text", "Answer Text"),
-              caption = "Question Text:",
-              options = list(scroller = TRUE,
-                             searching = FALSE,
-                             paging = FALSE
-              ))
-  })
+  
+  
+  
+  # q_text <- reactive({
+  #   df()[input$similarity_table_rows_selected, ]
+  # })
+  # 
+  # output$q_text_table <- renderDataTable({
+  #   datatable(data = q_text()[, c("Question_Text", "Answer_Text")],
+  #             colnames = c("Question Text", "Answer Text"),
+  #             caption = "Question Text:",
+  #             options = list(scroller = TRUE,
+  #                            searching = FALSE,
+  #                            paging = FALSE
+  #             ))
+  # })
 
 ### Cluster Pane
 
