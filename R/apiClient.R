@@ -67,8 +67,8 @@ party <- function(member) {
 
   member <- gsub('Mr |Ms |Mrs ', '', member)
   member <- strsplit(member, ' ')[[1]]
-
-  member_of_the_upper_house <- any(upper_house_titles %in% member)
+  
+  member_of_the_upper_house <- any(upper_house_titles %in% member[1:length(member) - 1])
 
   if(member_of_the_upper_house == TRUE) {return('Not found')}
 

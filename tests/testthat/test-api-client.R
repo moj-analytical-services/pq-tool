@@ -208,6 +208,18 @@ test_that('party() cannot retrieve party for members of HoL', {
   expect_true( all(hol_parties %in% 'Not found') )
 })
 
+test_that('party() can return the party for people whose name includes Lord', {
+
+  with_mock(
+    `fromJSON` = function(actual_API_call) {
+      dummy_member_api_response()
+    },
+    member_party <- party('Someone Lord'),
+    expect_equal(member_party, 'Party')
+  )
+
+})
+
 test_that('party() calls the API with the correct params', {
 
   member_endpoint   <- 'http://lda.data.parliament.uk/members.json'
