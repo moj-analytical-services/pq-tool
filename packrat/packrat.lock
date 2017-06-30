@@ -149,8 +149,8 @@ Hash: 576a9d297a567d6a5ebd164ca5221590
 
 Package: curl
 Source: CRAN
-Version: 2.4
-Hash: 6f9efd95fe30fa735c9aa3b4de10b022
+Version: 2.7
+Hash: 1d97b529645be4e502fad3db22415e66
 
 Package: data.table
 Source: CRAN
@@ -207,6 +207,11 @@ Source: CRAN
 Version: 0.2.0
 Hash: e5a3b0b96a39f5581467b0c6366f7408
 Requires: magrittr, tibble
+
+Package: getopt
+Source: CRAN
+Version: 1.20.0
+Hash: 951e83029bb5f798b53d7b53cbc50be9
 
 Package: ggplot2
 Source: CRAN
@@ -366,6 +371,12 @@ Package: openssl
 Source: CRAN
 Version: 0.9.6
 Hash: 5f4711e142a44655dfea4d64fcf2f641
+
+Package: optparse
+Source: CRAN
+Version: 1.3.2
+Hash: 43f92c822f50e22bd4d8408e7ed89651
+Requires: getopt
 
 Package: packrat
 Source: CRAN
