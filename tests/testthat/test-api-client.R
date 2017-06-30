@@ -18,6 +18,17 @@ dummy_api_response <- function() {
   csv
 }
 
+dummy_member_api_response <- function() {
+  party           <- 'Party'
+  items           <- list(party)
+  names(items)    <- 'party'
+  result          <- list(items)
+  names(result)   <- 'items'
+  response        <- list(result)
+  names(response) <- 'result'
+  response
+}
+
 context("api functions; ARCHIVE PRESENT")
 
 test_that("last_answer_date() returns date of most recent answer", {
@@ -70,6 +81,7 @@ test_that("fetch_questions() calls the API with the correct params", {
     `last_answer_date` = function()                    { '2017-03-23' },
     `number_to_fetch`  = function()                    { 1000         },
     `update_archive`   = function(questions)           { NULL         },
+    `party`            = function(member)              { 'party'      },
     `readr::read_csv`  = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
       dummy_api_response()
@@ -113,11 +125,12 @@ test_that("fetch_questions() calls the API with the correct params", {
   )
 
   with_mock(
-    `file.exists`     = function(filepath)            { FALSE },
-    `number_to_fetch` = function()                    { 1000 },
-    `file.create`     = function(filepath)            { NULL },
-    `write_csv`       = function(questions, filepath) { NULL },
-    `update_archive`  = function(questions)           { NULL },
+    `file.exists`     = function(filepath)            { FALSE   },
+    `number_to_fetch` = function()                    { 1000    },
+    `file.create`     = function(filepath)            { NULL    },
+    `write_csv`       = function(questions, filepath) { NULL    },
+    `update_archive`  = function(questions)           { NULL    },
+    `party`           = function(member)              { 'party' },
     `readr::read_csv` = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
       dummy_api_response()
@@ -130,8 +143,9 @@ test_that("fetch_questions() calls the API with the correct params", {
 test_that("fetch_questions creates an archive file if one does not already exist", {
 
   with_mock(
-    `file.exists`     = function(filepath) { FALSE },
-    `number_to_fetch` = function()         { 1000 },
+    `file.exists`     = function(filepath) { FALSE   },
+    `number_to_fetch` = function()         { 1000    },
+    `party`           = function(memeber)  { 'party' },
     `readr::read_csv` = function(actual_API_call) {
       dummy_api_response()
     },
@@ -152,9 +166,10 @@ test_that("fetch_questions creates an archive file if one does not already exist
 test_that("fetch_questions() downloads new questions and calls the update_archive function", {
 
   with_mock(
-    `file.exists`       = function(filepath) { FALSE },
-    `number_to_fetch`   = function()         { 3000  },
-    `file.create`       = function(filepath) { NULL  },
+    `file.exists`       = function(filepath) { FALSE   },
+    `number_to_fetch`   = function()         { 3000    },
+    `file.create`       = function(filepath) { NULL    },
+    `party`             = function(member)   { 'party' },
     `readr::read_csv` = function(actual_API_call) {
       dummy_api_response()
     },
@@ -176,6 +191,42 @@ test_that("fetch_questions() stops and raises an error if there are no new qs to
     `file.create`     = function() { NULL },
     expect_error(fetch_questions(), "There are no new questions to fetch")
   )
+})
+
+context('party')
+
+test_that('party() cannot retrieve party for members of HoL', {
+
+  hol_parties <- c(
+    party('Lord Someone'),
+    party('Viscount Someone'),
+    party('Baroness Someone'),
+    party('Earl someone'),
+    party('Marquess')
+  )
+
+  expect_true( all(hol_parties %in% 'Not found') )
+})
+
+test_that('party() calls the API with the correct params', {
+
+  member_endpoint   <- 'http://lda.data.parliament.uk/members.json'
+  first             <- 'Firstname'
+  last              <- 'Surname'
+  expected_API_call <- str_interp(
+    "${member_endpoint}?familyName=${last}&givenName=${first}&_view=members&_pageSize=10&_page=0"
+  )
+
+  with_mock(
+    `fromJSON` = function(actual_API_call) {
+      expect_equal(expected_API_call, actual_API_call)
+      dummy_member_api_response()
+    },
+    party('Mrs Firstname Surname'),
+    party('Mr Firstname Surname'),
+    party('Ms Firstname Surname')
+  )
+
 })
 
 context('api response parser')

@@ -61,6 +61,29 @@ update_archive <- function(questions_tibble) {
   write_csv(updated_archive, ARCHIVE_FILEPATH())
 }
 
+party <- function(member) {
+
+  upper_house_titles <- c('Lord', 'Barroness', 'Earl', 'Viscount', 'Marquess')
+
+  member <- gsub('Mr |Ms |Mrs ', '', member)
+  member <- strsplit(member, ' ')[[1]]
+
+  member_of_the_upper_house <- any(upper_house_titles %in% member)
+
+  if(member_of_the_upper_house == TRUE) {return('Not found')}
+
+  first  <- member[1]
+  last   <- member[2]
+
+  member_endpoint <- 'http://lda.data.parliament.uk/members.json'
+
+  response <- fromJSON(
+    str_interp("${member_endpoint}?familyName=${last}&givenName=${first}&_view=members&_pageSize=10&_page=0")
+  )
+
+  response$result$items$party[[1]]
+}
+
 fetch_questions <- function(show_progress = FALSE) {
   iterations     <- ceiling(number_to_fetch() / 1000)
 
@@ -90,6 +113,8 @@ fetch_questions <- function(show_progress = FALSE) {
     response   <- parse_response(response)
     questions  <- rbind(questions, response)
   }
+
+  questions$Party <- mapply(questions$Question_MP, FUN = function(x) { party(x) })
 
   update_archive(questions)
 }
