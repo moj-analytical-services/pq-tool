@@ -9,7 +9,44 @@ The tool allows the user to input a new question, or a key phrase, and produces 
 The tool is written in R and is based on a technique called Latent Semantic Analysis. For more information, or to provide any feedback/ideas please send an email to samuel.tazzyman@justice.gsi.gov.uk
 
 To access the deployed tool go to https://mojproducts.shinyapps.io/pqtool/
+## Running DataCreator.R
+### This script will create three data files
+1. The search space.
+2. A new csv of questions with cluster assignments.
+3. A new csv of the 12 most significant terms in each cluster.
 
+### Defaults
+*Input file (questions)*
+* "${SHINY_ROOT}/tests/testthat/examples/lsa_training_sample.csv"
+* Override using `-i` or `--input_file`
+
+*Output directory (where the new data files are saved)*
+* "${SHINY_ROOT}/tests/testthat/examples/"
+* Override using `-o` or `--output_dir`
+
+*Number of clusters (k)*
+* 100
+* Override using `-k` or `--k_clusters`
+
+### From the command line
+1. With defaults
+    ```
+    Rscript DataCreator.R
+    ```
+2. With args
+    ```
+    Rscript DataCreator.R -i  my_input_file.csv -o my_destination_dir -k 1000
+    ```
+  
+### From an R console
+1. With defaults
+    ```
+    system("Rscript DataCreator.R")
+    ```
+2. With args
+    ```
+    system("Rscript DataCreator.R -i  my_input_file.csv -o my_destination_dir -k 1000")
+    ```
 
 ## Running the tool
 
