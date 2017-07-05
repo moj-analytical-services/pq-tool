@@ -133,7 +133,7 @@ normalize <- function(mat){
 #This cleans up the names of those asking the questions
 nameCleaner <- function(name){
   #first take out Mr/Mrs/Ms
-  name <- name %>% gsub("Mr |Mrs |Ms ","",.)
+  name <- name %>% gsub("Mr |Mrs |Ms |Miss ","",.)
   #we aim to get everyone's name in the format
   #"surname, {title} firstname {initials}"
   #get the first occurrence of a space
@@ -148,7 +148,6 @@ nameCleaner <- function(name){
       firstname == "Baron"|
       firstname == "Viscount"){
     #just keep them as Lord/Lady Blah of Blahchester
-    name
   }
   #now special cases where someone has a middle initial,
   #or a title like Sir or Dr that we don't want to chop
@@ -158,12 +157,40 @@ nameCleaner <- function(name){
     lastSpace <- unlist(gregexpr(" ", name))[length(unlist(gregexpr(" ",name)))]
     firstname <- substr(name, 1, lastSpace - 1)
     surname <- substr(name, lastSpace + 1, nchar(name))
-    paste(surname, firstname, sep = ", ")
+    name <- paste(surname, firstname, sep = ", ")
   }
   else {
     surname <- substr(name, firstSpace + 1, nchar(name))
-    paste(surname, firstname, sep = ", ")
+    name <- paste(surname, firstname, sep = ", ")
   }
+  #now a series of horrible inelegant special cases
+  #covering issues like MPs being in the list twice
+  #or whatever
+  if (name == "Bayley, Hugh"){
+    name <- "Bayley, Sir Hugh"
+  }
+  else if (name == "Blackman-Woods, Roberta"){
+    name <- "Blackman-Woods, Dr Roberta"
+  }
+  else if (name == "Burns, Simon"){
+    name <- "Burns, Sir Simon"
+  }
+  else if (name == "Lucas, Ian C."){
+    name <- "Lucas, Ian"
+  }
+  else if (name == "Morris, Grahame M."){
+    name <- "Morris, Grahame"
+  }
+  else if (name == "Piero, Gloria De"){
+    name <- "De Piero, Gloria"
+  }
+  else if (name == "Bois, Nick de"){
+    name <- "de Bois, Nick"
+  }
+  else if (name == "Soames, Nicholas"){
+    name <- "Soames, Sir Nicholas"
+  }
+  name
 }
 
 #PARAMETERS
