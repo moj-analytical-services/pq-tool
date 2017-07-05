@@ -1,7 +1,7 @@
 #This is a toy bit of code to try out automating the discovery of MPs
 #with similar interests based on them asking questions under the same
 #topics, or (equivalently) topics that have been asked by similar MPs
-
+library(tm)
 library(reshape2)
 library(dplyr)
 library(slam)
@@ -174,9 +174,14 @@ DA <- MPAnalysis("Abbott, Diane", MPTopicMatrix, MPDistList, rawData)
 
 PD <- MPAnalysis("Davies, Philip", MPTopicMatrix, MPDistList, rawData)
 
-topic1 <- topicAnalysis(1, MPTopicMatrix,topicDistList, rawData)
+allMPs <- lapply(MPTopicDf$Question_MP,function(x) MPAnalysis(x, MPTopicMatrix, MPDistList, rawData))
+names(allMPs) <- MPTopicDf$Question_MP
 
-topic987 <- topicAnalysis(987, MPTopicMatrix,topicDistList, rawData)
+allTopics <- lapply(seq(1000), function(x) topicAnalysis(x, MPTopicMatrix, topicDistList, rawData))
+names(allTopics) <- seq(1000)
 
+save(MPDistList, file = "MPDistList")
 
+save(allMPs, file = "allMPs.rda")
+save(allTopics, file = "allTopics.rda")
 
