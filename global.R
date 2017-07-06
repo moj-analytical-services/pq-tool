@@ -21,6 +21,9 @@ myColClasses <- c("Date" = "R_date",
 
 rawData <- read.csv("./Data/MoJwrittenPQs.csv", colClasses = myColClasses)
 data <- data.frame(rawData)
+Topic <- data$Cluster
+Topic_Keywords <- data$Cluster_Keywords
+data <- cbind(data, Topic, Topic_Keywords)
 
 cluster_data <- read.csv("./Data/topDozenWordsPerCluster.csv")
 

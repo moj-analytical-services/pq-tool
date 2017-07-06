@@ -44,7 +44,7 @@ function(input, output) {
       #colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 2:7, 9:10, 13)),
+          list(visible = FALSE, targets = c(0, 2:7, 9:10,13:15)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
         deferRender = TRUE,
