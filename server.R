@@ -200,37 +200,4 @@ function(input, output) {
               #)
     )
   })
-
-
-### Data Pane
-
-  output$data_pane <- renderDataTable({
-    datatable(data = data[, c("Question_ID",
-                             "Question_Text",
-                             "Answer_Text",
-                             "Question_MP",
-                             "MP_Constituency",
-                             "Answer_MP",
-                             "Date",
-                             "Answer_Date",
-                             "Cluster",
-                             "Cluster_Keywords")],
-              colnames = c("Document #",
-                           "Question ID",
-                           "Question Text",
-                           "Answer Text",
-                           "Question MP",
-                           "MP Constituency",
-                           "Answer MP",
-                           "Question Date",
-                           "Answer Date",
-                           "Topic Number",
-                           "Topic Keywords"),
-              filter = "top",
-              options = list(scroller = TRUE,
-                             paging = FALSE
-                             #autoWidth = TRUE,
-                             #columnDefs = list(list(width = "30%", targets = list(2,3)))
-                             ))
-  })
 }
