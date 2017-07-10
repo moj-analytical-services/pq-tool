@@ -15,22 +15,26 @@ library(shinyBS)
 library(scales)
 library(readr)
 library(rintrojs)
+library(aws.s3)
 
-load(file = "./Data/searchSpace.rda")
-load(file = "./Data/allMPs.rda")
-load(file = "./Data/allTopics.rda")
+# You need to put our AWS credentials in .Renviron for this to work
+latest.searchSpace <- get_bucket(
+    bucket = S3_BUCKET,
+    prefix = 'search_space'
+  )$Contents$Key
+search.space <- s3readRDS(bucket = S3_BUCKET, object = latest.searchSpace)
 
-# Define R_date date type - to read in Long Date format in csv
-setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
-setClass("R_date")
+latest.pqs <- get_bucket(
+    bucket = S3_BUCKET,
+    prefix = 'moj_questions'
+  )$Contents$Key
+data <- s3readRDS(bucket = S3_BUCKET, object = latest.pqs)
 
-rawData <- read_csv("./Data/MoJwrittenPQs.csv")
-data <- data.frame(rawData)
-drops <- c("X1","Document_Number", "Corrected_Date")
-tables_data <- data[ , !(names(data) %in% drops)]
-
-
-topic_data <- read.csv("./Data/topDozenWordsPerTopic.csv")
+latest.topDozenWords <- get_bucket(
+    bucket = S3_BUCKET,
+    prefix = 'top_dozen_words'
+  )$Contents$Key
+topic_data <- s3readRDS(bucket = S3_BUCKET, object = latest.topDozenWords)
 
 member_data <- read.csv("./Data/topDozenWordsPerMember.csv")
 

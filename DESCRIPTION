@@ -29,6 +29,7 @@ Imports:
     shinythemes,
     shinyBS,
     scales,
-    rintrojs
+    rintrojs,
+    aws.s3
 License: MIT License
 LazyData: true

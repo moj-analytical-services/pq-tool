@@ -1,6 +1,7 @@
 #### -- Packrat Autoloader (version 0.4.8-1) -- ####
 SHINY_ROOT <- getwd()
 ARCHIVE_FILEPATH  <- function() { file.path(SHINY_ROOT, 'Data', 'archived_pqs.csv')  }
+S3_BUCKET <- 'parliamentary-questions-tool'
 JUSTICE_STOP_WORDS <- c(
   "a", "b", "c", "d", "i", "ii", "iii", "iv",
   "secretary", "state", "ministry", "majesty","majestys",
