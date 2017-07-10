@@ -13,8 +13,12 @@ library(data.table) #Thanks Karik
 library(aws.s3)
 
 # You need to put your AWS credentials in .Renviron for this to work
-latest.searchSpace <- get_bucket(bucket = 'data-science-hub-parliamentary-questions')[1]$Contents$Key
-search.space       <- s3readRDS(bucket = 'data-science-hub-parliamentary-questions', object = latest.searchSpace)
+latest.searchSpace <- get_bucket(
+    bucket = 'data-science-hub-parliamentary-questions',
+    prefix = 'searchSpace'
+  )$Contents$Key
+
+search.space <- s3readRDS(bucket = 'data-science-hub-parliamentary-questions', object = latest.searchSpace)
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
