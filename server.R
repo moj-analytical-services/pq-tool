@@ -36,7 +36,6 @@ function(input, output) {
   
   plot_points <- reactive({
     df()[1:input$points,]
-    write.csv(df(), file = './tests/testthat/examples/similarity_table.csv')
   })
 
   output$similarity_table <- renderDataTable({
