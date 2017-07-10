@@ -83,6 +83,18 @@ Source: CRAN
 Version: 0.1
 Hash: 0afb92b59b02593c70ff8046700ba9d3
 
+Package: aws.s3
+Source: CRAN
+Version: 0.3.3
+Hash: a7e8756529d52eecf039061396536636
+Requires: aws.signature, base64enc, digest, httr, xml2
+
+Package: aws.signature
+Source: CRAN
+Version: 0.3.5
+Hash: d1d728e686b673974282dd3389034303
+Requires: base64enc, digest
+
 Package: backports
 Source: CRAN
 Version: 1.0.5
