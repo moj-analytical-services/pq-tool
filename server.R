@@ -135,11 +135,8 @@ function(input, output) {
   }
 
   wordcloud_df <- function(){
-<<<<<<< HEAD
+
     df <- subset(topic_data,
-=======
-    df <- dplyr::filter(topic_data,
->>>>>>> 74c38cbb2684384a402705eebdf1e4c9195a8541
                         (topic_data$topic == input$topic_choice))
   }
 
