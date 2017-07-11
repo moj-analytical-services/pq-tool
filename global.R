@@ -14,22 +14,22 @@ library(aws.s3)
 
 # You need to put your AWS credentials in .Renviron for this to work
 latest.searchSpace <- get_bucket(
-    bucket = 'data-science-hub-parliamentary-questions',
+    bucket = 'parliamentary-questions-tool',
     prefix = 'search_space'
   )$Contents$Key
-search.space <- s3readRDS(bucket = 'data-science-hub-parliamentary-questions', object = latest.searchSpace)
+search.space <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest.searchSpace)
 
 latest.pqs <- get_bucket(
-    bucket = 'data-science-hub-parliamentary-questions',
+    bucket = 'parliamentary-questions-tool',
     prefix = 'moj_questions'
   )$Contents$Key
-data <- s3readRDS(bucket = 'data-science-hub-parliamentary-questions', object = latest.pqs)
+data <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest.pqs)
 
 latest.topDozenWords <- get_bucket(
-    bucket = 'data-science-hub-parliamentary-questions',
+    bucket = 'parliamentary-questions-tool',
     prefix = 'top_dozen_words'
   )$Contents$Key
-topic_data <- s3readRDS(bucket = 'data-science-hub-parliamentary-questions', object = latest.topDozenWords)
+topic_data <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest.topDozenWords)
 
 
 # Define R_date date type - to read in Long Date format in csv

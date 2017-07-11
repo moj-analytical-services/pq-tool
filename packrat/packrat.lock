@@ -75,8 +75,8 @@ Hash: 6f14c834eea7672f25b83d9ba35b85ca
 
 Package: XML
 Source: CRAN
-Version: 3.98-1.6
-Hash: 7a44444c1f68230e5a1de9ac9eddb709
+Version: 3.98-1.9
+Hash: 02079c4025bbfa0f63400cc0bb414952
 
 Package: assertthat
 Source: CRAN
@@ -456,6 +456,16 @@ Source: CRAN
 Version: 0.2.2
 Hash: 9f218b40dee7fe7f942039f974bd98b8
 Requires: BH, Rcpp, dplyr, lazyeval, magrittr
+
+Package: ramazon
+Source: github
+Version: 0.1
+Hash: ab3686fcb55f7309e182e7e8b73dc3b7
+Requires: XML
+GithubRepo: ramazon
+GithubUsername: andreacirilloac
+GithubRef: master
+GithubSha1: 16bb6d13a42860daedad15d96b6fb08289b08c0b
 
 Package: rappdirs
 Source: CRAN
