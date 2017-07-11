@@ -39,6 +39,8 @@ function(input, output) {
   })
 
   output$similarity_table <- renderDataTable({
+    event.data <- event_data("plotly_click", source = "select")
+    
     datatable(
       cbind(' ' = '&oplus;', plot_points()), escape = -2,
       #colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
@@ -87,7 +89,7 @@ function(input, output) {
   )
 
   output$similarity_plot <- renderPlotly({
-    gg=plot_ly(x = plot_points()$Date) %>%
+    gg=plot_ly(x = plot_points()$Date , source = 'select') %>%
       add_markers(y = plot_points()$Similarity_score,
                   text = ~paste("Rank:", plot_points()$Rank,
                                 "<br> Member HoC/HoL:", plot_points()$Question_MP,
@@ -110,6 +112,8 @@ function(input, output) {
   })
   
   
+  
+  test <- renderPrint(event.data)
   
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
