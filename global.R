@@ -25,11 +25,7 @@ data <- data.frame(rawData)
 # Topic_Keywords <- data$Cluster_Keywords
 # data <- cbind(data, Topic, Topic_Keywords)
 
-<<<<<<< HEAD
 topic_data <- read.csv("./Data/topDozenWordsPerTopic.csv")
-=======
-topic_data <- read.csv("./Data/topDozenWordsPerCluster.csv")
->>>>>>> 74c38cbb2684384a402705eebdf1e4c9195a8541
 
 merged_clusters <- ddply(
   data,
