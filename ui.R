@@ -61,9 +61,9 @@ navbarPage("PQ Text Analysis",
     ),
   tabPanel("Topic Analysis",
            fluidRow(column(3,
-             selectizeInput(inputId = "cluster_choice",
+             selectizeInput(inputId = "topic_choice",
              label = "Choose Topic Number:",
-             choices = unique(data$Cluster)
+             choices = unique(data$Topic)
              )),
              column(9,
                     conditionalPanel(
@@ -74,13 +74,13 @@ navbarPage("PQ Text Analysis",
            fluidRow(
              conditionalPanel(
                condition = "input.cluster_choice.length > 0",
-               plotOutput("cluster_choice")
+               plotOutput("topic_choice")
                )
              ),
              fluidRow(
                conditionalPanel(
                  condition = "input.cluster_choice.length > 0",
-                 dataTableOutput("cluster_documents")
+                 dataTableOutput("topic_documents")
                  )
                )
            ),

@@ -312,8 +312,8 @@ savedf <- data.frame(
   Date = aPQ$Date,
   Answer_Date = aPQ$Answer_Date,
   Corrected_Date = aPQ$Corrected_Date,
-  Cluster = klusters,
-  Cluster_Keywords = clusterKeywordsVec[klusters],
+  Topic = klusters,
+  Topic_Keywords = clusterKeywordsVec[klusters],
   stringsAsFactors = FALSE)
 write.csv(savedf, "MoJwrittenPQs.csv")
 

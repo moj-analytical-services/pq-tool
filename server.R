@@ -44,7 +44,7 @@ function(input, output) {
       #colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 2:7, 9:10,13:15)),
+          list(visible = FALSE, targets = c(0, 2:7, 9:10,13)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
         deferRender = TRUE,
@@ -131,12 +131,12 @@ function(input, output) {
   # how to get datatable on 1st tab to link in?
 
   dfClus <- function(){
-    df <- subset(data, (data$Cluster == input$cluster_choice))
+    df <- subset(data, (data$Topic == input$topic_choice))
   }
 
   wordcloud_df <- function(){
-    df <- dplyr::filter(cluster_data,
-                        (cluster_data$cluster == input$cluster_choice))
+    df <- dplyr::filter(topic_data,
+                        (topic_data$topic == input$topic_choice))
   }
 
   output$wordcloud <- renderPlot(
@@ -145,7 +145,7 @@ function(input, output) {
               min.freq = 0.1)
   )
 
-  output$cluster_choice <- renderPlot({
+  output$topic_choice <- renderPlot({
     p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
       geom_bar(color = "red", fill = "red", width = .5)
     p + xlim(min(data$Date) - 1, max(data$Date) + 1) +
@@ -155,7 +155,7 @@ function(input, output) {
       theme(plot.title = element_text(size = 17, face = "bold"))
   })
 
-  output$cluster_documents <- renderDataTable({
+  output$topic_documents <- renderDataTable({
     datatable(data = dfClus()[, c("Question_Text", "Answer_Text")],
               colnames = c("Question Text", "Answer Text"),
               caption = "Documents contained within the topic:",
@@ -193,7 +193,7 @@ function(input, output) {
   })
 
   output$q_analysis_table <- renderDataTable({
-    datatable(dfMP()[, c("Date", "Question_ID", "Question_Text", "Cluster")]
+    datatable(dfMP()[, c("Date", "Question_ID", "Question_Text", "Topic")]
               #options = c(
               #  searching = FALSE#,
               #colnames = c("Question Date","Question ID", "Question Text", "Cluster")
