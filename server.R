@@ -38,9 +38,7 @@ function(input, output) {
     df()[1:input$points,]
   })
 
-  event.data <- reactive({
-    event_data("plotly_click", source = "select")
-  })
+  
   
   output$similarity_table <- renderDataTable({
     #event.data <- event_data("plotly_click", source = "select")
@@ -117,7 +115,10 @@ function(input, output) {
   
   
   
-  test <- renderPrint(event.data)
+  output$test <- renderPlotly({
+    event.data <-
+      event_data("plotly_click", source = "select")
+  })
   
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
