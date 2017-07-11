@@ -99,7 +99,4 @@ navbarPage("PQ Text Analysis",
              plotOutput("q_analysis_plot"),
              dataTableOutput("q_analysis_table")
            )
-  ),
-  tabPanel("Data",
-           dataTableOutput("data_pane")
   ))
