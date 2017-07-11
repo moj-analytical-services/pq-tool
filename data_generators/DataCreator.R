@@ -252,8 +252,8 @@ klusters <- cutree(hier, k)
 
 m <- as.matrix(tdm)
 #this summarises the top 12 terms per cluster using the summarise function from above.
-topDozenWordsPerCluster <- data.frame(
-  cluster = unlist(lapply(seq(1, k), function(x)rep(x, 12))),
+topDozenWordsPerTopic <- data.frame(
+  topic = unlist(lapply(seq(1, k), function(x)rep(x, 12))),
   word = unlist(lapply(seq(1, k),
            function(x) names(summarise(x, m, k, hier, 12, questionsVec)))),
   freq = unlist(lapply(seq(1, k),
@@ -312,13 +312,13 @@ savedf <- data.frame(
   Date = aPQ$Date,
   Answer_Date = aPQ$Answer_Date,
   Corrected_Date = aPQ$Corrected_Date,
-  Cluster = klusters,
-  Cluster_Keywords = clusterKeywordsVec[klusters],
+  Topic = klusters,
+  Topic_Keywords = clusterKeywordsVec[klusters],
   stringsAsFactors = FALSE)
 write.csv(savedf, "MoJwrittenPQs.csv")
 
 #The information about the clusters
-write.csv(topDozenWordsPerCluster, "topDozenWordsPerCluster.csv")
+write.csv(topDozenWordsPerTopic, "topDozenWordsPerTopic.csv")
 
 ##### APPENDIX #####
 
