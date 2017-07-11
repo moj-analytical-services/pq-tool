@@ -73,13 +73,21 @@ navbarPage("PQ Text Analysis",
              ),
            fluidRow(
              conditionalPanel(
+<<<<<<< HEAD
                condition = "input.topic_choice.length > 0",
+=======
+               condition = "input.cluster_choice.length > 0",
+>>>>>>> 74c38cbb2684384a402705eebdf1e4c9195a8541
                plotOutput("topic_choice")
                )
              ),
              fluidRow(
                conditionalPanel(
+<<<<<<< HEAD
                  condition = "input.topic_choice.length > 0",
+=======
+                 condition = "input.cluster_choice.length > 0",
+>>>>>>> 74c38cbb2684384a402705eebdf1e4c9195a8541
                  dataTableOutput("topic_documents")
                  )
                )
