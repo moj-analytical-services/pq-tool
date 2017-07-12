@@ -10,7 +10,7 @@ navbarPage("PQ Text Analysis",
   tabPanel("Similarity",
            tags$head(includeScript("google-analytics.js")),
     fluidRow(
-      column(6,
+      column(3,
         textInput(inputId = "question",
                   label = "Search Text",
                   width = "100%",
@@ -40,10 +40,12 @@ navbarPage("PQ Text Analysis",
                radioButtons("points", label = 'Number of questions to show',
                             choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
                             selected = 10, inline = TRUE)
-               #textOutput("test")
              )
-      )
-    ),
+      ),
+      column(3,
+             textOutput("test")
+             )
+      ),
     fluidRow(
       column(6,
              conditionalPanel(
