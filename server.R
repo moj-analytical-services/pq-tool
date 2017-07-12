@@ -44,7 +44,7 @@ function(input, output) {
       #colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 2:7, 9:10,13)),
+          list(visible = FALSE, targets = c(0, 2:6, 8:9, 12)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
         deferRender = TRUE,
@@ -58,8 +58,8 @@ function(input, output) {
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
                 var format = function(d) {
                 return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
-                d[6] + '</br>' + '</br>' +
-                'Answer Text: ' + d[7] +  '</div>';
+                d[5] + '</br>' + '</br>' +
+                'Answer Text: ' + d[6] +  '</div>';
                 };
                 table.on('click', 'tr', function() {
                 var row = this.closest('tr');
