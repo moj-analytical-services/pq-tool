@@ -2,6 +2,7 @@ source(file = "global.R")
 ############# UI
 
 navbarPage("PQ Text Analysis",
+           theme = shinytheme("spacelab"),
            footer = column(12, helpText(
                "We would love your feedback on our tool! To complete a quick survey please click",
                a(href="https://www.surveymonkey.co.uk/r/FV9PCT2", target="_blank", "here")
