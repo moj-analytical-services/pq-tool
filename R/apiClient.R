@@ -63,25 +63,32 @@ update_archive <- function(questions_tibble) {
 
 party <- function(member) {
 
-  upper_house_titles <- c('Lord', 'Barroness', 'Earl', 'Viscount', 'Marquess')
+  upper_house_titles <- c('Lord', 'Baroness', 'Earl', 'Viscount', 'Marquess')
 
   member <- gsub('Mr |Ms |Mrs ', '', member)
   member <- strsplit(member, ' ')[[1]]
   
-  member_of_the_upper_house <- any(upper_house_titles %in% member[1:length(member) - 1])
-
-  if(member_of_the_upper_house == TRUE) {return('Not found')}
-
   first  <- member[1]
   last   <- member[2]
-
   member_endpoint <- 'http://lda.data.parliament.uk/members.json'
+  party_api_call  <- str_interp(
+      paste0(
+        "${member_endpoint}?",
+        "familyName=${last}",
+        "&givenName=${first}",
+        "&_view=members",
+        "&_pageSize=10&_page=0"
+      )
+    )
 
-  response <- fromJSON(
-    str_interp("${member_endpoint}?familyName=${last}&givenName=${first}&_view=members&_pageSize=10&_page=0")
-  )
+  member_of_the_upper_house <- any(upper_house_titles %in% member[1:length(member) - 1])
 
-  response$result$items$party[[1]]
+  if(member_of_the_upper_house == TRUE) {
+      return('Not found')
+    } else {
+      response <- fromJSON(party_api_call)
+      return(response$result$items$party[[1]])
+    }
 }
 
 fetch_questions <- function(show_progress = FALSE) {

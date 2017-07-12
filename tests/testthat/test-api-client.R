@@ -202,7 +202,7 @@ test_that('party() cannot retrieve party for members of HoL', {
     party('Viscount Someone'),
     party('Baroness Someone'),
     party('Earl someone'),
-    party('Marquess')
+    party('Marquess someone')
   )
 
   expect_true( all(hol_parties %in% 'Not found') )
