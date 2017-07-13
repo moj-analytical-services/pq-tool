@@ -51,8 +51,8 @@ function(input, output) {
     
     for (i in 0:10) {
       points_in_range <- reactive({
-        subset(plot_points(), plot_points()$Date >= min_date() + (i-1)*90  &
-                 plot_points()$Date <= min_date()+(i+1)*90)
+        subset(df()[1:100], Date >= min_date() + (i-1)*90  &
+                 Date <= min_date()+(i+1)*90)
       })
       score <- reactive({
         sum(points_in_range()$Similarity_score)/as.numeric(input$points) + mean(plot_points()$Similarity_score)
@@ -60,9 +60,7 @@ function(input, output) {
       #df$Date[i] <- as.Date.character(as.Date(as.numeric(min_date())+(i*90), origin = "1970-01-01"))
       df[i,1] <- (min_date()+(i*90))
       df[i,2] <- score()
-      df$X0 <- as.Date(df$X0, format="%Y%m%d", origin = "1970-01-01")
-      #df$V1[i] <- as.Date.character(df[i,1],origin = "1970-01-01")
-    }
+      df$X0 <- as.Date(df$X0, format="%Y%m%d", origin = "1970-01-01")    }
     return(df)
   })
 
@@ -111,7 +109,8 @@ function(input, output) {
     title = "Similarity",
     autotick = TRUE,
     ticks = "",
-    showticklabels = FALSE
+    showticklabels = FALSE,
+    rangemode = "tozero"
   )
 
   output$similarity_plot <- renderPlotly({
