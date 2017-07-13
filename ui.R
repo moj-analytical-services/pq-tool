@@ -10,7 +10,7 @@ navbarPage("PQ Text Analysis",
   tabPanel("Similarity",
            tags$head(includeScript("google-analytics.js")),
     fluidRow(
-      column(6,
+      column(3,
         textInput(inputId = "question",
                   label = "Search Text",
                   width = "100%",
@@ -35,29 +35,51 @@ navbarPage("PQ Text Analysis",
       ),
       
       column(3,
+              conditionalPanel(
+                condition = "input.question.length > 0",
+                 radioButtons("points", label = 'Number of questions to show',
+                             choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
+                             selected = 10, inline = TRUE)
+               
+             )
+      ),
+      column(3,
              conditionalPanel(
                condition = "input.question.length > 0",
-               radioButtons("points", label = 'Number of questions to show',
-                            choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
-                            selected = 10, inline = TRUE)
-               #textOutput("test")
-             )
-      )
+               textOutput("test")
+             ))
     ),
     fluidRow(
       column(6,
              conditionalPanel(
-               condition = "input.question.length > 0",
+               condition = "typeof output.test !== 'undefined' && output.test.length > 0",
                dataTableOutput("similarity_table")
                )
              ),
+      
       column(6,
              conditionalPanel(
-               condition = "input.question.length > 0",
+               condition = "returnNearestMatches() !== null",
                plotlyOutput("similarity_plot", height = 500)
                )
              )
-      )
+      )#,
+    # fluidRow(
+    #   column(6,
+    #          conditionalPanel(
+    #            condition = "returnNearestMatches().length > 6000",
+    #            dataTableOutput("similarity_table")
+    #          )
+    #   ),
+    #   
+    #   column(6,
+    #          conditionalPanel(
+    #            condition = "returnNearestMatches().length > 6000",
+    #            plotlyOutput("similarity_plot", height = 500)
+    #          )
+    #   )
+    # )
+    
     ),
   tabPanel("Topic Analysis",
            fluidRow(column(3,

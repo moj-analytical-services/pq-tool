@@ -15,24 +15,48 @@ function(input, output) {
     outGroup <- JayVees[,
                         .("Similarity_score" = sum(vees)),
                         by = Document ][order(-Similarity_score)]
-    table_output <- outGroup #[1:30]
-    data <- merge.data.frame(table_output,
+    table_output <- outGroup
+    table_output <- merge.data.frame(table_output,
                              data,
                              by.x = "Document",
                              by.y = "Document_Number")
-
-    data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
-    data <- data[with(data, order(-data["Similarity_score"])), ]
-    rownames(data) <- 1:nrow(data)
-    data["Rank"] <- as.numeric(rownames(data))
-    return(data)
+     if( dim(table_output) == c(0,15) ){
+       return(NULL)
+     } else {
+    table_output["Similarity_score"] <- round(table_output["Similarity_score"], digits = 2)
+    table_output <- table_output[with(table_output, order(-table_output["Similarity_score"])), ]
+    rownames(table_output) <- 1:nrow(table_output)
+    table_output["Rank"] <- as.numeric(rownames(table_output))
+    
+    return(table_output)
+    }
   })
 
   df <- reactive({
+    if(!is.null(returnNearestMatches())){
     subset(returnNearestMatches(),
            returnNearestMatches()$Date >= input$q_date_range[1] &
              returnNearestMatches()$Date <= input$q_date_range[2])
+    } else {
+      return(
+        subset(data,
+                    data$Date >= input$q_date_range[1] &
+                      data$Date <= input$q_date_range[2])
+             )
+    }
     })
+  
+  condition <- reactive({
+    if(is.null(returnNearestMatches())){
+    return(0)
+  } else {
+    return(1)
+  }
+  })
+  
+  output$condition <- renderPrint({
+    condition()
+  })
   
   plot_points <- reactive({
     df()[1:input$points,]
@@ -51,7 +75,7 @@ function(input, output) {
         scrollY = 400,
         scroller = TRUE,
         searching = FALSE,
-        paging = FALSE,
+        paging = TRUE,
         server = FALSE
       ),
       callback = JS("
@@ -109,7 +133,9 @@ function(input, output) {
       layout(showlegend = FALSE)
   })
   
-  
+  output$test <- renderPrint({
+   dim(returnNearestMatches()) 
+  })
   
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
