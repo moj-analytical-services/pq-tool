@@ -40,7 +40,6 @@ navbarPage("PQ Text Analysis",
                radioButtons("points", label = 'Number of questions to show',
                             choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
                             selected = 10, inline = TRUE)
-               #textOutput("test")
              )
       )
     ),

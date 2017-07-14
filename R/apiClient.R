@@ -122,6 +122,6 @@ fetch_questions <- function(show_progress = FALSE) {
   }
 
   questions$Party <- mapply(questions$Question_MP, FUN = function(x) { party(x) })
-
-  update_archive(questions)
+  questions
+  # update_archive(questions)
 }

@@ -13,23 +13,26 @@ library(data.table) #Thanks Karik
 library(aws.s3)
 
 # You need to put our AWS credentials in .Renviron for this to work
-latest.searchSpace <- get_bucket(
+search_spaces <- get_bucket(
     bucket = 'parliamentary-questions-tool',
     prefix = 'search_space'
-  )$Contents$Key
-search.space <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest.searchSpace)
+  )
+latest_searchspace <- search_spaces[length(search_spaces)]$Contents$Key
+search.space       <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest_searchspace)
 
-latest.pqs <- get_bucket(
+questions <- get_bucket(
     bucket = 'parliamentary-questions-tool',
-    prefix = 'moj_questions'
-  )$Contents$Key
-data <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest.pqs)
+    prefix = 'processed_questions'
+  )
+latest_questions <- questions[length(questions)]$Contents$Key
+data             <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest_questions)
 
-latest.topDozenWords <- get_bucket(
+top_dozens <- get_bucket(
     bucket = 'parliamentary-questions-tool',
     prefix = 'top_dozen_words'
-  )$Contents$Key
-topic_data <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest.topDozenWords)
+  )
+latest_top_dozen <- top_dozens[length(top_dozens)]$Contents$Key
+topic_data       <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest_top_dozen)
 
 merged_clusters <- ddply(
   data,
