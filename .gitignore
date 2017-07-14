@@ -9,6 +9,7 @@ PQTool_0.1.tar.gz
 packrat/lib*/
 packrat/src/
 .Rhistory
+.Renviron
 Data/.Rhistory
 Data/klusters.rda
 Data/tdm.rda
@@ -16,3 +17,4 @@ data_generators/.Rhistory
 Data/clusterings.rda
 Data/medianpercluster.rda
 Data/silhouettewidths.rda
+*.pem

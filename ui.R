@@ -24,11 +24,11 @@ navbarPage("PQ Text Analysis",
 
                dateRangeInput("q_date_range", 
                               label = "Question Date Range",
-                              format = "dd-mm-yyyy",
-                              min = min(rawData$Date),
-                              max = max(rawData$Date),
-                              start = min(rawData$Date),
-                              end = max(rawData$Date)
+                              format = "yyyy-mm-dd",
+                              min = min(data$Date),
+                              max = max(data$Date),
+                              start = min(data$Date),
+                              end = max(data$Date)
                )
              )
 

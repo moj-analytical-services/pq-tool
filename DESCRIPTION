@@ -25,6 +25,7 @@ Imports:
     testthat,
     lubridate,
     jsonlite,
-    stringr
+    stringr,
+    aws.s3
 License: MIT License
 LazyData: true
