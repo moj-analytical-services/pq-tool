@@ -35,7 +35,18 @@ function(input, output) {
     })
   
   plot_points <- reactive({
-    df()[1:input$points,]
+    cols <- c(
+      'Question_Text',
+      'Answer_Text',
+      'Similarity_score',
+      'Rank',
+      'Question_MP',
+      'Date',
+      'Answer_Date',
+      'Topic',
+      'Topic_Keywords'
+    )
+    df()[1:input$points, cols]
   })
 
   output$similarity_table <- renderDataTable({
@@ -44,7 +55,7 @@ function(input, output) {
       #colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 2:6, 8:9, 12)),
+          list(visible = FALSE, targets = c(0, 2, 3, 4)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
         deferRender = TRUE,
@@ -58,8 +69,8 @@ function(input, output) {
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
                 var format = function(d) {
                 return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
-                d[5] + '</br>' + '</br>' +
-                'Answer Text: ' + d[6] +  '</div>';
+                d[2] + '</br>' + '</br>' +
+                'Answer Text: ' + d[3] +  '</div>';
                 };
                 table.on('click', 'tr', function() {
                 var row = this.closest('tr');

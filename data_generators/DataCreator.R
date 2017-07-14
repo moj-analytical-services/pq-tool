@@ -42,6 +42,7 @@ library(dplyr)
 library(slam)
 library(stringr)
 library(optparse)
+library(aws.s3)
 
 #GRAB COMMAND LINE ARGS
 
@@ -330,14 +331,10 @@ print('Saving the output')
 #save(lsaOut,file = "lsaOut.rda")
 #save(klusters,file = "klusters.rda")
 
-save_location = opt$output_dir
-setwd(save_location)
-
-save(search.space, file = "searchSpace.rda")
-
 #Save data to be directly loaded in to Tableau
 
 #The questions and their data (including cluster)
+
 savedf <- data.frame(
   Document_Number = seq_along(aPQ$Question_ID),
   Question_ID = aPQ$Question_ID,
@@ -348,14 +345,38 @@ savedf <- data.frame(
   Answer_MP = aPQ$Answer_MP,
   Date = aPQ$Date,
   Answer_Date = aPQ$Answer_Date,
-  Corrected_Date = aPQ$Corrected_Date,
+  # Corrected_Date = aPQ$Corrected_Date,
   Topic = klusters,
   Topic_Keywords = clusterKeywordsVec[klusters],
   stringsAsFactors = FALSE)
-write.csv(savedf, "MoJwrittenPQs.csv")
 
-#The information about the clusters
-write.csv(topDozenWordsPerTopic, "topDozenWordsPerTopic.csv")
+save_location = opt$output_dir
+
+if(save_location == 's3') {
+
+  bucket = 'parliamentary-questions-tool'
+
+    s3saveRDS(
+      search.space,
+      bucket = bucket,
+      object = str_interp("search_space-${Sys.Date()}.rds")
+    )
+    s3saveRDS(
+      savedf,
+      bucket = bucket,
+      object = str_interp("moj_questions-${Sys.Date()}.rds")
+    )
+    s3saveRDS(
+      topDozenWordsPerTopic,
+      bucket = bucket,
+      object = str_interp("top_dozen_words-${Sys.Date()}.rds")
+    )
+  } else {
+    setwd(save_location)
+    save(search.space, file = "searchSpace.rda")
+    write.csv(savedf, "MoJwrittenPQs.csv")
+    write.csv(topDozenWordsPerTopic, "topDozenWordsPerTopic.csv")
+  }
 
 ##### APPENDIX #####
 
