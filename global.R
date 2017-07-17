@@ -67,14 +67,15 @@ vocab <- search.space$dimnames[[1]]
 #the dataCreator.R file
 
 queryVec <- function(query){
-  query <- query %>% iconv(to = "utf-8", sub = "byte") %>%
-    gsub("[^[:alnum:\\s]]", "", .) %>%
+  query <- query %>% iconv(to = "utf-8", sub = "") %>%
+    gsub("-", " ", .) %>%
+    gsub("[^(A-Z a-z 0-9 //s)]", "", .) %>%
     removePunctuation() %>%
-    stripWhitespace() %>%
     removeWords(c("Justice")) %>%
     tolower() %>%
     gsub("probation", "probatn", .) %>%
     removeWords(stopwordList) %>%
+    stripWhitespace() %>%
     strsplit(" ") %>%
     sapply(stemDocument) %>%
     (function(vec){
@@ -82,3 +83,4 @@ queryVec <- function(query){
     })
   return(which(vocab %in% query))
 }
+
