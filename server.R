@@ -51,7 +51,7 @@ function(input, output) {
     
     for (i in 0:10) {
       points_in_range <- reactive({
-        subset(df()[1:100], Date >= min_date() + (i-1)*90  &
+        subset(df(), Date >= min_date() + (i-1)*90  &
                  Date <= min_date()+(i+1)*90)
       })
       score <- reactive({
@@ -77,7 +77,7 @@ function(input, output) {
         scrollY = 400,
         scroller = TRUE,
         searching = FALSE,
-        paging = FALSE,
+        paging = TRUE,
         server = FALSE
       ),
       callback = JS("
@@ -127,6 +127,12 @@ function(input, output) {
                family='Arial',
                size=14,
                color='#696969')) %>%
+      add_trace(x = plot_points()$Date[input$similarity_table_rows_current], 
+                y = plot_points()$Similarity_score[input$similarity_table_rows_current], 
+                type = "scatter", mode = 'markers', # marker = list(size = 12),
+                text = NULL,
+                hoverinfo = "text" 
+      ) %>%
       add_trace(x = plot_points()$Date[input$similarity_table_rows_selected], 
                 y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
                 type = "scatter", mode = 'markers', marker = list(size = 12),
