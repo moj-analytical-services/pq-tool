@@ -1,3 +1,5 @@
+library(tidyverse)
+
 last_answer_date <- function() {
   archive <- read_csv(ARCHIVE_FILEPATH())
   max(archive$Answer_Date)
@@ -19,33 +21,18 @@ number_to_fetch <- function() {
   }
 }
 
-parse_response <- function(response) {
-  useful_cols <- c(
-    'uin',
-    'question text',
-    'answer > answer text',
-    'tabling member printed',
-    'tabling member constituency',
-    'answer > answering member printed',
-    'date',
-    'answer > date of answer'
-  )
+parse_response <- function(raw_response) {
 
-  new_colnames <- c(
-    'Question_ID',
-    'Question_Text',
-    'Answer_Text',
-    'Question_MP',
-    'MP_Constituency',
-    'Answer_MP',
-    'Date',
-    'Answer_Date'
+  tibble(
+    Question_MP     = do.call("rbind", raw_response$tablingMemberPrinted)$'_value',
+    Question_Text   = raw_response$questionText,
+    Question_ID     = raw_response$uin,
+    MP_Constituency = raw_response$tablingMemberConstituency$'_value',
+    Question_Date   = raw_response$date$'_value',
+    Answer_Text     = raw_response$answer$answerText$'_value',
+    Answer_MP       = raw_response$answer$answeringMemberPrinted$'_value',
+    Answer_Date     = raw_response$answer$dateOfAnswer$'_value'
   )
-
-  response <- response[useful_cols]
-  colnames(response) <- new_colnames
-  response$Answer_Text <- gsub('<.{1,2}>', '', response$Answer_Text)
-  response
 }
 
 update_archive <- function(questions_tibble) {
@@ -101,7 +88,7 @@ fetch_questions <- function(show_progress = FALSE) {
   questions      <- tibble()
   download_size  <- "_pageSize=1000"
   answering_body <- "AnsweringBody.=Ministry+of+Justice"
-  API_endpoint   <- "http://lda.data.parliament.uk/answeredquestions.csv"
+  API_endpoint   <- "http://lda.data.parliament.uk/answeredquestions.json"
 
   if(file.exists(ARCHIVE_FILEPATH())) {
     date        <- last_answer_date()
@@ -116,12 +103,11 @@ fetch_questions <- function(show_progress = FALSE) {
     page       <- iteration - 1
     page_param <- str_interp("_page=${page}")
     if(show_progress == TRUE) { print(str_interp("Fetching page ${iteration} of ${iterations}")) }
-    response   <- read_csv(str_interp("${API_endpoint}?${base_params}&${page_param}"))
-    response   <- parse_response(response)
-    questions  <- rbind(questions, response)
+    response   <- fromJSON(str_interp("${API_endpoint}?${base_params}&_sort=date&${page_param}"))
+    parsed_response <- parse_response(response$result$items)
+    update_archive(parsed_response)
   }
 
-  questions$Party <- mapply(questions$Question_MP, FUN = function(x) { party(x) })
-  questions
-  # update_archive(questions)
+  # questions$Party <- mapply(questions$Question_MP, FUN = function(x) { party(x) })
+
 }

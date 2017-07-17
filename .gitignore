@@ -17,4 +17,5 @@ data_generators/.Rhistory
 Data/clusterings.rda
 Data/medianpercluster.rda
 Data/silhouettewidths.rda
+Data/archived_pqs.csv
 *.pem

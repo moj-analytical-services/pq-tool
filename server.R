@@ -67,6 +67,7 @@ function(input, output) {
       callback = JS("
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
                 var format = function(d) {
+                d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>')
                 return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
                 d[2] + '</br>' + '</br>' +
                 'Answer Text: ' + d[3] +  '</div>';
@@ -117,15 +118,15 @@ function(input, output) {
             add_trace(., 
               x = plot_points()$Date[input$similarity_table_rows_selected], 
               y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
-              type = "scatter", mode = 'markers', marker = list(size = 12),
+              type = "scatter",
+              mode = 'markers',
+              marker = list(size = 12),
               text = NULL,
               hoverinfo = "text"
             )
           } else { . } 
       }
   })
-  
-  
   
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
