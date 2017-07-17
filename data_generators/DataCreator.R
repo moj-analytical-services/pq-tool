@@ -94,25 +94,27 @@ stopwordList <- c(
 #that we are consistent in how we are treating search text and PQ text.
 cleanCorpus <- function(corp) {
   corp <- corp %>%
-            tm_map(
-              content_transformer(
-                function(x) iconv(x, to = "utf-8", sub = "byte"))
-              ) %>%
-            tm_map(function(x) gsub("[^[:alnum:\\s]]", "", x)) %>%
-            tm_map(removePunctuation) %>%
-            tm_map(stripWhitespace) %>%
-  #we now remove Justice with a capital J here before the transformation to lower
-  #case, because this deals with the fact that a lot of questions start with "To ask
-  #the Secretary of State for Justice" without losing potential information about eg
-  #access to justice related questions
-            tm_map(function(x) removeWords(x, c("Justice"))) %>%
-            tm_map(content_transformer(tolower)) %>%
-  #now replace instances of the word "probation" with "probatn" to avoid the
-  #issue with "probate" and "probation" being stemmed to the same thing.
-            tm_map(content_transformer(
-              function(x) gsub("probation", "probatn", x))
-              ) %>%
-            tm_map(function(x) removeWords(x, stopwordList))
+    tm_map(
+      content_transformer(
+        function(x) iconv(x, to = "utf-8", sub = ""))
+    ) %>%
+    #replace hyphens with spaces
+    tm_map(function(x) gsub("-", " ", x)) %>%
+    #get rid of all other non-alphanumeric symbols
+    tm_map(function(x) gsub("[^(A-Z a-z 0-9 //s)]", "", x)) %>%
+    #we now remove Justice with a capital J here before the transformation to lower
+    #case, because this deals with the fact that a lot of questions start with "To ask
+    #the Secretary of State for Justice" without losing potential information about eg
+    #access to justice related questions
+    tm_map(function(x) removeWords(x, c("Justice"))) %>%
+    tm_map(content_transformer(tolower)) %>%
+    #now replace instances of the word "probation" with "probatn" to avoid the
+    #issue with "probate" and "probation" being stemmed to the same thing.
+    tm_map(content_transformer(
+      function(x) gsub("probation", "probatn", x))
+    ) %>%
+    tm_map(function(x) removeWords(x, stopwordList)) %>%
+    tm_map(stripWhitespace)
 }
 
 #a function useful in debugging so you can read a given document in a given corpus easily
@@ -236,7 +238,7 @@ print(str_interp('K has been set to ${k}'))
 #read in questions
 print('Reading questions')
 aPQ <- read.csv(file, stringsAsFactors = F)
-questionsVec <- aPQ$Question_Text %>% iconv(to = "utf-8", sub = "byte")
+questionsVec <- aPQ$Question_Text
 
 #MAKE THE TERM-DOCUMENT MATRIX AND LATENT SEMANTIC ANALYSIS SPACE
 print('Making the TDM')
@@ -256,6 +258,7 @@ tdm <- TermDocumentMatrix(
 
 #Create the latent semantic space. The idea is that it creates a basis of variation, like a PCA, and
 #allows you to cut down the number of dimensions you need. 
+print('Making the LSA')
 lsaAll <- lsa(tdm, dims = dimcalc_raw())
 
 #CLUSTERING
