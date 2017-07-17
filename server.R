@@ -105,18 +105,24 @@ function(input, output) {
                   hoverinfo = "text"
       )%>%
       layout(yaxis = y_axis,
+             showlegend = FALSE,
              title = "How similar question is to search phrase, and when it was asked",
              titlefont=list(
                family='Arial',
                size=14,
                color='#696969')) %>%
-      add_trace(x = plot_points()$Date[input$similarity_table_rows_selected], 
-                y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
-                type = "scatter", mode = 'markers', marker = list(size = 12),
-                text = NULL,
-                hoverinfo = "text" 
-      ) %>%
-      layout(showlegend = FALSE)
+      
+      {
+        if(length(input$similarity_table_rows_selected > 0)) {
+            add_trace(., 
+              x = plot_points()$Date[input$similarity_table_rows_selected], 
+              y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
+              type = "scatter", mode = 'markers', marker = list(size = 12),
+              text = NULL,
+              hoverinfo = "text"
+            )
+          } else { . } 
+      }
   })
   
   
