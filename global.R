@@ -10,6 +10,7 @@ library(lsa)
 library(cluster)
 library(slam)
 library(data.table) #Thanks Karik
+library(shinythemes)
 library(shinyBS)
 
 load(file = "./Data/searchSpace.rda")

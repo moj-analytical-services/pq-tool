@@ -37,6 +37,32 @@ function(input, output, session) {
   plot_points <- reactive({
     df()[1:input$points,]
   })
+  
+  min_date <- reactive({
+    min(plot_points()$Date)
+  })
+  
+  max_date <-reactive({
+    max(plot_points()$Date)
+  })
+  
+  line_points <- reactive({
+    df <- data.frame(0,0)
+    
+    for (i in 0:10) {
+      points_in_range <- reactive({
+        subset(df(), Date >= min_date() + (i-1)*90  &
+                 Date <= min_date()+(i+1)*90)
+      })
+      score <- reactive({
+        sum(points_in_range()$Similarity_score)/as.numeric(input$points) + mean(plot_points()$Similarity_score)
+      })
+      #df$Date[i] <- as.Date.character(as.Date(as.numeric(min_date())+(i*90), origin = "1970-01-01"))
+      df[i,1] <- (min_date()+(i*90))
+      df[i,2] <- score()
+      df$X0 <- as.Date(df$X0, format="%Y%m%d", origin = "1970-01-01")    }
+    return(df)
+  })
 
   output$similarity_table <- renderDataTable({
     datatable(
@@ -51,7 +77,7 @@ function(input, output, session) {
         scrollY = 400,
         scroller = TRUE,
         searching = FALSE,
-        paging = FALSE,
+        paging = TRUE,
         server = FALSE
       ),
       callback = JS("
@@ -91,7 +117,8 @@ function(input, output, session) {
     title = "Similarity",
     autotick = TRUE,
     ticks = "",
-    showticklabels = FALSE
+    showticklabels = FALSE,
+    rangemode = "tozero"
   )
 
   output$similarity_plot <- renderPlotly({
@@ -108,12 +135,26 @@ function(input, output, session) {
                family='Arial',
                size=14,
                color='#696969')) %>%
+      add_trace(x = plot_points()$Date[input$similarity_table_rows_current], 
+                y = plot_points()$Similarity_score[input$similarity_table_rows_current], 
+                type = "scatter", mode = 'markers', # marker = list(size = 12),
+                text = NULL,
+                hoverinfo = "text" 
+      ) %>%
       add_trace(x = plot_points()$Date[input$similarity_table_rows_selected], 
                 y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
                 type = "scatter", mode = 'markers', marker = list(size = 12),
                 text = NULL,
-                hoverinfo = "text") %>%
+                hoverinfo = "text" 
+      ) %>%
+      add_trace(x = line_points()$X0,
+                y = line_points()$X0.1,
+                mode = 'lines',
+                text = NULL,
+                hoverinfo = "text"
+      ) %>%
       config(displayModeBar = F) %>%
+
       layout(showlegend = FALSE)
   })
   
