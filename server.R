@@ -2,7 +2,7 @@
 
 ############### Server
 
-function(input, output) {
+function(input, output, session) {
 ### Similarity Pane
 
   returnNearestMatches <- reactive({
@@ -104,6 +104,14 @@ function(input, output) {
     )
   })
   
+  addPopover(session, "similarity_table", "What does this table show?",
+             content = paste0("<p> This table shows the past PQs that are most similar to your search (with the most",
+                              " similar questions are at the top). </p><p> You can click any row to see the question text,",
+                              " or reorder the results by clicking on the column headings. </br> </br> All the questions in",
+                              " our database have been grouped into topics by an algorithm and given Topic numbers. Try",
+                              " entering one of the topic numbers you see here into the box at the top of the \'Topic ",
+                              "Analysis\' page.</p>"), trigger = 'hover', placement = 'right', options = list(container = "body"))
+  
   
    y_axis <- list(
     title = "Similarity",
@@ -145,9 +153,17 @@ function(input, output) {
                 text = NULL,
                 hoverinfo = "text"
       ) %>%
+      config(displayModeBar = F) %>%
+
       layout(showlegend = FALSE)
   })
   
+  addPopover(session, "similarity_plot", "What does this plot show?",
+             content = paste0("<p>This graph plots Similarity on the y axis against Time on the x axis.</p><p>",
+                              "Each point represents a past PQ from our database with the height showing ",
+                              "how similar the PQ is to the search terms (higher = more similar) and when ",
+                              "they were asked. </p>"), trigger = 'hover', placement = 'left')
+
   
   
   # q_text <- reactive({
