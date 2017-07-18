@@ -37,18 +37,18 @@ navbarPage("PQ Text Analysis",
                          "auto", options = list(container = "body"))
              )
 
-      ),
-      
-      column(3,
-             conditionalPanel(
-               condition = "input.question.length > 0",
-               radioButtons("points", label = 'Number of questions to show',
-                            choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
-                            selected = 10, inline = TRUE
-               ),
-               bsTooltip("points", "Choose the number of results to show.", placement = "top", options = list(container = "body"))
-               #textOutput("test")
-             )
+      # ),
+      # 
+      # column(3,
+      #        conditionalPanel(
+      #          condition = "input.question.length > 0",
+      #          radioButtons("points", label = 'Number of questions to show',
+      #                       choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
+      #                       selected = 10, inline = TRUE
+      #          ),
+      #          bsTooltip("points", "Choose the number of results to show.", placement = "top", options = list(container = "body"))
+      #          #textOutput("test")
+      #        )
       )
     ),
     fluidRow(
