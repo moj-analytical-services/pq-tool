@@ -1,10 +1,8 @@
 ?source(file = "global.R")
-
 ############### Server
 
 function(input, output) {
 ### Similarity Pane
-
   returnNearestMatches <- reactive({
     space <- search.space
     foundWords <- which(space$i %in% queryVec(input$question))
@@ -35,16 +33,26 @@ function(input, output) {
     })
   
   plot_points <- reactive({
-    df()[1:input$points,]
+    cols <- c(
+      'Question_Text',
+      'Answer_Text',
+      'Similarity_score',
+      'Rank',
+      'Question_MP',
+      'Date',
+      'Answer_Date',
+      'Topic',
+      'Topic_Keywords'
+    )
+    df()[1:input$points, cols]
   })
 
   output$similarity_table <- renderDataTable({
     datatable(
       cbind(' ' = '&oplus;', plot_points()), escape = -2,
-      #colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 2:7, 9:10,13)),
+          list(visible = FALSE, targets = c(0, 2, 3, 4)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
         deferRender = TRUE,
@@ -57,9 +65,10 @@ function(input, output) {
       callback = JS("
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
                 var format = function(d) {
+                d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>')
                 return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
-                d[6] + '</br>' + '</br>' +
-                'Answer Text: ' + d[7] +  '</div>';
+                d[2] + '</br>' + '</br>' +
+                'Answer Text: ' + d[3] +  '</div>';
                 };
                 table.on('click', 'tr', function() {
                 var row = this.closest('tr');
@@ -95,21 +104,27 @@ function(input, output) {
                   hoverinfo = "text"
       )%>%
       layout(yaxis = y_axis,
+             showlegend = FALSE,
              title = "How similar question is to search phrase, and when it was asked",
              titlefont=list(
                family='Arial',
                size=14,
                color='#696969')) %>%
-      add_trace(x = plot_points()$Date[input$similarity_table_rows_selected], 
-                y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
-                type = "scatter", mode = 'markers', marker = list(size = 12),
-                text = NULL,
-                hoverinfo = "text" 
-      ) %>%
-      layout(showlegend = FALSE)
+      
+      {
+        if(length(input$similarity_table_rows_selected > 0)) {
+            add_trace(., 
+              x = plot_points()$Date[input$similarity_table_rows_selected], 
+              y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
+              type = "scatter",
+              mode = 'markers',
+              marker = list(size = 12),
+              text = NULL,
+              hoverinfo = "text"
+            )
+          } else { . } 
+      }
   })
-  
-  
   
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
