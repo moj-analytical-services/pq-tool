@@ -600,6 +600,10 @@ Source: CRAN
 Version: 0.61
 Hash: 4644935bd93e62a0b82686b26af7efc2
 Requires: htmltools, shiny
+GithubRepo: shiny
+GithubUsername: rstudio
+GithubRef: master
+GithubSha1: 1633e7faa66c28c534c54af250b7cd01472050c9
 
 Package: shinytest
 Source: github

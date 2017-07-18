@@ -1,10 +1,8 @@
 ?source(file = "global.R")
-
 ############### Server
 
 function(input, output, session) {
 ### Similarity Pane
-
   returnNearestMatches <- reactive({
     space <- search.space
     foundWords <- which(space$i %in% queryVec(input$question))
@@ -188,7 +186,6 @@ function(input, output, session) {
                               "how similar the PQ is to the search terms (higher = more similar). ",
                               " </p>"), trigger = 'hover', placement = 'left')
 
-  
   
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
