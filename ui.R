@@ -54,9 +54,9 @@ navbarPage("PQ Text Analysis",
       column(6,
              conditionalPanel(
                condition = "input.question.length > 0",
-               dataTableOutput("similarity_table"),
-               bsTooltip("similarity_table", "This table shows the past PQs that are most similar to your search (with the most similar questions are at the top). </br> </br> You can click any row to see the question text, or reorder the results by clicking on the column headings. </br> </br> All the questions in our database have been grouped into topics by an algorithm and given Topic numbers. Try entering one of the topic numbers you see here into the box at the top of the \\'Topic Analysis\\' page.",
-                         "right", options = list(container = "body"))
+               dataTableOutput("similarity_table")#,
+               # bsTooltip("similarity_table", "This table shows the past PQs that are most similar to your search (with the most similar questions are at the top). </br> </br> You can click any row to see the question text, or reorder the results by clicking on the column headings. </br> </br> All the questions in our database have been grouped into topics by an algorithm and given Topic numbers. Try entering one of the topic numbers you see here into the box at the top of the \\'Topic Analysis\\' page.",
+               #           "right", options = list(container = "body"))
                )
              ),
       column(6,
