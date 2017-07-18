@@ -35,7 +35,7 @@ function(input, output, session) {
     })
   
   plot_points <- reactive({
-    df()[1:input$points,]
+    df()[1:100,]
   })
   
   min_date <- reactive({
@@ -55,7 +55,7 @@ function(input, output, session) {
                  Date <= min_date()+(i+1)*90)
       })
       score <- reactive({
-        sum(points_in_range()$Similarity_score)/as.numeric(input$points) + mean(plot_points()$Similarity_score)
+        sum(points_in_range()$Similarity_score)/100 + mean(plot_points()$Similarity_score)
       })
       #df$Date[i] <- as.Date.character(as.Date(as.numeric(min_date())+(i*90), origin = "1970-01-01"))
       df[i,1] <- (min_date()+(i*90))
@@ -74,10 +74,12 @@ function(input, output, session) {
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
         deferRender = TRUE,
-        scrollY = 400,
+        #scrollY = 400,
         scroller = TRUE,
         searching = FALSE,
         paging = TRUE,
+        lengthChange = FALSE,
+        pageLength = 8,
         server = FALSE
       ),
       callback = JS("
@@ -124,45 +126,54 @@ function(input, output, session) {
   output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = plot_points()$Date) %>%
       add_markers(y = plot_points()$Similarity_score,
+                  name = 'Top 100 Qs',
                   text = ~paste("Rank:", plot_points()$Rank,
                                 "<br> Member HoC/HoL:", plot_points()$Question_MP,
                                 "<br> Date:", plot_points()$Date ),
                   hoverinfo = "text"
       )%>%
       layout(yaxis = y_axis,
-             title = "How similar question is to search phrase, and when it was asked",
+             title = "Top 100 questions most similar to your search",
              titlefont=list(
                family='Arial',
                size=14,
                color='#696969')) %>%
       add_trace(x = plot_points()$Date[input$similarity_table_rows_current], 
-                y = plot_points()$Similarity_score[input$similarity_table_rows_current], 
+                y = plot_points()$Similarity_score[input$similarity_table_rows_current],
+                name = "Current Table Page",
                 type = "scatter", mode = 'markers', # marker = list(size = 12),
-                text = NULL,
+                text = ~paste("Rank:", plot_points()$Rank[input$similarity_table_rows_current],
+                              "<br> Member HoC/HoL:", plot_points()$Question_MP[input$similarity_table_rows_current],
+                              "<br> Date:", plot_points()$Date[input$similarity_table_rows_current] ),
                 hoverinfo = "text" 
       ) %>%
       add_trace(x = plot_points()$Date[input$similarity_table_rows_selected], 
                 y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
-                type = "scatter", mode = 'markers', marker = list(size = 12),
-                text = NULL,
-                hoverinfo = "text" 
-      ) %>%
-      add_trace(x = line_points()$X0,
-                y = line_points()$X0.1,
-                mode = 'lines',
+                name = 'Qs selected',
+                type = "scatter", mode = 'markers', marker = list(size = 12, color = "red"),
                 text = NULL,
                 hoverinfo = "text"
       ) %>%
+      add_trace(x = line_points()$X0,
+                y = line_points()$X0.1,
+                name = "Trendline",
+                type = 'scatter',
+                mode = 'lines',
+                line = list(                                       # line is a named list, valid keys: /r/reference/#scatter-line
+                  color = "green"),
+                text = NULL,
+                hoverinfo = "text"
+                
+      ) %>%
       config(displayModeBar = F) %>%
-
-      layout(showlegend = FALSE)
+      layout(legend = list(orientation = 'h'))
   })
   
   addPopover(session, "similarity_plot", "What does this plot show?",
              content = paste0("<p>This graph plots Similarity on the y axis against Time on the x axis.</p><p>",
                               "Each point represents a past PQ from our database with the height showing ",
-                              "how similar the PQ is to the search terms (higher = more similar) and when ",
-                              "they were asked. </p>"), trigger = 'hover', placement = 'left')
+                              "how similar the PQ is to the search terms (higher = more similar). ",
+                              " </p>"), trigger = 'hover', placement = 'left')
 
   
   
