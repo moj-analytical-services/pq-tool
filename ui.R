@@ -8,7 +8,7 @@ navbarPage("PQ Text Analysis",
                a(href="https://www.surveymonkey.co.uk/r/FV9PCT2", target="_blank", "here")
              )
              ),
-  tabPanel("Similarity",
+  tabPanel("Search",
            tags$head(includeScript("google-analytics.js")),
     fluidRow(
       column(6,
