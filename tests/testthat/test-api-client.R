@@ -12,11 +12,7 @@ cols                <- colnames(read_csv(dummy_data_filepath))
 answering_body      <- "AnsweringBody.=Ministry+of+Justice"
 date_filter         <- "min-answer.dateOfAnswer=2017-03-23"
 
-dummy_api_response <- function() {
-  csv <- read.csv(dummy_data_filepath)
-  colnames(csv) <- cols
-  csv
-}
+dummy_pqs_api_response <- readRDS(file.path(SHINY_ROOT, 'tests/testthat/examples', 'archived_pqs.rds'))
 
 dummy_member_api_response <- function() {
   party           <- 'Party'
@@ -72,7 +68,7 @@ test_that("fetch_questions() calls the API with the correct params", {
   page_param        <- "_page=0"
   download_size     <- "_pageSize=1000"
   expected_API_call <- str_interp(
-    "${expected_endpoint}.csv?${date_filter}&${answering_body}&${download_size}&${page_param}"
+    "${expected_endpoint}.json?${date_filter}&${answering_body}&${download_size}&_sort=date&${page_param}"
   )
 
   with_mock(
@@ -82,9 +78,9 @@ test_that("fetch_questions() calls the API with the correct params", {
     `number_to_fetch`  = function()                    { 1000         },
     `update_archive`   = function(questions)           { NULL         },
     `party`            = function(member)              { 'party'      },
-    `readr::read_csv`  = function(actual_API_call) {
+    `jsonlite::fromJSON` = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
-      dummy_api_response()
+      dummy_pqs_api_response
     },
     fetch_questions()
   )
@@ -121,7 +117,7 @@ test_that("fetch_questions() calls the API with the correct params", {
   page_param        <- "_page=0"
   download_size     <- "_pageSize=1000"
   expected_API_call <- str_interp(
-    "${expected_endpoint}.csv?${answering_body}&${download_size}&${page_param}"
+    "${expected_endpoint}.json?${answering_body}&${download_size}&_sort=date&${page_param}"
   )
 
   with_mock(
@@ -131,9 +127,9 @@ test_that("fetch_questions() calls the API with the correct params", {
     `write_csv`       = function(questions, filepath) { NULL    },
     `update_archive`  = function(questions)           { NULL    },
     `party`           = function(member)              { 'party' },
-    `readr::read_csv` = function(actual_API_call) {
+    `jsonlite::fromJSON` = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
-      dummy_api_response()
+      dummy_pqs_api_response
     },
 
     fetch_questions()
@@ -146,8 +142,8 @@ test_that("fetch_questions creates an archive file if one does not already exist
     `file.exists`     = function(filepath) { FALSE   },
     `number_to_fetch` = function()         { 1000    },
     `party`           = function(memeber)  { 'party' },
-    `readr::read_csv` = function(actual_API_call) {
-      dummy_api_response()
+    `jsonlite::fromJSON` = function(actual_API_call) {
+      dummy_pqs_api_response
     },
     `write_csv`      = function(questions, filepath) { NULL },
     `update_archive` = function(new_questions)       { NULL }, 
@@ -170,14 +166,14 @@ test_that("fetch_questions() downloads new questions and calls the update_archiv
     `number_to_fetch`   = function()         { 3000    },
     `file.create`       = function(filepath) { NULL    },
     `party`             = function(member)   { 'party' },
-    `readr::read_csv` = function(actual_API_call) {
-      dummy_api_response()
+    `jsonlite::fromJSON` = function(actual_API_call) {
+      dummy_pqs_api_response
     },
 
     `update_archive` = function(questions) {
       expect_equal(
         nrow(questions),
-        3000
+        1000
       )
     },
 
@@ -243,31 +239,23 @@ test_that('party() calls the API with the correct params', {
 
 context('api response parser')
 
-html_present <- function(list) {
-  bools_list <- grepl('<.{1,2}>', list)
-  T %in% bools_list
-}
-
-test_that("html tags are removed from answer text and colnames are correct", {
-  initial_response <- read_csv(dummy_data_filepath)
-  initial_answers  <- initial_response$'answer > answer text'
-  parsed_response  <- parse_response(initial_response)
+test_that("colnames are correct", {
+  initial_response <- dummy_pqs_api_response
+  parsed_response  <- parse_response(initial_response$result$items)
   parsed_answers   <- parsed_response$Answer_Text
   actual_cols      <- colnames(parsed_response)
   expected_cols    <- c(
-    'Question_ID',
-    'Question_Text',
-    'Answer_Text',
     'Question_MP',
+    'Question_Text',
+    'Question_ID',
     'MP_Constituency',
+    'Question_Date',
+    'Answer_Text',
     'Answer_MP',
-    'Date',
     'Answer_Date'
   )
 
   expect_equal(actual_cols, expected_cols)
-  expect_true(html_present(initial_answers))
-  expect_false(html_present(parsed_answers))
 })
 
 context('update_archive')

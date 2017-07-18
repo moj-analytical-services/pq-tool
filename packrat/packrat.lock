@@ -699,14 +699,10 @@ Hash: 285738eaa6b3785382ca7df76f5a7af1
 Requires: RColorBrewer, Rcpp, slam
 
 Package: xml2
-Source: github
+Source: CRAN
 Version: 1.1.1
-Hash: 8ce0e117613c15d0c44eaae480fc2b5d
+Hash: 19ad10ef8e73cb435eb49f9d5d259980
 Requires: BH, Rcpp
-GithubRepo: xml2
-GithubUsername: hadley
-GithubRef: master
-GithubSha1: c84db5e12d5e23847061caa8ac5dfacb867aa690
 
 Package: xmlparsedata
 Source: github

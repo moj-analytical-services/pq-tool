@@ -26,6 +26,7 @@ Imports:
     lubridate,
     jsonlite,
     stringr,
-    aws.s3
+    aws.s3,
+    curl
 License: MIT License
 LazyData: true
