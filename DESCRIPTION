@@ -25,6 +25,8 @@ Imports:
     testthat,
     lubridate,
     jsonlite,
-    stringr
+    stringr,
+    shinythemes,
+    shinyBS
 License: MIT License
 LazyData: true
