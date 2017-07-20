@@ -98,18 +98,18 @@ navbarPage("PQ Text Analysis",
                )
            ),
 
-  tabPanel("MP Analysis",
+  tabPanel("Member Analysis",
            fluidRow(
              column(3,
             radioButtons(inputId = "member_analysis",
-                                    label = "Choose a House",
+                                    label = "Choose a House:",
                                     choices = c("Lords", "Commons"),
                                     inline = TRUE)
              ),
             column(3,
                uiOutput("member_ui"),
-             bsTooltip("member_ui", "Enter a topic number from the previous page. You can do 
-                      this by selecting a number from the dropdown or simply typing it into the box.",
+             bsTooltip("person_choice", "Now you have chosen a house, choose an MP/Peer. You can do 
+                      this by selecting one from the dropdown or simply typing their name into the box.",
                       "right", options = list(container = "body")))),
            fluidRow(
              column(4),
