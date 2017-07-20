@@ -26,6 +26,8 @@ Imports:
     lubridate,
     jsonlite,
     stringr,
+    aws.s3,
+    curl
     shinythemes,
     shinyBS
 License: MIT License

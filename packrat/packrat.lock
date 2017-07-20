@@ -470,6 +470,16 @@ Version: 0.2.2.2
 Hash: faada139260184912fea03f3fea13842
 Requires: Rcpp, lazyeval, magrittr, tibble
 
+Package: ramazon
+Source: github
+Version: 0.1
+Hash: ab3686fcb55f7309e182e7e8b73dc3b7
+Requires: XML
+GithubRepo: ramazon
+GithubUsername: andreacirilloac
+GithubRef: master
+GithubSha1: 16bb6d13a42860daedad15d96b6fb08289b08c0b
+
 Package: rappdirs
 Source: CRAN
 Version: 0.3.1
@@ -715,14 +725,10 @@ Hash: ea1f721cdfee3799c61e8486878db2c0
 Requires: RColorBrewer, Rcpp, slam
 
 Package: xml2
-Source: github
+Source: CRAN
 Version: 1.1.1
-Hash: fc38a42144cd78e86c15843e39a471f0
+Hash: 19ad10ef8e73cb435eb49f9d5d259980
 Requires: BH, Rcpp
-GithubRepo: xml2
-GithubUsername: hadley
-GithubRef: master
-GithubSha1: c84db5e12d5e23847061caa8ac5dfacb867aa690
 
 Package: xmlparsedata
 Source: github
