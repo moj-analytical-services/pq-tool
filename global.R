@@ -23,6 +23,7 @@ myColClasses <- c("Date" = "R_date",
 
 rawData <- read.csv("./Data/MoJwrittenPQs.csv", colClasses = myColClasses)
 data <- data.frame(rawData)
+questionsPerDay <- length(data$Date) / length(unique(data$Date))
 # Topic <- data$Cluster
 # Topic_Keywords <- data$Cluster_Keywords
 # data <- cbind(data, Topic, Topic_Keywords)
