@@ -13,6 +13,9 @@ library(data.table) #Thanks Karik
 library(shinythemes)
 library(shinyBS)
 
+
+library(scales)
+
 load(file = "./Data/searchSpace.rda")
 
 # Define R_date date type - to read in Long Date format in csv
@@ -23,9 +26,9 @@ myColClasses <- c("Date" = "R_date",
 
 rawData <- read.csv("./Data/MoJwrittenPQs.csv", colClasses = myColClasses)
 data <- data.frame(rawData)
-# Topic <- data$Cluster
-# Topic_Keywords <- data$Cluster_Keywords
-# data <- cbind(data, Topic, Topic_Keywords)
+drops <- c("X","Document_Number", "Corrected_Date")
+tables_data <- data[ , !(names(data) %in% drops)]
+
 
 topic_data <- read.csv("./Data/topDozenWordsPerTopic.csv")
 

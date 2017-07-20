@@ -11,7 +11,7 @@ navbarPage("PQ Text Analysis",
   tabPanel("Search",
            tags$head(includeScript("google-analytics.js")),
     fluidRow(
-      column(6,
+      column(3,
         textInput(inputId = "question",
                   label = "Search Text",
                   width = "100%",
@@ -72,18 +72,22 @@ navbarPage("PQ Text Analysis",
            fluidRow(column(3,
              selectizeInput(inputId = "topic_choice",
              label = "Choose Topic Number:",
-             choices = unique(data$Topic)
-             )),
-             column(9,
-                    conditionalPanel(
-                      condition = "input.topic_choice.length > 0",
-                      plotOutput("wordcloud")
-                      ))
+             choices = unique(data$Topic)),
+             bsTooltip("topic_choice", "Enter a topic number from the previous page. You can do this by selecting a number from the dropdown or simply type it in.",
+                       "right", options = list(container = "body"))
+             )
              ),
            fluidRow(
              conditionalPanel(
                condition = "input.topic_choice.length > 0",
-               plotOutput("topic_choice")
+               column(4,
+                      conditionalPanel(
+                        condition = "input.topic_choice.length > 0",
+                        plotOutput("wordcloud")
+                      )),
+               column(8,
+                      plotOutput("topic_plot")
+                      )
                )
              ),
              fluidRow(
@@ -93,19 +97,25 @@ navbarPage("PQ Text Analysis",
                  )
                )
            ),
+
   tabPanel("MP Analysis",
-           sidebarPanel(
-             wellPanel(radioButtons(inputId = "q_analysis",
+           fluidRow(
+             column(3,
+            radioButtons(inputId = "member_analysis",
                                     label = "Choose a House",
                                     choices = c("Lords", "Commons"),
                                     inline = TRUE)
              ),
-             wellPanel(
-               uiOutput("q_analysis_ui")
-             )
-           ),
-           mainPanel(
-             plotOutput("q_analysis_plot"),
-             dataTableOutput("q_analysis_table")
+            column(3,
+               uiOutput("member_ui"),
+             bsTooltip("member_ui", "Enter a topic number from the previous page. You can do 
+                      this by selecting a number from the dropdown or simply typing it into the box.",
+                      "right", options = list(container = "body")))),
+           fluidRow(
+             column(4),
+             column(8,
+             plotOutput("member_plot"))),
+           fluidRow(
+             dataTableOutput("member_table")
            )
   ))
