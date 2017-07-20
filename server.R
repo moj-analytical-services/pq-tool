@@ -206,6 +206,22 @@ function(input, output, session) {
                         (topic_data$topic == input$topic_choice))
   }
 
+  observeEvent(input$explanation_button, {
+    showModal(modalDialog(
+      title = "What do the topics mean?", 
+      paste0("We have taken all of the questions in our database and fed them into an algorithm which has ",
+      "split them into different groups, or 'topics', with each group containing questions related to ", 
+      "similar issues. For each topic there are a set of three 'Topic Keywords' to give an idea of what ",
+      "the topic is at a glance.<br />", 
+      "Each of these topics have also been assigned a number as a unique identifier, so the best way to find ", 
+      "out about your chosen topic is to go to the \'Search\' tab and, once you have entered your search ",
+      "terms, take one of the topic numbers listed in the table and put it into the dropdown box on this ",
+      "tab."),
+      easyClose = TRUE,
+      footer = NULL
+    ))
+  })
+  
   output$wordcloud <- renderPlot(
     wordcloud(words = wordcloud_df()$word, freq = wordcloud_df()$freq,
               scale = c(4, 1), random.order = TRUE, ordered.colors = TRUE,
@@ -216,13 +232,12 @@ function(input, output, session) {
              content = paste0("This wordcloud shows the words that are most important to the topic.<br> The bigger the word, the more important it is."),
                                trigger = 'hover', placement = 'top', options = list(container = "body"))
 
-  count <- reactive({
-    count(dfClus()$Date, dfClus()$Date)
-  })
+
   output$topic_plot <- renderPlot({
     p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
       geom_bar(color = "red", fill = "red", width = .5)
     p + xlim(min(data$Date) - 1, max(data$Date) + 1) +
+      scale_y_continuous(breaks = pretty_breaks()) +
       labs(title = "When the questions were asked:",
            x = "Question Date",
            y = "Count") +
