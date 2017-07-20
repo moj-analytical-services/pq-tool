@@ -2,12 +2,13 @@ source(file = "global.R")
 ############# UI
 
 navbarPage("PQ Text Analysis",
+           theme = shinytheme("spacelab"),
            footer = column(12, helpText(
                "We would love your feedback on our tool! To complete a quick survey please click",
                a(href="https://www.surveymonkey.co.uk/r/FV9PCT2", target="_blank", "here")
              )
              ),
-  tabPanel("Similarity",
+  tabPanel("Search",
            tags$head(includeScript("google-analytics.js")),
     fluidRow(
       column(6,
@@ -15,7 +16,9 @@ navbarPage("PQ Text Analysis",
                   label = "Search Text",
                   width = "100%",
                   value = "Enter search text here"
-                  )
+                  ),
+        bsTooltip("question", "Enter a keyword/phrase to search our PQ database.",
+                  "auto", options = list(container = "body"))
             ),
 
       column(3,
@@ -24,30 +27,26 @@ navbarPage("PQ Text Analysis",
 
                dateRangeInput("q_date_range", 
                               label = "Question Date Range",
-                              format = "yyyy-mm-dd",
-                              min = min(data$Date),
-                              max = max(data$Date),
-                              start = min(data$Date),
-                              end = max(data$Date)
-               )
+                              format = "dd-mm-yyyy",
+                              min = min(rawData$Date),
+                              max = max(rawData$Date),
+                              start = min(rawData$Date),
+                              end = max(rawData$Date)
+               ),
+               bsTooltip("q_date_range", "Choose the time period you wish to search.",
+                         "auto", options = list(container = "body"))
              )
 
-      ),
-      
-      column(3,
-             conditionalPanel(
-               condition = "input.question.length > 0",
-               radioButtons("points", label = 'Number of questions to show',
-                            choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
-                            selected = 10, inline = TRUE)
-             )
+     
       )
     ),
     fluidRow(
       column(6,
              conditionalPanel(
                condition = "input.question.length > 0",
-               dataTableOutput("similarity_table")
+               dataTableOutput("similarity_table")#,
+               # bsTooltip("similarity_table", "This table shows the past PQs that are most similar to your search (with the most similar questions are at the top). </br> </br> You can click any row to see the question text, or reorder the results by clicking on the column headings. </br> </br> All the questions in our database have been grouped into topics by an algorithm and given Topic numbers. Try entering one of the topic numbers you see here into the box at the top of the \\'Topic Analysis\\' page.",
+               #           "right", options = list(container = "body"))
                )
              ),
       column(6,
@@ -83,7 +82,7 @@ navbarPage("PQ Text Analysis",
                  )
                )
            ),
-  tabPanel("Q&A Analysis",
+  tabPanel("MP Analysis",
            sidebarPanel(
              wellPanel(radioButtons(inputId = "q_analysis",
                                     label = "Choose a House",

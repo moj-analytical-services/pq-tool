@@ -11,6 +11,8 @@ library(cluster)
 library(slam)
 library(data.table) #Thanks Karik
 library(aws.s3)
+library(shinythemes)
+library(shinyBS)
 
 # You need to put our AWS credentials in .Renviron for this to work
 search_spaces <- get_bucket(
