@@ -1,10 +1,8 @@
 ?source(file = "global.R")
-
 ############### Server
 
 function(input, output, session) {
 ### Similarity Pane
-
   returnNearestMatches <- reactive({
     space <- search.space
     foundWords <- which(space$i %in% queryVec(input$question))
@@ -35,6 +33,7 @@ function(input, output, session) {
     })
   
   plot_points <- reactive({
+
     df()[1:100,]
   })
   
@@ -67,10 +66,9 @@ function(input, output, session) {
   output$similarity_table <- renderDataTable({
     datatable(
       cbind(' ' = '&oplus;', plot_points()), escape = -2,
-      #colnames = c("Similarity Rank","Question MP","Question Date", "Answer Date", "Topic Number", "Topic Keywords"),
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 2:7, 9:10,13)),
+          list(visible = FALSE, targets = c(0, 2, 3, 4)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
         deferRender = TRUE,
@@ -85,9 +83,10 @@ function(input, output, session) {
       callback = JS("
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
                 var format = function(d) {
+                d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>')
                 return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
-                d[6] + '</br>' + '</br>' +
-                'Answer Text: ' + d[7] +  '</div>';
+                d[2] + '</br>' + '</br>' +
+                'Answer Text: ' + d[3] +  '</div>';
                 };
                 table.on('click', 'tr', function() {
                 var row = this.closest('tr');
@@ -134,10 +133,12 @@ function(input, output, session) {
       )%>%
       layout(yaxis = y_axis,
              title = "Top 100 questions most similar to your search",
+
              titlefont=list(
                family='Arial',
                size=14,
                color='#696969')) %>%
+
       add_trace(x = plot_points()$Date[input$similarity_table_rows_current], 
                 y = plot_points()$Similarity_score[input$similarity_table_rows_current],
                 name = "Current Table Page",
@@ -177,6 +178,7 @@ function(input, output, session) {
 
   
   
+
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
   # })

@@ -570,6 +570,7 @@ Hash: f133585c72ea31592f663e68c6ff0b3e
 Requires: R6, digest, htmltools, httpuv, jsonlite, mime, sourcetools,
     xtable
 
+
 Package: shinyBS
 Source: CRAN
 Version: 0.61
