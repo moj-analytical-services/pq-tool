@@ -14,8 +14,6 @@ library(shinythemes)
 library(shinyBS)
 
 
-library(scales)
-
 load(file = "./Data/searchSpace.rda")
 
 # Define R_date date type - to read in Long Date format in csv

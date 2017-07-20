@@ -243,7 +243,9 @@ function(input, output, session) {
                              buttons = I('colvis'),
                              scroller = TRUE,
                              searching = FALSE,
-                             paging = FALSE))
+                             paging = TRUE,
+                             lengthChange = FALSE,
+                             pageLength = 5))
   })
   
   addPopover(session, "topic_documents", "Questions in the topic",
@@ -255,7 +257,7 @@ function(input, output, session) {
   output$member_ui <- renderUI({
     switch(input$member_analysis,
            "Lords" = selectInput(inputId = "person_choice",
-                                 label = "Choose a Member:",
+                                 label = "Choose a Peer:",
                                  choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == TRUE]))
            ),
            "Commons" = selectInput(inputId = "person_choice",
@@ -274,7 +276,7 @@ function(input, output, session) {
       geom_bar(color = "red", fill = "red", width = .5)
     p + xlim(min(data$Date) - 1, max(data$Date) + 1) +
       scale_y_continuous(breaks = pretty_breaks()) +
-      labs(title = "When the questions were asked:",
+      labs(title = "When the member asked questions:",
            x = "Question Date",
            y = "Count") +
       theme(plot.title = element_text(size = 17, face = "bold"))
@@ -290,7 +292,10 @@ function(input, output, session) {
               rownames = FALSE,
               options = list(dom = 'Bfrtip', 
                              buttons = I('colvis'),
-                             searching = FALSE))
+                             searching = FALSE,
+                             paging = TRUE,
+                             lengthChange = FALSE,
+                             pageLength = 5))
   })
   
   addPopover(session, "member_table", "Questions asked by the member",
