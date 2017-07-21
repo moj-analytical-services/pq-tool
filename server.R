@@ -209,14 +209,14 @@ function(input, output, session) {
   observeEvent(input$explanation_button, {
     showModal(modalDialog(
       title = "What do the topics mean?", 
-      paste0("We have taken all of the questions in our database and fed them into an algorithm which has ",
-      "split them into different groups, or 'topics', with each group containing questions related to ", 
-      "similar issues. For each topic there are a set of three 'Topic Keywords' to give an idea of what ",
-      "the topic is at a glance.<br />", 
-      "Each of these topics have also been assigned a number as a unique identifier, so the best way to find ", 
-      "out about your chosen topic is to go to the \'Search\' tab and, once you have entered your search ",
-      "terms, take one of the topic numbers listed in the table and put it into the dropdown box on this ",
-      "tab."),
+      HTML("We have taken all of the questions in our database and fed them into an algorithm which has
+      split them into different groups, or 'topics', with each group containing questions related to  
+      similar issues. For each topic there are a set of three 'Topic Keywords' to give an idea of what 
+      the topic is at a glance. <br><br>
+      Each of these topics have also been assigned a number as a unique identifier, so the best way to find  
+      out about your chosen topic is to go to the \'Search\' tab and, once you have entered your search 
+      terms, take one of the topic numbers listed in the table and put it into the dropdown box on this 
+      tab."),
       easyClose = TRUE,
       footer = NULL
     ))
