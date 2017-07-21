@@ -60,7 +60,7 @@ option_list = list(
   ),
   make_option(c("-o", "--output_dir"),
     type    = "character",
-    default = str_interp("${SHINY_ROOT}/tests/testthat/examples/"), 
+    default = str_interp("${SHINY_ROOT}/tests/testthat/examples/data/"), 
     help    = "directory to which outputs are saved [default= %default]",
     metavar = "character"
   )
@@ -346,9 +346,9 @@ savedf <- data.frame(
   Question_MP = questionerNames,
   MP_Constituency = aPQ$MP_Constituency,
   Answer_MP = aPQ$Answer_MP,
-  Date = aPQ$Date,
+  Date = aPQ$Question_Date,
   Answer_Date = aPQ$Answer_Date,
-  Corrected_Date = aPQ$Corrected_Date,
+  #Corrected_Date = aPQ$Corrected_Date,
   Topic = klusters,
   Topic_Keywords = clusterKeywordsVec[klusters],
   stringsAsFactors = FALSE)

@@ -28,27 +28,14 @@ navbarPage("PQ Text Analysis",
                dateRangeInput("q_date_range", 
                               label = "Question Date Range",
                               format = "dd-mm-yyyy",
-                              min = min(rawData$Date),
-                              max = max(rawData$Date),
-                              start = min(rawData$Date),
-                              end = max(rawData$Date)
+                              min = min(data$Date),
+                              max = max(data$Date),
+                              start = min(data$Date),
+                              end = max(data$Date)
                ),
                bsTooltip("q_date_range", "Choose the time period you wish to search.",
                          "auto", options = list(container = "body"))
              )
-
-      # ),
-      # 
-      # column(3,
-      #        conditionalPanel(
-      #          condition = "input.question.length > 0",
-      #          radioButtons("points", label = 'Number of questions to show',
-      #                       choices = list("10"=10,"25" = 25, "50" = 50, "100" = 100),
-      #                       selected = 10, inline = TRUE
-      #          ),
-      #          bsTooltip("points", "Choose the number of results to show.", placement = "top", options = list(container = "body"))
-      #          #textOutput("test")
-      #        )
       )
     ),
     fluidRow(

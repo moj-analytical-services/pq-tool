@@ -12,16 +12,15 @@ library(slam)
 library(data.table) #Thanks Karik
 library(shinythemes)
 library(shinyBS)
+library(readr)
 
 load(file = "./Data/searchSpace.rda")
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
 setClass("R_date")
-myColClasses <- c("Date" = "R_date",
-                 "Answer_Date" = "R_date")
 
-rawData <- read.csv("./Data/MoJwrittenPQs.csv", colClasses = myColClasses)
+rawData <- read_csv("./Data/MoJwrittenPQs.csv")
 data <- data.frame(rawData)
 # Topic <- data$Cluster
 # Topic_Keywords <- data$Cluster_Keywords
