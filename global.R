@@ -16,6 +16,8 @@ library(scales)
 
 
 load(file = "./Data/searchSpace.rda")
+load(file = "./Data/allMPs.rda")
+load(file = "./Data/allTopics.rda")
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
@@ -85,4 +87,15 @@ queryVec <- function(query){
       return(vec[sapply(vec, function(x) x %in% vocab)])
     })
   return(which(vocab %in% query))
+}
+
+plotWordcloud <- function(analysisObject){
+  words <- analysisObject$Questions$Question_Text %>%
+    iconv(to = "utf-8", sub = "byte") %>%
+    gsub("[^[:alnum:\\s]]", "", .) %>%
+    removePunctuation() %>%
+    removeWords(c("Justice")) %>%
+    tolower() %>%
+    removeWords(stopwordList)
+  wordcloud(words, max.words = 50)
 }
