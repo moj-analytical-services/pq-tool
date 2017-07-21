@@ -10,24 +10,31 @@ library(lsa)
 library(cluster)
 library(slam)
 library(data.table) #Thanks Karik
+library(aws.s3)
 library(shinythemes)
 library(shinyBS)
 
-load(file = "./Data/searchSpace.rda")
+# You need to put our AWS credentials in .Renviron for this to work
+search_spaces <- get_bucket(
+    bucket = 'parliamentary-questions-tool',
+    prefix = 'search_space'
+  )
+latest_searchspace <- search_spaces[length(search_spaces)]$Contents$Key
+search.space       <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest_searchspace)
 
-# Define R_date date type - to read in Long Date format in csv
-setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
-setClass("R_date")
-myColClasses <- c("Date" = "R_date",
-                 "Answer_Date" = "R_date")
+questions <- get_bucket(
+    bucket = 'parliamentary-questions-tool',
+    prefix = 'processed_questions'
+  )
+latest_questions <- questions[length(questions)]$Contents$Key
+data             <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest_questions)
 
-rawData <- read.csv("./Data/MoJwrittenPQs.csv", colClasses = myColClasses)
-data <- data.frame(rawData)
-# Topic <- data$Cluster
-# Topic_Keywords <- data$Cluster_Keywords
-# data <- cbind(data, Topic, Topic_Keywords)
-
-topic_data <- read.csv("./Data/topDozenWordsPerTopic.csv")
+top_dozens <- get_bucket(
+    bucket = 'parliamentary-questions-tool',
+    prefix = 'top_dozen_words'
+  )
+latest_top_dozen <- top_dozens[length(top_dozens)]$Contents$Key
+topic_data       <- s3readRDS(bucket = 'parliamentary-questions-tool', object = latest_top_dozen)
 
 merged_clusters <- ddply(
   data,
