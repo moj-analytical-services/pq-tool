@@ -25,7 +25,7 @@ setClass("R_date")
 
 rawData <- read_csv("./Data/MoJwrittenPQs.csv")
 data <- data.frame(rawData)
-drops <- c("X","Document_Number", "Corrected_Date")
+drops <- c("X1","Document_Number", "Corrected_Date")
 tables_data <- data[ , !(names(data) %in% drops)]
 
 
