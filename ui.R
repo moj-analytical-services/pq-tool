@@ -110,9 +110,12 @@ navbarPage("PQ Text Analysis",
                uiOutput("member_ui"),
              bsTooltip("person_choice", "Now you have chosen a house, choose an MP/Peer. You can do 
                       this by selecting one from the dropdown or simply typing their name into the box.",
-                      "right", options = list(container = "body")))),
+                      "right", options = list(container = "body")))#,
+           #column(3, textOutput("member_test"))
+           ),
            fluidRow(
-             column(4),
+             column(4,
+                    plotOutput("member_wordcloud")),
              column(8,
              plotOutput("member_plot"))),
            fluidRow(

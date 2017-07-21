@@ -1,7 +1,7 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.8.1
 RVersion: 3.4.0
-Repos: CRAN=http://cran.rstudio.com/
+Repos: CRAN=https://cran.rstudio.com/
 
 Package: BH
 Source: CRAN
@@ -24,6 +24,11 @@ Source: CRAN
 Version: 0.5.1
 Hash: 9ec4275d12a6c5237cf7131dae5cbd27
 Requires: lsa, rgl
+
+Package: MASS
+Source: CRAN
+Version: 7.3-47
+Hash: cef924b1619219cfc32edbb8a340e652
 
 Package: NLP
 Source: CRAN
@@ -136,7 +141,7 @@ Package: broom
 Source: CRAN
 Version: 0.4.2
 Hash: 7ebcffa46afb467e3f3c5687946f6e1a
-Requires: dplyr, plyr, psych, reshape2, stringr, tidyr
+Requires: dplyr, nlme, plyr, psych, reshape2, stringr, tidyr
 
 Package: caTools
 Source: CRAN
@@ -154,6 +159,10 @@ Package: cluster
 Source: CRAN
 Version: 2.0.6
 Hash: 8aa5c05d0394b5659e122d096aff8f63
+
+Package: codetools
+Source: CRAN
+Version: 0.2-15
 
 Package: colorspace
 Source: CRAN
@@ -222,7 +231,7 @@ Hash: e53fb8c58673df868183697e39a6a4d6
 Package: dplyr
 Source: CRAN
 Version: 0.7.1
-Hash: 00cdc4c2923e4ff7bf90cc576f0aff30
+Hash: 47b77f6715c8d6ac702b58234958043e
 Requires: BH, R6, Rcpp, assertthat, bindrcpp, glue, magrittr,
     pkgconfig, plogr, rlang, tibble
 
@@ -238,11 +247,16 @@ Version: 0.2.0
 Hash: e5a3b0b96a39f5581467b0c6366f7408
 Requires: magrittr, tibble
 
+Package: foreign
+Source: CRAN
+Version: 0.8-69
+
 Package: ggplot2
 Source: CRAN
 Version: 2.2.1
 Hash: 46e5cb78836848aa44655e577433f54b
-Requires: digest, gtable, lazyeval, plyr, reshape2, scales, tibble
+Requires: MASS, digest, gtable, lazyeval, plyr, reshape2, scales,
+    tibble
 
 Package: git2r
 Source: CRAN
@@ -269,6 +283,7 @@ Package: hexbin
 Source: CRAN
 Version: 1.27.1
 Hash: 378383b2c37556649fd6b2ee0be7e2a5
+Requires: lattice
 
 Package: highr
 Source: CRAN
@@ -326,6 +341,11 @@ Source: CRAN
 Version: 0.3
 Hash: ecf589b42cd284b03a4beb9665482d3e
 
+Package: lattice
+Source: CRAN
+Version: 0.20-35
+Hash: 26b9d7f0d0cb4e1d1bbb97f867c82d89
+
 Package: lazyeval
 Source: CRAN
 Version: 0.2.0
@@ -335,8 +355,8 @@ Package: lintr
 Source: github
 Version: 1.0.0.9001
 Hash: 1d29998cf913a8d2fd0497391a3b0da6
-Requires: crayon, digest, httr, jsonlite, knitr, rex, rstudioapi,
-    stringdist, testthat, xml2, xmlparsedata
+Requires: codetools, crayon, digest, httr, jsonlite, knitr, rex,
+    rstudioapi, stringdist, testthat, xml2, xmlparsedata
 GithubRepo: lintr
 GithubUsername: jimhester
 GithubRef: master
@@ -392,6 +412,11 @@ Source: CRAN
 Version: 0.4.3
 Hash: f96d896947fcaf9b6d0074002e9f4f9d
 Requires: colorspace
+
+Package: nlme
+Source: CRAN
+Version: 3.1-131
+Requires: lattice
 
 Package: openssl
 Source: CRAN
@@ -462,7 +487,7 @@ Package: psych
 Source: CRAN
 Version: 1.7.5
 Hash: 0c076a96de916d0d26d866e83909d961
-Requires: mnormt
+Requires: foreign, lattice, mnormt, nlme
 
 Package: purrr
 Source: CRAN

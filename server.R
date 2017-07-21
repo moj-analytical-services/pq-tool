@@ -285,7 +285,18 @@ function(input, output, session) {
   dfMP <- function(){
     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
   }
-
+  
+  output$member_wordcloud <- renderPlot({
+    wordcloud_input <- reactive({
+      getElement(allMPs, input$person_choice)
+    })
+    plotWordcloud(wordcloud_input())
+  })
+  
+  addPopover(session, "member_wordcloud", "Wordcloud",
+             content = paste0("This wordcloud shows the words that are most important in the questions asked by this member.<br> The bigger the word, the more important it is."),
+             trigger = 'hover', placement = 'top', options = list(container = "body"))
+  
   output$member_plot <- renderPlot({
     p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) +
       geom_bar(color = "red", fill = "red", width = .5)
@@ -317,4 +328,6 @@ function(input, output, session) {
              content = paste0("This table contains all of the information on the questions asked by this member.<br>",
                               "You can choose which columns to show/hide by clicking on the \"Column Visibility\" button."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
+  
+
 }

@@ -27,6 +27,7 @@ Imports:
     jsonlite,
     stringr,
     shinythemes,
-    shinyBS
+    shinyBS,
+    scales
 License: MIT License
 LazyData: true
