@@ -12,9 +12,12 @@ library(slam)
 library(data.table) #Thanks Karik
 library(shinythemes)
 library(shinyBS)
+library(scales)
 library(readr)
 
 load(file = "./Data/searchSpace.rda")
+load(file = "./Data/allMPs.rda")
+load(file = "./Data/allTopics.rda")
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
@@ -22,9 +25,9 @@ setClass("R_date")
 
 rawData <- read_csv("./Data/MoJwrittenPQs.csv")
 data <- data.frame(rawData)
-# Topic <- data$Cluster
-# Topic_Keywords <- data$Cluster_Keywords
-# data <- cbind(data, Topic, Topic_Keywords)
+drops <- c("X1","Document_Number", "Corrected_Date")
+tables_data <- data[ , !(names(data) %in% drops)]
+
 
 topic_data <- read.csv("./Data/topDozenWordsPerTopic.csv")
 
@@ -82,4 +85,15 @@ queryVec <- function(query){
       return(vec[sapply(vec, function(x) x %in% vocab)])
     })
   return(which(vocab %in% query))
+}
+
+plotWordcloud <- function(analysisObject){
+  words <- analysisObject$Questions$Question_Text %>%
+    iconv(to = "utf-8", sub = "byte") %>%
+    gsub("[^[:alnum:\\s]]", "", .) %>%
+    removePunctuation() %>%
+    removeWords(c("Justice")) %>%
+    tolower() %>%
+    removeWords(stopwordList)
+  wordcloud(words, max.words = 50)
 }

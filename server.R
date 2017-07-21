@@ -210,7 +210,7 @@ function(input, output, session) {
   # how to get datatable on 1st tab to link in?
 
   dfClus <- function(){
-    df <- subset(data, (data$Topic == input$topic_choice))
+    df <- subset(tables_data, (tables_data$Topic == input$topic_choice))
   }
 
   wordcloud_df <- function(){
@@ -219,36 +219,73 @@ function(input, output, session) {
                         (topic_data$topic == input$topic_choice))
   }
 
+  observeEvent(input$explanation_button, {
+    showModal(modalDialog(
+      title = "What do the topics mean?", 
+      HTML("We have taken all of the questions in our database and fed them into an algorithm which has
+      split them into different groups, or 'topics', with each group containing questions related to  
+      similar issues. For each topic there are a set of three 'Topic Keywords' to give an idea of what 
+      the topic is at a glance. <br><br>
+      Each of these topics have also been assigned a number as a unique identifier, so the best way to find  
+      out about your chosen topic is to go to the \'Search\' tab and, once you have entered your search 
+      terms, take one of the topic numbers listed in the table and put it into the dropdown box on this 
+      tab."),
+      easyClose = TRUE,
+      footer = NULL
+    ))
+  })
+  
   output$wordcloud <- renderPlot(
     wordcloud(words = wordcloud_df()$word, freq = wordcloud_df()$freq,
               scale = c(4, 1), random.order = TRUE, ordered.colors = TRUE,
               min.freq = 0.1)
   )
+  
+  addPopover(session, "wordcloud", "Wordcloud",
+             content = paste0("This wordcloud shows the words that are most important to the topic.<br> The bigger the word, the more important it is."),
+                               trigger = 'hover', placement = 'top', options = list(container = "body"))
 
-  output$topic_choice <- renderPlot({
+
+  output$topic_plot <- renderPlot({
     p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
       geom_bar(color = "red", fill = "red", width = .5)
     p + xlim(min(data$Date) - 1, max(data$Date) + 1) +
+      scale_y_continuous(breaks = pretty_breaks()) +
       labs(title = "When the questions were asked:",
            x = "Question Date",
            y = "Count") +
       theme(plot.title = element_text(size = 17, face = "bold"))
   })
+  
+  addPopover(session, "topic_plot", "Questions plotted over time",
+             content = paste0("This plot shows when the questions in the topic were asked. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
+             trigger = 'hover', placement = 'top', options = list(container = "body"))
 
   output$topic_documents <- renderDataTable({
-    datatable(data = dfClus()[, c("Question_Text", "Answer_Text")],
-              colnames = c("Question Text", "Answer Text"),
+    datatable(data = dfClus(), #[, c("Question_Text", "Answer_Text")],
+              #colnames = c("Question Text", "Answer Text"),
               caption = "Documents contained within the topic:",
-              options = list(scroller = TRUE,
+              extensions = 'Buttons',
+              rownames = FALSE,
+              options = list(dom = 'Bfrtip', 
+                             buttons = I('colvis'),
+                             scroller = TRUE,
                              searching = FALSE,
-                             paging = FALSE))
+                             paging = TRUE,
+                             lengthChange = FALSE,
+                             pageLength = 5))
   })
+  
+  addPopover(session, "topic_documents", "Questions in the topic",
+             content = paste0("This table contains all of the information on the questions asked on this topic.<br>",
+                              "You can choose which columns to show/hide by clicking on the \"Column Visibility\" button."),
+             trigger = 'hover', placement = 'top', options = list(container = "body"))
 
   ### Q&A Analysis Pane
-  output$q_analysis_ui <- renderUI({
-    switch(input$q_analysis,
+  output$member_ui <- renderUI({
+    switch(input$member_analysis,
            "Lords" = selectInput(inputId = "person_choice",
-                                 label = "Choose a Member:",
+                                 label = "Choose a Peer:",
                                  choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == TRUE]))
            ),
            "Commons" = selectInput(inputId = "person_choice",
@@ -259,25 +296,52 @@ function(input, output, session) {
   })
 
   dfMP <- function(){
-    df <- subset(data, (data$Question_MP == input$person_choice))
+    df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
   }
-
-  output$q_analysis_plot <- renderPlot({
+  
+  output$member_wordcloud <- renderPlot({
+    wordcloud_input <- reactive({
+      getElement(allMPs, input$person_choice)
+    })
+    plotWordcloud(wordcloud_input())
+  })
+  
+  addPopover(session, "member_wordcloud", "Wordcloud",
+             content = paste0("This wordcloud shows the words that are most important in the questions asked by this member.<br> The bigger the word, the more important it is."),
+             trigger = 'hover', placement = 'top', options = list(container = "body"))
+  
+  output$member_plot <- renderPlot({
     p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) +
       geom_bar(color = "red", fill = "red", width = .5)
     p + xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      labs(title = "When the questions were asked:",
+      scale_y_continuous(breaks = pretty_breaks()) +
+      labs(title = "When the member asked questions:",
            x = "Question Date",
            y = "Count") +
       theme(plot.title = element_text(size = 17, face = "bold"))
   })
+  
+  addPopover(session, "member_plot", "Questions plotted over time",
+             content = paste0("This plot shows when questions were asked by the selected member. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
+             trigger = 'hover', placement = 'top', options = list(container = "body"))
 
-  output$q_analysis_table <- renderDataTable({
-    datatable(dfMP()[, c("Date", "Question_ID", "Question_Text", "Topic")]
-              #options = c(
-              #  searching = FALSE#,
-              #colnames = c("Question Date","Question ID", "Question Text", "Cluster")
-              #)
-    )
+  output$member_table <- renderDataTable({
+    datatable(dfMP(),
+              caption = "Questions asked by the chosen member:",
+              extensions = 'Buttons',
+              rownames = FALSE,
+              options = list(dom = 'Bfrtip', 
+                             buttons = I('colvis'),
+                             searching = FALSE,
+                             paging = TRUE,
+                             lengthChange = FALSE,
+                             pageLength = 5))
   })
+  
+  addPopover(session, "member_table", "Questions asked by the member",
+             content = paste0("This table contains all of the information on the questions asked by this member.<br>",
+                              "You can choose which columns to show/hide by clicking on the \"Column Visibility\" button."),
+             trigger = 'hover', placement = 'top', options = list(container = "body"))
+  
+
 }

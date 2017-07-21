@@ -11,7 +11,7 @@ navbarPage("PQ Text Analysis",
   tabPanel("Search",
            tags$head(includeScript("google-analytics.js")),
     fluidRow(
-      column(6,
+      column(3,
         textInput(inputId = "question",
                   label = "Search Text",
                   width = "100%",
@@ -42,9 +42,7 @@ navbarPage("PQ Text Analysis",
       column(6,
              conditionalPanel(
                condition = "input.question.length > 0",
-               dataTableOutput("similarity_table")#,
-               # bsTooltip("similarity_table", "This table shows the past PQs that are most similar to your search (with the most similar questions are at the top). </br> </br> You can click any row to see the question text, or reorder the results by clicking on the column headings. </br> </br> All the questions in our database have been grouped into topics by an algorithm and given Topic numbers. Try entering one of the topic numbers you see here into the box at the top of the \\'Topic Analysis\\' page.",
-               #           "right", options = list(container = "body"))
+               dataTableOutput("similarity_table")
                )
              ),
       column(6,
@@ -59,18 +57,24 @@ navbarPage("PQ Text Analysis",
            fluidRow(column(3,
              selectizeInput(inputId = "topic_choice",
              label = "Choose Topic Number:",
-             choices = unique(data$Topic)
-             )),
-             column(9,
-                    conditionalPanel(
-                      condition = "input.topic_choice.length > 0",
-                      plotOutput("wordcloud")
-                      ))
+             choices = unique(data$Topic)),
+             bsTooltip("topic_choice", "Enter a topic number from the previous page. You can do this by selecting a number from the dropdown or simply type it in.",
+                       "right", options = list(container = "body"))
+             ),
+             column(6),
+             column(3,actionButton("explanation_button", "What do these topics mean?", class="btn btn-primary"))
              ),
            fluidRow(
              conditionalPanel(
                condition = "input.topic_choice.length > 0",
-               plotOutput("topic_choice")
+               column(4,
+                      conditionalPanel(
+                        condition = "input.topic_choice.length > 0",
+                        plotOutput("wordcloud")
+                      )),
+               column(8,
+                      plotOutput("topic_plot")
+                      )
                )
              ),
              fluidRow(
@@ -80,19 +84,28 @@ navbarPage("PQ Text Analysis",
                  )
                )
            ),
-  tabPanel("MP Analysis",
-           sidebarPanel(
-             wellPanel(radioButtons(inputId = "q_analysis",
-                                    label = "Choose a House",
+
+  tabPanel("Member Analysis",
+           fluidRow(
+             column(2,
+            radioButtons(inputId = "member_analysis",
+                                    label = "Choose a House:",
                                     choices = c("Lords", "Commons"),
                                     inline = TRUE)
              ),
-             wellPanel(
-               uiOutput("q_analysis_ui")
-             )
+            column(3,
+               uiOutput("member_ui"),
+             bsTooltip("person_choice", "Now you have chosen a house, choose an MP/Peer. You can do 
+                      this by selecting one from the dropdown or simply typing their name into the box.",
+                      "right", options = list(container = "body")))#,
+           #column(3, textOutput("member_test"))
            ),
-           mainPanel(
-             plotOutput("q_analysis_plot"),
-             dataTableOutput("q_analysis_table")
+           fluidRow(
+             column(4,
+                    plotOutput("member_wordcloud")),
+             column(8,
+             plotOutput("member_plot"))),
+           fluidRow(
+             dataTableOutput("member_table")
            )
   ))
