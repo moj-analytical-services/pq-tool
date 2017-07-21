@@ -314,6 +314,7 @@ function(input, output, session) {
 
   output$member_table <- renderDataTable({
     datatable(dfMP(),
+              caption = "Questions asked by the chosen member:",
               extensions = 'Buttons',
               rownames = FALSE,
               options = list(dom = 'Bfrtip', 
