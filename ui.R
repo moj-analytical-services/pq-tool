@@ -12,7 +12,7 @@ navbarPage("PQ Text Analysis",
            tags$head(includeScript("google-analytics.js")),
            tags$head(includeScript("d3.min.js")),
            tags$body(id = "test"),
-           tags$body(onmousemove = "m(event)"),
+           tags$body(onmousemove = "get_point_locations(event)"),
            tags$body(includeScript("pq.js")),
     fluidRow(
       column(3,
