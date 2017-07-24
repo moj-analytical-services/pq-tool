@@ -142,7 +142,6 @@ function(input, output, session) {
                   hoverinfo = "text"
       )%>%
       layout(yaxis = y_axis,
-             showlegend = FALSE,
              title = "Top 100 questions most similar to your search",
              titlefont=list(
                family='Arial',
