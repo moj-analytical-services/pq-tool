@@ -60,7 +60,7 @@ function(input, output, session) {
   line_points <- reactive({
     df <- data.frame(0,0)
     
-    for (i in 0:10) {
+    for (i in 0:12) {
       points_in_range <- reactive({
         subset(df(), Date >= min_date() + (i-1)*90  &
                  Date <= min_date()+(i+1)*90)
@@ -250,8 +250,8 @@ function(input, output, session) {
     p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
       geom_bar(color = "red", fill = "red", width = .5)
     p + xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_y_continuous(breaks = pretty_breaks()) +
-      labs(title = "When the questions were asked:",
+      scale_y_continuous(breaks = pretty_breaks(),limits = c(0, 5)) +
+      labs(title = "When this topic was asked about:",
            x = "Question Date",
            y = "Count") +
       theme(plot.title = element_text(size = 17, face = "bold"))
@@ -314,7 +314,7 @@ function(input, output, session) {
     p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) +
       geom_bar(color = "red", fill = "red", width = .5)
     p + xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_y_continuous(breaks = pretty_breaks()) +
+      scale_y_continuous(breaks = pretty_breaks(),limits = c(0, 8)) +
       labs(title = "When the member asked questions:",
            x = "Question Date",
            y = "Count") +
