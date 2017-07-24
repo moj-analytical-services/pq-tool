@@ -51,7 +51,7 @@ function(input, output, session) {
   })
   
   line_points <- reactive({
-    df <- data.frame(0,0)
+    pointsForTrendLine <- data.frame(0,0)
     focalRange <- 10
     numPoints <- 400#floor(num_dates()/focalRange)
     gap <- num_dates()/numPoints
@@ -64,10 +64,10 @@ function(input, output, session) {
         sum(points_in_range()$Similarity_score)/(focalRange*questionsPerDay) + mean(plot_points()$Similarity_score)
       })
       #df$Date[i] <- as.Date.character(as.Date(as.numeric(min_date())+(i*90), origin = "1970-01-01"))
-      df[i,1] <- min_date() + (i * gap)
-      df[i,2] <- score()
-      df$X0 <- as.Date(df$X0, format="%Y%m%d", origin = "1970-01-01")    }
-    return(df)
+      pointsForTrendLine[i,1] <- min_date() + (i * gap)
+      pointsForTrendLine[i,2] <- score()
+      pointsForTrendLine$X0 <- as.Date(pointsForTrendLine$X0, format="%Y%m%d", origin = "1970-01-01")    }
+    return(pointsForTrendLine)
   })
 
   output$similarity_table <- renderDataTable({
