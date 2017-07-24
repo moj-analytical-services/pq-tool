@@ -26,6 +26,9 @@ normalize <- function(mat){
   return(sweep(mat, 2, col.lengths, "/"))
 }
 
+#A function to calculate the Inverse Document Frequency to take into account the fact that
+#there are some topics which MPS rarely ask about (and so those that do ask about those topics
+#can be considered to have similar interests)
 IDF <- function(matrix){
   rowSumsVec <- rowSums(matrix)
   nrows <- dim(matrix)[1]
@@ -38,6 +41,8 @@ IDF <- function(matrix){
 }
 
 #MP analysis
+#This gives the topics per MP, given the name of an MP
+#and the MPTopicMatrix
 TopicsForMP <- function(MP, MPTopicMatrix){
   MPTopicMatrix[MP,] %>%
     melt() %>%
@@ -48,17 +53,22 @@ TopicsForMP <- function(MP, MPTopicMatrix){
     as.list()
 }
 
+#This gives MPS who've asked about similar topics, given
+#a focal MP and an MP Distance List
 SimilaritiesForMP <- function(MP, MPDistList){
   MPDistList %>%
     filter(Member1 == MP) %>%
     arrange(value)
 }
 
+#This gives all the questions an MP has asked
 QuestionsForMP <- function(MP, rawData){
   rawData[which(rawData$Question_MP == MP),] %>%
     as.list()
 }
 
+#This is a wrapper to return an object carrying all of the above
+#analysis for a given MP
 MPAnalysis <- function(MP, MPTopicMatrix, MPDistList, rawData){
   list(Topics = TopicsForMP(MP, MPTopicMatrix),
        SimilarMPs = SimilaritiesForMP(MP, MPDistList),
@@ -67,6 +77,7 @@ MPAnalysis <- function(MP, MPTopicMatrix, MPDistList, rawData){
 
 
 #topic analysis
+#Top MPs per topic
 MPsforTopic <- function(topicNum, MPTopicMatrix){
   MPTopicMatrix[,topicNum] %>%
     melt() %>%
@@ -78,6 +89,7 @@ MPsforTopic <- function(topicNum, MPTopicMatrix){
     as.list()
 }
 
+#Topics that have been asked by similar MPs to the focal topic
 SimilaritiesForTopic <- function(topicNum, topicDistList){
   topicDistList %>%
     filter(Topic1 == topicNum) %>%
@@ -85,17 +97,20 @@ SimilaritiesForTopic <- function(topicNum, topicDistList){
     as.list()
 }
 
+#All the questions in a given topic
 QuestionsForTopic <- function(topicNum, rawData){
   rawData[which(rawData$Cluster == topicNum),] %>%
     as.list()
 }
 
+#Wrapper to provide an object with all of the analysis in it
 topicAnalysis <- function(topicNum, MPTopicMatrix, topicDistList, rawData){
   list(MPs = MPsforTopic(topicNum, MPTopicMatrix),
        SimilarTopics = SimilaritiesForTopic(topicNum, topicDistList),
        Questions = QuestionsForTopic(topicNum, rawData))
 }
 
+#Wordcloud (whoop!)
 plotWordcloud <- function(analysisObject){
   words <- analysisObject$Questions$Question_Text %>%
              iconv(to = "utf-8", sub = "byte") %>%
@@ -108,48 +123,52 @@ plotWordcloud <- function(analysisObject){
 }
 
 
+#Analysis
+
+#get data
 setwd("../Data")
 file <- "MoJwrittenPQs.csv"
-
 rawData <- read.csv(file, stringsAsFactors = F)
 
+#A data frame of the data
 MPTopicDf <- rawData %>%
   dcast(Question_MP ~ Cluster)
 
+#now turning it into a matrix
 MPTopicMatrix <- MPTopicDf %>%
                      select(-Question_MP) %>%
                      as.matrix()
 
+#topic three key word descriptions
 keywords <- unique(rawData$Cluster_Keywords[order(rawData$Cluster)])
 
 rownames(MPTopicMatrix) <- MPTopicDf$Question_MP
 colnames(MPTopicMatrix) <- keywords
 
-MPsByNumOfQuestions <- MPTopicMatrix %>% rowSums() %>% sort(decreasing = TRUE)
-
-TopicsByNumOfQuestions <- MPTopicMatrix %>% colSums() %>% sort(decreasing = TRUE)
-
-
+#apply IDF to the data, and then normalise to that all MPs are considered
+#to have the same amount of total 'interest'
 MPTopicMatrixNormalised <- MPTopicMatrix %>%
                                IDF() %>%
                                t() %>%
                                normalize() %>%
                                t()
 
+#do the same for the topic analysis
 topicMPMatrixNormalised <- MPTopicMatrix %>%
   IDF() %>%
   normalize()
 colnames(topicMPMatrixNormalised) <- NULL
 
-
-
-
+#distances between MPs - we can use a dot product for shortcut
 MPDist <- 1 - (MPTopicMatrixNormalised %*% t(MPTopicMatrixNormalised))
+#to take out floating point crap we take out small numbers
 MPDist[which(abs(MPDist) < 10^-10)] <- 0
 
+#same for topic distances
 topicDist <- 1 - (t(topicMPMatrixNormalised) %*% topicMPMatrixNormalised)
 topicDist[which(abs(topicDist) < 10^-10)] <- 0
 
+#give pairwise distances between all MPs (rather than the matrix)
 MPDistList <- MPDist %>%
                 as.matrix() %>%
                 melt() %>%
@@ -157,6 +176,7 @@ MPDistList <- MPDist %>%
                 mutate(Member1 = as.character(Member1),
                        Member2 = as.character(Member2))
 
+#ditto for topics
 topicDistList <- topicDist %>%
                    as.matrix() %>%
                    melt() %>%
