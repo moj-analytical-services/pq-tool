@@ -92,7 +92,7 @@ function(input, output, session) {
       ),
       callback = JS("
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
-                var format = function(d) {
+                format = function(d) {
                 d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>')
                 return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
                 d[2] + '</br>' + '</br>' +
