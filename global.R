@@ -36,14 +36,6 @@ merged_clusters <- ddply(
   .(Date, Answer_Date, Topic),
   summarize,
   Question_Text = paste0(Question_Text, collapse = " "))
-
-stopwordList <- c(
-  stopwords(), "a", "b", "c", "d", "i", "ii", "iii", "iv",
-  "secretary", "state", "ministry", "majesty","majestys",
-  "government", "many", "ask", "whether",
-  "assessment", "further", "pursuant",
-  "minister", "steps", "department", "question"
-)
   
 #Search space for query vector
 vocab <- search.space$dimnames[[1]]
@@ -78,7 +70,7 @@ queryVec <- function(query){
     removeWords(c("Justice")) %>%
     tolower() %>%
     gsub("probation", "probatn", .) %>%
-    removeWords(stopwordList) %>%
+    removeWords(c(stopwords(), JUSTICE_STOP_WORDS)) %>%
     stripWhitespace() %>%
     strsplit(" ") %>%
     sapply(stemDocument) %>%
@@ -95,6 +87,7 @@ plotWordcloud <- function(analysisObject){
     removePunctuation() %>%
     removeWords(c("Justice")) %>%
     tolower() %>%
-    removeWords(stopwordList)
+    # JUSTICE_STOP_WORDS assigned in .Rprofile
+    removeWords(c(stopwords(), JUSTICE_STOP_WORDS))
   wordcloud(words, max.words = 50)
 }

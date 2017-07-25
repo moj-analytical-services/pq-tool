@@ -78,16 +78,6 @@ file <- opt$input_file
 
 #FUNCTIONS
 
-#a list of stopwords to be removed from the PQs to avoid false similarities on the grounds
-#of questions containing these words
-stopwordList <- c(
-  stopwords(), "a", "b", "c", "d", "i", "ii", "iii", "iv",
-  "secretary", "state", "ministry", "majesty","majestys",
-  "government", "many", "ask", "whether",
-  "assessment", "further", "pursuant",
-  "minister", "steps", "department", "question"
-)
-
 #a function to clean a corpus of text, making sure of the encoding, removing punctuation, putting it
 #all in lower case, stripping white space, and removing stopwords.
 #If you update this you also need to update queryVec in global.R to be in line with any changes, so
@@ -113,7 +103,8 @@ cleanCorpus <- function(corp) {
     tm_map(content_transformer(
       function(x) gsub("probation", "probatn", x))
     ) %>%
-    tm_map(function(x) removeWords(x, stopwordList)) %>%
+    # JUSTICE_STOP_WORDS assigned in .Rprofile
+    tm_map(function(x) removeWords(x, c(stopwords(), JUSTICE_STOP_WORDS))) %>%
     tm_map(stripWhitespace)
 }
 
