@@ -13,7 +13,7 @@ navbarPage("PQ Text Analysis",
            tags$head(includeScript("d3.min.js")),
            tags$body(id = "test"),
            tags$body(onmousemove = "get_point_locations(event)"),
-           tags$body(includeScript("pq.js")),
+           tags$head(includeScript("pq.js")),
     fluidRow(
       column(3,
         textInput(inputId = "question",
