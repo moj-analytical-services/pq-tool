@@ -2,8 +2,32 @@ var log = true;
 var points;
 var point_centres = [];
 var last_mouse_location = [0,0];
-var format;
 var selected_rank = -1;
+
+//Table-clicking function
+
+function format(d) {
+    console.log(d);
+    d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
+    return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
+                d[2] + '</br>' + '</br>' +
+                'Answer Text: ' + d[3] +  '</div>' +
+                '<input type = \"button\" value = \"See all questions asked by this Member\" onclick = \"mp_finder(\'' + d[6] + '\')\">' + 
+                '<input type = \"button\" value = \"See all questions in the same topic\" onclick = \"topic_finder(' + d[9] + ')\">';
+}
+var table1;
+function rowActivate() {
+    var row = this.closest('tr');
+    var showHideIcon = $(row.firstChild);
+    var shinyRow = table1.row(row);
+    if (shinyRow.child.isShown()) {
+        shinyRow.child.hide();
+        showHideIcon.html('&oplus;');
+    } else {
+        shinyRow.child(format(shinyRow.data())).show();
+        showHideIcon.html('&ominus;');
+    }
+}
 
 //Plotly point-clicking functions
 function get_point_locations(e) {
@@ -100,4 +124,23 @@ function deselect_rows(){
 
 //Cluster selecting functions
 
+function mp_finder(mp){
+    var mp_tab = $("a")[2];
+    mp_tab.click();
+    var is_lords = mp.match(/^(Baron)|(Lord)|(The )|(Viscount)/);
+    var radio_button = is_lords ? 0 : 1;
+    $(".radio-inline")[radio_button].click()
+    setTimeout(function(){
+        $("#person_choice").append("<option value='" + mp + "'>" + mp + "</option>");
+        $("#person_choice").val(mp).change();
+        document.getElementsByClassName("item")[1].innerHTML = mp
+        return; }, 500)
+}
 
+function topic_finder(topic){
+    var topic_tab = $("a")[1];
+    topic_tab.click();
+    $("#topic_choice").append("<option value='" + topic + "'>" + topic + "</option>");
+    $("#topic_choice").val(""+topic).change();
+    document.getElementsByClassName("item")[0].innerHTML = topic;
+}
