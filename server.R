@@ -55,22 +55,16 @@ function(input, output, session) {
     max(plot_points()$Date)
   })
   
+
+  #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
+  #give an indication of how interest has risen and fallen over time.
   line_points <- reactive({
-    df <- data.frame(0,0)
-    
-    for (i in 0:12) {
-      points_in_range <- reactive({
-        subset(df(), Date >= min_date() + (i-1)*90  &
-                 Date <= min_date()+(i+1)*90)
-      })
-      score <- reactive({
-        sum(points_in_range()$Similarity_score)/100 + mean(plot_points()$Similarity_score)
-      })
-      #df$Date[i] <- as.Date.character(as.Date(as.numeric(min_date())+(i*90), origin = "1970-01-01"))
-      df[i,1] <- (min_date()+(i*90))
-      df[i,2] <- score()
-      df$X0 <- as.Date(df$X0, format="%Y%m%d", origin = "1970-01-01")    }
-    return(df)
+    loessThing <- loess(plot_points()$Similarity_score ~ as.numeric(plot_points()$Date), span = 1/pi, degree = 2)
+    Dates <- as.Date(loessThing$x[order(loessThing$x)][-length(loessThing$x)][-1], format="%Y-%m-%d", origin = "1970-01-01")
+    Scores <- loessThing$fitted[order(loessThing$x)][-length(loessThing$x)][-1]
+    Scores[Scores < 0] <- 0
+    return(data.frame(Dates = Dates, 
+                      Scores = Scores))
   })
 
   output$similarity_table <- renderDataTable({
@@ -135,23 +129,34 @@ function(input, output, session) {
   output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = plot_points()$Date) %>%
       add_markers(y = plot_points()$Similarity_score,
-                  name = 'Top 100 Qs',
+                  name = "Top 100 Qs",
                   text = ~paste("Rank:", plot_points()$Rank,
                                 "<br> Member HoC/HoL:", plot_points()$Question_MP,
                                 "<br> Date:", plot_points()$Date ),
-                  hoverinfo = "text"
+                  hoverinfo = "text",  marker = list(color = "#67a9cf")
       )%>%
+      #add trend line first so it's the bottom layer
+      add_trace(x = line_points()$Dates,
+                y = line_points()$Scores,
+                name = "Avg. parliamentary interest in search phrase",
+                type = 'scatter',
+                mode = 'lines',
+                line = list(                                       # line is a named list, valid keys: /r/reference/#scatter-line
+                  color = "gray"),
+                text = NULL,
+                hoverinfo = "text"
+      ) %>%
       layout(yaxis = y_axis,
              title = "Top 100 questions most similar to your search",
              titlefont=list(
                family='Arial',
                size=14,
-               color='#696969')) %>%
-
+               color='#696969')
+      ) %>%
       add_trace(x = plot_points()$Date[input$similarity_table_rows_current], 
                 y = plot_points()$Similarity_score[input$similarity_table_rows_current],
                 name = "Current Table Page",
-                type = "scatter", mode = 'markers', # marker = list(size = 12),
+                type = "scatter", mode = 'markers',  marker = list(color = "#ef8a62"),
                 text = ~paste("Rank:", plot_points()$Rank[input$similarity_table_rows_current],
                               "<br> Member HoC/HoL:", plot_points()$Question_MP[input$similarity_table_rows_current],
                               "<br> Date:", plot_points()$Date[input$similarity_table_rows_current] ),
@@ -164,17 +169,7 @@ function(input, output, session) {
                 text = NULL,
                 hoverinfo = "text"
       ) %>%
-      add_trace(x = line_points()$X0,
-                y = line_points()$X0.1,
-                name = "Trendline",
-                type = 'scatter',
-                mode = 'lines',
-                line = list(                                       # line is a named list, valid keys: /r/reference/#scatter-line
-                  color = "green"),
-                text = NULL,
-                hoverinfo = "text"
-                
-      ) %>%
+
       config(displayModeBar = F) %>%
       layout(legend = list(orientation = 'h'))
   })
