@@ -2,7 +2,34 @@ var log = true;
 var points;
 var point_centres = [];
 var last_mouse_location = [0,0];
-var format;
+var selected_rank = -1;
+
+//Table-clicking function
+
+function format(d) {
+    console.log(d);
+    d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
+    return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
+                d[2] + '</br>' + '</br>' +
+                'Answer Text: ' + d[3] +  '</div>' +
+                '<input type = \"button\" value = \"See all questions asked by this Member\" onclick = \"mp_finder(\'' + d[6] + '\')\">' + 
+                '<input type = \"button\" value = \"See all questions in the same topic\" onclick = \"topic_finder(' + d[9] + ')\">';
+}
+var table1;
+function rowActivate() {
+    var row = this.closest('tr');
+    var showHideIcon = $(row.firstChild);
+    var shinyRow = table1.row(row);
+    if (shinyRow.child.isShown()) {
+        shinyRow.child.hide();
+        showHideIcon.html('&oplus;');
+    } else {
+        shinyRow.child(format(shinyRow.data())).show();
+        showHideIcon.html('&ominus;');
+    }
+}
+
+//Plotly point-clicking functions
 function get_point_locations(e) {
     last_mouse_location = [e.clientX, e.clientY];
     if(!!similarity_plot){
@@ -40,6 +67,13 @@ function find_nearest_point(e){
         }
         current_index++;
     });
+    if (min_index === selected_rank){
+        selected_rank = -1;
+        return ;
+    }else{
+        selected_rank = min_index;
+    }
+    
     return rank_to_selection(min_index + 1);
 }
 
@@ -70,7 +104,7 @@ function goto_page(i, row){
     for (var j = 0; j < Math.abs(page_shift); j++){
         button.click();
     }
-    setTimeout(function() {return toggle_row(row)}, 500);
+    setTimeout(function() {return toggle_row(row)}, 1000);
 }
 
 function toggle_row(i){
@@ -85,4 +119,31 @@ function deselect_rows(){
     for (var s = 0; s < selected.length; s++){
         selected[s].click();
     }
+}
+
+
+//Cluster selecting functions
+
+//Note the fixed indices in various things below (lines) - should be fine for now, but this is likely where any future errors may come from, supposing they do.
+
+function mp_finder(mp){
+    var mp_tab = $("a")[2]; //find link to MP tab
+    mp_tab.click(); //click on link (takes us to MP tab)
+    var is_lords = mp.match(/^(Baron)|(Lord)|(The )|(Viscount)/); //determine if mp is in HoL or HoC
+    var radio_button = is_lords ? 0 : 1; //is_lords evalutes to true if above match is found, and false otherwise - returnin 0, 1 respectively
+    $(".radio-inline")[radio_button].click() //Click the correct radio button, as determined by is_lords
+    
+    setTimeout(function(){ //timeout to give radio button click enough time to execute
+        $("#person_choice").append("<option value='" + mp + "'>" + mp + "</option>"); //append option to person dropdown (the mp you want)
+        $("#person_choice").val(mp).change(); //change to new option
+        document.getElementsByClassName("item")[1].innerHTML = mp //change text in person dropdown
+        return; }, 500)
+}
+
+function topic_finder(topic){
+    var topic_tab = $("a")[1]; //find link to topic tab
+    topic_tab.click(); //click on link (takes us to topic tab)
+    $("#topic_choice").append("<option value='" + topic + "'>" + topic + "</option>"); //append option to topic dropdown (the topic you want)
+    $("#topic_choice").val(""+topic).change(); //change to new option
+    document.getElementsByClassName("item")[0].innerHTML = topic; //change text in topic dropdown
 }

@@ -85,25 +85,9 @@ function(input, output, session) {
         server = FALSE
       ),
       callback = JS("
+                table1 = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
-                format = function(d) {
-                d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>')
-                return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
-                d[2] + '</br>' + '</br>' +
-                'Answer Text: ' + d[3] +  '</div>';
-                };
-                table.on('click', 'tr', function() {
-                var row = this.closest('tr');
-                var showHideIcon = $(row.firstChild);
-                var shinyRow = table.row(row);
-                if (shinyRow.child.isShown()) {
-                shinyRow.child.hide();
-                showHideIcon.html('&oplus;');
-                } else {
-                shinyRow.child(format(shinyRow.data())).show();
-                showHideIcon.html('&ominus;');
-                }
-                });"
+                table.on('click', 'tr', rowActivate);"
       ),
       caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:"
     )
