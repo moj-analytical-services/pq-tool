@@ -124,23 +124,26 @@ function deselect_rows(){
 
 //Cluster selecting functions
 
+//Note the fixed indices in various things below (lines) - should be fine for now, but this is likely where any future errors may come from, supposing they do.
+
 function mp_finder(mp){
-    var mp_tab = $("a")[2];
-    mp_tab.click();
-    var is_lords = mp.match(/^(Baron)|(Lord)|(The )|(Viscount)/);
-    var radio_button = is_lords ? 0 : 1;
-    $(".radio-inline")[radio_button].click()
-    setTimeout(function(){
-        $("#person_choice").append("<option value='" + mp + "'>" + mp + "</option>");
-        $("#person_choice").val(mp).change();
-        document.getElementsByClassName("item")[1].innerHTML = mp
+    var mp_tab = $("a")[2]; //find link to MP tab
+    mp_tab.click(); //click on link (takes us to MP tab)
+    var is_lords = mp.match(/^(Baron)|(Lord)|(The )|(Viscount)/); //determine if mp is in HoL or HoC
+    var radio_button = is_lords ? 0 : 1; //is_lords evalutes to true if above match is found, and false otherwise - returnin 0, 1 respectively
+    $(".radio-inline")[radio_button].click() //Click the correct radio button, as determined by is_lords
+    
+    setTimeout(function(){ //timeout to give radio button click enough time to execute
+        $("#person_choice").append("<option value='" + mp + "'>" + mp + "</option>"); //append option to person dropdown (the mp you want)
+        $("#person_choice").val(mp).change(); //change to new option
+        document.getElementsByClassName("item")[1].innerHTML = mp //change text in person dropdown
         return; }, 500)
 }
 
 function topic_finder(topic){
-    var topic_tab = $("a")[1];
-    topic_tab.click();
-    $("#topic_choice").append("<option value='" + topic + "'>" + topic + "</option>");
-    $("#topic_choice").val(""+topic).change();
-    document.getElementsByClassName("item")[0].innerHTML = topic;
+    var topic_tab = $("a")[1]; //find link to topic tab
+    topic_tab.click(); //click on link (takes us to topic tab)
+    $("#topic_choice").append("<option value='" + topic + "'>" + topic + "</option>"); //append option to topic dropdown (the topic you want)
+    $("#topic_choice").val(""+topic).change(); //change to new option
+    document.getElementsByClassName("item")[0].innerHTML = topic; //change text in topic dropdown
 }
