@@ -3,6 +3,9 @@ var points;
 var point_centres = [];
 var last_mouse_location = [0,0];
 var format;
+var selected_rank = -1;
+
+//Plotly point-clicking functions
 function get_point_locations(e) {
     last_mouse_location = [e.clientX, e.clientY];
     if(!!similarity_plot){
@@ -40,6 +43,13 @@ function find_nearest_point(e){
         }
         current_index++;
     });
+    if (min_index === selected_rank){
+        selected_rank = -1;
+        return ;
+    }else{
+        selected_rank = min_index;
+    }
+    
     return rank_to_selection(min_index + 1);
 }
 
@@ -70,7 +80,7 @@ function goto_page(i, row){
     for (var j = 0; j < Math.abs(page_shift); j++){
         button.click();
     }
-    setTimeout(function() {return toggle_row(row)}, 500);
+    setTimeout(function() {return toggle_row(row)}, 1000);
 }
 
 function toggle_row(i){
@@ -86,3 +96,8 @@ function deselect_rows(){
         selected[s].click();
     }
 }
+
+
+//Cluster selecting functions
+
+

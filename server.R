@@ -96,7 +96,8 @@ function(input, output, session) {
                 d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>')
                 return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
                 d[2] + '</br>' + '</br>' +
-                'Answer Text: ' + d[3] +  '</div>';
+                'Answer Text: ' + d[3] +  '</div>' +
+                '<input type = \"button\" value = \"click me\">';
                 };
                 table.on('click', 'tr', function() {
                 var row = this.closest('tr');
