@@ -48,7 +48,7 @@ library(optparse)
 option_list = list(
   make_option(c("-i", "--input_file"),
     type    = "character",
-    default = str_interp("${SHINY_ROOT}/tests/testthat/examples/lsa_training_sample.csv"), 
+    default = str_interp("${SHINY_ROOT}/tests/testthat/examples/data/lsa_training_sample.csv"), 
     help    = "dataset file name",
     metavar = "character"
   ),
