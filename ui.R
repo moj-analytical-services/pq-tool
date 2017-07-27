@@ -19,7 +19,8 @@ navbarPage("PQ Text Analysis",
         textInput(inputId = "question",
                   label = "Search Text",
                   width = "100%",
-                  value = "Enter search text here"
+                  value = "",
+                  placeholder = "Enter search text here"
                   ),
         bsTooltip("question", "Enter a keyword/phrase to search our PQ database.",
                   "auto", options = list(container = "body"))
