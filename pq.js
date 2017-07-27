@@ -10,9 +10,11 @@ function format(d) {
     d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
     return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
                 d[2] + '</br>' + '</br>' +
-                'Answer Text: ' + d[3] +  '</div>' +
-                '<input type = \"button\" value = \"See all questions asked by this Member\" onclick = \"mp_finder(\'' + d[6] + '\')\">' + 
-                '<input type = \"button\" value = \"See all questions in the same topic\" onclick = \"topic_finder(' + d[9] + ')\">';
+                'Answer Text: ' + d[3] + '</div>' +
+                '<div class=\"btn-group\" role=\"group\">' +
+                '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[6] + '\')\">See all questions asked by this Member</button>' +
+                '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">See all questions in the same topic</button>' +
+                '</div>';
 }
 var table1;
 function rowActivate() {
