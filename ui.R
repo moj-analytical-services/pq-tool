@@ -10,8 +10,6 @@ navbarPage("PQ Text Analysis",
              ),
   tabPanel("Search",
            tags$head(includeScript("google-analytics.js")),
-           tags$head(includeScript("d3.min.js")),
-           tags$body(id = "test"),
            tags$body(onmousemove = "get_point_locations(event)"),
            tags$head(includeScript("pq.js")),
     fluidRow(

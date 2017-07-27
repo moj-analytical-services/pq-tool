@@ -7,7 +7,6 @@ var selected_rank = -1;
 //Table-clicking function
 
 function format(d) {
-    console.log(d);
     d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
     return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
                 d[2] + '</br>' + '</br>' +
@@ -49,7 +48,8 @@ function get_point_locations(e) {
             }
         }
     }
-    d3.select(".cursor-crosshair").on("mousedown", find_nearest_point);
+    var cc = document.getElementsByClassName("cursor-crosshair")[0];
+    cc.addEventListener("mousedown", find_nearest_point);
 }
 
 
