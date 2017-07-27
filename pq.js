@@ -56,8 +56,12 @@ function get_point_locations(e) {
             }
         }
     }
+    
     var cc = document.getElementsByClassName("cursor-crosshair")[0];
-    cc.addEventListener("mousedown", find_nearest_point);
+    if(cc){
+        cc.addEventListener("mousedown", find_nearest_point);
+    }
+    $("div.active").mousemove(tidy_table)
 }
 
 
@@ -139,13 +143,13 @@ function mp_finder(mp){
     mp_tab.click(); //click on link (takes us to MP tab)
     var is_lords = mp.match(/^(Baron)|(Lord)|(The )|(Viscount)/); //determine if mp is in HoL or HoC
     var radio_button = is_lords ? 0 : 1; //is_lords evalutes to true if above match is found, and false otherwise - returnin 0, 1 respectively
-    $(".radio-inline")[radio_button].click() //Click the correct radio button, as determined by is_lords
+    $(".radio-inline")[radio_button].click(); //Click the correct radio button, as determined by is_lords
     
     setTimeout(function(){ //timeout to give radio button click enough time to execute
         $("#person_choice").append("<option value='" + mp + "'>" + mp + "</option>"); //append option to person dropdown (the mp you want)
         $("#person_choice").val(mp).change(); //change to new option
-        document.getElementsByClassName("item")[1].innerHTML = mp //change text in person dropdown
-        return; }, 500)
+        document.getElementsByClassName("item")[1].innerHTML = mp; //change text in person dropdown
+        return; }, 500);
 }
 
 function topic_finder(topic){
@@ -155,3 +159,35 @@ function topic_finder(topic){
     $("#topic_choice").val(""+topic).change(); //change to new option
     document.getElementsByClassName("item")[0].innerHTML = topic; //change text in topic dropdown
 }
+
+
+//Tidy up tab tables
+
+String.prototype.format_html = function(){
+    return this.replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
+};
+
+
+function tidy_table(){
+    //debugger
+    //Find Answer_text column
+    var headers = $("div.active").find("th.sorting");
+    var hl = headers.length;
+    var answer_index = -1;
+    var table_entries = $("div.active").find("td");
+    var t_entries_length = table_entries.length;
+    for(var h of headers){
+        answer_index++;
+        if(h.innerHTML === "Answer_Text"){
+            break;
+        }
+    }
+    for(var i = 0; i < t_entries_length; i++){
+        if(i % hl !== answer_index){
+            continue;
+        }
+        var a_text = table_entries[i].innerHTML;
+        table_entries[i].innerHTML = a_text.format_html();
+    }
+}
+
