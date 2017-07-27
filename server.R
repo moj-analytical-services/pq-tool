@@ -6,6 +6,9 @@ function(input, output, session) {
   returnNearestMatches <- reactive({
     space <- search.space
     foundWords <- which(space$i %in% queryVec(input$question))
+    if(length(foundWords)==0){
+        return("Unable to determine similarity to query")
+    }
     Document <- space$j[foundWords]
     vees <- space$v[foundWords]
     JayVees <- data.table(Document = Document, vees = vees)
@@ -44,7 +47,15 @@ function(input, output, session) {
       'Topic',
       'Topic_Keywords'
     )
+    tryCatch({
     df()[1:100, cols]
+    }, warning = function(war){
+        print("warning")
+    }, error = function(err){
+        print("Unable to complete query.  Try resolving typos or including more search terms.")
+    }, finally = {
+        
+    })
   })
   
   min_date <- reactive({
@@ -59,12 +70,20 @@ function(input, output, session) {
   #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
   #give an indication of how interest has risen and fallen over time.
   line_points <- reactive({
+    tryCatch({
+        test <- plot_points()$Similarity_score
+    }, warning = function(war){
+        print("warning")
+    }, error = function(err){
+        print("error")
+    },  finally = {
     loessThing <- loess(plot_points()$Similarity_score ~ as.numeric(plot_points()$Date), span = 1/pi, degree = 2)
     Dates <- as.Date(loessThing$x[order(loessThing$x)][-length(loessThing$x)][-1], format="%Y-%m-%d", origin = "1970-01-01")
     Scores <- loessThing$fitted[order(loessThing$x)][-length(loessThing$x)][-1]
     Scores[Scores < 0] <- 0
     return(data.frame(Dates = Dates, 
                       Scores = Scores))
+    })
   })
 
   output$similarity_table <- renderDataTable({
