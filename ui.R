@@ -53,7 +53,7 @@ navbarPage("PQ Text Analysis",
              ),
       column(6,
              conditionalPanel(
-               condition = "input.question.length > 0",
+               condition = "document.getElementsByClassName('odd').length > 1 && input.question.length > 0",
                plotlyOutput("similarity_plot", height = 500)
                )
              )
