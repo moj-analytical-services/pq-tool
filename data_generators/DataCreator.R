@@ -141,6 +141,8 @@ summarise <- function(clusterNum, matr, totalClusters,
   names(termsAndSumsN) <- partialCompletion # update names
   #replace "probatn" with "probation"
   names(termsAndSumsN) <- gsub("probatn", "probation", names(termsAndSumsN))
+  #replace "probabl" with "probability"
+  names(termsAndSumsN) <- gsub("probabl", "probability", names(termsAndSumsN))
   
   termsAndSumsN
 }

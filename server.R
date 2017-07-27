@@ -272,6 +272,7 @@ function(input, output, session) {
 
   dfMP <- function(){
     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
+    df <- df[order(-as.numeric(df$Date)),]
   }
   
   output$member_wordcloud <- renderPlot({
