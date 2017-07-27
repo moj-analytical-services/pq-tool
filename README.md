@@ -47,6 +47,10 @@ To access the deployed tool go to https://mojproducts.shinyapps.io/pqtool/
     ```
     system("Rscript DataCreator.R -i  my_input_file.csv -o my_destination_dir -k 1000")
     ```
+    ```
+    for example, from the PQTool directory
+    system("Rscript data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000")
+    ```
 
 ## Running the tool
 

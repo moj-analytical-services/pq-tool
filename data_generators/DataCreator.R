@@ -317,6 +317,7 @@ search.space <- as.simple_triplet_matrix(search.space)
 
 ####FIX MP NAMES####
 questionerNames <- sapply(aPQ$Question_MP,nameCleaner)
+answererNames <- sapply(aPQ$Answer_MP, nameCleaner)
 
 #### SAVING ####
 print('Saving the output')
@@ -339,7 +340,7 @@ savedf <- data.frame(
   Answer_Text = aPQ$Answer_Text,
   Question_MP = questionerNames,
   MP_Constituency = aPQ$MP_Constituency,
-  Answer_MP = aPQ$Answer_MP,
+  Answer_MP = answererNames,
   Date = aPQ$Question_Date,
   Answer_Date = aPQ$Answer_Date,
   #Corrected_Date = aPQ$Corrected_Date,
