@@ -14,7 +14,7 @@ function format(d) {
                 '<div class=\"container-fluid\">' +
                 '<div class=\"btn-group\" role=\"group\">' +
                 '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[6] + '\')\">See all questions asked by ' + d[6] + '</button>' +
-                '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">See all questions in: Topic ' + d[9] + ' (' + d[10] + ') </button>' +
+                '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>' +
                 '</div>' +
                 '</div>';
 }
