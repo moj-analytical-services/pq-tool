@@ -8,12 +8,14 @@ var selected_rank = -1;
 
 function format(d) {
     d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
-    return '<div style=\"background-color:#eee; padding: .5em;word-wrap:break-word;width: 600px; \"> Question Text: ' +
-                d[2] + '</br>' + '</br>' +
-                'Answer Text: ' + d[3] + '</div>' +
+    return '<div style=\"background-color:#eee; padding: 1em; margin: 1em; word-wrap:break-word;\"><h4>Question</h4><p>' +
+                d[2] +
+                '</p><h4>Answer</h4><p>' + d[3] + '</p></div>' +
+                '<div class=\"container-fluid\">' +
                 '<div class=\"btn-group\" role=\"group\">' +
-                '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[6] + '\')\">See all questions asked by this Member</button>' +
-                '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">See all questions in the same topic</button>' +
+                '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[6] + '\')\">See all questions asked by ' + d[6] + '</button>' +
+                '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">See all questions in: Topic ' + d[9] + ' (' + d[10] + ') </button>' +
+                '</div>' +
                 '</div>';
 }
 var table1;
