@@ -204,7 +204,19 @@ function(input, output, session) {
   # how to get datatable on 1st tab to link in?
 
   dfClus <- function(){
+    cols <- c(
+      'Question_Text',
+      'Answer_Text',
+      'Question_MP',
+      'MP_Constituency',
+      'Date',
+      'Answer_MP',
+      'Answer_Date',
+      'Topic',
+      'Topic_Keywords'
+    )
     df <- subset(tables_data, (tables_data$Topic == input$topic_choice))
+    df[cols]
   }
 
   wordcloud_df <- function(){
@@ -256,18 +268,40 @@ function(input, output, session) {
              trigger = 'hover', placement = 'top', options = list(container = "body"))
 
   output$topic_documents <- renderDataTable({
-    datatable(data = dfClus(), #[, c("Question_Text", "Answer_Text")],
-              #colnames = c("Question Text", "Answer Text"),
-              caption = "Documents contained within the topic:",
-              extensions = 'Buttons',
-              rownames = FALSE,
-              options = list(dom = 'Bfrtip', 
-                             buttons = I('colvis'),
-                             scroller = TRUE,
-                             searching = FALSE,
-                             paging = TRUE,
-                             lengthChange = FALSE,
-                             pageLength = 5))
+    datatable(
+      cbind(' ' = '&oplus;', dfClus()), escape = -2,
+      options = list(
+        columnDefs = list(
+          list(visible = FALSE, targets = c(0, 2, 3)),
+          list(orderable = FALSE, className = 'details-control', targets = 1)
+        ),
+        caption = "Documents contained within the topic:",
+        deferRender = TRUE,
+        scroller = TRUE,
+        searching = FALSE,
+        paging = TRUE,
+        lengthChange = FALSE,
+        pageLength = 8,
+        server = FALSE
+      ),
+      callback = JS("
+                table1 = table;
+                table.column(1).nodes().to$().css({cursor: 'pointer'});
+                table.on('click', 'tr', rowActivate);"
+      )
+    )
+    # datatable(data = dfClus(), #[, c("Question_Text", "Answer_Text")],
+    #           #colnames = c("Question Text", "Answer Text"),
+    #           caption = "Documents contained within the topic:",
+    #           extensions = 'Buttons',
+    #           rownames = FALSE,
+    #           options = list(dom = 'Bfrtip', 
+    #                          buttons = I('colvis'),
+    #                          scroller = TRUE,
+    #                          searching = FALSE,
+    #                          paging = TRUE,
+    #                          lengthChange = FALSE,
+    #                          pageLength = 5))
   })
   
   addPopover(session, "topic_documents", "Questions in the topic",
@@ -292,6 +326,18 @@ function(input, output, session) {
   dfMP <- function(){
     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
     df <- df[order(-as.numeric(df$Date)),]
+    cols <- c(
+      'Question_Text',
+      'Answer_Text',
+      'Question_MP',
+      'MP_Constituency',
+      'Date',
+      'Answer_MP',
+      'Answer_Date',
+      'Topic',
+      'Topic_Keywords'
+    )
+    df[cols]
   }
   
   output$member_wordcloud <- renderPlot({
@@ -321,16 +367,38 @@ function(input, output, session) {
              trigger = 'hover', placement = 'top', options = list(container = "body"))
 
   output$member_table <- renderDataTable({
-    datatable(dfMP(),
-              caption = "Questions asked by the chosen member:",
-              extensions = 'Buttons',
-              rownames = FALSE,
-              options = list(dom = 'Bfrtip', 
-                             buttons = I('colvis'),
-                             searching = FALSE,
-                             paging = TRUE,
-                             lengthChange = FALSE,
-                             pageLength = 5))
+    datatable(
+      cbind(' ' = '&oplus;', dfMP()), escape = -2,
+      options = list(
+        columnDefs = list(
+          list(visible = FALSE, targets = c(0, 2, 3)),
+          list(orderable = FALSE, className = 'details-control', targets = 1)
+        ),
+        caption = "Documents contained within the topic:",
+        deferRender = TRUE,
+        scroller = TRUE,
+        searching = FALSE,
+        paging = TRUE,
+        lengthChange = FALSE,
+        pageLength = 8,
+        server = FALSE
+      ),
+      callback = JS("
+                table1 = table;
+                table.column(1).nodes().to$().css({cursor: 'pointer'});
+                table.on('click', 'tr', rowActivate);"
+      )
+    )
+    # datatable(dfMP(),
+    #           caption = "Questions asked by the chosen member:",
+    #           extensions = 'Buttons',
+    #           rownames = FALSE,
+    #           options = list(dom = 'Bfrtip', 
+    #                          buttons = I('colvis'),
+    #                          searching = FALSE,
+    #                          paging = TRUE,
+    #                          lengthChange = FALSE,
+    #                          pageLength = 5))
   })
   
   addPopover(session, "member_table", "Questions asked by the member",
