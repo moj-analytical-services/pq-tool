@@ -12,9 +12,13 @@ function format(d) {
                 d[2] +
                 '</p><h4>Answer</h4><p>' + d[3] + '</p></div>' +
                 '<div class=\"container-fluid\">' +
+                '<div class=\"btn-group btn-group-justified\" role=\"group\">' +
                 '<div class=\"btn-group\" role=\"group\">' +
                 '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[6] + '\')\">See all questions asked by ' + d[6].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>' +
+                '</div>' +
+                '<div class=\"btn-group\" role=\"group\">' +
                 '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>' +
+                '</div>' +
                 '</div>' +
                 '</div>';
 }
