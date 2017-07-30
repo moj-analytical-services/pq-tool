@@ -9,11 +9,14 @@ navbarPage("PQ Text Analysis",
              )
              ),
   tabPanel("Search",
-           tags$head(includeScript("google-analytics.js")),
+           tags$head(
+            includeScript("google-analytics.js"),
+            tags$link(rel = "stylesheet", type = "text/css", href = "pq.css")
+           ),
            tags$body(onmousemove = "get_point_locations(event)"),
            tags$head(includeScript("pq.js")),
     fluidRow(
-      column(3,
+      column(4,
         textInput(inputId = "question",
                   label = "Search Text",
                   width = "100%",
@@ -24,7 +27,7 @@ navbarPage("PQ Text Analysis",
                   "auto", options = list(container = "body"))
             ),
 
-      column(3,
+      column(2,
              conditionalPanel(
                condition = "input.question.length > 0",
 
