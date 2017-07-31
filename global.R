@@ -64,6 +64,7 @@ vocab <- search.space$dimnames[[1]]
 
 queryVec <- function(query){
   query <- query %>% iconv(to = "utf-8", sub = "") %>%
+    gsub("re-off", "reoff", .) %>%
     gsub("-", " ", .) %>%
     gsub("[^(A-Z a-z 0-9 //s)]", "", .) %>%
     removePunctuation() %>%
