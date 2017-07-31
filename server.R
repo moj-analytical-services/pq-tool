@@ -59,7 +59,7 @@ function(input, output, session) {
   #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
   #give an indication of how interest has risen and fallen over time.
   line_points <- reactive({
-    loessThing <- loess(plot_points()$Similarity_score ~ as.numeric(plot_points()$Date), span = 1/pi, degree = 2)
+    loessThing <- loess(plot_points()$Similarity_score ~ as.numeric(plot_points()$Date), span = 1/exp(1), degree = 2)
     Dates <- as.Date(loessThing$x[order(loessThing$x)][-length(loessThing$x)][-1], format="%Y-%m-%d", origin = "1970-01-01")
     Scores <- loessThing$fitted[order(loessThing$x)][-length(loessThing$x)][-1]
     Scores[Scores < 0] <- 0
@@ -272,6 +272,7 @@ function(input, output, session) {
 
   dfMP <- function(){
     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
+    df <- df[order(-as.numeric(df$Date)),]
   }
   
   output$member_wordcloud <- renderPlot({

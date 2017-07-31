@@ -88,6 +88,9 @@ cleanCorpus <- function(corp) {
       content_transformer(
         function(x) iconv(x, to = "utf-8", sub = ""))
     ) %>%
+    #inelegant special cleaning step to take care of the fact that reoffending is
+    #sometimes spelled "re-offending" and sometimes "reoffending"
+    tm_map(function(x) gsub("re-off", "reoff", x)) %>%
     #replace hyphens with spaces
     tm_map(function(x) gsub("-", " ", x)) %>%
     #get rid of all other non-alphanumeric symbols
@@ -138,6 +141,8 @@ summarise <- function(clusterNum, matr, totalClusters,
   names(termsAndSumsN) <- partialCompletion # update names
   #replace "probatn" with "probation"
   names(termsAndSumsN) <- gsub("probatn", "probation", names(termsAndSumsN))
+  #replace "probabl" with "probability"
+  names(termsAndSumsN) <- gsub("probabl", "probability", names(termsAndSumsN))
   
   termsAndSumsN
 }
@@ -317,6 +322,7 @@ search.space <- as.simple_triplet_matrix(search.space)
 
 ####FIX MP NAMES####
 questionerNames <- sapply(aPQ$Question_MP,nameCleaner)
+answererNames <- sapply(aPQ$Answer_MP, nameCleaner)
 
 #### SAVING ####
 print('Saving the output')
@@ -339,7 +345,7 @@ savedf <- data.frame(
   Answer_Text = aPQ$Answer_Text,
   Question_MP = questionerNames,
   MP_Constituency = aPQ$MP_Constituency,
-  Answer_MP = aPQ$Answer_MP,
+  Answer_MP = answererNames,
   Date = aPQ$Question_Date,
   Answer_Date = aPQ$Answer_Date,
   #Corrected_Date = aPQ$Corrected_Date,
