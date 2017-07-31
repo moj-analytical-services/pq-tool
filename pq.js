@@ -6,26 +6,38 @@ var selected_rank = -1;
 
 //Table-clicking function
 
-function format(d, questionMPCol) {
+function format(d, questionMPCol, tab) {
     console.log(d);
     d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
+    if(tab == 'search') {
+        buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by ' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
+        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>';
+    } else if (tab == 'topic') {
+        buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by ' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
+        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"back_to_search()\">Back to search </button>';
+    } else if (tab == 'member') {
+        buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"back_to_search()\">Back to search</button>';
+        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>';
+    }
+
     return '<div style=\"background-color:#eee; padding: 1em; margin: 1em; word-wrap:break-word;\"><h4>Question</h4><p>' +
                 d[2] +
                 '</p><h4>Answer</h4><p>' + d[3] + '</p></div>' +
                 '<div class=\"container-fluid\">' +
                 '<div class=\"btn-group btn-group-justified\" role=\"group\">' +
                 '<div class=\"btn-group\" role=\"group\">' +
-                '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by ' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>' +
+                buttonOne +
                 '</div>' +
                 '<div class=\"btn-group\" role=\"group\">' +
-                '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>' +
+                buttonTwo +
                 '</div>' +
                 '</div>' +
                 '</div>';
 }
 var table1;
 var questionMPCol;
-// pass arg here to determine what buttons to show?
+var tab;
+
 function rowActivate() {
     var row = this.closest('tr');
     var showHideIcon = $(row.firstChild);
@@ -34,7 +46,7 @@ function rowActivate() {
         shinyRow.child.hide();
         showHideIcon.html('&oplus;');
     } else {
-        shinyRow.child(format(shinyRow.data(), questionMPCol)).show();
+        shinyRow.child(format(shinyRow.data(), questionMPCol, tab)).show();
         showHideIcon.html('&ominus;');
     }
 }
@@ -161,6 +173,11 @@ function topic_finder(topic){
     $("#topic_choice").append("<option value='" + topic + "'>" + topic + "</option>"); //append option to topic dropdown (the topic you want)
     $("#topic_choice").val(""+topic).change(); //change to new option
     document.getElementsByClassName("item")[0].innerHTML = topic; //change text in topic dropdown
+}
+
+function back_to_search(){
+    var search_tab = $("a")[0];
+    search_tab.click();
 }
 
 

@@ -107,6 +107,7 @@ function(input, output, session) {
                 table1 = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
                 questionMPCol = 6;
+                tab = 'search';
                 table.on('click', 'tr', rowActivate);"
       ),
       caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:"
@@ -301,6 +302,7 @@ function(input, output, session) {
                 table1 = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
                 questionMPCol = 4;
+                tab = 'topic';
                 table.on('click', 'tr', rowActivate);"
       )
     )
@@ -401,6 +403,7 @@ function(input, output, session) {
                 table1 = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
                 questionMPCol = 4;
+                tab = 'member';
                 table.on('click', 'tr', rowActivate);"
       )
     )
