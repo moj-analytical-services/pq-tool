@@ -106,6 +106,7 @@ function(input, output, session) {
       callback = JS("
                 table1 = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
+                questionMPCol = 6;
                 table.on('click', 'tr', rowActivate);"
       ),
       caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:"
@@ -203,6 +204,18 @@ function(input, output, session) {
   #input$x3 = input$x1_rows_selected
   # how to get datatable on 1st tab to link in?
 
+  # cols <- c(
+  #     'Question_Text',
+  #     'Answer_Text',
+  #     'Similarity_score',
+  #     'Rank',
+  #     'Question_MP',
+  #     'Date',
+  #     'Answer_Date',
+  #     'Topic',
+  #     'Topic_Keywords'
+  #   )
+
   dfClus <- function(){
     cols <- c(
       'Question_Text',
@@ -287,6 +300,7 @@ function(input, output, session) {
       callback = JS("
                 table1 = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
+                questionMPCol = 4;
                 table.on('click', 'tr', rowActivate);"
       )
     )
@@ -339,7 +353,7 @@ function(input, output, session) {
     )
     df[cols]
   }
-  
+
   output$member_wordcloud <- renderPlot({
     wordcloud_input <- reactive({
       getElement(allMPs, input$person_choice)
@@ -386,6 +400,7 @@ function(input, output, session) {
       callback = JS("
                 table1 = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
+                questionMPCol = 4;
                 table.on('click', 'tr', rowActivate);"
       )
     )

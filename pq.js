@@ -6,7 +6,8 @@ var selected_rank = -1;
 
 //Table-clicking function
 
-function format(d) {
+function format(d, questionMPCol) {
+    console.log(d);
     d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
     return '<div style=\"background-color:#eee; padding: 1em; margin: 1em; word-wrap:break-word;\"><h4>Question</h4><p>' +
                 d[2] +
@@ -14,7 +15,7 @@ function format(d) {
                 '<div class=\"container-fluid\">' +
                 '<div class=\"btn-group btn-group-justified\" role=\"group\">' +
                 '<div class=\"btn-group\" role=\"group\">' +
-                '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[6] + '\')\">See all questions asked by ' + d[6].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>' +
+                '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by ' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>' +
                 '</div>' +
                 '<div class=\"btn-group\" role=\"group\">' +
                 '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>' +
@@ -23,6 +24,8 @@ function format(d) {
                 '</div>';
 }
 var table1;
+var questionMPCol;
+// pass arg here to determine what buttons to show?
 function rowActivate() {
     var row = this.closest('tr');
     var showHideIcon = $(row.firstChild);
@@ -31,7 +34,7 @@ function rowActivate() {
         shinyRow.child.hide();
         showHideIcon.html('&oplus;');
     } else {
-        shinyRow.child(format(shinyRow.data())).show();
+        shinyRow.child(format(shinyRow.data(), questionMPCol)).show();
         showHideIcon.html('&ominus;');
     }
 }
