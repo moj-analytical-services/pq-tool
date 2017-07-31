@@ -15,6 +15,13 @@ navbarPage("PQ Text Analysis",
            ),
            tags$body(onmousemove = "get_point_locations(event)"),
            tags$head(includeScript("pq.js")),
+   fluidRow(
+     column(4,
+            h4("Welcome to the PQ Tool!"),
+            p("Because a choose prompt is present, the selectize version should let
+              you clear the selection.")
+            )
+            ),
     fluidRow(
       column(4,
         textInput(inputId = "question",
