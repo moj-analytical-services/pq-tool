@@ -20,8 +20,7 @@ navbarPage("PQ Text Analysis",
             #h4("Welcome to the PQ Tool!"),
             conditionalPanel(
               condition = "input.question.length == 0",
-                p("Because a choose prompt is present, the selectize version should let
-              you clear the selection.")
+                p("Welcome to the PQ tool. ")
             )
             )),
     fluidRow(
