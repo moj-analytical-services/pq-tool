@@ -16,12 +16,11 @@ navbarPage("PQ Text Analysis",
            tags$body(onmousemove = "get_point_locations(event)"),
            tags$head(includeScript("pq.js")),
    fluidRow(
-     column(12,
-            #h4("Welcome to the PQ Tool!"),
-            conditionalPanel(
-              condition = "input.question.length == 0",
-                p("Welcome to the PQ tool. ")
-            )
+     column(8,
+              strong("Welcome to the PQ Tool!"),
+                p("You can use this tool to search through our database of written PQs. Try typing a couple of keywords 
+                  (e.g. Prison Officers) or a new PQ into the search box below and you will get a ranked list of the most 
+                  similar past question")
             )),
     fluidRow(
       column(4,
