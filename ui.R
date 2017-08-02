@@ -70,27 +70,21 @@ navbarPage("PQ Text Analysis",
              column(6),
              column(3,actionButton("explanation_button", "What do these topics mean?", class="btn btn-primary"))
              ),
-           fluidRow(
-             conditionalPanel(
-               condition = "input.topic_choice.length > 0",
-               column(4,
-                      conditionalPanel(
-                        condition = "input.topic_choice.length > 0",
-                        plotOutput("wordcloud")
-                      )),
-               column(8,
-                      plotOutput("topic_plot")
-                      )
-               )
-             ),
-             fluidRow(
-               conditionalPanel(
-                 condition = "input.topic_choice.length > 0",
-                 dataTableOutput("topic_documents")
-                 )
-               )
-           ),
 
+    conditionalPanel(
+      condition = "input.topic_choice.length > 0",
+      fluidRow(
+        column(6,
+          dataTableOutput("topic_documents")
+        ),
+        column(6,
+          plotOutput("topic_plot"),
+          plotOutput("wordcloud")
+        )
+      )
+    )
+  ),
+  
   tabPanel("Member Analysis",
            fluidRow(
              column(2,

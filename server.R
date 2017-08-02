@@ -225,9 +225,7 @@ function(input, output, session) {
       'MP_Constituency',
       'Date',
       'Answer_MP',
-      'Answer_Date',
-      'Topic',
-      'Topic_Keywords'
+      'Answer_Date'
     )
     df <- subset(tables_data, (tables_data$Topic == input$topic_choice))
     df[cols]
