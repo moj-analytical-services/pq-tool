@@ -59,6 +59,8 @@ navbarPage("PQ Text Analysis",
              )
       )
     ),
+
+########################### Topic Tab
   tabPanel("Topic Analysis",
            fluidRow(column(3,
              selectizeInput(inputId = "topic_choice",
@@ -75,12 +77,14 @@ navbarPage("PQ Text Analysis",
       condition = "input.topic_choice.length > 0",
       fluidRow(
         column(6,
-          dataTableOutput("topic_documents")
+          plotOutput("wordcloud")
         ),
         column(6,
-          plotOutput("topic_plot"),
-          plotOutput("wordcloud")
+          plotOutput("topic_plot")
         )
+      ),
+      fluidRow(
+        dataTableOutput("topic_documents")
       )
     )
   ),
