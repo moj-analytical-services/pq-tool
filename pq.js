@@ -13,8 +13,8 @@ function format(d, questionMPCol, tab) {
         buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by<br>' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
         buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + '<br>(' + d[10] + ') </button>';
     } else if (tab == 'topic') {
-        buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by ' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
-        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"back_to_search()\">Back to search </button>';
+        buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by<br>' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
+        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"back_to_search()\">Back to search</button>';
     } else if (tab == 'member') {
         buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"back_to_search()\">Back to search</button>';
         buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>';
