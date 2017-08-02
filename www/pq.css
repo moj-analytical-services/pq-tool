@@ -2,3 +2,11 @@
   height: 38px;
   font-size: 14px;
 }
+
+.shiny-output-error {
+  visibility: hidden;
+}
+
+.shiny-output-error:before {
+  visibility: hidden;
+}
