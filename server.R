@@ -2,17 +2,17 @@
 ############### Server
 
 function(input, output, session) {
-### Similarity Pane
+  ### Similarity Pane
   returnNearestMatches <- reactive({
     space <- search.space
     foundWords <- which(space$i %in% queryVec(input$question))
     if(length(foundWords)==0){
-        return("Unable to determine similarity to query")
+      return("Unable to determine similarity to query")
     }
     Document <- space$j[foundWords]
     vees <- space$v[foundWords]
     JayVees <- data.table(Document = Document, vees = vees)
-
+    
     outGroup <- JayVees[,
                         .("Similarity_score" = sum(vees)),
                         by = Document ][order(-Similarity_score)]
@@ -21,19 +21,19 @@ function(input, output, session) {
                              data,
                              by.x = "Document",
                              by.y = "Document_Number")
-
+    
     data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
     data <- data[with(data, order(-data["Similarity_score"])), ]
     rownames(data) <- 1:nrow(data)
     data["Rank"] <- as.numeric(rownames(data))
     return(data)
   })
-
+  
   df <- reactive({
     subset(returnNearestMatches(),
            returnNearestMatches()$Date >= input$q_date_range[1] &
              returnNearestMatches()$Date <= input$q_date_range[2])
-    })
+  })
   
   plot_points <- reactive({
     cols <- c(
@@ -48,13 +48,13 @@ function(input, output, session) {
       'Topic_Keywords'
     )
     tryCatch({
-    df()[1:100, cols]
+      df()[1:100, cols]
     }, warning = function(war){
-        print("warning")
+      print("warning")
     }, error = function(err){
-        print("Unable to complete query.  Try resolving typos or including more search terms.")
+      print("Unable to complete query.  Try resolving typos or including more search terms.")
     }, finally = {
-        
+      
     })
   })
   
@@ -66,26 +66,26 @@ function(input, output, session) {
     max(plot_points()$Date)
   })
   
-
+  
   #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
   #give an indication of how interest has risen and fallen over time.
   line_points <- reactive({
-   tryCatch({
-        test <- plot_points()$Similarity_score
+    tryCatch({
+      test <- plot_points()$Similarity_score
     }, warning = function(war){
-        print("warning")
+      print("warning")
     }, error = function(err){
-        print("error")
+      print("error")
     },  finally = {
-    loessThing <- loess(plot_points()$Similarity_score ~ as.numeric(plot_points()$Date), span = 1/exp(1), degree = 2)
-    Dates <- as.Date(loessThing$x[order(loessThing$x)][-length(loessThing$x)][-1], format="%Y-%m-%d", origin = "1970-01-01")
-    Scores <- loessThing$fitted[order(loessThing$x)][-length(loessThing$x)][-1]
-    Scores[Scores < 0] <- 0
-    return(data.frame(Dates = Dates, 
-                      Scores = Scores))
+      loessThing <- loess(plot_points()$Similarity_score ~ as.numeric(plot_points()$Date), span = 1/exp(1), degree = 2)
+      Dates <- as.Date(loessThing$x[order(loessThing$x)][-length(loessThing$x)][-1], format="%Y-%m-%d", origin = "1970-01-01")
+      Scores <- loessThing$fitted[order(loessThing$x)][-length(loessThing$x)][-1]
+      Scores[Scores < 0] <- 0
+      return(data.frame(Dates = Dates, 
+                        Scores = Scores))
     })
   })
-
+  
   output$similarity_table <- renderDataTable({
     datatable(
       cbind(' ' = '&oplus;', plot_points()), escape = -2,
@@ -123,14 +123,14 @@ function(input, output, session) {
                               "Analysis\' page.</p>"), trigger = 'hover', placement = 'right', options = list(container = "body"))
   
   
-   y_axis <- list(
+  y_axis <- list(
     title = "Similarity",
     autotick = TRUE,
     ticks = "",
     showticklabels = FALSE,
     rangemode = "tozero"
   )
-
+  
   output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = plot_points()$Date) %>%
       add_markers(y = plot_points()$Similarity_score,
@@ -174,7 +174,7 @@ function(input, output, session) {
                 text = NULL,
                 hoverinfo = "text"
       ) %>%
-
+      
       config(displayModeBar = F) %>%
       layout(legend = list(orientation = 'h'))
   })
@@ -184,7 +184,7 @@ function(input, output, session) {
                               "Each point represents a past PQ from our database with the height showing ",
                               "how similar the PQ is to the search terms (higher = more similar). ",
                               " </p>"), trigger = 'hover', placement = 'left')
-
+  
   
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
@@ -199,12 +199,12 @@ function(input, output, session) {
   #                            paging = FALSE
   #             ))
   # })
-
-### Cluster Pane
-
+  
+  ### Cluster Pane
+  
   #input$x3 = input$x1_rows_selected
   # how to get datatable on 1st tab to link in?
-
+  
   # cols <- c(
   #     'Question_Text',
   #     'Answer_Text',
@@ -216,7 +216,7 @@ function(input, output, session) {
   #     'Topic',
   #     'Topic_Keywords'
   #   )
-
+  
   dfClus <- function(){
     cols <- c(
       'Question_Text',
@@ -230,13 +230,13 @@ function(input, output, session) {
     df <- subset(tables_data, (tables_data$Topic == input$topic_choice))
     df[cols]
   }
-
+  
   wordcloud_df <- function(){
-
+    
     df <- subset(topic_data,
-                        (topic_data$topic == input$topic_choice))
+                 (topic_data$topic == input$topic_choice))
   }
-
+  
   observeEvent(input$explanation_button, {
     showModal(modalDialog(
       title = "What do the topics mean?", 
@@ -261,9 +261,9 @@ function(input, output, session) {
   
   addPopover(session, "wordcloud", "Wordcloud",
              content = paste0("This wordcloud shows the words that are most important to the topic.<br> The bigger the word, the more important it is."),
-                               trigger = 'hover', placement = 'top', options = list(container = "body"))
-
-
+             trigger = 'hover', placement = 'top', options = list(container = "body"))
+  
+  
   output$topic_plot <- renderPlot({
     p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
       geom_bar(color = "red", fill = "red", width = .5)
@@ -278,7 +278,7 @@ function(input, output, session) {
   addPopover(session, "topic_plot", "Questions plotted over time",
              content = paste0("This plot shows when the questions in the topic were asked. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
-
+  
   output$topic_documents <- renderDataTable({
     datatable(
       cbind(' ' = '&oplus;', dfClus()), escape = -2,
@@ -319,9 +319,10 @@ function(input, output, session) {
   })
   
   addPopover(session, "topic_documents", "Questions in the topic",
-             content = "This table contains all of the information on the questions asked on this topic.",
+             content = paste0("This table contains all of the information on the questions asked on this topic.<br>",
+                              "Click on a row to see the corresponding question and answer text."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
-
+  
   ### Q&A Analysis Pane
   output$member_ui <- renderUI({
     switch(input$member_analysis,
@@ -335,7 +336,7 @@ function(input, output, session) {
            )
     )
   })
-
+  
   dfMP <- function(){
     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
     df <- df[order(-as.numeric(df$Date)),]
@@ -352,7 +353,7 @@ function(input, output, session) {
     )
     df[cols]
   }
-
+  
   output$member_wordcloud <- renderPlot({
     wordcloud_input <- reactive({
       getElement(allMPs, input$person_choice)
@@ -378,7 +379,7 @@ function(input, output, session) {
   addPopover(session, "member_plot", "Questions plotted over time",
              content = paste0("This plot shows when questions were asked by the selected member. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
-
+  
   output$member_table <- renderDataTable({
     datatable(
       cbind(' ' = '&oplus;', dfMP()), escape = -2,
@@ -408,8 +409,9 @@ function(input, output, session) {
   })
   
   addPopover(session, "member_table", "Questions asked by the member",
-             content = "This table contains all of the information on the questions asked by this member.",
+             content = paste0("This table contains all of the information on the questions asked by this member.<br>",
+                              "Click on a row to see the corresponding question and answer text."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
-
+  
 }

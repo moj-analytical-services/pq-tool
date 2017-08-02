@@ -36,7 +36,7 @@ merged_clusters <- ddply(
   .(Date, Answer_Date, Topic),
   summarize,
   Question_Text = paste0(Question_Text, collapse = " "))
-  
+
 #Search space for query vector
 vocab <- search.space$dimnames[[1]]
 
