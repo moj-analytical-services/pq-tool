@@ -319,8 +319,7 @@ function(input, output, session) {
   })
   
   addPopover(session, "topic_documents", "Questions in the topic",
-             content = paste0("This table contains all of the information on the questions asked on this topic.<br>",
-                              "You can choose which columns to show/hide by clicking on the \"Column Visibility\" button."),
+             content = "This table contains all of the information on the questions asked on this topic.",
              trigger = 'hover', placement = 'top', options = list(container = "body"))
 
   ### Q&A Analysis Pane
@@ -405,21 +404,11 @@ function(input, output, session) {
                 table.on('click', 'tr', rowActivate);"
       )
     )
-    # datatable(dfMP(),
-    #           caption = "Questions asked by the chosen member:",
-    #           extensions = 'Buttons',
-    #           rownames = FALSE,
-    #           options = list(dom = 'Bfrtip', 
-    #                          buttons = I('colvis'),
-    #                          searching = FALSE,
-    #                          paging = TRUE,
-    #                          lengthChange = FALSE,
-    #                          pageLength = 5))
+    
   })
   
   addPopover(session, "member_table", "Questions asked by the member",
-             content = paste0("This table contains all of the information on the questions asked by this member.<br>",
-                              "You can choose which columns to show/hide by clicking on the \"Column Visibility\" button."),
+             content = "This table contains all of the information on the questions asked by this member.",
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
 
