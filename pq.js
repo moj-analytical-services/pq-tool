@@ -6,23 +6,38 @@ var selected_rank = -1;
 
 //Table-clicking function
 
-function format(d) {
+function format(d, questionMPCol, tab) {
+    console.log(d);
     d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
+    if(tab == 'search') {
+        buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by<br>' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
+        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + '<br>(' + d[10] + ') </button>';
+    } else if (tab == 'topic') {
+        buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by ' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
+        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"back_to_search()\">Back to search</button>';
+    } else if (tab == 'member') {
+        buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"back_to_search()\">Back to search</button>';
+        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>';
+    }
+
     return '<div style=\"background-color:#eee; padding: 1em; margin: 1em; word-wrap:break-word;\"><h4>Question</h4><p>' +
                 d[2] +
                 '</p><h4>Answer</h4><p>' + d[3] + '</p></div>' +
                 '<div class=\"container-fluid\">' +
                 '<div class=\"btn-group btn-group-justified\" role=\"group\">' +
                 '<div class=\"btn-group\" role=\"group\">' +
-                '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[6] + '\')\">See all questions asked by ' + d[6].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>' +
+                buttonOne +
                 '</div>' +
                 '<div class=\"btn-group\" role=\"group\">' +
-                '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>' +
+                buttonTwo +
                 '</div>' +
                 '</div>' +
                 '</div>';
 }
 var table1;
+var questionMPCol;
+var tab;
+
 function rowActivate() {
     var row = this.closest('tr');
     var showHideIcon = $(row.firstChild);
@@ -31,7 +46,7 @@ function rowActivate() {
         shinyRow.child.hide();
         showHideIcon.html('&oplus;');
     } else {
-        shinyRow.child(format(shinyRow.data())).show();
+        shinyRow.child(format(shinyRow.data(), questionMPCol, tab)).show();
         showHideIcon.html('&ominus;');
     }
 }
@@ -56,8 +71,12 @@ function get_point_locations(e) {
             }
         }
     }
+    
     var cc = document.getElementsByClassName("cursor-crosshair")[0];
-    cc.addEventListener("mousedown", find_nearest_point);
+    if(cc){
+        cc.addEventListener("mousedown", find_nearest_point);
+    }
+    $("div.active").mousemove(tidy_table)
 }
 
 
@@ -139,13 +158,13 @@ function mp_finder(mp){
     mp_tab.click(); //click on link (takes us to MP tab)
     var is_lords = mp.match(/^(Baron)|(Lord)|(The )|(Viscount)/); //determine if mp is in HoL or HoC
     var radio_button = is_lords ? 0 : 1; //is_lords evalutes to true if above match is found, and false otherwise - returnin 0, 1 respectively
-    $(".radio-inline")[radio_button].click() //Click the correct radio button, as determined by is_lords
+    $(".radio-inline")[radio_button].click(); //Click the correct radio button, as determined by is_lords
     
     setTimeout(function(){ //timeout to give radio button click enough time to execute
         $("#person_choice").append("<option value='" + mp + "'>" + mp + "</option>"); //append option to person dropdown (the mp you want)
         $("#person_choice").val(mp).change(); //change to new option
-        document.getElementsByClassName("item")[1].innerHTML = mp //change text in person dropdown
-        return; }, 500)
+        document.getElementsByClassName("item")[1].innerHTML = mp; //change text in person dropdown
+        return; }, 500);
 }
 
 function topic_finder(topic){
@@ -155,3 +174,40 @@ function topic_finder(topic){
     $("#topic_choice").val(""+topic).change(); //change to new option
     document.getElementsByClassName("item")[0].innerHTML = topic; //change text in topic dropdown
 }
+
+function back_to_search(){
+    var search_tab = $("a")[0];
+    search_tab.click();
+}
+
+
+//Tidy up tab tables
+
+String.prototype.format_html = function(){
+    return this.replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
+};
+
+
+function tidy_table(){
+    //debugger
+    //Find Answer_text column
+    var headers = $("div.active").find("th.sorting");
+    var hl = headers.length;
+    var answer_index = -1;
+    var table_entries = $("div.active").find("td");
+    var t_entries_length = table_entries.length;
+    for(var h of headers){
+        answer_index++;
+        if(h.innerHTML === "Answer_Text"){
+            break;
+        }
+    }
+    for(var i = 0; i < t_entries_length; i++){
+        if(i % hl !== answer_index){
+            continue;
+        }
+        var a_text = table_entries[i].innerHTML;
+        table_entries[i].innerHTML = a_text.format_html();
+    }
+}
+

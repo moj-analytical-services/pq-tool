@@ -6,6 +6,9 @@ function(input, output, session) {
   returnNearestMatches <- reactive({
     space <- search.space
     foundWords <- which(space$i %in% queryVec(input$question))
+    if(length(foundWords)==0){
+        return("Unable to determine similarity to query")
+    }
     Document <- space$j[foundWords]
     vees <- space$v[foundWords]
     JayVees <- data.table(Document = Document, vees = vees)
@@ -44,7 +47,15 @@ function(input, output, session) {
       'Topic',
       'Topic_Keywords'
     )
+    tryCatch({
     df()[1:100, cols]
+    }, warning = function(war){
+        print("warning")
+    }, error = function(err){
+        print("Unable to complete query.  Try resolving typos or including more search terms.")
+    }, finally = {
+        
+    })
   })
   
   min_date <- reactive({
@@ -59,12 +70,20 @@ function(input, output, session) {
   #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
   #give an indication of how interest has risen and fallen over time.
   line_points <- reactive({
+   tryCatch({
+        test <- plot_points()$Similarity_score
+    }, warning = function(war){
+        print("warning")
+    }, error = function(err){
+        print("error")
+    },  finally = {
     loessThing <- loess(plot_points()$Similarity_score ~ as.numeric(plot_points()$Date), span = 1/exp(1), degree = 2)
     Dates <- as.Date(loessThing$x[order(loessThing$x)][-length(loessThing$x)][-1], format="%Y-%m-%d", origin = "1970-01-01")
     Scores <- loessThing$fitted[order(loessThing$x)][-length(loessThing$x)][-1]
     Scores[Scores < 0] <- 0
     return(data.frame(Dates = Dates, 
                       Scores = Scores))
+    })
   })
 
   output$similarity_table <- renderDataTable({
@@ -87,6 +106,8 @@ function(input, output, session) {
       callback = JS("
                 table1 = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
+                questionMPCol = 6;
+                tab = 'search';
                 table.on('click', 'tr', rowActivate);"
       ),
       caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:"
@@ -184,8 +205,30 @@ function(input, output, session) {
   #input$x3 = input$x1_rows_selected
   # how to get datatable on 1st tab to link in?
 
+  # cols <- c(
+  #     'Question_Text',
+  #     'Answer_Text',
+  #     'Similarity_score',
+  #     'Rank',
+  #     'Question_MP',
+  #     'Date',
+  #     'Answer_Date',
+  #     'Topic',
+  #     'Topic_Keywords'
+  #   )
+
   dfClus <- function(){
+    cols <- c(
+      'Question_Text',
+      'Answer_Text',
+      'Question_MP',
+      'MP_Constituency',
+      'Date',
+      'Answer_MP',
+      'Answer_Date'
+    )
     df <- subset(tables_data, (tables_data$Topic == input$topic_choice))
+    df[cols]
   }
 
   wordcloud_df <- function(){
@@ -237,18 +280,42 @@ function(input, output, session) {
              trigger = 'hover', placement = 'top', options = list(container = "body"))
 
   output$topic_documents <- renderDataTable({
-    datatable(data = dfClus(), #[, c("Question_Text", "Answer_Text")],
-              #colnames = c("Question Text", "Answer Text"),
-              caption = "Documents contained within the topic:",
-              extensions = 'Buttons',
-              rownames = FALSE,
-              options = list(dom = 'Bfrtip', 
-                             buttons = I('colvis'),
-                             scroller = TRUE,
-                             searching = FALSE,
-                             paging = TRUE,
-                             lengthChange = FALSE,
-                             pageLength = 5))
+    datatable(
+      cbind(' ' = '&oplus;', dfClus()), escape = -2,
+      options = list(
+        columnDefs = list(
+          list(visible = FALSE, targets = c(0, 2, 3)),
+          list(orderable = FALSE, className = 'details-control', targets = 1)
+        ),
+        caption = "Documents contained within the topic:",
+        deferRender = TRUE,
+        scroller = TRUE,
+        searching = FALSE,
+        paging = TRUE,
+        lengthChange = FALSE,
+        pageLength = 8,
+        server = FALSE
+      ),
+      callback = JS("
+                table1 = table;
+                table.column(1).nodes().to$().css({cursor: 'pointer'});
+                questionMPCol = 4;
+                tab = 'topic';
+                table.on('click', 'tr', rowActivate);"
+      )
+    )
+    # datatable(data = dfClus(), #[, c("Question_Text", "Answer_Text")],
+    #           #colnames = c("Question Text", "Answer Text"),
+    #           caption = "Documents contained within the topic:",
+    #           extensions = 'Buttons',
+    #           rownames = FALSE,
+    #           options = list(dom = 'Bfrtip', 
+    #                          buttons = I('colvis'),
+    #                          scroller = TRUE,
+    #                          searching = FALSE,
+    #                          paging = TRUE,
+    #                          lengthChange = FALSE,
+    #                          pageLength = 5))
   })
   
   addPopover(session, "topic_documents", "Questions in the topic",
@@ -273,8 +340,20 @@ function(input, output, session) {
   dfMP <- function(){
     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
     df <- df[order(-as.numeric(df$Date)),]
+    cols <- c(
+      'Question_Text',
+      'Answer_Text',
+      'Question_MP',
+      'MP_Constituency',
+      'Date',
+      'Answer_MP',
+      'Answer_Date',
+      'Topic',
+      'Topic_Keywords'
+    )
+    df[cols]
   }
-  
+
   output$member_wordcloud <- renderPlot({
     wordcloud_input <- reactive({
       getElement(allMPs, input$person_choice)
@@ -302,16 +381,31 @@ function(input, output, session) {
              trigger = 'hover', placement = 'top', options = list(container = "body"))
 
   output$member_table <- renderDataTable({
-    datatable(dfMP(),
-              caption = "Questions asked by the chosen member:",
-              extensions = 'Buttons',
-              rownames = FALSE,
-              options = list(dom = 'Bfrtip', 
-                             buttons = I('colvis'),
-                             searching = FALSE,
-                             paging = TRUE,
-                             lengthChange = FALSE,
-                             pageLength = 5))
+    datatable(
+      cbind(' ' = '&oplus;', dfMP()), escape = -2,
+      options = list(
+        columnDefs = list(
+          list(visible = FALSE, targets = c(0, 2, 3)),
+          list(orderable = FALSE, className = 'details-control', targets = 1)
+        ),
+        caption = "Documents contained within the topic:",
+        deferRender = TRUE,
+        scroller = TRUE,
+        searching = FALSE,
+        paging = TRUE,
+        lengthChange = FALSE,
+        pageLength = 8,
+        server = FALSE
+      ),
+      callback = JS("
+                table1 = table;
+                table.column(1).nodes().to$().css({cursor: 'pointer'});
+                questionMPCol = 4;
+                tab = 'member';
+                table.on('click', 'tr', rowActivate);"
+      )
+    )
+    
   })
   
   addPopover(session, "member_table", "Questions asked by the member",
