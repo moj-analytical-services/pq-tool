@@ -9,7 +9,7 @@ topicChosen       = "input.topic_choice.length > 0"
 navbarPage("PQ Text Analysis",
            theme = shinytheme("spacelab"),
            footer = column(12, helpText(
-             "We would love your feedback on our tool! To complete a quick survey please click",
+             "Love the tool? Hate it? Got a suggestion to improve it? Found a bug? We'd love to hear from you",
              a(href="https://www.surveymonkey.co.uk/r/FV9PCT2", target="_blank", "here")
            )
            ),
