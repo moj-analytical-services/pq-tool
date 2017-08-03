@@ -9,7 +9,7 @@ topicChosen       = "input.topic_choice.length > 0"
 navbarPage("PQ Text Analysis",
            theme = shinytheme("spacelab"),
            footer = column(12, helpText(
-             "We would love your feedback on our tool! To complete a quick survey please click",
+             "Love the tool? Hate it? Got a suggestion to improve it? Found a bug? We'd love to hear from you",
              a(href="https://www.surveymonkey.co.uk/r/FV9PCT2", target="_blank", "here")
            )
            ),
@@ -25,9 +25,10 @@ navbarPage("PQ Text Analysis",
                     fluidRow(
                       column(8,
                              strong("Welcome to the PQ Tool!"),
-                             p("You can use this tool to search through our database of written PQs. Try typing a couple of keywords 
-                  (e.g. Prison Officers) or a new PQ into the search box below and you will get a ranked list of the most 
-                  similar past question")
+                             p("You can use this tool to search through our database of written PQs. Try 
+                               typing some keywords (e.g. Prison Officers) or a new PQ into the search box 
+                               below. You will get a ranked list of the 100 most similar past questions, and 
+                               a visualisation showing when they were asked.")
                       )),
                     
                     fluidRow(
