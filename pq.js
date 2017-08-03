@@ -3,6 +3,7 @@ var points;
 var point_centres = [];
 var last_mouse_location = [0,0];
 var selected_rank = -1;
+var search_rows = 10;
 
 //Table-clicking function
 
@@ -113,7 +114,7 @@ function find_nearest_point(e){
         selected_rank = min_index;
     }
     
-    return rank_to_selection(min_index + 1);
+    return rank_to_selection(min_index + 1, search_rows);
 }
 
 
@@ -125,9 +126,9 @@ Array.prototype.dist = function(b){
 };
 
 
-function rank_to_selection(rank){
-    var page = rank % 8 ? Math.floor(rank/8) + 1 : rank/8;
-    var row = rank % 8 ? rank % 8 : 8;
+function rank_to_selection(rank, search_rows){
+    var page = rank % search_rows ? Math.floor(rank/search_rows) + 1 : rank/search_rows;
+    var row = rank % search_rows ? rank % search_rows : search_rows;
     return goto_page(page, row);
 }
 
@@ -139,11 +140,70 @@ function goto_page(i, row){
     var previous = $("#DataTables_Table_" + table_num + "_previous")[0];
     var current_page = document.getElementsByClassName("current")[0].innerHTML;
     var page_shift = i - parseInt(current_page);
-    var button = page_shift > 0 ? next : previous;
-    for (var j = 0; j < Math.abs(page_shift); j++){
-        button.click();
+    var buttons = $("a.paginate_button");
+    var target;
+    var first_click_timeout = 200;
+    if (page_shift === 0){
+        return row_timeout(row);
     }
-    setTimeout(function() {return toggle_row(row)}, 1000);
+    //Page jumping logic
+    if(current_page <= 4){
+        //one click
+        target = [0,1,2,3,4,5,10].indexOf(i);
+        if( target > -1){
+            buttons[target].click();
+            return row_timeout(row);
+        }else{//two clicks
+            buttons[6].click(); //get to page 10
+            setTimeout(function(){
+                buttons = $("a.paginate_button");
+                target = [0,1,6,7,8,9].indexOf(i);
+                buttons[target].click();
+                return row_timeout(row);
+            }, first_click_timeout);
+        }
+    }else if(current_page >= 7){
+        //one click
+        target = [0,1,6,7,8,9,10].indexOf(i);
+        if( target > -1){
+            buttons[target].click();
+            return row_timeout(row);
+        }else{//two clicks
+            buttons[1].click(); //get to page 1
+            setTimeout(function(){
+                buttons = $("a.paginate_button");
+                target = [0,1,2,3,4,5].indexOf(i);
+                buttons[target].click();
+                return row_timeout(row);
+            }, first_click_timeout)
+        }
+    }else{//current_page in [5,6,7]
+        if (Math.abs(page_shift) === 1){
+            var button = page_shift > 0 ? next : previous;
+            button.click();
+        }else if(i < 5){
+            buttons[1].click(); //get to page 1
+            setTimeout(function(){
+                buttons = $("a.paginate_button");
+                target = [0,1,2,3,4,5].indexOf(i);
+                buttons[target].click();
+                return row_timeout(row);
+            }, first_click_timeout)
+            
+        }else{
+            buttons[6].click(); //get to page 10
+            setTimeout(function(){
+                buttons = $("a.paginate_button");
+                target = [0,6,7,8,9].indexOf(i);
+                buttons[target].click();
+                return row_timeout(row);
+            }, first_click_timeout);
+        }
+    }
+}
+
+function row_timeout(row){
+    setTimeout(function() {return toggle_row(row)}, 200);
 }
 
 function toggle_row(i){
