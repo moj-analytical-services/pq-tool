@@ -34,11 +34,23 @@ function format(d, questionMPCol, tab) {
                 '</div>' +
                 '</div>';
 }
-var table1;
 var questionMPCol;
 var tab;
+var search_table;
+var topic_table;
+var member_table;
 
 function rowActivate() {
+    //Set global variables depending on tab user is on.  
+    //The id of the active tab (div.active) ends in either a 1, 2, or 3 depending on the tab.
+    //This is the first thing to double check if this starts breaking.
+    var active_tab = $("div.active")[0].getAttribute("id").slice(-1)
+    tab = active_tab === "1" ? "search" : active_tab === "2" ? "topic" : "member" 
+    console.log(tab)
+    var table1 = tab === "search" ? search_table : tab === "topic" ? topic_table : member_table;
+    questionMPCol = tab === "search" ? 6 : 4;
+    
+    
     var row = this.closest('tr');
     var showHideIcon = $(row.firstChild);
     var shinyRow = table1.row(row);

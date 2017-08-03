@@ -104,10 +104,8 @@ function(input, output, session) {
         server = FALSE
       ),
       callback = JS("
-                table1 = table;
+                search_table = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
-                questionMPCol = 6;
-                tab = 'search';
                 table.on('click', 'tr', rowActivate);"
       ),
       caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:"
@@ -297,10 +295,8 @@ function(input, output, session) {
         server = FALSE
       ),
       callback = JS("
-                table1 = table;
+                topic_table = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
-                questionMPCol = 4;
-                tab = 'topic';
                 table.on('click', 'tr', rowActivate);"
       )
     )
@@ -398,10 +394,8 @@ function(input, output, session) {
         server = FALSE
       ),
       callback = JS("
-                table1 = table;
+                member_table = table;
                 table.column(1).nodes().to$().css({cursor: 'pointer'});
-                questionMPCol = 4;
-                tab = 'member';
                 table.on('click', 'tr', rowActivate);"
       )
     )
