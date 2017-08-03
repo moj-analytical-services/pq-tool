@@ -25,9 +25,10 @@ navbarPage("PQ Text Analysis",
                     fluidRow(
                       column(8,
                              strong("Welcome to the PQ Tool!"),
-                             p("You can use this tool to search through our database of written PQs. Try typing a couple of keywords 
-                  (e.g. Prison Officers) or a new PQ into the search box below and you will get a ranked list of the most 
-                  similar past questions.")
+                             p("You can use this tool to search through our database of written PQs. Try 
+                               typing some keywords (e.g. Prison Officers) or a new PQ into the search box 
+                               below. You will get a ranked list of the 100 most similar past questions, and 
+                               a visualisation showing when they were asked.")
                       )),
                     
                     fluidRow(
