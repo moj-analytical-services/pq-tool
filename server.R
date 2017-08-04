@@ -3,7 +3,6 @@
 
 function(input, output, session) {
 
-  
   ### Similarity Pane
   returnNearestMatches <- reactive({
     space <- search.space
@@ -197,7 +196,11 @@ function(input, output, session) {
                                }, 1000)
                                })
                                } else if (this._currentStep==10) { debugger
+<<<<<<< HEAD
                                $('.btn-info')[2].addEventListener('mouseup', function(){
+=======
+                               $('.btn-info')[0].addEventListener('mouseup', function(){
+>>>>>>> Javascripting
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
                                }, 1000)
@@ -211,31 +214,9 @@ function(input, output, session) {
                                })
                                }")
       ),
-      options = list("nextLabel"="Next"))
-      })
 
-  # observeEvent(
-  #   input$tutorial_button, {
-  #     introjs(session, 
-  #             events = list(
-  #               "onchange" = I("console.log(this._currentStep) 
-  #                               if (this._currentStep==9) { debugger
-  #                              $('.btn-info')[0].addEventListener('mouseup', function(){
-  #                              setTimeout(function(){
-  #                              $('.introjs-nextbutton').click()
-  #                              }, 1000)
-  #                              })
-  #                              } else if (this._currentStep==11) {
-  #                              $('.btn-info')[1].addEventListener('mouseup', function(){
-  #                              console.log('btn info clicked')
-  #                              setTimeout(function(){
-  #                              $('.introjs-nextbutton').click()
-  #                              }, 1000)
-  #                              })
-  #                              }")
-  #     ),
-  #             options = list("nextLabel"="Next"))
-  # })
+              options = list("nextLabel"="Next"))
+  })
   
 #   observeEvent(input$startButton, {
 #     introjs(
@@ -258,8 +239,9 @@ function(input, output, session) {
 # })
   
   
+
   ### Cluster Pane
-  
+
   dfClus <- function(){
     cols <- c(
       'Question_Text',
