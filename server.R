@@ -2,6 +2,9 @@
 ############### Server
 
 function(input, output, session) {
+  introjs(session, options = list("nextLabel"="Next"),
+          events = list("oncomplete"='alert("It is over")'))
+  
   ### Similarity Pane
   returnNearestMatches <- reactive({
     space <- search.space
