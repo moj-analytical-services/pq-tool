@@ -75,7 +75,14 @@ navbarPage("PQ Text Analysis",
                                          options = list(container = "body")
                                )
                              )
-                      )
+                      ),
+                      column(2,
+                             offset = 4,
+                             actionButton(
+                               "tutorial_button",
+                               "Click here for a quick tour",
+                               class="btn btn-primary"
+                             ))
                     ),
                     
                     fluidRow(
