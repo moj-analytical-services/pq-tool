@@ -2,7 +2,7 @@
 ############### Server
 
 function(input, output, session) {
-  introjs(session, options = list("nextLabel"="Next"))
+  
 
   ### Similarity Pane
   returnNearestMatches <- reactive({
@@ -185,6 +185,10 @@ function(input, output, session) {
                               "how similar the PQ is to the search terms (higher = more similar). ",
                               " </p>"), trigger = 'hover', placement = 'left')
   
+  observeEvent(
+    input$tutorial_button, {
+      introjs(session, options = list("nextLabel"="Next"))
+  })
   
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
