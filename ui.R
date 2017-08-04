@@ -16,6 +16,7 @@ navbarPage("PQ Text Analysis",
            
            ########################### Search Tab
            tabPanel("Search",
+                    introjsUI(),
                     tags$head(
                       includeScript("google-analytics.js"),
                       tags$link(rel = "stylesheet", type = "text/css", href = "pq.css")
@@ -33,12 +34,16 @@ navbarPage("PQ Text Analysis",
                     
                     fluidRow(
                       column(4,
+                             introBox(
                              textInput(
                                inputId = "question",
                                label = "Search Text",
                                width = "100%",
                                value = "",
                                placeholder = "Enter search text here"
+                             ),
+                             data.step = 1,
+                             data.intro = "Typing some keywords (e.g. Prison Officers) or a new PQ into this box."
                              ),
                              bsTooltip("question",
                                        "Enter a keyword/phrase to search our PQ database.",
