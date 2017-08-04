@@ -43,7 +43,7 @@ navbarPage("PQ Text Analysis",
                                placeholder = "Enter search text here"
                              ),
                              data.step = 1,
-                             data.intro = "Typing some keywords (e.g. Prison Officers) or a new PQ into this box."
+                             data.intro = "Type some keywords (e.g. Prison Officers) or a new PQ into this box."
                              ),
                              bsTooltip("question",
                                        "Enter a keyword/phrase to search our PQ database.",
@@ -55,6 +55,7 @@ navbarPage("PQ Text Analysis",
                       column(2,
                              conditionalPanel(
                                condition = searchTextEntered,
+                               introBox(
                                dateRangeInput(
                                  "q_date_range", 
                                  label = "Question Date Range",
@@ -63,6 +64,10 @@ navbarPage("PQ Text Analysis",
                                  max = max(data$Date),
                                  start = min(data$Date),
                                  end = max(data$Date)
+                               ),
+                               data.step = 2,
+                               data.position = "right",
+                               data.intro = "Pick a range of dates you want to consider (leave this the way it is to search all the questions we have)"
                                ),
                                bsTooltip("q_date_range",
                                          "Choose the time period you wish to search.",
@@ -77,14 +82,37 @@ navbarPage("PQ Text Analysis",
                       column(6,
                              conditionalPanel(
                                condition = searchTextEntered,
-                               dataTableOutput("similarity_table")
+                               
+                               introBox(
+                               introBox(
+                               dataTableOutput("similarity_table"),
+                               data.step = 3,
+                               data.position = "right",
+                               data.intro = "This table shows the top 100 PQs that are most similar to your search terms. <br> <br>
+                               Click on one of the rows to see the question and answer text."),
+                               data.step = 6,
+                               data.position = "right",
+                               data.intro = "The new question you have selected on the graph has been opened in the table.")
                              )
                       ),
                       column(6,
                              conditionalPanel(
                                condition = paste0(tableHasRows, '&&', searchTextEntered),
-                               plotlyOutput("similarity_plot", height = 500)
-                             )
+                               #introBox(
+                               introBox(
+                               introBox(
+                               plotlyOutput("similarity_plot", height = 500),
+                               data.step = 4,
+                               data.position = "left",
+                               data.intro = "This graph plots the PQs from the table and when they were asked. <br> <br> Each point represents a PQ, with the height showing how similar the question is to your search terms (higher = more similar)"),
+                               data.step = 5,
+                               data.position = "left",
+                               data.intro = "The grey line shows an average of parliamentary interest in the search terms. <br> <br>
+                               The red point is highlighting the question you previously chose from the table. <br> Try clicking another point to highlight instead.")#,
+                               # data.step = 6,
+                               # data.position = "left",
+                               # data.intro = "")
+                      )
                       )
                     )
            ),
