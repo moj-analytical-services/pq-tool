@@ -2,9 +2,8 @@
 ############### Server
 
 function(input, output, session) {
-  introjs(session, options = list("nextLabel"="Next"),
-          events = list("oncomplete"='alert("It is over")'))
-  
+  introjs(session, options = list("nextLabel"="Next"))
+
   ### Similarity Pane
   returnNearestMatches <- reactive({
     space <- search.space
@@ -277,7 +276,8 @@ function(input, output, session) {
   })
   
   addPopover(session, "topic_plot", "Questions plotted over time",
-             content = paste0("This plot shows when the questions in the topic were asked. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
+             content = paste0("This plot shows when the questions in the topic were asked. <br> The x axis shows the date
+                              when questions were asked and the y axis shows the count of questions asked on that date."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$topic_documents <- renderDataTable({
@@ -361,7 +361,8 @@ function(input, output, session) {
   })
   
   addPopover(session, "member_wordcloud", "Wordcloud",
-             content = paste0("This wordcloud shows the words that are most important in the questions asked by this member.<br> The bigger the word, the more important it is."),
+             content = paste0("This wordcloud shows the words that are most important in the questions asked by this
+                              member.<br> The bigger the word, the more important it is."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$member_plot <- renderPlot({
@@ -376,7 +377,8 @@ function(input, output, session) {
   })
   
   addPopover(session, "member_plot", "Questions plotted over time",
-             content = paste0("This plot shows when questions were asked by the selected member. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
+             content = paste0("This plot shows when questions were asked by the selected member. <br> The x axis shows
+                              the date when questions were asked and the y axis shows the count of questions asked on that date."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$member_table <- renderDataTable({
