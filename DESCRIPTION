@@ -28,6 +28,7 @@ Imports:
     stringr,
     shinythemes,
     shinyBS,
-    scales
+    scales,
+    rintrojs
 License: MIT License
 LazyData: true
