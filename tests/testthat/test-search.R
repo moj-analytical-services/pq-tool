@@ -20,9 +20,9 @@ test_that("entering search terms returns the 30 most similar questions", {
   oddResultsRows  <- length(remDr$findElements("css selector", "#similarity_table .odd"))
   evenResultsRows <- length(remDr$findElements("css selector", "#similarity_table .even"))
   totalRowCount   <- oddResultsRows + evenResultsRows
-  expect_equal(oddResultsRows, 4)
-  expect_equal(evenResultsRows, 4)
-  expect_equal(totalRowCount, 8)
+  expect_equal(oddResultsRows, 5)
+  expect_equal(evenResultsRows, 5)
+  expect_equal(totalRowCount, 10)
 })
 
 remDr$close()
