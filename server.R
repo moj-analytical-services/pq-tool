@@ -190,6 +190,25 @@ function(input, output, session) {
       introjs(session, options = list("nextLabel"="Next"))
   })
   
+  observeEvent(input$startButton, {
+    introjs(
+      session,
+      events = list(
+        "onchange" = I("if (this._currentStep==0) {
+                       $('a[data-value=\"Second tab\"]').removeClass('active');
+                       $('a[data-value=\"First tab\"]').addClass('active');
+                       $('a[data-value=\"First tab\"]').trigger('click');
+  }
+                       if (this._currentStep==1) {
+                       $('a[data-value=\"First tab\"]').removeClass('active');
+                       $('a[data-value=\"Second tab\"]').addClass('active');
+                       $('a[data-value=\"Second tab\"]').trigger('click');
+                       }")
+      )
+        )
+    
+})
+  
   # q_text <- reactive({
   #   df()[input$similarity_table_rows_selected, ]
   # })
