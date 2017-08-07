@@ -226,6 +226,7 @@ function(input, output, session) {
       'Answer_Date'
     )
     df <- subset(tables_data, (tables_data$Topic == input$topic_choice))
+    df <- df[order(-as.numeric(df$Date)),]
     df[cols]
   }
   
