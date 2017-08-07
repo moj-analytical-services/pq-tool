@@ -31,6 +31,8 @@ tables_data <- data[ , !(names(data) %in% drops)]
 
 topic_data <- read.csv("./Data/topDozenWordsPerTopic.csv")
 
+member_data <- read.csv("./Data/topDozenWordsPerMember.csv")
+
 merged_clusters <- ddply(
   data,
   .(Date, Answer_Date, Topic),
@@ -81,14 +83,3 @@ queryVec <- function(query){
   return(which(vocab %in% query))
 }
 
-plotWordcloud <- function(analysisObject){
-  words <- analysisObject$Questions$Question_Text %>%
-    iconv(to = "utf-8", sub = "byte") %>%
-    gsub("[^[:alnum:\\s]]", "", .) %>%
-    removePunctuation() %>%
-    removeWords(c("Justice")) %>%
-    tolower() %>%
-    # JUSTICE_STOP_WORDS assigned in .Rprofile
-    removeWords(c(stopwords(), JUSTICE_STOP_WORDS))
-  wordcloud(words, max.words = 50)
-}
