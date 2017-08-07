@@ -230,7 +230,6 @@ function(input, output, session) {
   }
   
   wordcloud_df <- function(){
-    
     df <- subset(topic_data,
                  (topic_data$topic == input$topic_choice))
   }
@@ -253,7 +252,7 @@ function(input, output, session) {
   
   output$wordcloud <- renderPlot(
     wordcloud(words = wordcloud_df()$word, freq = wordcloud_df()$freq,
-              scale = c(4, 1), random.order = TRUE, ordered.colors = TRUE,
+              scale = c(4, 1), random.order = TRUE,
               min.freq = 0.1)
   )
   
@@ -350,12 +349,16 @@ function(input, output, session) {
     df[cols]
   }
   
-  output$member_wordcloud <- renderPlot({
-    wordcloud_input <- reactive({
-      getElement(allMPs, input$person_choice)
-    })
-    plotWordcloud(wordcloud_input())
-  })
+  member_wordcloud_df <- function(){
+    df <- subset(member_data,
+                 (member_data$member == input$person_choice))
+  }
+  
+  output$member_wordcloud <- renderPlot(
+    wordcloud(words = member_wordcloud_df()$word, freq = member_wordcloud_df()$freq,
+              scale = c(4, 1), random.order = TRUE,
+              min.freq = 0.1)
+  )
   
   addPopover(session, "member_wordcloud", "Wordcloud",
              content = paste0("This wordcloud shows the words that are most important in the questions asked by this member.<br> The bigger the word, the more important it is."),

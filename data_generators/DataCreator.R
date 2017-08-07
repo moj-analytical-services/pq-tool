@@ -121,12 +121,22 @@ fromItoY <- function(word){
   return(gsub("i$", "y", word))
 }
 
-#a function to summarise the top terms of a given cluster
-summarise <- function(clusterNum, matr, totalClusters,
-                      hierarchy, numTerms, listOfVectors){
-  clusterSet <- cutree(hierarchy, totalClusters)
-  relevantQs <- matr[, which(clusterSet == clusterNum)]
-  clusterDict <- cleanCorpus(Corpus(VectorSource(listOfVectors[which(clusterSet == clusterNum)])))
+#a function to summarise the top terms of a given cluster or for a given MP
+summarise <- function(type = "cluster", #type can be either cluster or MP
+                      ID, #this is the cluster number if type == cluster, or the MPs name in "Surname, Forename" format if type == MP
+                      matr, #the tdm as a matrix
+                      data, #a hierarchy if type is cluster, or a list of answer MPs if type is MP
+                      numTerms, #how many terms to return
+                      listOfVectors, #the questions themselves
+                      totalClusters = NULL #the number of clusters if type is cluster 
+                      ){
+  if (type == "cluster"){
+    set <- cutree(data, totalClusters)
+  } else if (type == "MP"){
+    set <- data
+  }
+  relevantQs <- matr[, which(set == ID)]
+  clusterDict <- cleanCorpus(Corpus(VectorSource(listOfVectors[which(set == ID)])))
   termsAndSums <- if (is.null(dim(relevantQs))){
                     relevantQs
                   } else rowSums(relevantQs)
@@ -257,6 +267,10 @@ tdm <- TermDocumentMatrix(
 print('Making the LSA')
 lsaAll <- lsa(tdm, dims = dimcalc_raw())
 
+####FIX MP NAMES####
+questionerNames <- sapply(aPQ$Question_MP,nameCleaner)
+answererNames <- sapply(aPQ$Answer_MP, nameCleaner)
+
 #CLUSTERING
 print('Doing some clustering')
 #We reduce the LSA space to rank k, and then get the positions of our documents in this latent semantic space.
@@ -283,22 +297,37 @@ hier <- hclust(as.dist(diss), method = "complete")
 klusters <- cutree(hier, k)
 
 m <- as.matrix(tdm)
+
+print("summarising topics")
 #this summarises the top 12 terms per cluster using the summarise function from above.
 topDozenWordsPerTopic <- data.frame(
   topic = unlist(lapply(seq(1, k), function(x)rep(x, 12))),
   word = unlist(lapply(seq(1, k),
-           function(x) names(summarise(x, m, k, hier, 12, questionsVec)))),
+           function(x) names(summarise("cluster", x, m, hier, 12, questionsVec, k)))),
   freq = unlist(lapply(seq(1, k),
-           function(x) summarise(x, m, k, hier, 12, questionsVec))),
+           function(x) summarise("cluster", x, m, hier, 12, questionsVec, k))),
   row.names = NULL, stringsAsFactors = F)
 
 #keywords to describe clusters
 clusterKeywords <- sapply(seq(k),
                      function(x)
-                       names(summarise(x, m, k, hier, 3, questionsVec)))
+                       names(summarise("cluster", x, m, hier, 3, questionsVec, k)))
 clusterKeywordsVec <- sapply(seq_along(clusterKeywords[1, ]),
                         function(x)
                           paste0(clusterKeywords[, x], collapse = ", "))
+
+#Member summaries
+print("summarising members")
+
+allMembers <- sort(unique(questionerNames))
+
+topDozenWordsPerMember <- data.frame(
+  member = unlist(lapply(allMembers, function(x)rep(x, 12))),
+  word = unlist(lapply(allMembers,
+                       function(x) names(summarise("MP", x, m, questionerNames, 12, questionsVec)))),
+  freq = unlist(lapply(allMembers,
+                       function(x) summarise("MP", x, m, questionerNames, 12, questionsVec))),
+  row.names = NULL, stringsAsFactors = F)
 
 
 #MAKE SPACE FOR FAST QUERY SEARCHING
@@ -320,9 +349,6 @@ summary(collengths)
 search.space <- as.simple_triplet_matrix(search.space)
 
 
-####FIX MP NAMES####
-questionerNames <- sapply(aPQ$Question_MP,nameCleaner)
-answererNames <- sapply(aPQ$Answer_MP, nameCleaner)
 
 #### SAVING ####
 print('Saving the output')
@@ -356,6 +382,9 @@ write.csv(savedf, "MoJwrittenPQs.csv")
 
 #The information about the clusters
 write.csv(topDozenWordsPerTopic, "topDozenWordsPerTopic.csv")
+
+#The information about the members
+write.csv(topDozenWordsPerMember, "topDozenWordsPerMember.csv")
 
 ##### APPENDIX #####
 
