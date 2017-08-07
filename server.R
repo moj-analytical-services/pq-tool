@@ -100,7 +100,7 @@ function(input, output, session) {
         searching = FALSE,
         paging = TRUE,
         lengthChange = FALSE,
-        pageLength = 8,
+        pageLength = 10,
         server = FALSE
       ),
       callback = JS("
