@@ -82,15 +82,11 @@ navbarPage("PQ Text Analysis",
                                "tutorial_button",
                                "Click here for a quick tour",
                                class="btn btn-primary"
-<<<<<<< HEAD
-                             ))
-=======
                              ),
                              bsTooltip("tutorial_button",
                                 "If this is your first time using the tool, click here to complete a quick tutorial",
                                 "auto")
                              )
->>>>>>> Add tutorial button
                     ),
                     
                     fluidRow(
