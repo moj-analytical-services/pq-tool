@@ -3,7 +3,7 @@ source(file = "global.R")
 
 ## Conditions
 searchTextEntered = "input.question.length > 0"
-tableHasRows      = "document.getElementsByClassName('odd').length > 1"
+tableHasRows      = "document.getElementsByClassName('dataTables_empty').length < 1"
 topicChosen       = "input.topic_choice.length > 0"
 
 navbarPage("PQ Text Analysis",
