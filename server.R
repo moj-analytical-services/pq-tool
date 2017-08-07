@@ -184,61 +184,81 @@ function(input, output, session) {
                               "Each point represents a past PQ from our database with the height showing ",
                               "how similar the PQ is to the search terms (higher = more similar). ",
                               " </p>"), trigger = 'hover', placement = 'left')
-  
+
   observeEvent(
     input$tutorial_button, {
-      introjs(session, options = list("nextLabel"="Next"))
-  })
-  
-  observeEvent(input$startButton, {
-    introjs(
-      session,
-      events = list(
-        "onchange" = I("if (this._currentStep==0) {
-                       $('a[data-value=\"Second tab\"]').removeClass('active');
-                       $('a[data-value=\"First tab\"]').addClass('active');
-                       $('a[data-value=\"First tab\"]').trigger('click');
-  }
-                       if (this._currentStep==1) {
-                       $('a[data-value=\"First tab\"]').removeClass('active');
-                       $('a[data-value=\"Second tab\"]').addClass('active');
-                       $('a[data-value=\"Second tab\"]').trigger('click');
-                       }")
-      )
-        )
-    
-})
-  
-  # q_text <- reactive({
-  #   df()[input$similarity_table_rows_selected, ]
+      introjs(session,
+              events = list(
+                "onchange" = I("console.log(this._currentStep)
+                              if (this._currentStep==6) { 
+                               $('.btn-info')[0].addEventListener('mouseup', function(){
+                               setTimeout(function(){
+                               $('.introjs-nextbutton').click()
+                               }, 1000)
+                               })
+                               } else if (this._currentStep==10) { debugger
+                               $('.btn-info')[0].addEventListener('mouseup', function(){
+                               setTimeout(function(){
+                               $('.introjs-nextbutton').click()
+                               }, 1000)
+                               })
+                               } else if (this._currentStep==11) {
+                               $('.btn-info')[1].addEventListener('mouseup', function(){
+                               console.log('btn info clicked')
+                               setTimeout(function(){
+                               $('.introjs-nextbutton').click()
+                               }, 1000)
+                               })
+                               }")
+      ),
+      options = list("nextLabel"="Next"))
+      })
+
+  # observeEvent(
+  #   input$tutorial_button, {
+  #     introjs(session, 
+  #             events = list(
+  #               "onchange" = I("console.log(this._currentStep) 
+  #                               if (this._currentStep==9) { debugger
+  #                              $('.btn-info')[0].addEventListener('mouseup', function(){
+  #                              setTimeout(function(){
+  #                              $('.introjs-nextbutton').click()
+  #                              }, 1000)
+  #                              })
+  #                              } else if (this._currentStep==11) {
+  #                              $('.btn-info')[1].addEventListener('mouseup', function(){
+  #                              console.log('btn info clicked')
+  #                              setTimeout(function(){
+  #                              $('.introjs-nextbutton').click()
+  #                              }, 1000)
+  #                              })
+  #                              }")
+  #     ),
+  #             options = list("nextLabel"="Next"))
   # })
-  # 
-  # output$q_text_table <- renderDataTable({
-  #   datatable(data = q_text()[, c("Question_Text", "Answer_Text")],
-  #             colnames = c("Question Text", "Answer Text"),
-  #             caption = "Question Text:",
-  #             options = list(scroller = TRUE,
-  #                            searching = FALSE,
-  #                            paging = FALSE
-  #             ))
-  # })
+  
+#   observeEvent(input$startButton, {
+#     introjs(
+#       session,
+#       events = list(
+#         "onchange" = I("debugger;
+#                     if (this._currentStep==7) {
+#                        $('a[data-value=\"Second tab\"]').removeClass('active');
+#                        $('a[data-value=\"First tab\"]').addClass('active');
+#                        $('a[data-value=\"First tab\"]').trigger('click');
+#   }
+#                        if (this._currentStep==1) {
+#                        $('a[data-value=\"First tab\"]').removeClass('active');
+#                        $('a[data-value=\"Second tab\"]').addClass('active');
+#                        $('a[data-value=\"Second tab\"]').trigger('click');
+#                        }")
+#       )
+#         )
+#     
+# })
+  
   
   ### Cluster Pane
-  
-  #input$x3 = input$x1_rows_selected
-  # how to get datatable on 1st tab to link in?
-  
-  # cols <- c(
-  #     'Question_Text',
-  #     'Answer_Text',
-  #     'Similarity_score',
-  #     'Rank',
-  #     'Question_MP',
-  #     'Date',
-  #     'Answer_Date',
-  #     'Topic',
-  #     'Topic_Keywords'
-  #   )
   
   dfClus <- function(){
     cols <- c(
