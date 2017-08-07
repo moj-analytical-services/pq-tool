@@ -4,6 +4,9 @@ var point_centres = [];
 var last_mouse_location = [0,0];
 var selected_rank = -1;
 var search_rows = 10;
+var text_to_return = "";
+
+var tableCheck = window.setInterval(empty_table, 20)
 
 //Table-clicking function
 
@@ -89,7 +92,9 @@ function get_point_locations(e) {
     if(cc){
         cc.addEventListener("mousedown", find_nearest_point);
     }
-    $("div.active").mousemove(tidy_table)
+    //$("div.active").keydown(function(){
+    //    setTimeout(empty_table,100)
+    //})
 }
 
 
@@ -259,9 +264,30 @@ String.prototype.format_html = function(){
     return this.replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
 };
 
+function empty_table(){
+    if(question.value.length === 0){
+        return;
+    }
+    //console.log($(".dataTables_processing")[0].style.display)
+    if(!!similarity_plot & similarity_plot.style.visibility === "hidden"){
+        $("#similarity_table").find(".dataTables_info")[0].innerHTML = ""
+        $("#similarity_table").find("a").remove()
+        $("#similarity_table").find("th")[0].innerHTML = ""
+        $("#similarity_table").find("td")[0].style['white-space'] = 'pre'
+        var td = $("#similarity_table").find("td")
+        var inHTML = td[td.length - 1].innerHTML
+        if(inHTML.match(/,/)){
+            text_to_return = inHTML
+        }
+        $("#similarity_table").find("td")[td.length - 1].innerHTML = "Unable to match query.\nWe suggest entering more search terms, or resolving typos."
+    }else{
+        $("#similarity_table").find("td")[td.length - 1].innerHTML = inHTML
+    }
+}
+
 
 function tidy_table(){
-    //debugger
+    //deprecated
     //Find Answer_text column
     var headers = $("div.active").find("th.sorting");
     var hl = headers.length;
