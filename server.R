@@ -190,37 +190,54 @@ function(input, output, session) {
       introjs(session, 
               events = list(
                 "onchange" = I("console.log(this._currentStep)
-                              if (this._currentStep==6) {
-                               $('.btn-info')[0].addEventListener('mouseup', function(){
-                               setTimeout(function(){
-                               $('.introjs-nextbutton').click()
-                               }, 1000)
-                               })
-                               }")))})
-  
-  observeEvent(
-    input$tutorial_button, {
-      introjs(session, 
-              events = list(
-                "onchange" = I("console.log(this._currentStep) debugger
-                                if (this._currentStep==9) { 
-                               $('.btn-info')[0].addEventListener('mouseup', function(){
-                               debugger
-                               setTimeout(function(){
-                               $('.introjs-nextbutton').click()
-                               }, 1000)
-                               })
-                               } else if (this._currentStep==11) {
-                               $('.btn-info')[1].addEventListener('mouseup', function(){
-                               console.log('btn info clicked')
-                               setTimeout(function(){
-                               $('.introjs-nextbutton').click()
-                               }, 1000)
-                               })
+                              switch (this._currentStep) {
+                               case 6:
+                                $('.btn-info')[0].addEventListener('mouseup', function(){
+                                setTimeout(function(){
+                                $('.introjs-nextbutton').click()
+                                }, 1000)
+                                })
+                               case 9:
+debugger
+                                $('.btn-info')[0].addEventListener('mouseup', function(){
+                                setTimeout(function(){
+                                $('.introjs-nextbutton').click()
+                                }, 1000)
+                                })
+                               case 11:
+                                $('.btn-info')[1].addEventListener('mouseup', function(){
+                                console.log('btn info clicked')
+                                setTimeout(function(){
+                                $('.introjs-nextbutton').click()
+                                }, 1000)
+                                })
                                }")
       ),
-              options = list("nextLabel"="Next"))
-  })
+      options = list("nextLabel"="Next"))
+      })
+
+  # observeEvent(
+  #   input$tutorial_button, {
+  #     introjs(session, 
+  #             events = list(
+  #               "onchange" = I("console.log(this._currentStep) 
+  #                               if (this._currentStep==9) { debugger
+  #                              $('.btn-info')[0].addEventListener('mouseup', function(){
+  #                              setTimeout(function(){
+  #                              $('.introjs-nextbutton').click()
+  #                              }, 1000)
+  #                              })
+  #                              } else if (this._currentStep==11) {
+  #                              $('.btn-info')[1].addEventListener('mouseup', function(){
+  #                              console.log('btn info clicked')
+  #                              setTimeout(function(){
+  #                              $('.introjs-nextbutton').click()
+  #                              }, 1000)
+  #                              })
+  #                              }")
+  #     ),
+  #             options = list("nextLabel"="Next"))
+  # })
   
 #   observeEvent(input$startButton, {
 #     introjs(
