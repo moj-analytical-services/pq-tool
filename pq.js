@@ -280,7 +280,7 @@ function empty_table(){
             $("#similarity_table").find(".dataTables_info")[0].innerHTML = ""
             $("#similarity_table").find("th")[0].innerHTML = ""
             $("#similarity_table").find("td")[0].style['white-space'] = 'pre'
-            $("#similarity_table").find("td")[0].innerHTML = "Unable to match query.\nWe suggest entering more search terms, or resolving typos."
+            $("#similarity_table").find("td")[0].innerHTML = "Sorry, no matches for that!\nTry searching additional words, or checking for typos."
         }
     }
 }
