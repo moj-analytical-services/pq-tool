@@ -246,7 +246,7 @@ navbarPage("PQ Text Analysis",
                         data.step = 10,
                         data.position = "top",
                         data.intro = "This table contains all of the information on the questions asked by this member.<br><br>
-                        As with the table on the first page, click on a row to see the corresponding question and answer text."),
+                        Click on a row to see the corresponding question and answer text."),
                       data.step = 11,
                       data.position = "top",
                       data.intro = "You can now navigate back to the first page by clicking on the 'Back to Search' button.")
