@@ -10,7 +10,9 @@ JUSTICE_STOP_WORDS <- c(
   "step", "taking", "steps", "take", "make", "statement",
   "tackle", "policy", "latest", "period", "figures",
   "available", "representations", "ensure", "ensuring",
-  "timetable", "much"
+  "timetable", "much", "reduce", "since", "created", "came",
+  "changes", "changed"
+
 )
 source("packrat/init.R")
 #### -- End Packrat Autoloader -- ####

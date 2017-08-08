@@ -10,10 +10,11 @@ The tool is written in R and is based on a technique called Latent Semantic Anal
 
 To access the deployed tool go to https://mojproducts.shinyapps.io/pqtool/
 ## Running DataCreator.R
-### This script will create three data files
+### This script will create four data files
 1. The search space.
 2. A new csv of questions with cluster assignments.
 3. A new csv of the 12 most significant terms in each cluster.
+4. A new csv of the 12 most significant terms for each MP/Peer.
 
 ### Defaults
 *Input file (questions)*
