@@ -196,11 +196,7 @@ function(input, output, session) {
                                }, 1000)
                                })
                                } else if (this._currentStep==10) { debugger
-<<<<<<< HEAD
                                $('.btn-info')[2].addEventListener('mouseup', function(){
-=======
-                               $('.btn-info')[0].addEventListener('mouseup', function(){
->>>>>>> Javascripting
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
                                }, 1000)
