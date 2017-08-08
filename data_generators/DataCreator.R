@@ -170,6 +170,8 @@ normalize <- function(mat){
 
 #This cleans up the names of those asking the questions
 nameCleaner <- function(name){
+  #first remove surplus white space (I'm looking at you, "Richard  Arkless")
+  name <- stripWhitespace(name)
   #first take out Mr/Mrs/Ms
   name <- name %>% gsub("Mr |Mrs |Ms |Miss ","",.)
   #we aim to get everyone's name in the format
