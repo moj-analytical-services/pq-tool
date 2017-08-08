@@ -211,8 +211,9 @@ function(input, output, session) {
                                })
                                }")
       ),
-              options = list("nextLabel"="Next"))
-  })
+      options = list("nextLabel"="Next"))
+      })
+  
   
 #   observeEvent(input$startButton, {
 #     introjs(
@@ -234,7 +235,7 @@ function(input, output, session) {
 #     
 # })
   
-  
+
   ### Cluster Pane
   
   dfClus <- function(){
