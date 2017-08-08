@@ -2,8 +2,8 @@
 ############### Server
 
 function(input, output, session) {
-  
 
+  
   ### Similarity Pane
   returnNearestMatches <- reactive({
     space <- search.space
@@ -197,7 +197,7 @@ function(input, output, session) {
                                }, 1000)
                                })
                                } else if (this._currentStep==10) { debugger
-                               $('.btn-info')[0].addEventListener('mouseup', function(){
+                               $('.btn-info')[2].addEventListener('mouseup', function(){
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
                                }, 1000)
