@@ -184,28 +184,20 @@ function(input, output, session) {
                               "Each point represents a past PQ from our database with the height showing ",
                               "how similar the PQ is to the search terms (higher = more similar). ",
                               " </p>"), trigger = 'hover', placement = 'left')
-  
+
   observeEvent(
     input$tutorial_button, {
-      introjs(session, 
+      introjs(session,
               events = list(
                 "onchange" = I("console.log(this._currentStep)
-                              if (this._currentStep==6) {
+                              if (this._currentStep==6) { 
                                $('.btn-info')[0].addEventListener('mouseup', function(){
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
                                }, 1000)
                                })
-                               }")))})
-  
-  observeEvent(
-    input$tutorial_button, {
-      introjs(session, 
-              events = list(
-                "onchange" = I("console.log(this._currentStep) debugger
-                                if (this._currentStep==9) { 
+                               } else if (this._currentStep==10) { debugger
                                $('.btn-info')[0].addEventListener('mouseup', function(){
-                               debugger
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
                                }, 1000)
