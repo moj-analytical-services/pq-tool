@@ -4,6 +4,9 @@ var point_centres = [];
 var last_mouse_location = [0,0];
 var selected_rank = -1;
 var search_rows = 10;
+var text_to_return = "";
+
+
 
 //Table-clicking function
 
@@ -89,7 +92,7 @@ function get_point_locations(e) {
     if(cc){
         cc.addEventListener("mousedown", find_nearest_point);
     }
-    $("div.active").mousemove(tidy_table)
+    $("div.active").keydown(table_check)
 }
 
 
@@ -259,9 +262,32 @@ String.prototype.format_html = function(){
     return this.replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
 };
 
+function table_check(){
+    var tableCheck = window.setInterval(empty_table, 20)
+    setTimeout(function(){
+        clearInterval(tableCheck)
+    }, 1000)
+}
+
+function empty_table(){
+    if(question.value.length === 0){
+        return;
+    }
+    if(!!similarity_table){
+        var page_links = $("#similarity_table").find("a")
+        if (page_links.length < 3){
+            page_links.remove()
+            $("#similarity_table").find(".dataTables_info")[0].innerHTML = ""
+            $("#similarity_table").find("th")[0].innerHTML = ""
+            $("#similarity_table").find("td")[0].style['white-space'] = 'pre'
+            $("#similarity_table").find("td")[0].innerHTML = "Sorry, no matches for that!\nTry searching additional words, or checking for typos."
+        }
+    }
+}
+
 
 function tidy_table(){
-    //debugger
+    //deprecated
     //Find Answer_text column
     var headers = $("div.active").find("th.sorting");
     var hl = headers.length;
@@ -282,4 +308,6 @@ function tidy_table(){
         table_entries[i].innerHTML = a_text.format_html();
     }
 }
+
+
 
