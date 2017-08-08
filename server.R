@@ -211,8 +211,8 @@ function(input, output, session) {
                                })
                                }")
       ),
-              options = list("nextLabel"="Next"))
-  })
+      options = list("nextLabel"="Next"))
+      })
   
 #   observeEvent(input$startButton, {
 #     introjs(
