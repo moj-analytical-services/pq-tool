@@ -194,48 +194,29 @@ function(input, output, session) {
                                $('.btn-info')[0].addEventListener('mouseup', function(){
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
-                               }, 1000)
+                               }, 700)
                                })
                                } else if (this._currentStep==10) { debugger
                                $('.btn-info')[2].addEventListener('mouseup', function(){
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
-                               }, 1000)
+                               }, 700)
                                })
                                } else if (this._currentStep==11) {
                                $('.btn-info')[1].addEventListener('mouseup', function(){
                                console.log('btn info clicked')
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
-                               }, 1000)
+                               }, 700)
                                })
                                }")
-      ),
-      options = list("nextLabel"="Next"))
-      })
-
-  # observeEvent(
-  #   input$tutorial_button, {
-  #     introjs(session, 
-  #             events = list(
-  #               "onchange" = I("console.log(this._currentStep) 
-  #                               if (this._currentStep==9) { debugger
-  #                              $('.btn-info')[0].addEventListener('mouseup', function(){
-  #                              setTimeout(function(){
-  #                              $('.introjs-nextbutton').click()
-  #                              }, 1000)
-  #                              })
-  #                              } else if (this._currentStep==11) {
-  #                              $('.btn-info')[1].addEventListener('mouseup', function(){
-  #                              console.log('btn info clicked')
-  #                              setTimeout(function(){
-  #                              $('.introjs-nextbutton').click()
-  #                              }, 1000)
-  #                              })
-  #                              }")
-  #     ),
-  #             options = list("nextLabel"="Next"))
-  # })
+              ),
+              options = list("nextLabel" = "Next",
+                             "scrollToElement" = FALSE,
+                             "showProgress" = TRUE,
+                             "showBullets" = FALSE,
+                             "keyboardNavigation" = TRUE))
+  })
   
 #   observeEvent(input$startButton, {
 #     introjs(
