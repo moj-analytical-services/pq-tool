@@ -169,7 +169,7 @@ navbarPage("PQ Text Analysis",
                                  data.position = "left",
                                  data.intro = "This plot shows when the questions in the topic were asked. <br> The x axis shows the date
                               when questions were asked and the y axis shows the count of questions asked on that date.")
-                      ),
+                      )),
                       fluidRow(
                         introBox(
                         introBox(
@@ -181,7 +181,7 @@ navbarPage("PQ Text Analysis",
                         data.step = 16,
                         data.position = "top",
                         data.intro = "That's it! You have made it to the end of the tutorial! <br><br> We hope this was useful, and if you have any 
-                        feedback on this tutorial, or the tool in general, please see the link at the bottom of the page."
+                        feedback on this tutorial, or the tool in general, please see the link at the bottom of the page.")
                       )
                     )
            ),
