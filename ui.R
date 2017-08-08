@@ -129,7 +129,7 @@ navbarPage("PQ Text Analysis",
                                data.step = 5,
                                data.position = "left",
                                data.intro = "The grey line shows an average of parliamentary interest in the search terms. <br> <br>
-                               The red point is highlighting the question you previously chose from the table. <br> Try 
+                               The red point is highlighting the question you previously chose from the table. <br><br> Try 
                                clicking another point to highlight instead.")
                       )
                       )
@@ -170,15 +170,15 @@ navbarPage("PQ Text Analysis",
                                plotOutput("wordcloud"),
                                data.step = 13,
                                data.position = "right",
-                               data.intro = "This plot shows when the questions in the topic were asked. <br> The x axis shows the date
-                               when questions were asked and the y axis shows the count of questions asked on that date.")
+                               data.intro = "This wordcloud shows the words that are most important
+                               in this topic.<br><br> The bigger the word, the more important it is.")
                                ),
                         column(8, 
                                introBox(
                                  plotOutput("topic_plot"),
                                  data.step = 14, 
                                  data.position = "left",
-                                 data.intro = "This plot shows when the questions in the topic were asked. <br> The x axis shows the date
+                                 data.intro = "This plot shows when the questions in the topic were asked. <br><br> The x axis shows the date
                               when questions were asked and the y axis shows the count of questions asked on that date.")
                       )),
                       fluidRow(
@@ -187,7 +187,7 @@ navbarPage("PQ Text Analysis",
                         dataTableOutput("topic_documents"),
                         data.step = 15,
                         data.position = "right",
-                        data.intro = "This table contains all of the information on the questions asked on this topic.<br>",
+                        data.intro = "This table contains all of the information on the questions asked on this topic.<br><br>",
                         "Click on a row to see the corresponding question and answer text."),
                         data.step = 16,
                         data.position = "top",
@@ -249,7 +249,7 @@ navbarPage("PQ Text Analysis",
                         As with the table on the first page, click on a row to see the corresponding question and answer text."),
                       data.step = 11,
                       data.position = "top",
-                      data.intro = "You can now navigate back to the first page by clicking on a row then clicking on the 'Back to Search' button.")
+                      data.intro = "You can now navigate back to the first page by clicking on the 'Back to Search' button.")
            )
            )
 )
