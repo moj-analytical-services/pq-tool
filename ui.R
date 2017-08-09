@@ -107,7 +107,7 @@ navbarPage("PQ Text Analysis",
                                data.intro = "The question you selected on the graph has now been opened in the table."),
                                data.step = 7,
                                data.position = "right",
-                               data.intro = "You can see all the questions asked by this MP by clicking the 'See all questions asked by' button. 
+                               data.intro = "You can see all the questions asked by this MP/peer by clicking the 'See all questions asked by' button. 
                                <br> <br> Try it!"),
                                data.step = 12,
                                data.position = "right",
