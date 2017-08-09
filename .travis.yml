@@ -5,11 +5,11 @@ r:
 latex: false
 warnings_are_errors: false
 sudo: false
-cache:
-  directories:
-   - $TRAVIS_BUILD_DIR/packrat/src
-   - $TRAVIS_BUILD_DIR/packrat/lib
-  packages: true
+# cache:
+#   directories:
+#    - $TRAVIS_BUILD_DIR/packrat/src
+#    - $TRAVIS_BUILD_DIR/packrat/lib
+#   packages: true
 addons:
   apt:
     packages:
