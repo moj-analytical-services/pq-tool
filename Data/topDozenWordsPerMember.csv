@@ -1010,7 +1010,7 @@
 "1009","Blenkinsop, Tom","illegal",4.84233950869169
 "1010","Blenkinsop, Tom","gender",4.7446777943652
 "1011","Blenkinsop, Tom","ethnic",4.49391473344522
-"1012","Blenkinsop, Tom","high",4.31233109185451
+"1012","Blenkinsop, Tom","high",4.48098529376501
 "1013","Blenkinsop, Tom","drugs",3.76656724138238
 "1014","Blenkinsop, Tom","made",3.75256160251134
 "1015","Blenkinsop, Tom","border",3.70624520066165
@@ -1768,7 +1768,7 @@
 "1767","Creasy, Stella","1986",2.31346187124685
 "1768","Creasy, Stella","declaration",2.25786376591274
 "1769","Creasy, Stella","county",1.91722124606656
-"1770","Creasy, Stella","high",1.74520724764525
+"1770","Creasy, Stella","high",1.81346187124685
 "1771","Creasy, Stella","law",1.40010131159587
 "1772","Creasy, Stella","applications",1.40010131159587
 "1773","Creasy, Stella","section",1.3172385943444
@@ -2574,7 +2574,7 @@
 "2573","Gillan, Cheryl","speed",2.12873437316306
 "2574","Gillan, Cheryl","appearing",1.89303211276754
 "2575","Gillan, Cheryl","committee",1.73933616143247
-"2576","Gillan, Cheryl","high",1.64539717251449
+"2576","Gillan, Cheryl","high",1.70974824877586
 "2577","Gillan, Cheryl","london",1.63958427058547
 "2578","Gillan, Cheryl","bill",1.54904078136204
 "2579","Gillan, Cheryl","west",1.4885182355472
@@ -3608,9 +3608,9 @@
 "3607","Kwarteng, Kwasi","restrictions",2.67715168788365
 "3608","Kwarteng, Kwasi","put",2.67715168788365
 "3609","Kwarteng, Kwasi","half",2.60137151034255
-"3610","Kwarteng, Kwasi","permitted",2.45144481673503
-"3611","Kwarteng, Kwasi","prevent",2.27214739089337
-"3612","Kwarteng, Kwasi","part",2.14313968319029
+"3610","Kwarteng, Kwasi","highdown",2.60137151034255
+"3611","Kwarteng, Kwasi","permitted",2.45144481673503
+"3612","Kwarteng, Kwasi","prevent",2.27214739089337
 "3613","Lady Hermon","comfort",4.27960332856952
 "3614","Lady Hermon","became",3.5056272969404
 "3615","Lady Hermon","irish",3.26802417241388
@@ -4258,7 +4258,7 @@
 "4257","Lord Inglewood","removing",1.51196263285752
 "4258","Lord Inglewood","intend",1.46719540122316
 "4259","Lord Inglewood","testing",1.44721516507234
-"4260","Lord Inglewood","considered",1.41104653095635
+"4260","Lord Inglewood","high",1.42259653363757
 "4261","Lord Jones of Cheltenham","tagging",4.93671752179437
 "4262","Lord Jones of Cheltenham","electronic",4.65912168047508
 "4263","Lord Jones of Cheltenham","gps",3.41794916166247
@@ -4798,7 +4798,7 @@
 "4797","Lord Taylor of Warwick","ban",2.28974789753234
 "4798","Lord Taylor of Warwick","ethnic",2.23650898958786
 "4799","Lord Taylor of Warwick","books",2.1117302095541
-"4800","Lord Taylor of Warwick","rule",2.02980623689682
+"4800","Lord Taylor of Warwick","high",2.09400539905898
 "4801","Lord Tebbit","definition",6.6322220466705
 "4802","Lord Tebbit","homicide",6.08390736652905
 "4803","Lord Tebbit","marriage",5.75469680400393

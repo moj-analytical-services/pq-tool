@@ -91,6 +91,7 @@ cleanCorpus <- function(corp) {
     #inelegant special cleaning step to take care of the fact that reoffending is
     #sometimes spelled "re-offending" and sometimes "reoffending"
     tm_map(function(x) gsub("re-off", "reoff", x)) %>%
+    tm_map(function(x) gsub("High Down", "Highdown", x)) %>%
     #replace hyphens with spaces
     tm_map(function(x) gsub("-", " ", x)) %>%
     #get rid of all other non-alphanumeric symbols
