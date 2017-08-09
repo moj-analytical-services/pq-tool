@@ -193,20 +193,20 @@ function(input, output, session) {
                                $('.btn-info')[0].addEventListener('mouseup', function(){
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
-                               }, 700)
+                               }, 1000)
                                })
                                } else if (this._currentStep==10) { debugger
                                $('.btn-info')[2].addEventListener('mouseup', function(){
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
-                               }, 700)
+                               }, 1000)
                                })
                                } else if (this._currentStep==11) {
                                $('.btn-info')[1].addEventListener('mouseup', function(){
                                console.log('btn info clicked')
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
-                               }, 700)
+                               }, 1000)
                                })
                                }")
       ),
