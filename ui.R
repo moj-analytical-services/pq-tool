@@ -113,8 +113,8 @@ navbarPage("PQ Text Analysis",
                     conditionalPanel(
                       condition = topicChosen,
                       fluidRow(
-                        column(6, plotOutput("wordcloud")),
-                        column(6, plotOutput("topic_plot"))
+                        column(4, plotOutput("wordcloud")),
+                        column(8, plotOutput("topic_plot"))
                       ),
                       fluidRow(
                         dataTableOutput("topic_documents")
