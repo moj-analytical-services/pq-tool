@@ -14,6 +14,7 @@ library(shinythemes)
 library(shinyBS)
 library(scales)
 library(readr)
+library(rintrojs)
 
 load(file = "./Data/searchSpace.rda")
 load(file = "./Data/allMPs.rda")
