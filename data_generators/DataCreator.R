@@ -91,6 +91,7 @@ cleanCorpus <- function(corp) {
     #inelegant special cleaning step to take care of the fact that reoffending is
     #sometimes spelled "re-offending" and sometimes "reoffending"
     tm_map(function(x) gsub("re-off", "reoff", x)) %>%
+    tm_map(function(x) gsub("High Down", "Highdown", x)) %>%
     #replace hyphens with spaces
     tm_map(function(x) gsub("-", " ", x)) %>%
     #get rid of all other non-alphanumeric symbols
@@ -170,6 +171,8 @@ normalize <- function(mat){
 
 #This cleans up the names of those asking the questions
 nameCleaner <- function(name){
+  #first remove surplus white space (I'm looking at you, "Richard  Arkless")
+  name <- stripWhitespace(name)
   #first take out Mr/Mrs/Ms
   name <- name %>% gsub("Mr |Mrs |Ms |Miss ","",.)
   #we aim to get everyone's name in the format

@@ -178,8 +178,7 @@ navbarPage("PQ Text Analysis",
                                  plotOutput("topic_plot"),
                                  data.step = 14, 
                                  data.position = "left",
-                                 data.intro = "This plot shows when the questions in the topic were asked. <br><br> The x axis shows the date
-                              when questions were asked and the y axis shows the count of questions asked on that date.")
+                                 data.intro = "This plot shows when questions in the topic were asked. <br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic.")
                       )),
                       fluidRow(
                         introBox(

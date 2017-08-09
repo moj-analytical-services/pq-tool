@@ -60,14 +60,7 @@ function(input, output, session) {
     })
   })
   
-  min_date <- reactive({
-    min(plot_points()$Date)
-  })
-  
-  max_date <-reactive({
-    max(plot_points()$Date)
-  })
-  
+
   
   #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
   #give an indication of how interest has risen and fallen over time.
@@ -133,13 +126,6 @@ function(input, output, session) {
   
   output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = plot_points()$Date) %>%
-      add_markers(y = plot_points()$Similarity_score,
-                  name = "Top 100 Qs",
-                  text = ~paste("Rank:", plot_points()$Rank,
-                                "<br> Member HoC/HoL:", plot_points()$Question_MP,
-                                "<br> Date:", plot_points()$Date ),
-                  hoverinfo = "text",  marker = list(color = "#67a9cf")
-      )%>%
       #add trend line first so it's the bottom layer
       add_trace(x = line_points()$Dates,
                 y = line_points()$Scores,
@@ -151,6 +137,13 @@ function(input, output, session) {
                 text = NULL,
                 hoverinfo = "text"
       ) %>%
+      add_markers(y = plot_points()$Similarity_score,
+                  name = "Top 100 Qs",
+                  text = ~paste("Rank:", plot_points()$Rank,
+                                "<br> Member HoC/HoL:", plot_points()$Question_MP,
+                                "<br> Date:", plot_points()$Date ),
+                  hoverinfo = "text",  marker = list(color = "#67a9cf")
+      )%>%
       layout(yaxis = y_axis,
              title = "Top 100 questions most similar to your search",
              titlefont=list(
@@ -256,6 +249,13 @@ function(input, output, session) {
     df[cols]
   }
   
+  keyword <- reactive({
+    subset(tables_data, (tables_data$Topic == input$topic_choice))$Topic_Keywords[1]
+    })
+  
+  minDate <- min(tables_data$Date)
+  maxDate <- max(tables_data$Date)
+  
   wordcloud_df <- function(){
     df <- subset(topic_data,
                  (topic_data$topic == input$topic_choice))
@@ -290,18 +290,44 @@ function(input, output, session) {
   
   output$topic_plot <- renderPlot({
     p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
-      geom_bar(color = "red", fill = "red", width = .5)
-    p + xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_y_continuous(breaks = pretty_breaks(),limits = c(0, 5)) +
-      labs(title = "When this topic was asked about:",
+      geom_histogram(binwidth = 14, fill = "#67a9cf")
+    maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #this is a hack from stackoverflow to get us the max value of the histogram
+    yBreaks <- if(maxCount < 11){
+      1} else if(maxCount < 21){
+        2} else{
+          5}
+    yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
+    p + 
+      xlim(min(data$Date) - 1, max(data$Date) + 1) +
+      scale_x_date(limits = c(minDate, maxDate),
+                   labels = date_format("%b %y"),
+                   date_breaks = "6 months",
+                   date_minor_breaks = "1 month") +
+      scale_y_continuous(
+        breaks = seq(0, yMax, yBreaks),
+        expand = c(0,0),
+        limits = c(0, yMax)) +
+      labs(title = paste0("Topic ", input$topic_choice, ": ", keyword()),
+           subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
            x = "Question Date",
-           y = "Count") +
-      theme(plot.title = element_text(size = 17, face = "bold"))
+           y = "Count"
+      ) + 
+      theme(panel.background = element_rect(fill = "white", colour = "grey"),
+            panel.grid.minor = element_line(colour = "#efefef"),
+            panel.grid.major = element_line(colour = "#efefef"),
+            axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
+            axis.text = element_text(family = "Arial", size = 14),
+            axis.line = element_line(colour = "grey"),
+            plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
+            plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
+            #axis.ticks.x = element_line(size = 0)
+      )
   })
   
+
+  
   addPopover(session, "topic_plot", "Questions plotted over time",
-             content = paste0("This plot shows when the questions in the topic were asked. <br> The x axis shows the date
-                              when questions were asked and the y axis shows the count of questions asked on that date."),
+             content = paste0("This plot shows when questions in the topic were asked. <br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$topic_documents <- renderDataTable({
@@ -318,7 +344,7 @@ function(input, output, session) {
         searching = FALSE,
         paging = TRUE,
         lengthChange = FALSE,
-        pageLength = 8,
+        pageLength = 10,
         server = FALSE
       ),
       callback = JS("
@@ -377,6 +403,9 @@ function(input, output, session) {
     df[cols]
   }
   
+  minDate <- min(tables_data$Date)
+  maxDate <- max(tables_data$Date)
+  
   member_wordcloud_df <- function(){
     df <- subset(member_data,
                  (member_data$member == input$person_choice))
@@ -395,18 +424,42 @@ function(input, output, session) {
   
   output$member_plot <- renderPlot({
     p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) +
-      geom_bar(color = "red", fill = "red", width = .5)
-    p + xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_y_continuous(breaks = pretty_breaks(),limits = c(0, 8)) +
-      labs(title = "When the member asked questions:",
+      geom_histogram(binwidth = 14, fill = "#67a9cf")
+    maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #this is a hack from stackoverflow to get us the max value of the histogram
+    yBreaks <- if(maxCount < 11){
+      1} else if(maxCount < 21){
+        2} else{
+          5}
+    yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
+    p +
+      xlim(min(data$Date) - 1, max(data$Date) + 1) +
+      scale_x_date(limits = c(minDate, maxDate),
+                   labels = date_format("%b %y"),
+                   date_breaks = "6 months",
+                   date_minor_breaks = "1 month") +
+      scale_y_continuous(
+        breaks = seq(0, yMax, yBreaks),
+        expand = c(0,0),
+        limits = c(0, yMax)) +
+      labs(title = paste0(input$person_choice),
+           subtitle = paste0("Each bar shows the number of questions from ", input$person_choice,  " in a particular fortnight"),
            x = "Question Date",
-           y = "Count") +
-      theme(plot.title = element_text(size = 17, face = "bold"))
+           y = "Count"
+      ) + 
+      theme(panel.background = element_rect(fill = "white", colour = "grey"),
+                panel.grid.minor = element_line(colour = "#efefef"),
+                panel.grid.major = element_line(colour = "#efefef"),
+                axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
+                axis.text = element_text(family = "Arial", size = 14),
+                axis.line = element_line(colour = "grey"),
+                plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
+                plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
+                #axis.ticks.x = element_line(size = 0)
+      )
   })
   
   addPopover(session, "member_plot", "Questions plotted over time",
-             content = paste0("This plot shows when questions were asked by the selected member. <br> The x axis shows
-                              the date when questions were asked and the y axis shows the count of questions asked on that date."),
+             content = paste0("This plot shows when the selected MP/peer tabled written questions <br> Each bar shows the number of questions tabled by the MP/peer in a particular fortnight - the higher the bar, the more questions."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$member_table <- renderDataTable({
@@ -423,7 +476,7 @@ function(input, output, session) {
         searching = FALSE,
         paging = TRUE,
         lengthChange = FALSE,
-        pageLength = 8,
+        pageLength = 10,
         server = FALSE
       ),
       callback = JS("
