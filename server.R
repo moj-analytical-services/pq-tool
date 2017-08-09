@@ -296,7 +296,7 @@ function(input, output, session) {
   })
   
   addPopover(session, "topic_plot", "Questions plotted over time",
-             content = paste0("This plot shows when the questions in the topic were asked. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
+             content = paste0("This plot shows when questions in the topic were asked. <br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$topic_documents <- renderDataTable({
@@ -421,7 +421,7 @@ function(input, output, session) {
   })
   
   addPopover(session, "member_plot", "Questions plotted over time",
-             content = paste0("This plot shows when questions were asked by the selected member. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
+             content = paste0("This plot shows when the selected MP/peer tabled written questions <br> Each bar shows the number of questions tabled by the MP/peer in a particular fortnight - the higher the bar, the more questions."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$member_table <- renderDataTable({
