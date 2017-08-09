@@ -223,6 +223,17 @@ function deselect_rows(){
     }
 }
 
+//function walkthrough_button_clicking(){
+//  debugger
+//  if (this._currentStep==6) {
+//    $(".btn-info")[0].trigger("mouseup", function(){
+//      debugger
+//      setTimeout(function(){
+//          $(".introjs-nextbutton").click()
+//        }, 100)
+//      })
+//  }
+//}
 
 //Cluster selecting functions
 
