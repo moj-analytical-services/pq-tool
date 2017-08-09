@@ -58,14 +58,7 @@ function(input, output, session) {
     })
   })
   
-  min_date <- reactive({
-    min(plot_points()$Date)
-  })
-  
-  max_date <-reactive({
-    max(plot_points()$Date)
-  })
-  
+
   
   #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
   #give an indication of how interest has risen and fallen over time.
@@ -230,6 +223,13 @@ function(input, output, session) {
     df[cols]
   }
   
+  keyword <- reactive({
+    subset(tables_data, (tables_data$Topic == input$topic_choice))$Topic_Keywords[1]
+    })
+  
+  minDate <- min(tables_data$Date)
+  maxDate <- max(tables_data$Date)
+  
   wordcloud_df <- function(){
     df <- subset(topic_data,
                  (topic_data$topic == input$topic_choice))
@@ -273,13 +273,16 @@ function(input, output, session) {
     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
     p + 
       xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_x_date(labels = date_format("%b %y"), date_breaks = "6 months", date_minor_breaks = "1 month") +
+      scale_x_date(limits = c(minDate, maxDate),
+                   labels = date_format("%b %y"),
+                   date_breaks = "6 months",
+                   date_minor_breaks = "1 month") +
       scale_y_continuous(
         breaks = seq(0, yMax, yBreaks),
         expand = c(0,0),
         limits = c(0, yMax)) +
-      labs(title = paste0("When this topic was asked about:"),
-           subtitle = "Each bar shows the number of questions for the topic in a fortnight",
+      labs(title = paste0("Topic ", input$topic_choice, ": ", keyword()),
+           subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
            x = "Question Date",
            y = "Count"
       ) + 
@@ -294,6 +297,8 @@ function(input, output, session) {
             #axis.ticks.x = element_line(size = 0)
       )
   })
+  
+
   
   addPopover(session, "topic_plot", "Questions plotted over time",
              content = paste0("This plot shows when questions in the topic were asked. <br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic."),
@@ -372,6 +377,9 @@ function(input, output, session) {
     df[cols]
   }
   
+  minDate <- min(tables_data$Date)
+  maxDate <- max(tables_data$Date)
+  
   member_wordcloud_df <- function(){
     df <- subset(member_data,
                  (member_data$member == input$person_choice))
@@ -398,13 +406,16 @@ function(input, output, session) {
     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
     p +
       xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_x_date(labels = date_format("%b %y"), date_breaks = "6 months", date_minor_breaks = "1 month") +
+      scale_x_date(limits = c(minDate, maxDate),
+                   labels = date_format("%b %y"),
+                   date_breaks = "6 months",
+                   date_minor_breaks = "1 month") +
       scale_y_continuous(
         breaks = seq(0, yMax, yBreaks),
         expand = c(0,0),
         limits = c(0, yMax)) +
-      labs(title = paste0("When this MP/peer asked questions:"),
-           subtitle = "Each bar shows the number of questions from member/peer in a fortnight",
+      labs(title = paste0(input$person_choice),
+           subtitle = paste0("Each bar shows the number of questions from ", input$person_choice,  " in a particular fortnight"),
            x = "Question Date",
            y = "Count"
       ) + 
