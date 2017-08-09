@@ -2,6 +2,8 @@
 ############### Server
 
 function(input, output, session) {
+
+  
   ### Similarity Pane
   returnNearestMatches <- reactive({
     space <- search.space
@@ -182,38 +184,62 @@ function(input, output, session) {
                               "Each point represents a past PQ from our database with the height showing ",
                               "how similar the PQ is to the search terms (higher = more similar). ",
                               " </p>"), trigger = 'hover', placement = 'left')
+
+  observeEvent(
+    input$tutorial_button, {
+      introjs(session,
+              events = list(
+                "onchange" = I("console.log(this._currentStep)
+                              if (this._currentStep==6) { 
+                               $('.btn-info')[0].addEventListener('mouseup', function(){
+                               setTimeout(function(){
+                               $('.introjs-nextbutton').click()
+                               }, 1000)
+                               })
+                               } else if (this._currentStep==10) { debugger
+                               $('.btn-info')[2].addEventListener('mouseup', function(){
+                               setTimeout(function(){
+                               $('.introjs-nextbutton').click()
+                               }, 1000)
+                               })
+                               } else if (this._currentStep==11) {
+                               $('.btn-info')[1].addEventListener('mouseup', function(){
+                               console.log('btn info clicked')
+                               setTimeout(function(){
+                               $('.introjs-nextbutton').click()
+                               }, 1000)
+                               })
+                               }")
+              ),
+              options = list("nextLabel" = "Next",
+                             "scrollToElement" = FALSE,
+                             "showProgress" = TRUE,
+                             "showBullets" = FALSE,
+                             "keyboardNavigation" = TRUE))
+  })
   
+#   observeEvent(input$startButton, {
+#     introjs(
+#       session,
+#       events = list(
+#         "onchange" = I("debugger;
+#                     if (this._currentStep==7) {
+#                        $('a[data-value=\"Second tab\"]').removeClass('active');
+#                        $('a[data-value=\"First tab\"]').addClass('active');
+#                        $('a[data-value=\"First tab\"]').trigger('click');
+#   }
+#                        if (this._currentStep==1) {
+#                        $('a[data-value=\"First tab\"]').removeClass('active');
+#                        $('a[data-value=\"Second tab\"]').addClass('active');
+#                        $('a[data-value=\"Second tab\"]').trigger('click');
+#                        }")
+#       )
+#         )
+#     
+# })
   
-  # q_text <- reactive({
-  #   df()[input$similarity_table_rows_selected, ]
-  # })
-  # 
-  # output$q_text_table <- renderDataTable({
-  #   datatable(data = q_text()[, c("Question_Text", "Answer_Text")],
-  #             colnames = c("Question Text", "Answer Text"),
-  #             caption = "Question Text:",
-  #             options = list(scroller = TRUE,
-  #                            searching = FALSE,
-  #                            paging = FALSE
-  #             ))
-  # })
   
   ### Cluster Pane
-  
-  #input$x3 = input$x1_rows_selected
-  # how to get datatable on 1st tab to link in?
-  
-  # cols <- c(
-  #     'Question_Text',
-  #     'Answer_Text',
-  #     'Similarity_score',
-  #     'Rank',
-  #     'Question_MP',
-  #     'Date',
-  #     'Answer_Date',
-  #     'Topic',
-  #     'Topic_Keywords'
-  #   )
   
   dfClus <- function(){
     cols <- c(
@@ -274,7 +300,8 @@ function(input, output, session) {
   })
   
   addPopover(session, "topic_plot", "Questions plotted over time",
-             content = paste0("This plot shows when the questions in the topic were asked. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
+             content = paste0("This plot shows when the questions in the topic were asked. <br> The x axis shows the date
+                              when questions were asked and the y axis shows the count of questions asked on that date."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$topic_documents <- renderDataTable({
@@ -362,7 +389,8 @@ function(input, output, session) {
   )
   
   addPopover(session, "member_wordcloud", "Wordcloud",
-             content = paste0("This wordcloud shows the words that are most important in the questions asked by this member.<br> The bigger the word, the more important it is."),
+             content = paste0("This wordcloud shows the words that are most important in the questions asked by this
+                              member.<br> The bigger the word, the more important it is."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$member_plot <- renderPlot({
@@ -377,7 +405,8 @@ function(input, output, session) {
   })
   
   addPopover(session, "member_plot", "Questions plotted over time",
-             content = paste0("This plot shows when questions were asked by the selected member. <br> The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date."),
+             content = paste0("This plot shows when questions were asked by the selected member. <br> The x axis shows
+                              the date when questions were asked and the y axis shows the count of questions asked on that date."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$member_table <- renderDataTable({
