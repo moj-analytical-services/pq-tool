@@ -50,8 +50,8 @@
 "49","Aldous, Peter","stable",3.56084520918548
 "50","Aldous, Peter","helping",2.1999186210656
 "51","Aldous, Peter","housing",2.08480792992019
-"52","Aldous, Peter","accommodation",1.95017475177803
-"53","Aldous, Peter","benefits",1.95017475177803
+"52","Aldous, Peter","benefits",1.95017475177803
+"53","Aldous, Peter","accommodation",1.95017475177803
 "54","Aldous, Peter","find",1.89054090537179
 "55","Aldous, Peter","potential",1.60106467893954
 "56","Aldous, Peter","supported",1.37629246127001
@@ -78,11 +78,11 @@
 "77","Ali, Rushanara","crime",2.03944583426802
 "78","Ali, Rushanara","service",1.32080217183626
 "79","Ali, Rushanara","offending",1.3124770105719
-"80","Ali, Rushanara","2010",0
-"81","Ali, Rushanara","accommod",0
-"82","Ali, Rushanara","cost",0
-"83","Ali, Rushanara","flight",0
-"84","Ali, Rushanara","hotel",0
+"80","Ali, Rushanara","contract",0
+"81","Ali, Rushanara","copy",0
+"82","Ali, Rushanara","electron",0
+"83","Ali, Rushanara","g4s",0
+"84","Ali, Rushanara","library",0
 "85","Allen, Graham","intervention",4.4862030871116
 "86","Allen, Graham","promote",3.91372142194145
 "87","Allen, Graham","olds",3.46650782644149
@@ -178,7 +178,7 @@
 "177","Argar, Edward","offences",1.09355803578068
 "178","Argar, Edward","sentencing",1.05363563824121
 "179","Argar, Edward","made",0.860631427229232
-"180","Argar, Edward","2010",0
+"180","Argar, Edward","contract",0
 "181","Arkless, Richard","british",7.2818206072683
 "182","Arkless, Richard","rights",7.18882978632286
 "183","Arkless, Richard","bill",6.9037582609079
@@ -202,7 +202,7 @@
 "201","Ashworth, Jonathan","circular",4.53920480163004
 "202","Ashworth, Jonathan","subscription",4.29349905293811
 "203","Ashworth, Jonathan","consultants",4.23059537237928
-"204","Ashworth, Jonathan","trip",4.18565141103677
+"204","Ashworth, Jonathan","accompanied",4.18565141103677
 "205","Austin, Ian","companies",23.6289292514981
 "206","Austin, Ian","probation",21.2460912070086
 "207","Austin, Ian","rehabilitation",19.2189168016803
@@ -247,8 +247,8 @@
 "246","Baker, Norman","lewes",2.42630702515697
 "247","Baker, Norman","quora",2.42630702515697
 "248","Baker, Norman","whitbread",2.42630702515697
-"249","Baker, Norman","plc",2.23732478865236
-"250","Baker, Norman","offshore",2.23732478865236
+"249","Baker, Norman","offshore",2.23732478865236
+"250","Baker, Norman","plc",2.23732478865236
 "251","Baker, Norman","fact",1.98750386078226
 "252","Baker, Norman","relationship",1.62352418315692
 "253","Baker, Steve","obstacle",4.18565141103677
@@ -265,8 +265,8 @@
 "264","Baker, Steve","first",1.91711571481941
 "265","Barclay, Stephen","network rail",5.84895354208322
 "266","Barclay, Stephen","532",4.98113802519186
-"267","Barclay, Stephen","tackling",4.79743560055031
-"268","Barclay, Stephen","task",4.79743560055031
+"267","Barclay, Stephen","task",4.79743560055031
+"268","Barclay, Stephen","tackling",4.79743560055031
 "269","Barclay, Stephen","publish",4.60491653952584
 "270","Barclay, Stephen","prime",4.44008703087655
 "271","Barclay, Stephen","lay",4.42647250811564
@@ -283,10 +283,10 @@
 "282","Bardell, Hannah","tribunal",1.46191018184177
 "283","Bardell, Hannah","2013",1.46068845736954
 "284","Bardell, Hannah","made",1.00917980241883
-"285","Bardell, Hannah","2010",0
-"286","Bardell, Hannah","accommod",0
-"287","Bardell, Hannah","cost",0
-"288","Bardell, Hannah","flight",0
+"285","Bardell, Hannah","contract",0
+"286","Bardell, Hannah","copy",0
+"287","Bardell, Hannah","electron",0
+"288","Bardell, Hannah","g4s",0
 "289","Baroness Afshar","tax",4.52282585543525
 "290","Baroness Afshar","council",3.68487780764861
 "291","Baroness Afshar","rough",3.31496648398472
@@ -296,8 +296,8 @@
 "295","Baroness Afshar","begging",3.05676759423755
 "296","Baroness Afshar","sleeping",3.05676759423755
 "297","Baroness Afshar","sum",2.59011055998321
-"298","Baroness Afshar","committals",2.50674431074999
-"299","Baroness Afshar","breakdown",2.50674431074999
+"298","Baroness Afshar","breakdown",2.50674431074999
+"299","Baroness Afshar","committals",2.50674431074999
 "300","Baroness Afshar","specific",2.47726871917821
 "301","Baroness Altmann","county",5.71714706347409
 "302","Baroness Altmann","action",4.88555977131511
@@ -320,9 +320,9 @@
 "319","Baroness Armstrong of Hill Top","persons",1.49817135926425
 "320","Baroness Armstrong of Hill Top","public",1.41794916166247
 "321","Baroness Armstrong of Hill Top","will",0.900179395178779
-"322","Baroness Armstrong of Hill Top","2010",0
-"323","Baroness Armstrong of Hill Top","accommod",0
-"324","Baroness Armstrong of Hill Top","cost",0
+"322","Baroness Armstrong of Hill Top","contract",0
+"323","Baroness Armstrong of Hill Top","copy",0
+"324","Baroness Armstrong of Hill Top","electron",0
 "325","Baroness Corston","holloway",14.9870325747533
 "326","Baroness Corston","site",12.798955285426
 "327","Baroness Corston","carillion",12.4338788500871
@@ -377,12 +377,12 @@
 "376","Baroness Drake","fees",2.13877080275864
 "377","Baroness Drake","employment",1.74902595393728
 "378","Baroness Drake","tribunals",1.6880684740348
-"379","Baroness Drake","2010",0
-"380","Baroness Drake","accommod",0
-"381","Baroness Drake","cost",0
-"382","Baroness Drake","flight",0
-"383","Baroness Drake","hotel",0
-"384","Baroness Drake","internal",0
+"379","Baroness Drake","contract",0
+"380","Baroness Drake","copy",0
+"381","Baroness Drake","electron",0
+"382","Baroness Drake","g4s",0
+"383","Baroness Drake","library",0
+"384","Baroness Drake","place",0
 "385","Baroness Gale","53a",3.00771725513075
 "386","Baroness Gale","2003",1.87923541276276
 "387","Baroness Gale","imposed",1.86570502560093
@@ -398,11 +398,11 @@
 "397","Baroness Golding","thames",2.41658696889602
 "398","Baroness Golding","drawn",2.09305785321164
 "399","Baroness Golding","leeds",1.97365288275921
-"400","Baroness Golding","formal",1.88893370797971
-"401","Baroness Golding","liverpool",1.88893370797971
+"400","Baroness Golding","liverpool",1.88893370797971
+"401","Baroness Golding","formal",1.88893370797971
 "402","Baroness Golding","1999",1.78636125549044
-"403","Baroness Golding","announcement",1.69734289644412
-"404","Baroness Golding","conclusions",1.69734289644412
+"403","Baroness Golding","conclusions",1.69734289644412
+"404","Baroness Golding","announcement",1.69734289644412
 "405","Baroness Golding","kingston",1.66123787444818
 "406","Baroness Golding","pilot",1.63941389983642
 "407","Baroness Golding","basis",1.57370060264139
@@ -462,11 +462,11 @@
 "461","Baroness Hodgson of Abinger","can",2.35478770783629
 "462","Baroness Hodgson of Abinger","travellers",2.27524416548252
 "463","Baroness Hodgson of Abinger","youth",1.83582455686766
-"464","Baroness Hodgson of Abinger","justice",1.77100363985283
-"465","Baroness Hodgson of Abinger","system",1.77100363985283
+"464","Baroness Hodgson of Abinger","system",1.77100363985283
+"465","Baroness Hodgson of Abinger","justice",1.77100363985283
 "466","Baroness Hodgson of Abinger","data",1.74459123571314
-"467","Baroness Hodgson of Abinger","2010",0
-"468","Baroness Hodgson of Abinger","accommod",0
+"467","Baroness Hodgson of Abinger","contract",0
+"468","Baroness Hodgson of Abinger","copy",0
 "469","Baroness Howe of Idlicote","visiting",11.8873542152001
 "470","Baroness Howe of Idlicote","barnardos",11.3177580296469
 "471","Baroness Howe of Idlicote","locked",10.0865420150898
@@ -491,8 +491,8 @@
 "490","Baroness Hussein-Ece","aid",1.17086079490435
 "491","Baroness Hussein-Ece","legal",1.02005991853181
 "492","Baroness Hussein-Ece","convicted",0.974661187024856
-"493","Baroness Jones of Moulsecoomb","laid",2.36522224775013
-"494","Baroness Jones of Moulsecoomb","crash",2.36522224775013
+"493","Baroness Jones of Moulsecoomb","crash",2.36522224775013
+"494","Baroness Jones of Moulsecoomb","laid",2.36522224775013
 "495","Baroness Jones of Moulsecoomb","treated",2.23757296497559
 "496","Baroness Jones of Moulsecoomb","traffic",1.90970051058645
 "497","Baroness Jones of Moulsecoomb","qualify",1.8011371845036
@@ -508,13 +508,13 @@
 "507","Baroness Kennedy of Cradley","hmp",2.71486632875954
 "508","Baroness Kennedy of Cradley","held",2.60119201706186
 "509","Baroness Kennedy of Cradley","prisoners",0.800656835897285
-"510","Baroness Kennedy of Cradley","2010",0
-"511","Baroness Kennedy of Cradley","accommod",0
-"512","Baroness Kennedy of Cradley","cost",0
-"513","Baroness Kennedy of Cradley","flight",0
-"514","Baroness Kennedy of Cradley","hotel",0
-"515","Baroness Kennedy of Cradley","internal",0
-"516","Baroness Kennedy of Cradley","made",0
+"510","Baroness Kennedy of Cradley","contract",0
+"511","Baroness Kennedy of Cradley","copy",0
+"512","Baroness Kennedy of Cradley","electron",0
+"513","Baroness Kennedy of Cradley","g4s",0
+"514","Baroness Kennedy of Cradley","library",0
+"515","Baroness Kennedy of Cradley","place",0
+"516","Baroness Kennedy of Cradley","tag",0
 "517","Baroness Kennedy of The Shaws","unaccompanied",10.4680019980261
 "518","Baroness Kennedy of The Shaws","migrant",10.157087428535
 "519","Baroness Kennedy of The Shaws","appeared",7.75668987316958
@@ -528,9 +528,9 @@
 "527","Baroness Kennedy of The Shaws","currently",2.64487998036526
 "528","Baroness Kennedy of The Shaws","either",2.62951230829262
 "529","Baroness King of Bow","explanatory",3.02613653442003
-"530","Baroness King of Bow","academy",2.79043427402451
+"530","Baroness King of Bow","pupils",2.79043427402451
 "531","Baroness King of Bow","admission",2.79043427402451
-"532","Baroness King of Bow","pupils",2.79043427402451
+"532","Baroness King of Bow","academy",2.79043427402451
 "533","Baroness King of Bow","sen",2.65255729035792
 "534","Baroness King of Bow","went",2.36443663355857
 "535","Baroness King of Bow","schools",2.36443663355857
@@ -581,10 +581,10 @@
 "580","Baroness Masham of Ilton","suggestion",3.41757006606683
 "581","Baroness Masham of Ilton","fulfil",3.26802417241388
 "582","Baroness Masham of Ilton","vocational",3.12889493147202
-"583","Baroness Masham of Ilton","howard",3.03596229535056
+"583","Baroness Masham of Ilton","degree",3.03596229535056
 "584","Baroness Masham of Ilton","league",3.03596229535056
-"585","Baroness Masham of Ilton","penal",3.03596229535056
-"586","Baroness Masham of Ilton","degree",3.03596229535056
+"585","Baroness Masham of Ilton","howard",3.03596229535056
+"586","Baroness Masham of Ilton","penal",3.03596229535056
 "587","Baroness Masham of Ilton","receive",2.69774994947982
 "588","Baroness Masham of Ilton","england",2.51663108072749
 "589","Baroness Meacher","havemade",3.70624520066165
@@ -645,8 +645,8 @@
 "644","Baroness Rebuck","qualifications",2.34484459176782
 "645","Baroness Rebuck","towards",2.31346187124685
 "646","Baroness Rebuck","materials",2.28459256689187
-"647","Baroness Rebuck","higher",2.23297984752501
-"648","Baroness Rebuck","specific",2.23297984752501
+"647","Baroness Rebuck","specific",2.23297984752501
+"648","Baroness Rebuck","higher",2.23297984752501
 "649","Baroness Redfern","sanctions",3.2765305446558
 "650","Baroness Redfern","targets",3.03560468063012
 "651","Baroness Redfern","met",2.89856607164657
@@ -677,12 +677,12 @@
 "676","Baroness Sharples","six",2.69071650195041
 "677","Baroness Sharples","holding",2.68301733631525
 "678","Baroness Sharples","months",1.65111698519019
-"679","Baroness Sharples","2010",0
-"680","Baroness Sharples","accommod",0
-"681","Baroness Sharples","cost",0
-"682","Baroness Sharples","flight",0
-"683","Baroness Sharples","hotel",0
-"684","Baroness Sharples","internal",0
+"679","Baroness Sharples","contract",0
+"680","Baroness Sharples","copy",0
+"681","Baroness Sharples","electron",0
+"682","Baroness Sharples","g4s",0
+"683","Baroness Sharples","library",0
+"684","Baroness Sharples","place",0
 "685","Baroness Smith of Basildon","genital",8.75872847431007
 "686","Baroness Smith of Basildon","mutilation",8.75872847431007
 "687","Baroness Smith of Basildon","phone",8.31414071979434
@@ -711,14 +711,14 @@
 "710","Baroness Taylor of Bolton","held",2.90822108634005
 "711","Baroness Taylor of Bolton","currently",2.7584409454106
 "712","Baroness Taylor of Bolton","prisoners",0.895161555858111
-"713","Baroness Taylor of Bolton","2010",0
-"714","Baroness Taylor of Bolton","accommod",0
-"715","Baroness Taylor of Bolton","cost",0
-"716","Baroness Taylor of Bolton","flight",0
-"717","Baroness Taylor of Bolton","hotel",0
-"718","Baroness Taylor of Bolton","internal",0
-"719","Baroness Taylor of Bolton","made",0
-"720","Baroness Taylor of Bolton","oversea",0
+"713","Baroness Taylor of Bolton","contract",0
+"714","Baroness Taylor of Bolton","copy",0
+"715","Baroness Taylor of Bolton","electron",0
+"716","Baroness Taylor of Bolton","g4s",0
+"717","Baroness Taylor of Bolton","library",0
+"718","Baroness Taylor of Bolton","place",0
+"719","Baroness Taylor of Bolton","tag",0
+"720","Baroness Taylor of Bolton","will",0
 "721","Baroness Thomas of Winchester","referenced",3.20970249642714
 "722","Baroness Thomas of Winchester","independence",2.96727675218173
 "723","Baroness Thomas of Winchester","cross",2.70970249642714
@@ -758,15 +758,15 @@
 "757","Baroness Uddin","spectrum",3.56953551699164
 "758","Baroness Uddin","autism",3.26802417241388
 "759","Baroness Uddin","disorder",2.6137671675961
-"760","Baroness Uddin","justice",1.68858571601744
-"761","Baroness Uddin","system",1.68858571601744
+"760","Baroness Uddin","system",1.68858571601744
+"761","Baroness Uddin","justice",1.68858571601744
 "762","Baroness Uddin","currently",1.66340247677821
 "763","Baroness Uddin","training",1.48702964665821
 "764","Baroness Uddin","provide",1.43902946427032
 "765","Baroness Uddin","criminal",1.35381061027296
 "766","Baroness Uddin","staff",1.24256852165679
 "767","Baroness Uddin","people",1.04897618672549
-"768","Baroness Uddin","2010",0
+"768","Baroness Uddin","contract",0
 "769","Baroness Wheatcroft","women",8.29974566777819
 "770","Baroness Wheatcroft","current",8.11980829145094
 "771","Baroness Wheatcroft","proportion",5.80035554464873
@@ -838,7 +838,7 @@
 "837","Beckett, Margaret","estimate",1.40772178928505
 "838","Beckett, Margaret","number",1.25834977796091
 "839","Beckett, Margaret","will",0.814242899404655
-"840","Beckett, Margaret","2010",0
+"840","Beckett, Margaret","contract",0
 "841","Beith, Sir Alan","archives",8.95852641884635
 "842","Beith, Sir Alan","targets",7.17243928352983
 "843","Beith, Sir Alan","meet",5.50685014179604
@@ -855,8 +855,8 @@
 "854","Bellingham, Sir Henry","head",5.76233518465985
 "855","Bellingham, Sir Henry","northmoor",3.20970249642714
 "856","Bellingham, Sir Henry","paid",3.1432057919531
-"857","Bellingham, Sir Henry","leigh",2.70970249642714
-"858","Bellingham, Sir Henry","iraq",2.70970249642714
+"857","Bellingham, Sir Henry","iraq",2.70970249642714
+"858","Bellingham, Sir Henry","leigh",2.70970249642714
 "859","Bellingham, Sir Henry","died",2.69327453376365
 "860","Bellingham, Sir Henry","historic",2.6292204727053
 "861","Bellingham, Sir Henry","verdicts",2.59011055998321
@@ -898,7 +898,7 @@
 "897","Benyon, Richard","made",1.72126285445846
 "898","Benyon, Richard","court",1.714419335644
 "899","Benyon, Richard","years",1.12470522733043
-"900","Benyon, Richard","2010",0
+"900","Benyon, Richard","contract",0
 "901","Berger, Luciana","health",31.0627556853944
 "902","Berger, Luciana","mental",30.1603292145856
 "903","Berger, Luciana","2010",28.2888975989007
@@ -952,20 +952,20 @@
 "951","Blackford, Ian","policies",3.25760272376675
 "952","Blackford, Ian","discuss",3.14456230061173
 "953","Blackford, Ian","leaving",3.10004859416251
-"954","Blackford, Ian","2010",0
-"955","Blackford, Ian","accommod",0
-"956","Blackford, Ian","cost",0
-"957","Blackford, Ian","flight",0
-"958","Blackford, Ian","hotel",0
-"959","Blackford, Ian","internal",0
-"960","Blackford, Ian","made",0
+"954","Blackford, Ian","contract",0
+"955","Blackford, Ian","copy",0
+"956","Blackford, Ian","electron",0
+"957","Blackford, Ian","g4s",0
+"958","Blackford, Ian","library",0
+"959","Blackford, Ian","place",0
+"960","Blackford, Ian","tag",0
 "961","Blackman-Woods, Dr Roberta","durham",5.97284841062213
 "962","Blackman-Woods, Dr Roberta","organ",5.93729751413335
 "963","Blackman-Woods, Dr Roberta","donors",5.64393218386912
 "964","Blackman-Woods, Dr Roberta","staffing",4.04196124177255
 "965","Blackman-Woods, Dr Roberta","donation",3.87104686156941
-"966","Blackman-Woods, Dr Roberta","newton",3.39316268687164
-"967","Blackman-Woods, Dr Roberta","frankland",3.39316268687164
+"966","Blackman-Woods, Dr Roberta","frankland",3.39316268687164
+"967","Blackman-Woods, Dr Roberta","newton",3.39316268687164
 "968","Blackman-Woods, Dr Roberta","register",3.34452147529382
 "969","Blackman-Woods, Dr Roberta","prison",3.3097098040919
 "970","Blackman-Woods, Dr Roberta","occupation",3.02459750431282
@@ -978,11 +978,11 @@
 "977","Blackman, Bob","victims",1.67576918663161
 "978","Blackman, Bob","cases",1.49413650324471
 "979","Blackman, Bob","2014",1.34921346977346
-"980","Blackman, Bob","2010",0
-"981","Blackman, Bob","accommod",0
-"982","Blackman, Bob","cost",0
-"983","Blackman, Bob","flight",0
-"984","Blackman, Bob","hotel",0
+"980","Blackman, Bob","contract",0
+"981","Blackman, Bob","copy",0
+"982","Blackman, Bob","electron",0
+"983","Blackman, Bob","g4s",0
+"984","Blackman, Bob","library",0
 "985","Blackman, Kirsty","scotland",15.3545333445032
 "986","Blackman, Kirsty","24107",11.1958195940834
 "987","Blackman, Kirsty","breach",10.3532185982358
@@ -1082,8 +1082,8 @@
 "1081","Bottomley, Sir Peter","mire",16.5624682401073
 "1082","Bottomley, Sir Peter","benjamin",15.4946094860085
 "1083","Bottomley, Sir Peter","judicial",11.2418330898913
-"1084","Bottomley, Sir Peter","conduct",8.27147311987897
-"1085","Bottomley, Sir Peter","investigation",8.27147311987897
+"1084","Bottomley, Sir Peter","investigation",8.27147311987897
+"1085","Bottomley, Sir Peter","conduct",8.27147311987897
 "1086","Bottomley, Sir Peter","office",5.50545604846099
 "1087","Bottomley, Sir Peter","property",4.78733684180741
 "1088","Bottomley, Sir Peter","appointment",4.10079273323634
@@ -1145,9 +1145,9 @@
 "1144","Brennan, Kevin","licensed",6.96728857961507
 "1145","Brennan, Kevin","dogs",6.33972261326193
 "1146","Brennan, Kevin","occupancy",4.09532438060057
-"1147","Brennan, Kevin","guitars",3.87104686156941
-"1148","Brennan, Kevin","strung",3.87104686156941
-"1149","Brennan, Kevin","readmission",3.87104686156941
+"1147","Brennan, Kevin","readmission",3.87104686156941
+"1148","Brennan, Kevin","guitars",3.87104686156941
+"1149","Brennan, Kevin","strung",3.87104686156941
 "1150","Brennan, Kevin","equality",3.4900652320087
 "1151","Brennan, Kevin","steel",3.39316268687164
 "1152","Brennan, Kevin","balance",3.26802417241388
@@ -1161,8 +1161,8 @@
 "1160","Bridgen, Andrew","illegitimate",3.16405505954568
 "1161","Bridgen, Andrew","non",2.818800312006
 "1162","Bridgen, Andrew","claims",2.56680186016078
-"1163","Bridgen, Andrew","handling",2.50674431074999
-"1164","Bridgen, Andrew","fraudulent",2.50674431074999
+"1163","Bridgen, Andrew","fraudulent",2.50674431074999
+"1164","Bridgen, Andrew","handling",2.50674431074999
 "1165","Brock, Deidre","media",5.8709436099576
 "1166","Brock, Deidre","leaves",4.64286898662927
 "1167","Brock, Deidre","portfolio",4.05998820009529
@@ -1181,16 +1181,16 @@
 "1180","Brooke, Annette","review",1.8135226806377
 "1181","Brooke, Annette","sentencing",1.42662939826079
 "1182","Brooke, Annette","will",1.10249009757759
-"1183","Brooke, Annette","2010",0
-"1184","Brooke, Annette","accommod",0
-"1185","Brooke, Annette","cost",0
-"1186","Brooke, Annette","flight",0
-"1187","Brooke, Annette","hotel",0
-"1188","Brooke, Annette","internal",0
+"1183","Brooke, Annette","contract",0
+"1184","Brooke, Annette","copy",0
+"1185","Brooke, Annette","electron",0
+"1186","Brooke, Annette","g4s",0
+"1187","Brooke, Annette","library",0
+"1188","Brooke, Annette","place",0
 "1189","Brown, Lyn","red",4.27960332856952
 "1190","Brown, Lyn","box",3.7512824949958
-"1191","Brown, Lyn","ict",3.61293666190285
-"1192","Brown, Lyn","gateway",3.61293666190285
+"1191","Brown, Lyn","gateway",3.61293666190285
+"1192","Brown, Lyn","ict",3.61293666190285
 "1193","Brown, Lyn","journeys",3.27960332856952
 "1194","Brown, Lyn","transportation",2.88962832808875
 "1195","Brown, Lyn","car",2.83896063027373
@@ -1287,14 +1287,14 @@
 "1286","Burley, Aidan","culture",4.6269237424937
 "1287","Burley, Aidan","address",3.87567357222911
 "1288","Burley, Aidan","compensation",2.98422263306258
-"1289","Burley, Aidan","2010",0
-"1290","Burley, Aidan","accommod",0
-"1291","Burley, Aidan","cost",0
-"1292","Burley, Aidan","flight",0
-"1293","Burley, Aidan","hotel",0
-"1294","Burley, Aidan","internal",0
-"1295","Burley, Aidan","made",0
-"1296","Burley, Aidan","oversea",0
+"1289","Burley, Aidan","contract",0
+"1290","Burley, Aidan","copy",0
+"1291","Burley, Aidan","electron",0
+"1292","Burley, Aidan","g4s",0
+"1293","Burley, Aidan","library",0
+"1294","Burley, Aidan","place",0
+"1295","Burley, Aidan","tag",0
+"1296","Burley, Aidan","will",0
 "1297","Burnham, Andy","tenants",4.25355453398948
 "1298","Burnham, Andy","evicted",3.79153362664858
 "1299","Burnham, Andy","manchester",3.14286833946826
@@ -1302,11 +1302,11 @@
 "1301","Burnham, Andy","2010",1.28744832179624
 "1302","Burnham, Andy","courts",1.07456918680947
 "1303","Burnham, Andy","year",0.704946308295593
-"1304","Burnham, Andy","accommod",0
-"1305","Burnham, Andy","cost",0
-"1306","Burnham, Andy","flight",0
-"1307","Burnham, Andy","hotel",0
-"1308","Burnham, Andy","internal",0
+"1304","Burnham, Andy","contract",0
+"1305","Burnham, Andy","copy",0
+"1306","Burnham, Andy","electron",0
+"1307","Burnham, Andy","g4s",0
+"1308","Burnham, Andy","library",0
 "1309","Burns, Sir Simon","wildlife",3.39316268687164
 "1310","Burns, Sir Simon","chelmsford",3.36472586037556
 "1311","Burns, Sir Simon","00156",3.11386880460654
@@ -1340,9 +1340,9 @@
 "1339","Burstow, Paul","result",1.84197567680807
 "1340","Burstow, Paul","taken",1.6459810592426
 "1341","Burstow, Paul","time",1.48647720621243
-"1342","Burstow, Paul","2010",0
-"1343","Burstow, Paul","accommod",0
-"1344","Burstow, Paul","cost",0
+"1342","Burstow, Paul","contract",0
+"1343","Burstow, Paul","copy",0
+"1344","Burstow, Paul","electron",0
 "1345","Butler, Dawn","equal",11.3313731815452
 "1346","Butler, Dawn","tribunal",10.0891954315221
 "1347","Butler, Dawn","pay",8.96005095049594
@@ -1355,10 +1355,10 @@
 "1354","Butler, Dawn","women",6.01260512908862
 "1355","Butler, Dawn","33501",5.91940499285428
 "1356","Butler, Dawn","brought",5.6979464519275
-"1357","Byles, Dan","seat",2.46856252730307
-"1358","Byles, Dan","contributory",2.46856252730307
-"1359","Byles, Dan","faulty",2.46856252730307
-"1360","Byles, Dan","incorrectly",2.46856252730307
+"1357","Byles, Dan","faulty",2.46856252730307
+"1358","Byles, Dan","incorrectly",2.46856252730307
+"1359","Byles, Dan","contributory",2.46856252730307
+"1360","Byles, Dan","seat",2.46856252730307
 "1361","Byles, Dan","passenger",2.34658941421983
 "1362","Byles, Dan","factor",2.13807500016276
 "1363","Byles, Dan","fitted",1.98440705111497
@@ -1392,8 +1392,8 @@
 "1391","Cadbury, Ruth","disqualification",3.12889493147202
 "1392","Cadbury, Ruth","pleading",2.79013999771611
 "1393","Cameron, Dr Lisa","childhood",6.25778986294404
-"1394","Cameron, Dr Lisa","agreed",4.91722405232187
-"1395","Cameron, Dr Lisa","complainants",4.91722405232187
+"1394","Cameron, Dr Lisa","complainants",4.91722405232187
+"1395","Cameron, Dr Lisa","agreed",4.91722405232187
 "1396","Cameron, Dr Lisa","special",4.36096200748773
 "1397","Cameron, Dr Lisa","measures",4.1213399955553
 "1398","Cameron, Dr Lisa","applied",3.83879352601736
@@ -1414,7 +1414,7 @@
 "1413","Campbell, Gregory","drug",4.23272818879912
 "1414","Campbell, Gregory","people",4.14738702598532
 "1415","Campbell, Gregory","television",4.1430501399195
-"1416","Campbell, Gregory","rays",4.05998820009529
+"1416","Campbell, Gregory","20933",4.05998820009529
 "1417","Campbell, Ronnie","northumberland",2.83896063027373
 "1418","Campbell, Ronnie","stalking",2.67715168788365
 "1419","Campbell, Ronnie","harassment",2.64397313003335
@@ -1424,9 +1424,9 @@
 "1423","Campbell, Ronnie","people",1.15968680846208
 "1424","Campbell, Ronnie","years",0.621704206467736
 "1425","Campbell, Ronnie","prison",0.596774370572074
-"1426","Campbell, Ronnie","2010",0
-"1427","Campbell, Ronnie","accommod",0
-"1428","Campbell, Ronnie","cost",0
+"1426","Campbell, Ronnie","contract",0
+"1427","Campbell, Ronnie","copy",0
+"1428","Campbell, Ronnie","electron",0
 "1429","Carmichael, Alistair","legal",6.48243744651262
 "1430","Carmichael, Alistair","review",5.69981439222528
 "1431","Carmichael, Alistair","recognition",5.35365657167307
@@ -1447,10 +1447,10 @@
 "1446","Carmichael, Neil","education",2.52321877287561
 "1447","Carmichael, Neil","receive",1.78287530461526
 "1448","Carmichael, Neil","prisoners",1.76453988022186
-"1449","Carmichael, Neil","2010",0
-"1450","Carmichael, Neil","accommod",0
-"1451","Carmichael, Neil","cost",0
-"1452","Carmichael, Neil","flight",0
+"1449","Carmichael, Neil","contract",0
+"1450","Carmichael, Neil","copy",0
+"1451","Carmichael, Neil","electron",0
+"1452","Carmichael, Neil","g4s",0
 "1453","Carswell, Douglas","2014",7.20574068962373
 "1454","Carswell, Douglas","emergency",7.09689612157782
 "1455","Carswell, Douglas","2015",6.49049498073097
@@ -1467,14 +1467,14 @@
 "1466","Caulfield, Maria","estate",3.03531283046582
 "1467","Caulfield, Maria","will",1.35026909276817
 "1468","Caulfield, Maria","prison",0.895161555858111
-"1469","Caulfield, Maria","2010",0
-"1470","Caulfield, Maria","accommod",0
-"1471","Caulfield, Maria","cost",0
-"1472","Caulfield, Maria","flight",0
-"1473","Caulfield, Maria","hotel",0
-"1474","Caulfield, Maria","internal",0
-"1475","Caulfield, Maria","made",0
-"1476","Caulfield, Maria","oversea",0
+"1469","Caulfield, Maria","contract",0
+"1470","Caulfield, Maria","copy",0
+"1471","Caulfield, Maria","electron",0
+"1472","Caulfield, Maria","g4s",0
+"1473","Caulfield, Maria","library",0
+"1474","Caulfield, Maria","place",0
+"1475","Caulfield, Maria","tag",0
+"1476","Caulfield, Maria","2010",0
 "1477","Chalk, Alex","imprisoned",6.22482214887057
 "1478","Chalk, Alex","incentivise",5.91940499285428
 "1479","Chalk, Alex","tariff",5.6309950419532
@@ -1544,8 +1544,8 @@
 "1543","Churchill, Jo","decisions",2.82753763252477
 "1544","Churchill, Jo","payment",2.59141765704876
 "1545","Churchill, Jo","appealed",2.51729516971433
-"1546","Churchill, Jo","claims",2.44410610364802
-"1547","Churchill, Jo","support",2.44410610364802
+"1546","Churchill, Jo","support",2.44410610364802
+"1547","Churchill, Jo","claims",2.44410610364802
 "1548","Churchill, Jo","taken",2.43211292943606
 "1549","Clark, Katy","hardship",6.53604834482776
 "1550","Clark, Katy","compensation",5.25445679459595
@@ -1576,8 +1576,8 @@
 "1575","Clwyd, Ann","review",12.8394532726134
 "1576","Clwyd, Ann","19906",11.1232811174043
 "1577","Clwyd, Ann","updated",10.6310857301553
-"1578","Clwyd, Ann","redactions",9.19548780837629
-"1579","Clwyd, Ann","gordon",9.19548780837629
+"1578","Clwyd, Ann","gordon",9.19548780837629
+"1579","Clwyd, Ann","redactions",9.19548780837629
 "1580","Clwyd, Ann","report",8.94450343761137
 "1581","Clwyd, Ann","reinstated",8.92236872282965
 "1582","Clwyd, Ann","consider",7.32113003606262
@@ -1614,11 +1614,11 @@
 "1613","Coffey, Dr Thérèse","civil",2.23304156495661
 "1614","Coffey, Dr Thérèse","court",1.07456918680947
 "1615","Coffey, Dr Thérèse","will",1.02070749213754
-"1616","Coffey, Dr Thérèse","2010",0
-"1617","Coffey, Dr Thérèse","accommod",0
-"1618","Coffey, Dr Thérèse","cost",0
-"1619","Coffey, Dr Thérèse","flight",0
-"1620","Coffey, Dr Thérèse","hotel",0
+"1616","Coffey, Dr Thérèse","contract",0
+"1617","Coffey, Dr Thérèse","copy",0
+"1618","Coffey, Dr Thérèse","electron",0
+"1619","Coffey, Dr Thérèse","g4s",0
+"1620","Coffey, Dr Thérèse","library",0
 "1621","Colvile, Oliver","drugs",6.56897412164532
 "1622","Colvile, Oliver","combat",5.41940499285428
 "1623","Colvile, Oliver","supply",4.41940499285428
@@ -1688,9 +1688,9 @@
 "1687","Cowan, Ronnie","personal",1.49817135926425
 "1688","Cowan, Ronnie","2016",1.49669394382583
 "1689","Cowan, Ronnie","2015",1.24956585534809
-"1690","Cowan, Ronnie","2010",0
-"1691","Cowan, Ronnie","accommod",0
-"1692","Cowan, Ronnie","cost",0
+"1690","Cowan, Ronnie","contract",0
+"1691","Cowan, Ronnie","copy",0
+"1692","Cowan, Ronnie","electron",0
 "1693","Cox, Geoffrey","constructor",3.02613653442003
 "1694","Cox, Geoffrey","plymouth",3.02613653442003
 "1695","Cox, Geoffrey","geoamey",2.554732013629
@@ -1734,8 +1734,8 @@
 "1733","Crausby, Sir David","appeals",3.0465451096121
 "1734","Crausby, Sir David","work",2.64286110524804
 "1735","Crausby, Sir David","outcome",2.63273269365143
-"1736","Crausby, Sir David","resolved",2.43298522388647
-"1737","Crausby, Sir David","nine",2.43298522388647
+"1736","Crausby, Sir David","nine",2.43298522388647
+"1737","Crausby, Sir David","resolved",2.43298522388647
 "1738","Crausby, Sir David","previous",2.37521232919745
 "1739","Crausby, Sir David","assessments",2.29147073452425
 "1740","Crausby, Sir David","financial",2.11675421758744
@@ -1750,7 +1750,7 @@
 "1749","Crawley, Angela","rights",1.56633750403137
 "1750","Crawley, Angela","proposed",1.44722158815617
 "1751","Crawley, Angela","act",1.23845512058762
-"1752","Crawley, Angela","2010",0
+"1752","Crawley, Angela","contract",0
 "1753","Creagh, Mary","wakefield",6.07781772988089
 "1754","Creagh, Mary","five",5.64340448527773
 "1755","Creagh, Mary","inmates",5.09872650304094
@@ -1819,10 +1819,10 @@
 "1818","Curran, Margaret","2010",1.20429763083465
 "1819","Curran, Margaret","courts",1.00516743385633
 "1820","Curran, Margaret","year",0.659416890428306
-"1821","Curran, Margaret","accommod",0
-"1822","Curran, Margaret","cost",0
-"1823","Curran, Margaret","flight",0
-"1824","Curran, Margaret","hotel",0
+"1821","Curran, Margaret","contract",0
+"1822","Curran, Margaret","copy",0
+"1823","Curran, Margaret","electron",0
+"1824","Curran, Margaret","g4s",0
 "1825","Dakin, Nic","embed",5.74169037564949
 "1826","Dakin, Nic","component",5.6269237424937
 "1827","Dakin, Nic","nothing",5.6269237424937
@@ -1866,11 +1866,11 @@
 "1865","Davidson, Ian","plan",2.19840850058568
 "1866","Davidson, Ian","national",1.79383936235451
 "1867","Davidson, Ian","offenders",1.3124770105719
-"1868","Davidson, Ian","2010",0
-"1869","Davidson, Ian","accommod",0
-"1870","Davidson, Ian","cost",0
-"1871","Davidson, Ian","flight",0
-"1872","Davidson, Ian","hotel",0
+"1868","Davidson, Ian","contract",0
+"1869","Davidson, Ian","copy",0
+"1870","Davidson, Ian","electron",0
+"1871","Davidson, Ian","g4s",0
+"1872","Davidson, Ian","library",0
 "1873","Davies, Byron","anticorruption",3.74376043407845
 "1874","Davies, Byron","corporate",3.00950229978049
 "1875","Davies, Byron","liability",2.8559968586598
@@ -1881,8 +1881,8 @@
 "1880","Davies, Byron","plan",1.83932051443275
 "1881","Davies, Byron","criminal",1.41988854680092
 "1882","Davies, Byron","made",0.902637855891325
-"1883","Davies, Byron","2010",0
-"1884","Davies, Byron","accommod",0
+"1883","Davies, Byron","contract",0
+"1884","Davies, Byron","copy",0
 "1885","Davies, David T. C.","seekers",5.66027454548867
 "1886","Davies, David T. C.","wish",5.04545577205861
 "1887","Davies, David T. C.","gwent",4.83317393779203
@@ -1997,27 +1997,27 @@
 "1996","Dobson, Frank","hour",2.38830365229018
 "1997","Dobson, Frank","system",2.28635586774091
 "1998","Dobson, Frank","made",1.16530046117449
-"1999","Dobson, Frank","2010",0
-"2000","Dobson, Frank","accommod",0
-"2001","Dobson, Frank","cost",0
-"2002","Dobson, Frank","flight",0
-"2003","Dobson, Frank","hotel",0
-"2004","Dobson, Frank","internal",0
-"2005","Docherty-Hughes, Martin","charter",4.29349905293811
-"2006","Docherty-Hughes, Martin","fundamental",4.29349905293811
+"1999","Dobson, Frank","contract",0
+"2000","Dobson, Frank","copy",0
+"2001","Dobson, Frank","electron",0
+"2002","Dobson, Frank","g4s",0
+"2003","Dobson, Frank","library",0
+"2004","Dobson, Frank","place",0
+"2005","Docherty-Hughes, Martin","fundamental",4.29349905293811
+"2006","Docherty-Hughes, Martin","charter",4.29349905293811
 "2007","Docherty-Hughes, Martin","party",3.04001785876796
 "2008","Docherty-Hughes, Martin","remaining",3.02615891854445
 "2009","Docherty-Hughes, Martin","governments",2.81063176345421
 "2010","Docherty-Hughes, Martin","rights",2.12083100622874
-"2011","Docherty-Hughes, Martin","2010",0
-"2012","Docherty-Hughes, Martin","accommod",0
-"2013","Docherty-Hughes, Martin","cost",0
-"2014","Docherty-Hughes, Martin","flight",0
-"2015","Docherty-Hughes, Martin","hotel",0
-"2016","Docherty-Hughes, Martin","internal",0
+"2011","Docherty-Hughes, Martin","contract",0
+"2012","Docherty-Hughes, Martin","copy",0
+"2013","Docherty-Hughes, Martin","electron",0
+"2014","Docherty-Hughes, Martin","g4s",0
+"2015","Docherty-Hughes, Martin","library",0
+"2016","Docherty-Hughes, Martin","place",0
 "2017","Dodds, Nigel","topics",4.18565141103677
-"2018","Dodds, Nigel","correspondence",3.31611102333525
-"2019","Dodds, Nigel","europe",3.31611102333525
+"2018","Dodds, Nigel","europe",3.31611102333525
+"2019","Dodds, Nigel","correspondence",3.31611102333525
 "2020","Dodds, Nigel","message",3.24870593743824
 "2021","Dodds, Nigel","origin",2.94601228533978
 "2022","Dodds, Nigel","content",2.84021979687721
@@ -2042,12 +2042,12 @@
 "2041","Donelan, Michelle","chippenham",3.70624520066165
 "2042","Donelan, Michelle","wiltshire",3.41757006606683
 "2043","Donelan, Michelle","retrospectively",3.31496648398472
-"2044","Donelan, Michelle","225",3.05676759423755
-"2045","Donelan, Michelle","abolition",3.05676759423755
+"2044","Donelan, Michelle","abolition",3.05676759423755
+"2045","Donelan, Michelle","225",3.05676759423755
 "2046","Donelan, Michelle","upheld",2.60715650608644
 "2047","Donelan, Michelle","initial",2.27609191395159
-"2048","Donelan, Michelle","constituency",1.870978020035
-"2049","Donelan, Michelle","assessments",1.870978020035
+"2048","Donelan, Michelle","assessments",1.870978020035
+"2049","Donelan, Michelle","constituency",1.870978020035
 "2050","Donelan, Michelle","2003",1.81551389074173
 "2051","Donelan, Michelle","applied",1.71676065515218
 "2052","Donelan, Michelle","independence",1.68551925849796
@@ -2072,9 +2072,9 @@
 "2071","Doughty, Stephen","missing",6.11087100268113
 "2072","Doughty, Stephen","parking",5.84009981689242
 "2073","Doughty, Stephen","prison",5.66659857095996
-"2074","Doughty, Stephen","202937",4.53920480163004
-"2075","Doughty, Stephen","ka505a",4.53920480163004
-"2076","Doughty, Stephen","maya",4.53920480163004
+"2074","Doughty, Stephen","ka505a",4.53920480163004
+"2075","Doughty, Stephen","maya",4.53920480163004
+"2076","Doughty, Stephen","202937",4.53920480163004
 "2077","Dowd, Jim","passed",2.40431610091321
 "2078","Dowd, Jim","maximum",2.05587014708384
 "2079","Dowd, Jim","fraud",2.04667131411732
@@ -2106,15 +2106,15 @@
 "2105","Dowden, Oliver","judges",2.39892421590637
 "2106","Dowden, Oliver","protected",1.96624125004087
 "2107","Dowden, Oliver","train",1.86409031320315
-"2108","Dowden, Oliver","2010",0
-"2109","Dowden, Oliver","accommod",0
-"2110","Dowden, Oliver","cost",0
-"2111","Dowden, Oliver","flight",0
-"2112","Dowden, Oliver","hotel",0
+"2108","Dowden, Oliver","contract",0
+"2109","Dowden, Oliver","copy",0
+"2110","Dowden, Oliver","electron",0
+"2111","Dowden, Oliver","g4s",0
+"2112","Dowden, Oliver","library",0
 "2113","Drax, Richard","marine",3.87104686156941
 "2114","Drax, Richard","sergeant",3.56953551699164
-"2115","Drax, Richard","expediting",3.39316268687164
-"2116","Drax, Richard","blackman",3.39316268687164
+"2115","Drax, Richard","blackman",3.39316268687164
+"2116","Drax, Richard","expediting",3.39316268687164
 "2117","Drax, Richard","alexander",3.26802417241388
 "2118","Drax, Richard","investigations",2.04205215342585
 "2119","Drax, Richard","commission",1.99298736306689
@@ -2122,7 +2122,7 @@
 "2121","Drax, Richard","review",1.33937526410718
 "2122","Drax, Richard","case",1.19190860053409
 "2123","Drax, Richard","will",0.814242899404655
-"2124","Drax, Richard","2010",0
+"2124","Drax, Richard","contract",0
 "2125","Drew, Dr David","stroud",3.70624520066165
 "2126","Drew, Dr David","district",2.36567939003947
 "2127","Drew, Dr David","allowance",1.77601876100874
@@ -2151,26 +2151,26 @@
 "2150","Drummond, Flick","monitoring",3.37567357222911
 "2151","Drummond, Flick","progress",3.14211056701546
 "2152","Drummond, Flick","made",1.42719576345371
-"2153","Drummond, Flick","2010",0
-"2154","Drummond, Flick","accommod",0
-"2155","Drummond, Flick","cost",0
-"2156","Drummond, Flick","flight",0
-"2157","Drummond, Flick","hotel",0
-"2158","Drummond, Flick","internal",0
-"2159","Drummond, Flick","oversea",0
-"2160","Drummond, Flick","subsist",0
-"2161","Duddridge, James","entrustment",4.47464957730471
-"2162","Duddridge, James","rwanda",4.47464957730471
+"2153","Drummond, Flick","contract",0
+"2154","Drummond, Flick","copy",0
+"2155","Drummond, Flick","g4s",0
+"2156","Drummond, Flick","library",0
+"2157","Drummond, Flick","place",0
+"2158","Drummond, Flick","tag",0
+"2159","Drummond, Flick","will",0
+"2160","Drummond, Flick","2010",0
+"2161","Duddridge, James","rwanda",4.47464957730471
+"2162","Duddridge, James","entrustment",4.47464957730471
 "2163","Duddridge, James","jersey",3.97500772156452
 "2164","Duddridge, James","facilitate",3.65449501766502
 "2165","Duddridge, James","trade",3.34075615827703
 "2166","Duddridge, James","agreement",2.52060159863734
 "2167","Duddridge, James","decision",2.16981009467518
-"2168","Duddridge, James","2010",0
-"2169","Duddridge, James","accommod",0
-"2170","Duddridge, James","cost",0
-"2171","Duddridge, James","flight",0
-"2172","Duddridge, James","hotel",0
+"2168","Duddridge, James","contract",0
+"2169","Duddridge, James","copy",0
+"2170","Duddridge, James","electron",0
+"2171","Duddridge, James","g4s",0
+"2172","Duddridge, James","library",0
 "2173","Dugher, Michael","south",7.93191939010004
 "2174","Dugher, Michael","yorkshire",7.93191939010004
 "2175","Dugher, Michael","breathalysed",4.18565141103677
@@ -2251,10 +2251,10 @@
 "2250","Elphicke, Charlie","received",1.54401530557673
 "2251","Elphicke, Charlie","act",1.45221735385955
 "2252","Elphicke, Charlie","will",0.95478443192298
-"2253","Elphicke, Charlie","2010",0
-"2254","Elphicke, Charlie","accommod",0
-"2255","Elphicke, Charlie","cost",0
-"2256","Elphicke, Charlie","flight",0
+"2253","Elphicke, Charlie","contract",0
+"2254","Elphicke, Charlie","copy",0
+"2255","Elphicke, Charlie","electron",0
+"2256","Elphicke, Charlie","g4s",0
 "2257","Esterson, Bill","james",10.586646708621
 "2258","Esterson, Bill","thompson",10.1962153133532
 "2259","Esterson, Bill","unemployed",8.97451805717148
@@ -2288,21 +2288,21 @@
 "2287","Evans, Graham","planning",1.45411054317003
 "2288","Evans, Graham","potential",1.4431801988127
 "2289","Evans, Graham","increase",1.44049859716443
-"2290","Evans, Graham","management",1.40249782380317
-"2291","Evans, Graham","provision",1.40249782380317
+"2290","Evans, Graham","provision",1.40249782380317
+"2291","Evans, Graham","management",1.40249782380317
 "2292","Evans, Graham","members",1.30602503539834
 "2293","Evans, Jonathan","alternative",3.41846706944372
-"2294","Evans, Jonathan","resolution",3.12499123925695
-"2295","Evans, Jonathan","dispute",3.12499123925695
+"2294","Evans, Jonathan","dispute",3.12499123925695
+"2295","Evans, Jonathan","resolution",3.12499123925695
 "2296","Evans, Jonathan","awareness",2.75574215724209
 "2297","Evans, Jonathan","raise",2.58633074391407
 "2298","Evans, Jonathan","public",1.50396220138397
 "2299","Evans, Jonathan","services",1.23549730067955
 "2300","Evans, Jonathan","will",0.95478443192298
-"2301","Evans, Jonathan","2010",0
-"2302","Evans, Jonathan","accommod",0
-"2303","Evans, Jonathan","cost",0
-"2304","Evans, Jonathan","flight",0
+"2301","Evans, Jonathan","contract",0
+"2302","Evans, Jonathan","copy",0
+"2303","Evans, Jonathan","electron",0
+"2304","Evans, Jonathan","g4s",0
 "2305","Evans, Nigel","wrongfully",6.60654554833578
 "2306","Evans, Nigel","english",6.01787267708722
 "2307","Evans, Nigel","terrorism",5.29958420325753
@@ -2355,14 +2355,14 @@
 "2354","Fernandes, Suella","progress",3.14211056701546
 "2355","Fernandes, Suella","secure",2.39720793317505
 "2356","Fernandes, Suella","made",1.42719576345371
-"2357","Fernandes, Suella","2010",0
-"2358","Fernandes, Suella","accommod",0
-"2359","Fernandes, Suella","cost",0
-"2360","Fernandes, Suella","flight",0
-"2361","Fernandes, Suella","hotel",0
-"2362","Fernandes, Suella","internal",0
-"2363","Fernandes, Suella","oversea",0
-"2364","Fernandes, Suella","subsist",0
+"2357","Fernandes, Suella","contract",0
+"2358","Fernandes, Suella","copy",0
+"2359","Fernandes, Suella","electron",0
+"2360","Fernandes, Suella","g4s",0
+"2361","Fernandes, Suella","library",0
+"2362","Fernandes, Suella","place",0
+"2363","Fernandes, Suella","tag",0
+"2364","Fernandes, Suella","will",0
 "2365","Ferrier, Margaret","129",7.75102805721104
 "2366","Ferrier, Margaret","oral",7.70068416630879
 "2367","Ferrier, Margaret","parliamentary",7.65707230524261
@@ -2413,10 +2413,10 @@
 "2412","Fitzpatrick, Jim","made",4.1540820332278
 "2413","Flello, Robert","fenton",6.32811011909136
 "2414","Flello, Robert","urban",6.32811011909136
-"2415","Flello, Robert","town",5.79358763526651
-"2416","Flello, Robert","trent",5.79358763526651
-"2417","Flello, Robert","stoke",5.62150983037432
-"2418","Flello, Robert","vision",5.62150983037432
+"2415","Flello, Robert","trent",5.79358763526651
+"2416","Flello, Robert","town",5.79358763526651
+"2417","Flello, Robert","vision",5.62150983037432
+"2418","Flello, Robert","stoke",5.62150983037432
 "2419","Flello, Robert","city",4.16629052884527
 "2420","Flello, Robert","discuss",3.75847082552552
 "2421","Flello, Robert","make",3.52872513609195
@@ -2513,8 +2513,8 @@
 "2512","Freer, Mike","policies",1.94678998664583
 "2513","Freer, Mike","evidence",1.64427386651504
 "2514","Freer, Mike","given",1.51776019605754
-"2515","Freer, Mike","december",1.48669025659521
-"2516","Freer, Mike","access",1.48669025659521
+"2515","Freer, Mike","access",1.48669025659521
+"2516","Freer, Mike","december",1.48669025659521
 "2517","Freer, Mike","2011",1.44656356034596
 "2518","Freer, Mike","family",1.3751454225598
 "2519","Freer, Mike","aid",1.29022575593102
@@ -2534,8 +2534,8 @@
 "2533","Garnier, Sir Edward","trafficking",4.58679950940406
 "2534","Garnier, Sir Edward","continuance",3.77738630843149
 "2535","Garnier, Sir Edward","human",3.30021692496651
-"2536","Garnier, Sir Edward","638",3.02613653442003
-"2537","Garnier, Sir Edward","birds",3.02613653442003
+"2536","Garnier, Sir Edward","birds",3.02613653442003
+"2537","Garnier, Sir Edward","638",3.02613653442003
 "2538","Garnier, Sir Edward","england",2.80555369128903
 "2539","Garnier, Sir Edward","wales",2.79419899976768
 "2540","Garnier, Sir Edward","will",2.74441974153274
@@ -2580,9 +2580,9 @@
 "2579","Gillan, Cheryl","west",1.4885182355472
 "2580","Gillan, Cheryl","decision",1.35311432810634
 "2581","Gilmore, Sheila","pensions",5.41894616694015
-"2582","Gilmore, Sheila","147",5.29944941901159
-"2583","Gilmore, Sheila","sadler",5.29944941901159
-"2584","Gilmore, Sheila","sorting",5.29944941901159
+"2582","Gilmore, Sheila","sorting",5.29944941901159
+"2583","Gilmore, Sheila","147",5.29944941901159
+"2584","Gilmore, Sheila","sadler",5.29944941901159
 "2585","Gilmore, Sheila","purpose",5.23869107311265
 "2586","Gilmore, Sheila","january",5.04953419745568
 "2587","Gilmore, Sheila","kevin",5.03760053484734
@@ -2663,17 +2663,17 @@
 "2662","Goodman, Helen","building",5.13495451781957
 "2663","Goodman, Helen","newspapers",5.1269237424937
 "2664","Goodman, Helen","charge",4.9455561677263
-"2665","Gove, Michael","triggering",2.52404276975102
-"2666","Gove, Michael","lisbon",2.52404276975102
+"2665","Gove, Michael","lisbon",2.52404276975102
+"2666","Gove, Michael","triggering",2.52404276975102
 "2667","Gove, Michael","treaty",2.3993283455561
-"2668","Gove, Michael","white",1.86579348027512
-"2669","Gove, Michael","documents",1.86579348027512
+"2668","Gove, Michael","documents",1.86579348027512
+"2669","Gove, Michael","white",1.86579348027512
 "2670","Gove, Michael","papers",1.72349806445504
 "2671","Gove, Michael","article",1.66177504627938
 "2672","Gove, Michael","assist",1.58035995326894
 "2673","Gove, Michael","make",1.50465345367371
-"2674","Gove, Michael","list",1.47789017968867
-"2675","Gove, Michael","leave",1.47789017968867
+"2674","Gove, Michael","leave",1.47789017968867
+"2675","Gove, Michael","list",1.47789017968867
 "2676","Gove, Michael","governments",1.46780456741021
 "2677","Graham, Richard","stalking",11.3357411851696
 "2678","Graham, Richard","offences",7.69334560080269
@@ -2704,13 +2704,13 @@
 "2703","Greatrex, Tom","governments",3.07889283536879
 "2704","Greatrex, Tom","data",2.46722458634275
 "2705","Greatrex, Tom","personal",2.01000780075487
-"2706","Greatrex, Tom","2010",0
-"2707","Greatrex, Tom","accommod",0
-"2708","Greatrex, Tom","cost",0
-"2709","Greatrex, Tom","flight",0
-"2710","Greatrex, Tom","hotel",0
-"2711","Greatrex, Tom","internal",0
-"2712","Greatrex, Tom","made",0
+"2706","Greatrex, Tom","contract",0
+"2707","Greatrex, Tom","copy",0
+"2708","Greatrex, Tom","electron",0
+"2709","Greatrex, Tom","g4s",0
+"2710","Greatrex, Tom","library",0
+"2711","Greatrex, Tom","place",0
+"2712","Greatrex, Tom","tag",0
 "2713","Green, Damian","submission",3.42753266806161
 "2714","Green, Damian","final",2.9263235172381
 "2715","Green, Damian","papers",2.55636074762475
@@ -2721,8 +2721,8 @@
 "2720","Green, Damian","time",1.41019609846652
 "2721","Green, Damian","months",1.27894971725636
 "2722","Green, Damian","will",0.853985157455321
-"2723","Green, Damian","2010",0
-"2724","Green, Damian","accommod",0
+"2723","Green, Damian","contract",0
+"2724","Green, Damian","copy",0
 "2725","Green, Kate","women",25.997362995184
 "2726","Green, Kate","recall",16.0843170087837
 "2727","Green, Kate","bench",16.0140738306426
@@ -2745,8 +2745,8 @@
 "2744","Griffith, Nia","members",2.13272995201751
 "2745","Griffith, Nia","proportion",1.7624529170663
 "2746","Griffith, Nia","public",1.73662596364011
-"2747","Griffith, Nia","2010",0
-"2748","Griffith, Nia","accommod",0
+"2747","Griffith, Nia","contract",0
+"2748","Griffith, Nia","copy",0
 "2749","Griffiths, Andrew","deradicalisation",10.9188217675863
 "2750","Griffiths, Andrew","recent",9.42514013450177
 "2751","Griffiths, Andrew","drug",8.13867483213662
@@ -2788,32 +2788,32 @@
 "2787","Halfon, Robert","assistance",3.31499100456447
 "2788","Halfon, Robert","makes",3.15618771128552
 "2789","Halfon, Robert","families",2.30105841145418
-"2790","Halfon, Robert","2010",0
-"2791","Halfon, Robert","accommod",0
-"2792","Halfon, Robert","cost",0
-"2793","Halfon, Robert","flight",0
-"2794","Halfon, Robert","hotel",0
-"2795","Halfon, Robert","internal",0
-"2796","Halfon, Robert","made",0
+"2790","Halfon, Robert","contract",0
+"2791","Halfon, Robert","copy",0
+"2792","Halfon, Robert","electron",0
+"2793","Halfon, Robert","g4s",0
+"2794","Halfon, Robert","library",0
+"2795","Halfon, Robert","place",0
+"2796","Halfon, Robert","tag",0
 "2797","Hames, Duncan","type",3.16550767275493
 "2798","Hames, Duncan","aged",2.88636039762539
 "2799","Hames, Duncan","2010",1.70313404266015
 "2800","Hames, Duncan","prison",0.895161555858111
-"2801","Hames, Duncan","accommod",0
-"2802","Hames, Duncan","cost",0
-"2803","Hames, Duncan","flight",0
-"2804","Hames, Duncan","hotel",0
-"2805","Hames, Duncan","internal",0
-"2806","Hames, Duncan","made",0
-"2807","Hames, Duncan","oversea",0
-"2808","Hames, Duncan","subsist",0
+"2801","Hames, Duncan","contract",0
+"2802","Hames, Duncan","copy",0
+"2803","Hames, Duncan","electron",0
+"2804","Hames, Duncan","g4s",0
+"2805","Hames, Duncan","library",0
+"2806","Hames, Duncan","place",0
+"2807","Hames, Duncan","tag",0
+"2808","Hames, Duncan","will",0
 "2809","Hamilton, Fabian","afforded",2.89583164068126
 "2810","Hamilton, Fabian","comparable",2.60715650608644
 "2811","Hamilton, Fabian","disordered",2.50249153962001
 "2812","Hamilton, Fabian","extend",2.34934513237246
 "2813","Hamilton, Fabian","mentally",1.83220863430892
-"2814","Hamilton, Fabian","justice",1.61669773828525
-"2815","Hamilton, Fabian","system",1.61669773828525
+"2814","Hamilton, Fabian","system",1.61669773828525
+"2815","Hamilton, Fabian","justice",1.61669773828525
 "2816","Hamilton, Fabian","rights",1.49965398625503
 "2817","Hamilton, Fabian","criminal",1.29617497704349
 "2818","Hamilton, Fabian","victims",1.27988985750232
@@ -2898,11 +2898,11 @@
 "2897","Harris, Rebecca","aid",1.82465476256073
 "2898","Harris, Rebecca","legal",1.58964857013461
 "2899","Harris, Rebecca","2013",1.56154164465491
-"2900","Harris, Rebecca","2010",0
-"2901","Harris, Rebecca","accommod",0
-"2902","Harris, Rebecca","cost",0
-"2903","Harris, Rebecca","flight",0
-"2904","Harris, Rebecca","hotel",0
+"2900","Harris, Rebecca","contract",0
+"2901","Harris, Rebecca","copy",0
+"2902","Harris, Rebecca","electron",0
+"2903","Harris, Rebecca","g4s",0
+"2904","Harris, Rebecca","library",0
 "2905","Hayes, Helen","beneficial",9.92754966561881
 "2906","Hayes, Helen","ownership",9.08090789414009
 "2907","Hayes, Helen","dependencies",8.47286187403118
@@ -2932,13 +2932,13 @@
 "2931","Heald, Sir Oliver","working",1.98279684123451
 "2932","Heald, Sir Oliver","made",1.27652269771288
 "2933","Heald, Sir Oliver","courts",1.27144740832506
-"2934","Heald, Sir Oliver","2010",0
-"2935","Heald, Sir Oliver","accommod",0
-"2936","Heald, Sir Oliver","cost",0
-"2937","Heald, Sir Oliver","flight",0
-"2938","Heald, Sir Oliver","hotel",0
-"2939","Heald, Sir Oliver","internal",0
-"2940","Heald, Sir Oliver","oversea",0
+"2934","Heald, Sir Oliver","contract",0
+"2935","Heald, Sir Oliver","copy",0
+"2936","Heald, Sir Oliver","electron",0
+"2937","Heald, Sir Oliver","g4s",0
+"2938","Heald, Sir Oliver","library",0
+"2939","Heald, Sir Oliver","place",0
+"2940","Heald, Sir Oliver","tag",0
 "2941","Healey, John","must",7.0977620028941
 "2942","Healey, John","mark",6.86552161987271
 "2943","Healey, John","exceeded",6.76632595621481
@@ -2955,9 +2955,9 @@
 "2954","Heaton-Harris, Chris","coroner",4.56735968117644
 "2955","Heaton-Harris, Chris","coronial",4.47464957730471
 "2956","Heaton-Harris, Chris","neonatal",4.27960332856952
-"2957","Heaton-Harris, Chris","lorry",4.05998820009529
-"2958","Heaton-Harris, Chris","retrieve",4.05998820009529
-"2959","Heaton-Harris, Chris","perinatal",4.05998820009529
+"2957","Heaton-Harris, Chris","perinatal",4.05998820009529
+"2958","Heaton-Harris, Chris","lorry",4.05998820009529
+"2959","Heaton-Harris, Chris","retrieve",4.05998820009529
 "2960","Heaton-Harris, Chris","deaths",4.01467635822262
 "2961","Heaton-Harris, Chris","balance",3.42753266806161
 "2962","Heaton-Harris, Chris","jurisdictions",3.41356915363935
@@ -3009,8 +3009,8 @@
 "3008","Hepburn, Stephen","north",2.02255057183033
 "3009","Hepburn, Stephen","homes",2.01218148390023
 "3010","Hepburn, Stephen","year",0.589800397003689
-"3011","Hepburn, Stephen","2010",0
-"3012","Hepburn, Stephen","accommod",0
+"3011","Hepburn, Stephen","contract",0
+"3012","Hepburn, Stephen","copy",0
 "3013","Herbert, Nick","unimplemented",4.05998820009529
 "3014","Herbert, Nick","judgements",3.17222462467664
 "3015","Herbert, Nick","europe",2.9660198676456
@@ -3021,8 +3021,8 @@
 "3020","Herbert, Nick","rights",1.64278863344885
 "3021","Herbert, Nick","court",0.899049084348708
 "3022","Herbert, Nick","years",0.589800397003689
-"3023","Herbert, Nick","2010",0
-"3024","Herbert, Nick","accommod",0
+"3023","Herbert, Nick","contract",0
+"3024","Herbert, Nick","copy",0
 "3025","Hillier, Meg","hearing",10.9722741170264
 "3026","Hillier, Meg","tier",7.6879511825267
 "3027","Hillier, Meg","immigration",7.12481029419032
@@ -3043,10 +3043,10 @@
 "3042","Hilling, Julie","recent",1.69315355320945
 "3043","Hilling, Julie","custody",1.62144695655535
 "3044","Hilling, Julie","made",1.00917980241883
-"3045","Hilling, Julie","2010",0
-"3046","Hilling, Julie","accommod",0
-"3047","Hilling, Julie","cost",0
-"3048","Hilling, Julie","flight",0
+"3045","Hilling, Julie","contract",0
+"3046","Hilling, Julie","copy",0
+"3047","Hilling, Julie","electron",0
+"3048","Hilling, Julie","g4s",0
 "3049","Hodge, Margaret","barking",6.47433766030439
 "3050","Hodge, Margaret","dagenham",6.47433766030439
 "3051","Hodge, Margaret","kpmg",5.77277687526302
@@ -3100,13 +3100,13 @@
 "3099","Hollingbery, George","five",1.66357595136457
 "3100","Hollingbery, George","made",1.27652269771288
 "3101","Hollingbery, George","years",0.834103720535653
-"3102","Hollingbery, George","2010",0
-"3103","Hollingbery, George","accommod",0
-"3104","Hollingbery, George","cost",0
-"3105","Hollingbery, George","flight",0
-"3106","Hollingbery, George","hotel",0
-"3107","Hollingbery, George","internal",0
-"3108","Hollingbery, George","oversea",0
+"3102","Hollingbery, George","contract",0
+"3103","Hollingbery, George","copy",0
+"3104","Hollingbery, George","electron",0
+"3105","Hollingbery, George","g4s",0
+"3106","Hollingbery, George","library",0
+"3107","Hollingbery, George","place",0
+"3108","Hollingbery, George","tag",0
 "3109","Hollinrake, Kevin","guardianship",5.30896482287252
 "3110","Hollinrake, Kevin","legislation",4.81933528317909
 "3111","Hollinrake, Kevin","missing",4.57570410493742
@@ -3117,8 +3117,8 @@
 "3116","Hollinrake, Kevin","landlords",2.74045601321832
 "3117","Hollinrake, Kevin","eviction",2.68101913850003
 "3118","Hollinrake, Kevin","women",2.5218990198936
-"3119","Hollinrake, Kevin","justice",2.50457736649198
-"3120","Hollinrake, Kevin","system",2.50457736649198
+"3119","Hollinrake, Kevin","system",2.50457736649198
+"3120","Hollinrake, Kevin","justice",2.50457736649198
 "3121","Hollobone, Philip","foreign",27.1159544376232
 "3122","Hollobone, Philip","national",19.061936817081
 "3123","Hollobone, Philip","countries",12.9950886121099
@@ -3175,10 +3175,10 @@
 "3174","Howell, John","prison",1.76453988022186
 "3175","Howell, John","will",1.55915644837627
 "3176","Howell, John","service",1.42662939826079
-"3177","Howell, John","2010",0
-"3178","Howell, John","accommod",0
-"3179","Howell, John","cost",0
-"3180","Howell, John","flight",0
+"3177","Howell, John","contract",0
+"3178","Howell, John","copy",0
+"3179","Howell, John","electron",0
+"3180","Howell, John","g4s",0
 "3181","Howlett, Ben","intersex",4.27960332856952
 "3182","Howlett, Ben","bias",3.94626999523619
 "3183","Howlett, Ben","charge",3.46024487767565
@@ -3195,14 +3195,14 @@
 "3194","Huddleston, Nigel","solutions",4.1269237424937
 "3195","Huddleston, Nigel","international",3.99041449529049
 "3196","Huddleston, Nigel","future",3.45403632407284
-"3197","Huddleston, Nigel","2010",0
-"3198","Huddleston, Nigel","accommod",0
-"3199","Huddleston, Nigel","cost",0
-"3200","Huddleston, Nigel","flight",0
-"3201","Huddleston, Nigel","hotel",0
-"3202","Huddleston, Nigel","internal",0
-"3203","Huddleston, Nigel","made",0
-"3204","Huddleston, Nigel","oversea",0
+"3197","Huddleston, Nigel","contract",0
+"3198","Huddleston, Nigel","copy",0
+"3199","Huddleston, Nigel","electron",0
+"3200","Huddleston, Nigel","g4s",0
+"3201","Huddleston, Nigel","library",0
+"3202","Huddleston, Nigel","place",0
+"3203","Huddleston, Nigel","tag",0
+"3204","Huddleston, Nigel","will",0
 "3205","Hunt, Tristram","abolished",6.8548532187627
 "3206","Hunt, Tristram","relocated",6.40926581254222
 "3207","Hunt, Tristram","jobs",5.45358683733842
@@ -3239,8 +3239,8 @@
 "3238","Huq, Dr Rupa","abuse",2.26526201071884
 "3239","Huq, Dr Rupa","potential",2.18188337320637
 "3240","Huq, Dr Rupa","conducted",2.14172236693794
-"3241","Hussain, Imran","humber",9.07465863876713
-"3242","Hussain, Imran","bradford",9.07465863876713
+"3241","Hussain, Imran","bradford",9.07465863876713
+"3242","Hussain, Imran","humber",9.07465863876713
 "3243","Hussain, Imran","discount",7.36577283496213
 "3244","Hussain, Imran","yorkshire",7.01975145629585
 "3245","Hussain, Imran","2008",6.59014854313382
@@ -3286,7 +3286,7 @@
 "3285","James, Margot","companies",1.44065559297378
 "3286","James, Margot","tribunal",1.2467211920649
 "3287","James, Margot","years",0.562352613665216
-"3288","James, Margot","2010",0
+"3288","James, Margot","contract",0
 "3289","James, Siân C.","english",13.9233191088792
 "3290","James, Siân C.","postcode",9.72944736626902
 "3291","James, Siân C.","welsh",8.56684048025435
@@ -3297,8 +3297,8 @@
 "3296","James, Siân C.","wales",3.50784466531371
 "3297","James, Siân C.","held",3.34950849539869
 "3298","James, Siân C.","prisoners",2.87548399104021
-"3299","James, Siân C.","language",2.45861202616093
-"3300","James, Siân C.","whose",2.45861202616093
+"3299","James, Siân C.","whose",2.45861202616093
+"3300","James, Siân C.","language",2.45861202616093
 "3301","Jamieson, Cathy","scotland",14.3143454725153
 "3302","Jamieson, Cathy","ordinarily",7.4875208681569
 "3303","Jamieson, Cathy","accommodated",6.79090100780257
@@ -3327,8 +3327,8 @@
 "3326","Jenkin, Bernard","referendum",1.89576681332429
 "3327","Jenkin, Bernard","europe",1.77253590083212
 "3328","Jenkin, Bernard","strategy",1.72698965117216
-"3329","Jenkin, Bernard","matters",1.68797410262003
-"3330","Jenkin, Bernard","specific",1.68797410262003
+"3329","Jenkin, Bernard","specific",1.68797410262003
+"3330","Jenkin, Bernard","matters",1.68797410262003
 "3331","Jenkin, Bernard","relationship",1.62352418315692
 "3332","Jenkin, Bernard","communications",1.5598305574809
 "3333","Jenkin, Bernard","consequences",1.49899186611542
@@ -3401,12 +3401,12 @@
 "3400","Jones, Gerald","employment",1.74902595393728
 "3401","Jones, Gerald","tribunal",1.6880684740348
 "3402","Jones, Gerald","made",1.16530046117449
-"3403","Jones, Gerald","2010",0
-"3404","Jones, Gerald","accommod",0
-"3405","Jones, Gerald","cost",0
-"3406","Jones, Gerald","flight",0
-"3407","Jones, Gerald","hotel",0
-"3408","Jones, Gerald","internal",0
+"3403","Jones, Gerald","contract",0
+"3404","Jones, Gerald","copy",0
+"3405","Jones, Gerald","electron",0
+"3406","Jones, Gerald","g4s",0
+"3407","Jones, Gerald","library",0
+"3408","Jones, Gerald","place",0
 "3409","Jones, Graham","191341",4.53920480163004
 "3410","Jones, Graham","hyndburn",4.53920480163004
 "3411","Jones, Graham","xiy",4.47514592995118
@@ -3426,11 +3426,11 @@
 "3425","Jones, Graham P","closed",2.89068607010282
 "3426","Jones, Graham P","subject",2.84991150142526
 "3427","Jones, Graham P","year",1.59553275892959
-"3428","Jones, Graham P","accommod",0
-"3429","Jones, Graham P","cost",0
-"3430","Jones, Graham P","flight",0
-"3431","Jones, Graham P","hotel",0
-"3432","Jones, Graham P","internal",0
+"3428","Jones, Graham P","contract",0
+"3429","Jones, Graham P","copy",0
+"3430","Jones, Graham P","electron",0
+"3431","Jones, Graham P","g4s",0
+"3432","Jones, Graham P","library",0
 "3433","Jones, Helen","warrington",8.33695705818638
 "3434","Jones, Helen","pharmacies",7.34970647058245
 "3435","Jones, Helen","risley",7.31006154426758
@@ -3524,9 +3524,9 @@
 "3523","Kennedy, Seema","relating",1.50263103586465
 "3524","Kennedy, Seema","made",0.951463842302474
 "3525","Kennedy, Seema","court",0.947680944943586
-"3526","Kennedy, Seema","2010",0
-"3527","Kennedy, Seema","accommod",0
-"3528","Kennedy, Seema","cost",0
+"3526","Kennedy, Seema","contract",0
+"3527","Kennedy, Seema","copy",0
+"3528","Kennedy, Seema","electron",0
 "3529","Khan, Sadiq","prison",145.092234898454
 "3530","Khan, Sadiq","2010",137.640160901041
 "3531","Khan, Sadiq","2014",116.996456905186
@@ -3550,10 +3550,10 @@
 "3549","Kinahan, Danny","bisexual",2.554732013629
 "3550","Kinahan, Danny","inspectorate",2.5517693655575
 "3551","Kinahan, Danny","gay",2.47885283397922
-"3552","Kinahan, Danny","extension",2.41685502996241
+"3552","Kinahan, Danny","assembly",2.41685502996241
 "3553","Kinnock, Stephen","existing",5.67024890315542
-"3554","Kinnock, Stephen","steel",3.97883593553688
-"3555","Kinnock, Stephen","changing",3.97883593553688
+"3554","Kinnock, Stephen","changing",3.97883593553688
+"3555","Kinnock, Stephen","steel",3.97883593553688
 "3556","Kinnock, Stephen","category",3.93337000573025
 "3557","Kinnock, Stephen","consistency",3.65449501766502
 "3558","Kinnock, Stephen","incarcerated",3.36472586037556
@@ -3599,8 +3599,8 @@
 "3598","Knight, Sir Greg","made",2.73115578649839
 "3599","Knight, Sir Greg","recommendations",2.60213937966508
 "3600","Knight, Sir Greg","scheduled",2.56655550788043
-"3601","Kwarteng, Kwasi","intimidating",3.34381835455032
-"3602","Kwarteng, Kwasi","bailiffs",3.34381835455032
+"3601","Kwarteng, Kwasi","bailiffs",3.34381835455032
+"3602","Kwarteng, Kwasi","intimidating",3.34381835455032
 "3603","Kwarteng, Kwasi","threatening",3.22296166142208
 "3604","Kwarteng, Kwasi","sutton",3.12125570410566
 "3605","Kwarteng, Kwasi","behaviour",2.8154975209766
@@ -3652,8 +3652,8 @@
 "3651","Latham, Pauline","exploitation",2.84390560599304
 "3652","Latham, Pauline","criminal",2.33432943995562
 "3653","Latham, Pauline","old",2.14983689102042
-"3654","Latham, Pauline","roll",2.1225134495911
-"3655","Latham, Pauline","1999",2.1225134495911
+"3654","Latham, Pauline","1999",2.1225134495911
+"3655","Latham, Pauline","roll",2.1225134495911
 "3656","Latham, Pauline","limit",2.10533199844402
 "3657","Latham, Pauline","crossexamination",2.06564727275094
 "3658","Latham, Pauline","start",2.01674387820367
@@ -3705,8 +3705,8 @@
 "3704","Lefroy, Jeremy","service",1.10506238013479
 "3705","Lefroy, Jeremy","courts",0.899049084348708
 "3706","Lefroy, Jeremy","year",0.589800397003689
-"3707","Lefroy, Jeremy","2010",0
-"3708","Lefroy, Jeremy","accommod",0
+"3707","Lefroy, Jeremy","contract",0
+"3708","Lefroy, Jeremy","copy",0
 "3709","Leslie, Charlotte","grandparents",11.0468209271041
 "3710","Leslie, Charlotte","premises",8.90750100517597
 "3711","Leslie, Charlotte","grandchildren",8.5692613591962
@@ -3810,8 +3810,8 @@
 "3809","Lord Ashcroft","exceed",2.50674431074999
 "3810","Lord Ashcroft","submitted",2.14649665467518
 "3811","Lord Ashcroft","basis",2.06045775222909
-"3812","Lord Ashcroft","freedom",1.99015885026025
-"3813","Lord Ashcroft","can",1.99015885026025
+"3812","Lord Ashcroft","can",1.99015885026025
+"3813","Lord Ashcroft","freedom",1.99015885026025
 "3814","Lord Ashcroft","request",1.88618292447905
 "3815","Lord Ashcroft","pays",1.73218905718105
 "3816","Lord Ashcroft","financial",1.49677126136131
@@ -3870,23 +3870,23 @@
 "3869","Lord Berkeley","force",2.33067432224227
 "3870","Lord Berkeley","section",1.99147756455519
 "3871","Lord Berkeley","act",1.55248565407711
-"3872","Lord Berkeley","2010",0
-"3873","Lord Berkeley","accommod",0
-"3874","Lord Berkeley","cost",0
-"3875","Lord Berkeley","flight",0
-"3876","Lord Berkeley","hotel",0
+"3872","Lord Berkeley","contract",0
+"3873","Lord Berkeley","copy",0
+"3874","Lord Berkeley","electron",0
+"3875","Lord Berkeley","g4s",0
+"3876","Lord Berkeley","library",0
 "3877","Lord Bird","juvenile",3.41846706944372
 "3878","Lord Bird","opportunities",3.19310155974459
-"3879","Lord Bird","encourage",3.15791038487567
-"3880","Lord Bird","enterprise",3.15791038487567
+"3879","Lord Bird","enterprise",3.15791038487567
+"3880","Lord Bird","encourage",3.15791038487567
 "3881","Lord Bird","adult",2.48599477855804
 "3882","Lord Bird","social",2.37217600908338
 "3883","Lord Bird","systems",1.98004226355524
 "3884","Lord Bird","prison",0.632974806404771
-"3885","Lord Bird","2010",0
-"3886","Lord Bird","accommod",0
-"3887","Lord Bird","cost",0
-"3888","Lord Bird","flight",0
+"3885","Lord Bird","contract",0
+"3886","Lord Bird","copy",0
+"3887","Lord Bird","electron",0
+"3888","Lord Bird","g4s",0
 "3889","Lord Birt","retirement",4.03898949161165
 "3890","Lord Birt","bbc",3.97883593553688
 "3891","Lord Birt","panoramas",3.83209802044349
@@ -3909,8 +3909,8 @@
 "3908","Lord Black of Brentwood","funding",1.69085623211663
 "3909","Lord Black of Brentwood","used",1.51612741877158
 "3910","Lord Black of Brentwood","will",0.853985157455321
-"3911","Lord Black of Brentwood","2010",0
-"3912","Lord Black of Brentwood","accommod",0
+"3911","Lord Black of Brentwood","contract",0
+"3912","Lord Black of Brentwood","copy",0
 "3913","Lord Blencathra","lawyers",13.3362296374884
 "3914","Lord Blencathra","firm",11.3258662045501
 "3915","Lord Blencathra","legal",10.3024523480575
@@ -3935,8 +3935,8 @@
 "3934","Lord Boateng","absence",4.11226662040536
 "3935","Lord Boateng","agency",4.0912446812988
 "3936","Lord Boateng","funded",3.57293225180356
-"3937","Lord Boswell of Aynho","printing",2.52404276975102
-"3938","Lord Boswell of Aynho","competences",2.52404276975102
+"3937","Lord Boswell of Aynho","competences",2.52404276975102
+"3938","Lord Boswell of Aynho","printing",2.52404276975102
 "3939","Lord Boswell of Aynho","balance",2.31084205339541
 "3940","Lord Boswell of Aynho","expenses",2.06141320500557
 "3941","Lord Boswell of Aynho","events",1.83158229721375
@@ -3954,11 +3954,11 @@
 "3953","Lord Bourne of Aberystwyth","magistrates",2.66715124351957
 "3954","Lord Bourne of Aberystwyth","release",2.4629603247393
 "3955","Lord Bourne of Aberystwyth","prisoners",0.895161555858111
-"3956","Lord Bourne of Aberystwyth","2010",0
-"3957","Lord Bourne of Aberystwyth","accommod",0
-"3958","Lord Bourne of Aberystwyth","cost",0
-"3959","Lord Bourne of Aberystwyth","flight",0
-"3960","Lord Bourne of Aberystwyth","hotel",0
+"3956","Lord Bourne of Aberystwyth","contract",0
+"3957","Lord Bourne of Aberystwyth","copy",0
+"3958","Lord Bourne of Aberystwyth","electron",0
+"3959","Lord Bourne of Aberystwyth","g4s",0
+"3960","Lord Bourne of Aberystwyth","library",0
 "3961","Lord Bradley","england",13.3174483895582
 "3962","Lord Bradley","month",12.2683878256164
 "3963","Lord Bradley","january",12.1307277058826
@@ -4022,39 +4022,39 @@
 "4021","Lord Clinton-Davis","suicides",4.2234604191082
 "4022","Lord Clinton-Davis","number",2.4095563769179
 "4023","Lord Clinton-Davis","prisons",1.03364353048577
-"4024","Lord Clinton-Davis","2010",0
-"4025","Lord Clinton-Davis","accommod",0
-"4026","Lord Clinton-Davis","cost",0
-"4027","Lord Clinton-Davis","flight",0
-"4028","Lord Clinton-Davis","hotel",0
-"4029","Lord Clinton-Davis","internal",0
-"4030","Lord Clinton-Davis","made",0
-"4031","Lord Clinton-Davis","oversea",0
-"4032","Lord Clinton-Davis","subsist",0
+"4024","Lord Clinton-Davis","contract",0
+"4025","Lord Clinton-Davis","copy",0
+"4026","Lord Clinton-Davis","electron",0
+"4027","Lord Clinton-Davis","g4s",0
+"4028","Lord Clinton-Davis","library",0
+"4029","Lord Clinton-Davis","place",0
+"4030","Lord Clinton-Davis","tag",0
+"4031","Lord Clinton-Davis","will",0
+"4032","Lord Clinton-Davis","2010",0
 "4033","Lord Condon","whilst",3.47700247201039
 "4034","Lord Condon","suicide",2.98643750242439
 "4035","Lord Condon","committing",2.28246821148655
 "4036","Lord Condon","number",1.70381365376993
 "4037","Lord Condon","people",1.42032047108441
 "4038","Lord Condon","prison",0.730896349736092
-"4039","Lord Condon","2010",0
-"4040","Lord Condon","accommod",0
-"4041","Lord Condon","cost",0
-"4042","Lord Condon","flight",0
-"4043","Lord Condon","hotel",0
-"4044","Lord Condon","internal",0
+"4039","Lord Condon","contract",0
+"4040","Lord Condon","copy",0
+"4041","Lord Condon","electron",0
+"4042","Lord Condon","g4s",0
+"4043","Lord Condon","library",0
+"4044","Lord Condon","place",0
 "4045","Lord Cormack","taylor",4.42492564732817
 "4046","Lord Cormack","intend",3.05421078129932
 "4047","Lord Cormack","youth",2.37003931176902
 "4048","Lord Cormack","system",2.28635586774091
 "4049","Lord Cormack","publish",1.8532847425453
 "4050","Lord Cormack","review",1.8135226806377
-"4051","Lord Cormack","2010",0
-"4052","Lord Cormack","accommod",0
-"4053","Lord Cormack","cost",0
-"4054","Lord Cormack","flight",0
-"4055","Lord Cormack","hotel",0
-"4056","Lord Cormack","internal",0
+"4051","Lord Cormack","contract",0
+"4052","Lord Cormack","copy",0
+"4053","Lord Cormack","electron",0
+"4054","Lord Cormack","g4s",0
+"4055","Lord Cormack","library",0
+"4056","Lord Cormack","place",0
 "4057","Lord Donoughue","374)",2.94542501489603
 "4058","Lord Donoughue","mauley",2.94542501489603
 "4059","Lord Donoughue","owner",2.4865935471549
@@ -4078,7 +4078,7 @@
 "4077","Lord Eames","proposed",1.44722158815617
 "4078","Lord Eames","public",1.28258327482729
 "4079","Lord Eames","cases",1.19190860053409
-"4080","Lord Eames","2010",0
+"4080","Lord Eames","contract",0
 "4081","Lord Empey","1970",5.71919279725448
 "4082","Lord Empey","lodged",4.70279501776016
 "4083","Lord Empey","damage",4.16466642062286
@@ -4138,7 +4138,7 @@
 "4137","Lord German","vocational",3.12889493147202
 "4138","Lord German","deliver",2.96255763274197
 "4139","Lord German","system",2.87330112025835
-"4140","Lord German","suitabl",2.84021979687721
+"4140","Lord German","range",2.84021979687721
 "4141","Lord Goodlad","affirmative",3.31496648398472
 "4142","Lord Goodlad","drafts",3.31496648398472
 "4143","Lord Goodlad","superseded",3.31496648398472
@@ -4157,8 +4157,8 @@
 "4156","Lord Hamilton of Epsom","lesparre",3.43131630145811
 "4157","Lord Hamilton of Epsom","mdoc",3.43131630145811
 "4158","Lord Hamilton of Epsom","european",3.40992117002544
-"4159","Lord Hamilton of Epsom","charter",2.81075491518716
-"4160","Lord Hamilton of Epsom","fundamental",2.81075491518716
+"4159","Lord Hamilton of Epsom","fundamental",2.81075491518716
+"4160","Lord Hamilton of Epsom","charter",2.81075491518716
 "4161","Lord Hamilton of Epsom","settlement",2.50674431074999
 "4162","Lord Hamilton of Epsom","judgment",2.29600991866122
 "4163","Lord Hamilton of Epsom","affect",2.29600991866122
@@ -4190,15 +4190,15 @@
 "4189","Lord Hennessy of Nympsfield","adaptation",4.18565141103677
 "4190","Lord Hennessy of Nympsfield","drawn",3.62528254494361
 "4191","Lord Hennessy of Nympsfield","contingency",3.47854462985022
-"4192","Lord Hennessy of Nympsfield","event",3.03733562625761
-"4193","Lord Hennessy of Nympsfield","withdrawal",3.03733562625761
+"4192","Lord Hennessy of Nympsfield","withdrawal",3.03733562625761
+"4193","Lord Hennessy of Nympsfield","event",3.03733562625761
 "4194","Lord Hennessy of Nympsfield","parliament",2.83954816915131
 "4195","Lord Hennessy of Nympsfield","law",1.98004226355524
 "4196","Lord Hennessy of Nympsfield","will",0.95478443192298
-"4197","Lord Hennessy of Nympsfield","2010",0
-"4198","Lord Hennessy of Nympsfield","accommod",0
-"4199","Lord Hennessy of Nympsfield","cost",0
-"4200","Lord Hennessy of Nympsfield","flight",0
+"4197","Lord Hennessy of Nympsfield","contract",0
+"4198","Lord Hennessy of Nympsfield","copy",0
+"4199","Lord Hennessy of Nympsfield","electron",0
+"4200","Lord Hennessy of Nympsfield","g4s",0
 "4201","Lord Hodgson of Astley Abbotts","funders",8.93608349195347
 "4202","Lord Hodgson of Astley Abbotts","litigation",5.36088674086983
 "4203","Lord Hodgson of Astley Abbotts","third",4.6971569832168
@@ -4218,11 +4218,11 @@
 "4217","Lord Hoyle","officers",2.01599108477657
 "4218","Lord Hoyle","years",1.66820744107131
 "4219","Lord Hoyle","prison",1.60131367179457
-"4220","Lord Hoyle","2010",0
-"4221","Lord Hoyle","accommod",0
-"4222","Lord Hoyle","cost",0
-"4223","Lord Hoyle","flight",0
-"4224","Lord Hoyle","hotel",0
+"4220","Lord Hoyle","contract",0
+"4221","Lord Hoyle","copy",0
+"4222","Lord Hoyle","electron",0
+"4223","Lord Hoyle","g4s",0
+"4224","Lord Hoyle","library",0
 "4225","Lord Hunt of Chesterton","trends",2.6137671675961
 "4226","Lord Hunt of Chesterton","weapons",2.56793651051151
 "4227","Lord Hunt of Chesterton","dangerous",2.50714161391784
@@ -4234,12 +4234,12 @@
 "4233","Lord Hunt of Chesterton","five",1.12158267760715
 "4234","Lord Hunt of Chesterton","years",0.562352613665216
 "4235","Lord Hunt of Chesterton","prison",0.539802728642204
-"4236","Lord Hunt of Chesterton","2010",0
+"4236","Lord Hunt of Chesterton","contract",0
 "4237","Lord Hylton","parole",5.59906766680949
 "4238","Lord Hylton","unite",3.65865723219996
-"4239","Lord Hylton","attitudes",3.56084520918548
-"4240","Lord Hylton","lifestyles",3.56084520918548
-"4241","Lord Hylton","reunion",3.56084520918548
+"4239","Lord Hylton","reunion",3.56084520918548
+"4240","Lord Hylton","attitudes",3.56084520918548
+"4241","Lord Hylton","lifestyles",3.56084520918548
 "4242","Lord Hylton","waiver",3.24870593743824
 "4243","Lord Hylton","board",3.20088089397331
 "4244","Lord Hylton","evidence",3.15645687796831
@@ -4263,8 +4263,8 @@
 "4262","Lord Jones of Cheltenham","electronic",4.89979045024769
 "4263","Lord Jones of Cheltenham","gps",3.62528254494361
 "4264","Lord Jones of Cheltenham","mandation",3.24870593743824
-"4265","Lord Jones of Cheltenham","persistent",3.12889493147202
-"4266","Lord Jones of Cheltenham","priority",3.12889493147202
+"4265","Lord Jones of Cheltenham","priority",3.12889493147202
+"4266","Lord Jones of Cheltenham","persistent",3.12889493147202
 "4267","Lord Jones of Cheltenham","delays",3.03733562625761
 "4268","Lord Jones of Cheltenham","integrated",3.03596229535056
 "4269","Lord Jones of Cheltenham","technology",2.87734840200197
@@ -4280,9 +4280,9 @@
 "4279","Lord Jopling","may",1.67930336192942
 "4280","Lord Jopling","answer",1.30664891614466
 "4281","Lord Jopling","will",0.900179395178779
-"4282","Lord Jopling","2010",0
-"4283","Lord Jopling","accommod",0
-"4284","Lord Jopling","cost",0
+"4282","Lord Jopling","contract",0
+"4283","Lord Jopling","copy",0
+"4284","Lord Jopling","electron",0
 "4285","Lord Judd","evaluate",3.92850578372976
 "4286","Lord Judd","respond",3.51886513677103
 "4287","Lord Judd","immediate",3.47960280697864
@@ -4326,8 +4326,8 @@
 "4325","Lord Knight of Weymouth","pentonville",4.27369880855387
 "4326","Lord Knight of Weymouth","prison",3.842172427022
 "4327","Lord Knight of Weymouth","committed",3.66238994606665
-"4328","Lord Knight of Weymouth","kept",3.26802417241388
-"4329","Lord Knight of Weymouth","fulfilment",3.26802417241388
+"4328","Lord Knight of Weymouth","fulfilment",3.26802417241388
+"4329","Lord Knight of Weymouth","kept",3.26802417241388
 "4330","Lord Knight of Weymouth","died",3.21907877554606
 "4331","Lord Knight of Weymouth","hmp",3.09617545810477
 "4332","Lord Knight of Weymouth","known",3.02459750431282
@@ -4404,8 +4404,8 @@
 "4403","Lord MacKenzie of Culkein","criminals",1.29617497704349
 "4404","Lord MacKenzie of Culkein","convicted",1.1600788515361
 "4405","Lord Maginnis of Drumglass","bbc",4.9497392888015
-"4406","Lord Maginnis of Drumglass","broadcast",4.76719483729308
-"4407","Lord Maginnis of Drumglass","panorama",4.76719483729308
+"4406","Lord Maginnis of Drumglass","panorama",4.76719483729308
+"4407","Lord Maginnis of Drumglass","broadcast",4.76719483729308
 "4408","Lord Maginnis of Drumglass","expert",4.12529827420879
 "4409","Lord Maginnis of Drumglass","compliant",3.71827925096883
 "4410","Lord Maginnis of Drumglass","note",3.62528254494361
@@ -4418,15 +4418,15 @@
 "4417","Lord Marks of Henley-on-Thames","month",4.91775894689213
 "4418","Lord Marks of Henley-on-Thames","licences",3.76382714023845
 "4419","Lord Marks of Henley-on-Thames","women",3.66296444539187
-"4420","Lord Marks of Henley-on-Thames","watch",3.24255128325494
-"4421","Lord Marks of Henley-on-Thames","least",3.24255128325494
+"4420","Lord Marks of Henley-on-Thames","least",3.24255128325494
+"4421","Lord Marks of Henley-on-Thames","watch",3.24255128325494
 "4422","Lord Marks of Henley-on-Thames","owe",3.17222462467664
 "4423","Lord Marks of Henley-on-Thames","place",3.1230294796219
 "4424","Lord Marks of Henley-on-Thames","shortage",3.11130490204477
 "4425","Lord Marks of Henley-on-Thames","space",2.79507713602794
 "4426","Lord Marks of Henley-on-Thames","broken",2.73165126531128
 "4427","Lord Marks of Henley-on-Thames","turnover",2.68101913850003
-"4428","Lord Marks of Henley-on-Thames","basic",2.58411820880339
+"4428","Lord Marks of Henley-on-Thames","oakhill",2.58411820880339
 "4429","Lord Marlesford","escape",5.84216947284786
 "4430","Lord Marlesford","uncaptured",4.53920480163004
 "4431","Lord Marlesford","freelance",4.27960332856952
@@ -4440,8 +4440,8 @@
 "4439","Lord Marlesford","absconded",2.89199924368581
 "4440","Lord Marlesford","circumstances",2.8154975209766
 "4441","Lord Mawson","journalists",2.81346187124685
-"4442","Lord Mawson","enacted",2.70970249642714
-"4443","Lord Mawson","opposed",2.70970249642714
+"4442","Lord Mawson","opposed",2.70970249642714
+"4443","Lord Mawson","enacted",2.70970249642714
 "4444","Lord Mawson","originate",1.94860396658753
 "4445","Lord Mawson","freedom",1.86162314073245
 "4446","Lord Mawson","requests",1.76436256804597
@@ -4484,9 +4484,9 @@
 "4483","Lord Moonie","information",1.62820455844056
 "4484","Lord Moonie","act",1.36916365156117
 "4485","Lord Moonie","months",1.34813137311948
-"4486","Lord Moonie","2010",0
-"4487","Lord Moonie","accommod",0
-"4488","Lord Moonie","cost",0
+"4486","Lord Moonie","contract",0
+"4487","Lord Moonie","copy",0
+"4488","Lord Moonie","electron",0
 "4489","Lord Morrow","polygraph",3.12889493147202
 "4490","Lord Morrow","pilot",2.31848137149163
 "4491","Lord Morrow","projects",2.26286952768758
@@ -4554,11 +4554,11 @@
 "4553","Lord Paddick","section",1.99147756455519
 "4554","Lord Paddick","act",1.55248565407711
 "4555","Lord Paddick","2015",1.4168745000209
-"4556","Lord Paddick","2010",0
-"4557","Lord Paddick","accommod",0
-"4558","Lord Paddick","cost",0
-"4559","Lord Paddick","flight",0
-"4560","Lord Paddick","hotel",0
+"4556","Lord Paddick","contract",0
+"4557","Lord Paddick","copy",0
+"4558","Lord Paddick","electron",0
+"4559","Lord Paddick","g4s",0
+"4560","Lord Paddick","library",0
 "4561","Lord Patel","gathering",2.27838004404456
 "4562","Lord Patel","comprehensive",2.08592995431468
 "4563","Lord Patel","physical",1.70102977485493
@@ -4581,8 +4581,8 @@
 "4580","Lord Patel of Bradford","substance",2.08314526442263
 "4581","Lord Patel of Bradford","prior",2.03903132527525
 "4582","Lord Patel of Bradford","suicide",1.95508227330209
-"4583","Lord Patel of Bradford","collect",1.73218905718105
-"4584","Lord Patel of Bradford","assessments",1.73218905718105
+"4583","Lord Patel of Bradford","assessments",1.73218905718105
+"4584","Lord Patel of Bradford","collect",1.73218905718105
 "4585","Lord Patten","suicide",4.22206993057129
 "4586","Lord Patten","faulks",3.48061253526857
 "4587","Lord Patten","hl2986",3.31496648398472
@@ -4634,8 +4634,8 @@
 "4633","Lord Porter of Spalding","cinavas",2.47083013377443
 "4634","Lord Porter of Spalding","karl",2.47083013377443
 "4635","Lord Porter of Spalding","polling",2.27838004404456
-"4636","Lord Porter of Spalding","discourage",2.02397486356704
-"4637","Lord Porter of Spalding","count",2.02397486356704
+"4636","Lord Porter of Spalding","count",2.02397486356704
+"4637","Lord Porter of Spalding","discourage",2.02397486356704
 "4638","Lord Porter of Spalding","station",1.78090377883241
 "4639","Lord Porter of Spalding","elected",1.71894868808477
 "4640","Lord Porter of Spalding","attacks",1.68419754320827
@@ -4700,9 +4700,9 @@
 "4699","Lord Rooker","sections",1.75631812579254
 "4700","Lord Rooker","act",1.36916365156117
 "4701","Lord Rooker","2010",1.13542269510677
-"4702","Lord Rooker","accommod",0
-"4703","Lord Rooker","cost",0
-"4704","Lord Rooker","flight",0
+"4702","Lord Rooker","contract",0
+"4703","Lord Rooker","copy",0
+"4704","Lord Rooker","electron",0
 "4705","Lord Scriven","literature",5.16379095224052
 "4706","Lord Scriven","homophobic",4.77915351997029
 "4707","Lord Scriven","chaplains",4.68737417225737
@@ -4718,34 +4718,34 @@
 "4717","Lord Sharkey","manifesto",4.30871920636458
 "4718","Lord Sharkey","though",4.30871920636458
 "4719","Lord Sharkey","today",4.30871920636458
-"4720","Lord Sharkey","pledge",4.09582287937708
-"4721","Lord Sharkey","even",4.09582287937708
-"4722","Lord Sharkey","innocent",4.09582287937708
-"4723","Lord Sharkey","indecency",3.82760522795375
-"4724","Lord Sharkey","historically",3.82760522795375
+"4720","Lord Sharkey","even",4.09582287937708
+"4721","Lord Sharkey","innocent",4.09582287937708
+"4722","Lord Sharkey","pledge",4.09582287937708
+"4723","Lord Sharkey","historically",3.82760522795375
+"4724","Lord Sharkey","indecency",3.82760522795375
 "4725","Lord Sharkey","pardon",3.65093477745763
 "4726","Lord Sharkey","deceased",3.51897787751719
 "4727","Lord Sharkey","gross",3.46365655308136
 "4728","Lord Sharkey","similarly",3.32589774937437
 "4729","Lord Shipley","complex",3.34381835455032
-"4730","Lord Shipley","begin",2.97730646336668
-"4731","Lord Shipley","sunderland",2.97730646336668
+"4730","Lord Shipley","sunderland",2.97730646336668
+"4731","Lord Shipley","begin",2.97730646336668
 "4732","Lord Shipley","expect",2.14883085430993
 "4733","Lord Shipley","programme",2.00197332384794
 "4734","Lord Shipley","reform",1.8732138217488
 "4735","Lord Shipley","new",1.75631812579254
 "4736","Lord Shipley","work",1.47788950752407
 "4737","Lord Shipley","court",0.947680944943586
-"4738","Lord Shipley","2010",0
-"4739","Lord Shipley","accommod",0
-"4740","Lord Shipley","cost",0
+"4738","Lord Shipley","contract",0
+"4739","Lord Shipley","copy",0
+"4740","Lord Shipley","electron",0
 "4741","Lord Snape","inconsiderate",3.43131630145811
 "4742","Lord Snape","lane",3.43131630145811
 "4743","Lord Snape","middle",3.43131630145811
 "4744","Lord Snape","motorway",3.43131630145811
 "4745","Lord Snape","network",2.89679381763326
-"4746","Lord Snape","discourage",2.81075491518716
-"4747","Lord Snape","motorists",2.81075491518716
+"4746","Lord Snape","motorists",2.81075491518716
+"4747","Lord Snape","discourage",2.81075491518716
 "4748","Lord Snape","behaviour",2.25742009217267
 "4749","Lord Snape","appropriate",2.23948306883757
 "4750","Lord Snape","announcement",2.22234351521451
@@ -4778,8 +4778,8 @@
 "4777","Lord Storey","dyslexic",5.74169037564949
 "4778","Lord Storey","teams",5.53788720017397
 "4779","Lord Storey","gcses",5.24142222825589
-"4780","Lord Storey","cinderella",4.85261405031394
-"4781","Lord Storey","gaoled",4.85261405031394
+"4780","Lord Storey","gaoled",4.85261405031394
+"4781","Lord Storey","cinderella",4.85261405031394
 "4782","Lord Storey","youth",4.43207254332748
 "4783","Lord Storey","accreditation",4.32405681828926
 "4784","Lord Storey","neglect",3.97500772156452
@@ -4818,11 +4818,11 @@
 "4817","Lord Temple-Morris","aid",1.82465476256073
 "4818","Lord Temple-Morris","legal",1.58964857013461
 "4819","Lord Temple-Morris","years",0.704946308295593
-"4820","Lord Temple-Morris","2010",0
-"4821","Lord Temple-Morris","accommod",0
-"4822","Lord Temple-Morris","cost",0
-"4823","Lord Temple-Morris","flight",0
-"4824","Lord Temple-Morris","hotel",0
+"4820","Lord Temple-Morris","contract",0
+"4821","Lord Temple-Morris","copy",0
+"4822","Lord Temple-Morris","electron",0
+"4823","Lord Temple-Morris","g4s",0
+"4824","Lord Temple-Morris","library",0
 "4825","Lord Touhig","children",11.8806784296441
 "4826","Lord Touhig","dependants",9.63127511641475
 "4827","Lord Touhig","remand",7.82587323601529
@@ -4880,8 +4880,8 @@
 "4879","Lord Wallace of Saltaire","anchorage",2.26960240081502
 "4880","Lord Wallace of Saltaire","breakwater",2.26960240081502
 "4881","Lord Wallace of Saltaire","ceded",2.26960240081502
-"4882","Lord Wallace of Saltaire","122)",2.09282570551838
-"4883","Lord Wallace of Saltaire","briefing",2.09282570551838
+"4882","Lord Wallace of Saltaire","briefing",2.09282570551838
+"4883","Lord Wallace of Saltaire","122)",2.09282570551838
 "4884","Lord Wallace of Saltaire","bolton",1.98941796776844
 "4885","Lord Wallace of Tankerness","hirst",3.41757006606683
 "4886","Lord Wallace of Tankerness","europe",2.70759331252997
@@ -4953,12 +4953,12 @@
 "4952","Lord, Jonathan","efficacy",3.00950229978049
 "4953","Lord, Jonathan","without",2.91422745843249
 "4954","Lord, Jonathan","three",2.78124808460028
-"4955","Lord, Jonathan","offensive",2.68166619902583
-"4956","Lord, Jonathan","juveniles",2.68166619902583
+"4955","Lord, Jonathan","juveniles",2.68166619902583
+"4956","Lord, Jonathan","offensive",2.68166619902583
 "4957","Loughton, Tim","wardship",9.66634787558406
 "4958","Loughton, Tim","case",7.82153960870017
-"4959","Loughton, Tim","alienation",6.20692149501759
-"4960","Loughton, Tim","syndrome",6.20692149501759
+"4959","Loughton, Tim","syndrome",6.20692149501759
+"4960","Loughton, Tim","alienation",6.20692149501759
 "4961","Loughton, Tim","flagged",5.83371644851608
 "4962","Loughton, Tim","involving",5.03483197829655
 "4963","Loughton, Tim","families",4.98144938904373
@@ -5022,8 +5022,8 @@
 "5021","Mackintosh, David","plot",4.83317393779203
 "5022","Mackintosh, David","nearing",4.53920480163004
 "5023","Mackintosh, David","educate",4.52121821266775
-"5024","Mackintosh, David","likelihood",4.47464957730471
-"5025","Mackintosh, David","oversight",4.47464957730471
+"5024","Mackintosh, David","oversight",4.47464957730471
+"5025","Mackintosh, David","likelihood",4.47464957730471
 "5026","Mackintosh, David","reduced",4.40481109834662
 "5027","Mackintosh, David","exhumations",3.87104686156941
 "5028","Mackintosh, David","reintegrate",3.83209802044349
@@ -5081,12 +5081,12 @@
 "5080","Mak, Alan","rights",2.12083100622874
 "5081","Mak, Alan","made",1.16530046117449
 "5082","Mak, Alan","will",1.10249009757759
-"5083","Mak, Alan","2010",0
-"5084","Mak, Alan","accommod",0
-"5085","Mak, Alan","cost",0
-"5086","Mak, Alan","flight",0
-"5087","Mak, Alan","hotel",0
-"5088","Mak, Alan","internal",0
+"5083","Mak, Alan","contract",0
+"5084","Mak, Alan","copy",0
+"5085","Mak, Alan","electron",0
+"5086","Mak, Alan","g4s",0
+"5087","Mak, Alan","library",0
+"5088","Mak, Alan","place",0
 "5089","Malhotra, Seema","feltham",31.0234302252346
 "5090","Malhotra, Seema","institution",21.7072191161155
 "5091","Malhotra, Seema","young",19.9564054385483
@@ -5100,8 +5100,8 @@
 "5099","Malhotra, Seema","west",8.3319735823892
 "5100","Malhotra, Seema","held",6.92610914334728
 "5101","Malthouse, Kit","croydon",3.31496648398472
-"5102","Malthouse, Kit","abstinence",3.05676759423755
-"5103","Malthouse, Kit","nationwide",3.05676759423755
+"5102","Malthouse, Kit","nationwide",3.05676759423755
+"5103","Malthouse, Kit","abstinence",3.05676759423755
 "5104","Malthouse, Kit","method",2.54036981474323
 "5105","Malthouse, Kit","disposal",2.16354619114918
 "5106","Malthouse, Kit","alcohol",2.10131816743723
@@ -5127,8 +5127,8 @@
 "5126","Marris, Rob","tissue",6.97305498558793
 "5127","Marris, Rob","whiplash",5.55824211621706
 "5128","Marris, Rob","process",4.62215171673564
-"5129","Marris, Rob","injury",4.28808067402635
-"5130","Marris, Rob","reforming",4.28808067402635
+"5129","Marris, Rob","reforming",4.28808067402635
+"5130","Marris, Rob","injury",4.28808067402635
 "5131","Marris, Rob","consultation",4.23754089424945
 "5132","Marris, Rob","response",4.20966973840191
 "5133","Marris, Rob","november",4.20281082616023
@@ -5147,15 +5147,15 @@
 "5146","Marsden, Gordon","services",8.06527639305334
 "5147","Marsden, Gordon","june",7.76541602914512
 "5148","Marsden, Gordon","community",6.87576874375442
-"5149","Matheson, Christian","psychologists",4.47464957730471
-"5150","Matheson, Christian","psychiatrists",4.47464957730471
+"5149","Matheson, Christian","psychiatrists",4.47464957730471
+"5150","Matheson, Christian","psychologists",4.47464957730471
 "5151","Matheson, Christian","healthcare",3.97883593553688
 "5152","Matheson, Christian","sea",3.87104686156941
 "5153","Matheson, Christian","11221",3.02613653442003
 "5154","Matheson, Christian","static",3.02613653442003
 "5155","Matheson, Christian","blue",2.79043427402451
-"5156","Matheson, Christian","citizens",2.56793651051151
-"5157","Matheson, Christian","whilst",2.56793651051151
+"5156","Matheson, Christian","whilst",2.56793651051151
+"5157","Matheson, Christian","citizens",2.56793651051151
 "5158","Matheson, Christian","displaying",2.554732013629
 "5159","Matheson, Christian","inquests",2.47087153776466
 "5160","Matheson, Christian","budget",2.36494085623794
@@ -5228,9 +5228,9 @@
 "5227","McCartney, Jason","result",1.84197567680807
 "5228","McCartney, Jason","claims",1.65409767971452
 "5229","McCartney, Jason","companies",1.59270468467367
-"5230","McCartney, Jason","2010",0
-"5231","McCartney, Jason","accommod",0
-"5232","McCartney, Jason","cost",0
+"5230","McCartney, Jason","contract",0
+"5231","McCartney, Jason","copy",0
+"5232","McCartney, Jason","electron",0
 "5233","McCartney, Karl","insurance",12.7540981178226
 "5234","McCartney, Karl","drivers",8.86440851587599
 "5235","McCartney, Karl","injury",7.67237627571438
@@ -5252,9 +5252,9 @@
 "5251","McCrea, Dr William","staff",1.37371118754739
 "5252","McCrea, Dr William","will",0.900179395178779
 "5253","McCrea, Dr William","prison",0.596774370572074
-"5254","McCrea, Dr William","2010",0
-"5255","McCrea, Dr William","accommod",0
-"5256","McCrea, Dr William","cost",0
+"5254","McCrea, Dr William","contract",0
+"5255","McCrea, Dr William","copy",0
+"5256","McCrea, Dr William","electron",0
 "5257","McDonald, Andy","importance",4.84726318464957
 "5258","McDonald, Andy","uphold",4.70329256384254
 "5259","McDonald, Andy","forecasts",4.42492564732817
@@ -5262,8 +5262,8 @@
 "5261","McDonald, Andy","blundeston",3.70624520066165
 "5262","McDonald, Andy","bullwood",3.70624520066165
 "5263","McDonald, Andy","trends",3.53905747505455
-"5264","McDonald, Andy","brinsford",3.41757006606683
-"5265","McDonald, Andy","bullingdon",3.41757006606683
+"5264","McDonald, Andy","bullingdon",3.41757006606683
+"5265","McDonald, Andy","brinsford",3.41757006606683
 "5266","McDonald, Andy","judicial",3.19237623336884
 "5267","McDonald, Andy","population",2.9613708350317
 "5268","McDonald, Andy","bristol",2.96003080284342
@@ -5320,13 +5320,13 @@
 "5319","McGovern, Jim","governments",3.07889283536879
 "5320","McGovern, Jim","data",2.46722458634275
 "5321","McGovern, Jim","personal",2.01000780075487
-"5322","McGovern, Jim","2010",0
-"5323","McGovern, Jim","accommod",0
-"5324","McGovern, Jim","cost",0
-"5325","McGovern, Jim","flight",0
-"5326","McGovern, Jim","hotel",0
-"5327","McGovern, Jim","internal",0
-"5328","McGovern, Jim","made",0
+"5322","McGovern, Jim","contract",0
+"5323","McGovern, Jim","copy",0
+"5324","McGovern, Jim","electron",0
+"5325","McGovern, Jim","g4s",0
+"5326","McGovern, Jim","library",0
+"5327","McGovern, Jim","place",0
+"5328","McGovern, Jim","tag",0
 "5329","McInnes, Liz","causing",3.86144395108392
 "5330","McInnes, Liz","serious",3.48341989507492
 "5331","McInnes, Liz","drive",3.47384023229735
@@ -5347,8 +5347,8 @@
 "5346","McIntosh, Anne","crime",3.74576864008151
 "5347","McIntosh, Anne","length",3.61128171331185
 "5348","McIntosh, Anne","independence",3.46578836037461
-"5349","McIntosh, Anne","resolution",3.34075615827703
-"5350","McIntosh, Anne","disputes",3.34075615827703
+"5349","McIntosh, Anne","disputes",3.34075615827703
+"5350","McIntosh, Anne","resolution",3.34075615827703
 "5351","McIntosh, Anne","promote",3.30769831157596
 "5352","McIntosh, Anne","payment",3.12303938994237
 "5353","McKechin, Ann","descriptions",3.12125570410566
@@ -5421,8 +5421,8 @@
 "5420","Mearns, Ian","spent",6.36335900841922
 "5421","Mearns, Ian","working",5.88455931231778
 "5422","Mearns, Ian","three",5.85096532554339
-"5423","Mearns, Ian","bought",5.29447678014953
-"5424","Mearns, Ian","shop",5.29447678014953
+"5423","Mearns, Ian","shop",5.29447678014953
+"5424","Mearns, Ian","bought",5.29447678014953
 "5425","Menzies, Mark","1000",5.49939672097725
 "5426","Menzies, Mark","5000",5.412941528364
 "5427","Menzies, Mark","claims",4.84826389680702
@@ -5432,13 +5432,13 @@
 "5431","Menzies, Mark","limit",4.31748585749318
 "5432","Menzies, Mark","preparatory",3.87104686156941
 "5433","Menzies, Mark","underway",3.87104686156941
-"5434","Menzies, Mark","handling",3.82911518397058
-"5435","Menzies, Mark","fraudulent",3.82911518397058
+"5434","Menzies, Mark","fraudulent",3.82911518397058
+"5435","Menzies, Mark","handling",3.82911518397058
 "5436","Menzies, Mark","work",3.55363561893896
-"5437","Mercer, Johnny","threatening",2.49649536803054
-"5438","Mercer, Johnny","offensive",2.49649536803054
-"5439","Mercer, Johnny","bladed",2.35951705718439
-"5440","Mercer, Johnny","repeatedly",2.35951705718439
+"5437","Mercer, Johnny","offensive",2.49649536803054
+"5438","Mercer, Johnny","threatening",2.49649536803054
+"5439","Mercer, Johnny","repeatedly",2.35951705718439
+"5440","Mercer, Johnny","bladed",2.35951705718439
 "5441","Mercer, Johnny","weapon",2.19904944831774
 "5442","Mercer, Johnny","put",2.07371278048889
 "5443","Mercer, Johnny","article",2.01250952291925
@@ -5471,8 +5471,8 @@
 "5470","Miller, Maria","response",4.30231597116232
 "5471","Miller, Maria","reference",3.88913744655057
 "5472","Miller, Maria","published",3.54018854005573
-"5473","Mitchell, Austin","abrogated",3.43131630145811
-"5474","Mitchell, Austin","mackeys",3.43131630145811
+"5473","Mitchell, Austin","mackeys",3.43131630145811
+"5474","Mitchell, Austin","abrogated",3.43131630145811
 "5475","Mitchell, Austin","clause",2.62953257572083
 "5476","Mitchell, Austin","suppliers",2.50674431074999
 "5477","Mitchell, Austin","lost",2.23948306883757
@@ -5485,12 +5485,12 @@
 "5484","Mitchell, Austin","include",1.71833451996371
 "5485","Monaghan, Dr Paul","eventual",2.95970249642714
 "5486","Monaghan, Dr Paul","reintegration",2.70970249642714
-"5487","Monaghan, Dr Paul","alternatives",2.41722124606656
-"5488","Monaghan, Dr Paul","facilitating",2.41722124606656
+"5487","Monaghan, Dr Paul","facilitating",2.41722124606656
+"5488","Monaghan, Dr Paul","alternatives",2.41722124606656
 "5489","Monaghan, Dr Paul","incarceration",2.3792204727053
 "5490","Monaghan, Dr Paul","encourage",2.23297984752501
-"5491","Monaghan, Dr Paul","disorders",2.16722124606656
-"5492","Monaghan, Dr Paul","skilling",2.16722124606656
+"5491","Monaghan, Dr Paul","skilling",2.16722124606656
+"5492","Monaghan, Dr Paul","disorders",2.16722124606656
 "5493","Monaghan, Dr Paul","users",2.04873844898346
 "5494","Monaghan, Dr Paul","imprisonment",1.60735476239271
 "5495","Monaghan, Dr Paul","drug",1.52433574982685
@@ -5528,9 +5528,9 @@
 "5527","Morrice, Graeme","employee",2.56462237316379
 "5528","Morrice, Graeme","dues",2.50454481275729
 "5529","Morrice, Graeme","system",1.98004226355524
-"5530","Morrice, Graeme","2010",0
-"5531","Morrice, Graeme","accommod",0
-"5532","Morrice, Graeme","cost",0
+"5530","Morrice, Graeme","contract",0
+"5531","Morrice, Graeme","copy",0
+"5532","Morrice, Graeme","electron",0
 "5533","Morris, David","lunesdale",4.27960332856952
 "5534","Morris, David","morecambe",4.27960332856952
 "5535","Morris, David","ogden",3.55877904927178
@@ -5611,10 +5611,10 @@
 "5610","Murrison, Dr Andrew","offences",1.28231046132681
 "5611","Murrison, Dr Andrew","people",1.23003360947418
 "5612","Murrison, Dr Andrew","year",0.659416890428306
-"5613","Murrison, Dr Andrew","2010",0
-"5614","Murrison, Dr Andrew","accommod",0
-"5615","Murrison, Dr Andrew","cost",0
-"5616","Murrison, Dr Andrew","flight",0
+"5613","Murrison, Dr Andrew","contract",0
+"5614","Murrison, Dr Andrew","copy",0
+"5615","Murrison, Dr Andrew","electron",0
+"5616","Murrison, Dr Andrew","g4s",0
 "5617","Nandy, Lisa","business",2.72572939967665
 "5618","Nandy, Lisa","governments",2.4340785078348
 "5619","Nandy, Lisa","action",2.31697953590881
@@ -5623,10 +5623,10 @@
 "5622","Nandy, Lisa","plan",2.05642285134076
 "5623","Nandy, Lisa","rights",1.83669352852781
 "5624","Nandy, Lisa","review",1.5705567117715
-"5625","Nandy, Lisa","2010",0
-"5626","Nandy, Lisa","accommod",0
-"5627","Nandy, Lisa","cost",0
-"5628","Nandy, Lisa","flight",0
+"5625","Nandy, Lisa","contract",0
+"5626","Nandy, Lisa","copy",0
+"5627","Nandy, Lisa","electron",0
+"5628","Nandy, Lisa","g4s",0
 "5629","Nash, Pamela","93w",3.20970249642714
 "5630","Nash, Pamela","payroll",3.05756989844826
 "5631","Nash, Pamela","recent",2.71164293559315
@@ -5672,9 +5672,9 @@
 "5671","Norman, Jesse","crime",1.79862216328661
 "5672","Norman, Jesse","provide",1.59090693175026
 "5673","Norman, Jesse","made",0.951463842302474
-"5674","Norman, Jesse","2010",0
-"5675","Norman, Jesse","accommod",0
-"5676","Norman, Jesse","cost",0
+"5674","Norman, Jesse","contract",0
+"5675","Norman, Jesse","copy",0
+"5676","Norman, Jesse","electron",0
 "5677","Nuttall, David","bury",28.0842916551726
 "5678","Nuttall, David","magistrates",16.6759585052318
 "5679","Nuttall, David","compensation",16.4556738937293
@@ -5779,10 +5779,10 @@
 "5778","Patel, Priti","public",1.50396220138397
 "5779","Patel, Priti","services",1.23549730067955
 "5780","Patel, Priti","years",0.659416890428306
-"5781","Patel, Priti","2010",0
-"5782","Patel, Priti","accommod",0
-"5783","Patel, Priti","cost",0
-"5784","Patel, Priti","flight",0
+"5781","Patel, Priti","contract",0
+"5782","Patel, Priti","copy",0
+"5783","Patel, Priti","electron",0
+"5784","Patel, Priti","g4s",0
 "5785","Peacock, Stephanie","barnsley",3.05676759423755
 "5786","Peacock, Stephanie","entitlement",1.87293536701898
 "5787","Peacock, Stephanie","allowance",1.5885194715722
@@ -5816,17 +5816,17 @@
 "5815","Pennycook, Matthew","national",1.58201761492957
 "5816","Pennycook, Matthew","review",1.48073506817557
 "5817","Pennycook, Matthew","report",1.43321705820018
-"5818","Pennycook, Matthew","2010",0
-"5819","Pennycook, Matthew","accommod",0
-"5820","Pennycook, Matthew","cost",0
+"5818","Pennycook, Matthew","contract",0
+"5819","Pennycook, Matthew","copy",0
+"5820","Pennycook, Matthew","electron",0
 "5821","Percy, Andrew","cellular",8.66030098834148
 "5822","Percy, Andrew","devices",8.66030098834148
 "5823","Percy, Andrew","goole",7.75518692802841
 "5824","Percy, Andrew","brigg",7.10012219285737
 "5825","Percy, Andrew","defibrillators",6.41940499285428
 "5826","Percy, Andrew","telephone",5.29549254082666
-"5827","Percy, Andrew","illegal",5.13492798734426
-"5828","Percy, Andrew","mobile",5.13492798734426
+"5827","Percy, Andrew","mobile",5.13492798734426
+"5828","Percy, Andrew","illegal",5.13492798734426
 "5829","Percy, Andrew","obtain",4.33444249213312
 "5830","Percy, Andrew","constituency",4.2456435429582
 "5831","Percy, Andrew","surrogacy",4.05998820009529
@@ -5864,9 +5864,9 @@
 "5863","Phillips, Stephen","buildings",3.85133987926054
 "5864","Phillips, Stephen","value",3.670167102332
 "5865","Phillips, Stephen","11183",3.43131630145811
-"5866","Phillips, Stephen","boston",3.20970249642714
-"5867","Phillips, Stephen","skegness",3.20970249642714
-"5868","Phillips, Stephen","23485",3.20970249642714
+"5866","Phillips, Stephen","23485",3.20970249642714
+"5867","Phillips, Stephen","boston",3.20970249642714
+"5868","Phillips, Stephen","skegness",3.20970249642714
 "5869","Phillipson, Bridget","sunderland",36.3723063165119
 "5870","Phillipson, Bridget","court",33.0188320870957
 "5871","Phillipson, Bridget","programme",22.8995493909631
@@ -5899,10 +5899,10 @@
 "5898","Pound, Stephen","section",1.86285668500313
 "5899","Pound, Stephen","act",1.45221735385955
 "5900","Pound, Stephen","2015",1.3253647347837
-"5901","Pound, Stephen","2010",0
-"5902","Pound, Stephen","accommod",0
-"5903","Pound, Stephen","cost",0
-"5904","Pound, Stephen","flight",0
+"5901","Pound, Stephen","contract",0
+"5902","Pound, Stephen","copy",0
+"5903","Pound, Stephen","electron",0
+"5904","Pound, Stephen","g4s",0
 "5905","Powell, Lucy","reoffending",7.61643910892045
 "5906","Powell, Lucy","five",7.27880305891604
 "5907","Powell, Lucy","force",7.10528820139608
@@ -5923,10 +5923,10 @@
 "5922","Prentis, Victoria","service",2.64160434367252
 "5923","Prentis, Victoria","area",2.21545012099043
 "5924","Prentis, Victoria","average",1.79584041953905
-"5925","Prentis, Victoria","2010",0
-"5926","Prentis, Victoria","accommod",0
-"5927","Prentis, Victoria","cost",0
-"5928","Prentis, Victoria","flight",0
+"5925","Prentis, Victoria","contract",0
+"5926","Prentis, Victoria","copy",0
+"5927","Prentis, Victoria","electron",0
+"5928","Prentis, Victoria","g4s",0
 "5929","Prisk, Mark","1296",2.80165802822211
 "5930","Prisk, Mark","1297",2.80165802822211
 "5931","Prisk, Mark","paragraphs",2.58344013798612
@@ -6015,8 +6015,8 @@
 "6014","Raab, Dominic","field",6.69555684047549
 "6015","Raab, Dominic","affairs",5.35510930002753
 "6016","Raab, Dominic","rate",5.20131279310382
-"6017","Raab, Dominic","citizens",4.73484445752324
-"6018","Raab, Dominic","back",4.73484445752324
+"6017","Raab, Dominic","back",4.73484445752324
+"6018","Raab, Dominic","citizens",4.73484445752324
 "6019","Raab, Dominic","reoffending",4.67396966842893
 "6020","Raab, Dominic","outside",4.62274885936343
 "6021","Raab, Dominic","agreements",4.11963107883832
@@ -6027,14 +6027,14 @@
 "6026","Reckless, Mark","called",3.7232462814649
 "6027","Reckless, Mark","implementation",3.08319232186853
 "6028","Reckless, Mark","law",2.80020262319174
-"6029","Reckless, Mark","2010",0
-"6030","Reckless, Mark","accommod",0
-"6031","Reckless, Mark","cost",0
-"6032","Reckless, Mark","flight",0
-"6033","Reckless, Mark","hotel",0
-"6034","Reckless, Mark","internal",0
-"6035","Reckless, Mark","made",0
-"6036","Reckless, Mark","oversea",0
+"6029","Reckless, Mark","contract",0
+"6030","Reckless, Mark","copy",0
+"6031","Reckless, Mark","electron",0
+"6032","Reckless, Mark","g4s",0
+"6033","Reckless, Mark","library",0
+"6034","Reckless, Mark","place",0
+"6035","Reckless, Mark","tag",0
+"6036","Reckless, Mark","will",0
 "6037","Redwood, John","directive",6.38494822064824
 "6038","Redwood, John","negotiations",4.4862030871116
 "6039","Redwood, John","transposition",4.47464957730471
@@ -6078,11 +6078,11 @@
 "6077","Rees-Mogg, Jacob","european",2.41117838263655
 "6078","Rees-Mogg, Jacob","human",2.22859021394448
 "6079","Rees-Mogg, Jacob","rights",1.96350797378742
-"6080","Rees-Mogg, Jacob","2010",0
-"6081","Rees-Mogg, Jacob","accommod",0
-"6082","Rees-Mogg, Jacob","cost",0
-"6083","Rees-Mogg, Jacob","flight",0
-"6084","Rees-Mogg, Jacob","hotel",0
+"6080","Rees-Mogg, Jacob","contract",0
+"6081","Rees-Mogg, Jacob","copy",0
+"6082","Rees-Mogg, Jacob","electron",0
+"6083","Rees-Mogg, Jacob","g4s",0
+"6084","Rees-Mogg, Jacob","library",0
 "6085","Rees, Christina","court",33.4365515389442
 "6086","Rees, Christina","claim",29.0240662879864
 "6087","Rees, Christina","injuries",23.5425457153856
@@ -6102,11 +6102,11 @@
 "6101","Reevell, Simon","implementation",2.33067432224227
 "6102","Reevell, Simon","criminal",1.69709141320269
 "6103","Reevell, Simon","report",1.62511539033139
-"6104","Reevell, Simon","2010",0
-"6105","Reevell, Simon","accommod",0
-"6106","Reevell, Simon","cost",0
-"6107","Reevell, Simon","flight",0
-"6108","Reevell, Simon","hotel",0
+"6104","Reevell, Simon","contract",0
+"6105","Reevell, Simon","copy",0
+"6106","Reevell, Simon","electron",0
+"6107","Reevell, Simon","g4s",0
+"6108","Reevell, Simon","library",0
 "6109","Reeves, Ellie","racism",6.90781549362413
 "6110","Reeves, Ellie","homophobia",4.05998820009529
 "6111","Reeves, Ellie","islamophobia",4.05998820009529
@@ -6138,11 +6138,11 @@
 "6137","Reid, Alan","wales",1.53357205388713
 "6138","Reid, Alan","sentence",1.32080217183626
 "6139","Reid, Alan","prison",0.676678531436062
-"6140","Reid, Alan","2010",0
-"6141","Reid, Alan","accommod",0
-"6142","Reid, Alan","cost",0
-"6143","Reid, Alan","flight",0
-"6144","Reid, Alan","hotel",0
+"6140","Reid, Alan","contract",0
+"6141","Reid, Alan","copy",0
+"6142","Reid, Alan","electron",0
+"6143","Reid, Alan","g4s",0
+"6144","Reid, Alan","library",0
 "6145","Reynolds, Emma","forfeited",3.56953551699164
 "6146","Reynolds, Emma","forfeiture",3.39316268687164
 "6147","Reynolds, Emma","leasehold",3.39316268687164
@@ -6202,7 +6202,7 @@
 "6201","Robertson, John","tribunal",1.2467211920649
 "6202","Robertson, John","acts",1.23845512058762
 "6203","Robertson, John","will",0.814242899404655
-"6204","Robertson, John","2010",0
+"6204","Robertson, John","contract",0
 "6205","Robertson, Laurence","will",9.97112210308086
 "6206","Robertson, Laurence","fathers",9.39916022504067
 "6207","Robertson, Laurence","children",7.4281433848359
@@ -6309,8 +6309,8 @@
 "6308","Ryan, Joan","jurisdiction",2.50487494800326
 "6309","Ryan, Joan","extra",2.42718698913304
 "6310","Ryan, Joan","convention",2.00360488304627
-"6311","Ryan, Joan","age",1.9242402650836
-"6312","Ryan, Joan","potential",1.9242402650836
+"6311","Ryan, Joan","potential",1.9242402650836
+"6312","Ryan, Joan","age",1.9242402650836
 "6313","Sandbach, Antoinette","qualifications",3.82911518397058
 "6314","Sandbach, Antoinette","civilian",3.61293666190285
 "6315","Sandbach, Antoinette","entry",3.60842906640044
@@ -6382,7 +6382,7 @@
 "6381","Selous, Andrew","sikh",3.31496648398472
 "6382","Selous, Andrew","church",3.05676759423755
 "6383","Selous, Andrew","unspent",3.05676759423755
-"6384","Selous, Andrew","box",2.90573092600763
+"6384","Selous, Andrew","jewish",2.90573092600763
 "6385","Shah, Naz","marriage",5.25108577418833
 "6386","Shah, Naz","legalise",3.16405505954568
 "6387","Shah, Naz","feedback",2.89679381763326
@@ -6459,14 +6459,14 @@
 "6458","Sherriff, Paula","diversity",4.37567357222911
 "6459","Sherriff, Paula","departmental",3.99041449529049
 "6460","Sherriff, Paula","board",3.11944857176072
-"6461","Sherriff, Paula","2010",0
-"6462","Sherriff, Paula","accommod",0
-"6463","Sherriff, Paula","cost",0
-"6464","Sherriff, Paula","flight",0
-"6465","Sherriff, Paula","hotel",0
-"6466","Sherriff, Paula","internal",0
-"6467","Sherriff, Paula","made",0
-"6468","Sherriff, Paula","oversea",0
+"6461","Sherriff, Paula","contract",0
+"6462","Sherriff, Paula","copy",0
+"6463","Sherriff, Paula","electron",0
+"6464","Sherriff, Paula","g4s",0
+"6465","Sherriff, Paula","library",0
+"6466","Sherriff, Paula","place",0
+"6467","Sherriff, Paula","tag",0
+"6468","Sherriff, Paula","will",0
 "6469","Shuker, Gavin","concerted",6.18179626338755
 "6470","Shuker, Gavin","indiscipline",6.18179626338755
 "6471","Shuker, Gavin","capabl",3.34381835455032
@@ -6584,9 +6584,9 @@
 "6583","Smith, Jeff","people",1.15968680846208
 "6584","Smith, Jeff","years",0.621704206467736
 "6585","Smith, Jeff","prison",0.596774370572074
-"6586","Smith, Jeff","2010",0
-"6587","Smith, Jeff","accommod",0
-"6588","Smith, Jeff","cost",0
+"6586","Smith, Jeff","contract",0
+"6587","Smith, Jeff","copy",0
+"6588","Smith, Jeff","electron",0
 "6589","Smith, Nick","sourced",9.59836775529695
 "6590","Smith, Nick","produced",8.7136398803695
 "6591","Smith, Nick","british",6.76251616332666
@@ -6608,8 +6608,8 @@
 "6607","Smith, Royston","measures",4.31802088049153
 "6608","Smith, Royston","remanded",4.30139770331885
 "6609","Smith, Royston","prevent",4.12328564210578
-"6610","Smith, Royston","big",3.94626999523619
-"6611","Smith, Royston","frequency",3.94626999523619
+"6610","Smith, Royston","frequency",3.94626999523619
+"6611","Smith, Royston","big",3.94626999523619
 "6612","Smith, Royston","block",3.7512824949958
 "6613","Smyth, Karin","opportunities",3.19310155974459
 "6614","Smyth, Karin","increase",2.03717265268936
@@ -6619,10 +6619,10 @@
 "6618","Smyth, Karin","sentences",1.23549730067955
 "6619","Smyth, Karin","people",1.23003360947418
 "6620","Smyth, Karin","prison",0.632974806404771
-"6621","Smyth, Karin","2010",0
-"6622","Smyth, Karin","accommod",0
-"6623","Smyth, Karin","cost",0
-"6624","Smyth, Karin","flight",0
+"6621","Smyth, Karin","contract",0
+"6622","Smyth, Karin","copy",0
+"6623","Smyth, Karin","electron",0
+"6624","Smyth, Karin","g4s",0
 "6625","Soames, Sir Nicholas","surrey",12.9702051330198
 "6626","Soames, Sir Nicholas","trust",12.8698388483299
 "6627","Soames, Sir Nicholas","probation",11.7785731277874
@@ -6729,20 +6729,20 @@
 "6728","Streeting, Wes","undertaking",2.57357864873072
 "6729","Streeting, Wes","leave",2.19206538294014
 "6730","Streeting, Wes","planning",1.83932051443275
-"6731","Streeting, Wes","2010",0
-"6732","Streeting, Wes","accommod",0
+"6731","Streeting, Wes","contract",0
+"6732","Streeting, Wes","copy",0
 "6733","Stringer, Graham","ownership",4.19458552309246
 "6734","Stringer, Graham","manchester",3.71869196881441
 "6735","Stringer, Graham","future",3.08938400695214
 "6736","Stringer, Graham","will",1.20771739173864
 "6737","Stringer, Graham","prison",0.800656835897285
-"6738","Stringer, Graham","2010",0
-"6739","Stringer, Graham","accommod",0
-"6740","Stringer, Graham","cost",0
-"6741","Stringer, Graham","flight",0
-"6742","Stringer, Graham","hotel",0
-"6743","Stringer, Graham","internal",0
-"6744","Stringer, Graham","made",0
+"6738","Stringer, Graham","contract",0
+"6739","Stringer, Graham","copy",0
+"6740","Stringer, Graham","electron",0
+"6741","Stringer, Graham","g4s",0
+"6742","Stringer, Graham","library",0
+"6743","Stringer, Graham","place",0
+"6744","Stringer, Graham","tag",0
 "6745","Stuart, Graham","compensation",3.70529815451986
 "6746","Stuart, Graham","authority",3.64606029229169
 "6747","Stuart, Graham","injuries",3.48875565106073
@@ -6774,8 +6774,8 @@
 "6773","Sturdy, Julian","proposals",4.74540217522019
 "6774","Sturdy, Julian","3000",3.94626999523619
 "6775","Sturdy, Julian","legislation",3.7900298761355
-"6776","Sturdy, Julian","5000",3.17229396360707
-"6777","Sturdy, Julian","rather",3.17229396360707
+"6776","Sturdy, Julian","rather",3.17229396360707
+"6777","Sturdy, Julian","5000",3.17229396360707
 "6778","Sturdy, Julian","pregnancy",3.05756989844826
 "6779","Sturdy, Julian","trends",2.74134213243143
 "6780","Sturdy, Julian","small",2.69464082784836
@@ -6792,17 +6792,17 @@
 "6791","Sutcliffe, Gerry","fee",1.98011699800062
 "6792","Sutcliffe, Gerry","completion",1.876088147768
 "6793","Swire, Sir Hugo","plates",4.47464957730471
-"6794","Swire, Sir Hugo","displayed",4.09668510429549
-"6795","Swire, Sir Hugo","improperly",4.09668510429549
+"6794","Swire, Sir Hugo","improperly",4.09668510429549
+"6795","Swire, Sir Hugo","displayed",4.09668510429549
 "6796","Swire, Sir Hugo","vehicle",3.16710732865501
 "6797","Swire, Sir Hugo","prosecutions",2.05212750981731
 "6798","Swire, Sir Hugo","number",1.57742492692712
 "6799","Swire, Sir Hugo","years",0.704946308295593
-"6800","Swire, Sir Hugo","2010",0
-"6801","Swire, Sir Hugo","accommod",0
-"6802","Swire, Sir Hugo","cost",0
-"6803","Swire, Sir Hugo","flight",0
-"6804","Swire, Sir Hugo","hotel",0
+"6800","Swire, Sir Hugo","contract",0
+"6801","Swire, Sir Hugo","copy",0
+"6802","Swire, Sir Hugo","electron",0
+"6803","Swire, Sir Hugo","g4s",0
+"6804","Swire, Sir Hugo","library",0
 "6805","Tami, Mark","extension",7.48124209618528
 "6806","Tami, Mark","reserved",6.21394607469412
 "6807","Tami, Mark","decision",6.1020837712366
@@ -6818,8 +6818,8 @@
 "6817","Teather, Sarah","verne",9.75221265106131
 "6818","Teather, Sarah","hmp",4.29258057088982
 "6819","Teather, Sarah","immigration",3.78287645246126
-"6820","Teather, Sarah","772w",3.56084520918548
-"6821","Teather, Sarah","stateless",3.56084520918548
+"6820","Teather, Sarah","stateless",3.56084520918548
+"6821","Teather, Sarah","772w",3.56084520918548
 "6822","Teather, Sarah","1954",3.28349511107287
 "6823","Teather, Sarah","detained",2.72308615973505
 "6824","Teather, Sarah","compatibility",2.63950812614542
@@ -6958,7 +6958,7 @@
 "6957","Thomas-Symonds, Nick","alternative",2.91527851217387
 "6958","Thomas-Symonds, Nick","europe",2.82798898275925
 "6959","Thomas-Symonds, Nick","contested",2.69307502496926
-"6960","Thomas-Symonds, Nick","resolution",2.66500148325835
+"6960","Thomas-Symonds, Nick","dispute",2.66500148325835
 "6961","Thomas, Gareth","will",7.91520842938355
 "6962","Thomas, Gareth","union",6.24292957792796
 "6963","Thomas, Gareth","credit",6.04254952538791
@@ -7006,7 +7006,7 @@
 "7005","Tomlinson, Justin","progress",5.56081023366528
 "7006","Tomlinson, Justin","streetgames",5.24142222825589
 "7007","Tomlinson, Justin","engineering",5.24142222825589
-"7008","Tomlinson, Justin","network rail",4.59436399688715
+"7008","Tomlinson, Justin","apprenticeships",4.59436399688715
 "7009","Trickett, Jon","pass",16.4986386349598
 "7010","Trickett, Jon","contract",14.3387990989406
 "7011","Trickett, Jon","procured",12.6929325918135
@@ -7032,8 +7032,8 @@
 "7031","Turley, Anna","act",3.8887139083575
 "7032","Turley, Anna","consolidate",3.83209802044349
 "7033","Turner, Andrew","religion",4.0166773568643
-"7034","Turner, Andrew","depending",3.57272251098088
-"7035","Turner, Andrew","different",3.57272251098088
+"7034","Turner, Andrew","different",3.57272251098088
+"7035","Turner, Andrew","depending",3.57272251098088
 "7036","Turner, Andrew","aldershot",2.87084518782474
 "7037","Turner, Andrew","isle",2.87084518782474
 "7038","Turner, Andrew","wight",2.87084518782474
@@ -7125,8 +7125,8 @@
 "7124","Vickers, Martin","will",0.853985157455321
 "7125","Vickers, Martin","years",0.589800397003689
 "7126","Vickers, Martin","prison",0.566149878066335
-"7127","Vickers, Martin","2010",0
-"7128","Vickers, Martin","accommod",0
+"7127","Vickers, Martin","contract",0
+"7128","Vickers, Martin","copy",0
 "7129","Villiers, Theresa","london",3.73694751667075
 "7130","Villiers, Theresa","fair",3.24255128325494
 "7131","Villiers, Theresa","system",3.21702205660322
@@ -7195,10 +7195,10 @@
 "7194","Warman, Matt","offenders",1.73624388573137
 "7195","Warman, Matt","will",1.35026909276817
 "7196","Warman, Matt","prisons",0.895161555858111
-"7197","Warman, Matt","2010",0
-"7198","Warman, Matt","accommod",0
-"7199","Warman, Matt","cost",0
-"7200","Warman, Matt","flight",0
+"7197","Warman, Matt","contract",0
+"7198","Warman, Matt","copy",0
+"7199","Warman, Matt","electron",0
+"7200","Warman, Matt","g4s",0
 "7201","Watson, Tom","66948",8.37130282207354
 "7202","Watson, Tom","bromwich",8.37130282207354
 "7203","Watson, Tom","violence",7.99821844458052
@@ -7254,23 +7254,23 @@
 "7253","Whately, Helen","support",1.87557047345725
 "7254","Whately, Helen","place",1.8663670909194
 "7255","Whately, Helen","staff",1.55764207520468
-"7256","Whately, Helen","2010",0
-"7257","Whately, Helen","accommod",0
-"7258","Whately, Helen","cost",0
-"7259","Whately, Helen","flight",0
-"7260","Whately, Helen","hotel",0
+"7256","Whately, Helen","contract",0
+"7257","Whately, Helen","copy",0
+"7258","Whately, Helen","electron",0
+"7259","Whately, Helen","g4s",0
+"7260","Whately, Helen","library",0
 "7261","Wheeler, Heather","effectiveness",2.76404767884895
 "7262","Wheeler, Heather","female",2.67470803694811
 "7263","Wheeler, Heather","increase",2.5768422278022
 "7264","Wheeler, Heather","rehabilitation",2.18186929142271
 "7265","Wheeler, Heather","prisoners",0.800656835897285
-"7266","Wheeler, Heather","2010",0
-"7267","Wheeler, Heather","accommod",0
-"7268","Wheeler, Heather","cost",0
-"7269","Wheeler, Heather","flight",0
-"7270","Wheeler, Heather","hotel",0
-"7271","Wheeler, Heather","internal",0
-"7272","Wheeler, Heather","made",0
+"7266","Wheeler, Heather","contract",0
+"7267","Wheeler, Heather","copy",0
+"7268","Wheeler, Heather","electron",0
+"7269","Wheeler, Heather","g4s",0
+"7270","Wheeler, Heather","library",0
+"7271","Wheeler, Heather","place",0
+"7272","Wheeler, Heather","tag",0
 "7273","Whittaker, Craig","provision",8.71121114690239
 "7274","Whittaker, Craig","todmorden",7.53141717154227
 "7275","Whittaker, Craig","rural",6.83562086382368
@@ -7290,11 +7290,11 @@
 "7289","Williams, Craig","protect",2.32648802161266
 "7290","Williams, Craig","court",1.27144740832506
 "7291","Williams, Craig","prisons",1.26594961280954
-"7292","Williams, Craig","2010",0
-"7293","Williams, Craig","accommod",0
-"7294","Williams, Craig","cost",0
-"7295","Williams, Craig","flight",0
-"7296","Williams, Craig","hotel",0
+"7292","Williams, Craig","contract",0
+"7293","Williams, Craig","copy",0
+"7294","Williams, Craig","electron",0
+"7295","Williams, Craig","g4s",0
+"7296","Williams, Craig","library",0
 "7297","Williams, Hywel","capabl",7.64197933093843
 "7298","Williams, Hywel","berwyn",7.14522620730583
 "7299","Williams, Hywel","wales",5.66682314934031
@@ -7349,12 +7349,12 @@
 "7348","Wilson, Rob","aid",1.97085239671184
 "7349","Wilson, Rob","legal",1.71701669743954
 "7350","Wilson, Rob","people",1.42032047108441
-"7351","Wilson, Rob","2010",0
-"7352","Wilson, Rob","accommod",0
-"7353","Wilson, Rob","cost",0
-"7354","Wilson, Rob","flight",0
-"7355","Wilson, Rob","hotel",0
-"7356","Wilson, Rob","internal",0
+"7351","Wilson, Rob","contract",0
+"7352","Wilson, Rob","copy",0
+"7353","Wilson, Rob","electron",0
+"7354","Wilson, Rob","g4s",0
+"7355","Wilson, Rob","library",0
+"7356","Wilson, Rob","place",0
 "7357","Winnick, David","radicalised",4.13844640596946
 "7358","Winnick, David","extremism",3.99447578516243
 "7359","Winnick, David","religious",3.77738630843149
@@ -7392,8 +7392,8 @@
 "7391","Woodcock, John","post",4.74762681868736
 "7392","Woodcock, John","instant",4.53920480163004
 "7393","Wragg, William","engagement",4.15762401482577
-"7394","Wragg, William","privacy",3.32573006579733
-"7395","Wragg, William","historic",3.32573006579733
+"7394","Wragg, William","historic",3.32573006579733
+"7395","Wragg, William","privacy",3.32573006579733
 "7396","Wragg, William","recent",3.2075561297381
 "7397","Wragg, William","national",3.17881676371529
 "7398","Wragg, William","circulated",2.87084518782474

@@ -286,6 +286,7 @@ print(str_interp('K has been set to ${k}'))
 #read in questions
 print('Reading questions')
 aPQ <- read.csv(file, stringsAsFactors = F)
+aPQ <- aPQ[order(aPQ$Question_Date, decreasing = TRUE),] #reorder to have most recent first
 questionsVec <- aPQ$Question_Text
 
 #MAKE THE TERM-DOCUMENT MATRIX AND LATENT SEMANTIC ANALYSIS SPACE
