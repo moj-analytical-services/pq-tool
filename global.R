@@ -83,6 +83,7 @@ queryVec <- function(query){
     gsub("organisaiton", "organisation", .) %>% #included out of completeness to be the same as cleanCorpus
     gsub("directive|directives", "drctv", .) %>%
     gsub("direction|directions", "drctn", .) %>%
+    gsub("internal", "intrnl", .) %>%
     gsub("probation", "probatn", .) %>%
     gsub("network rail", "networkrail", .) %>%
     removeWords(c(stopwords(), JUSTICE_STOP_WORDS)) %>%
