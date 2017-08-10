@@ -108,11 +108,11 @@ function(input, output, session) {
   })
   
   addPopover(session, "similarity_table", "What does this table show?",
-             content = paste0("<p> This table shows the past PQs that are most similar to your search (with the most",
+             content = paste0("<p> This table shows the past written PQs that are most similar to your search (the most",
                               " similar questions are at the top). </p><p> You can click any row to see the question text,",
                               " or reorder the results by clicking on the column headings. </br> </br> All the questions in",
                               " our database have been grouped into topics by an algorithm and given Topic numbers. Try",
-                              " entering one of the topic numbers you see here into the box at the top of the \'Topic ",
+                              " clicking on the 'View Topic' button to see all the questions . ",
                               "Analysis\' page.</p>"), trigger = 'hover', placement = 'right', options = list(container = "body"))
   
   
@@ -266,12 +266,13 @@ function(input, output, session) {
       title = "What do the topics mean?", 
       HTML("We have taken all of the questions in our database and fed them into an algorithm which has
       split them into different groups, or 'topics', with each group containing questions related to  
-      similar issues. For each topic there are a set of three 'Topic Keywords' to give an idea of what 
-      the topic is at a glance. <br><br>
-      Each of these topics have also been assigned a number as a unique identifier, so the best way to find  
-      out about your chosen topic is to go to the \'Search\' tab and, once you have entered your search 
+      similar issues. For each topic there is a set of three 'Topic Keywords' to give an idea of what 
+      the topic is about. <br><br>
+      Each of these topics have also been assigned a number as a unique identifier, so to find  
+      out about your chosen topic is to go to the 'Search' tab and, once you have entered your search 
       terms, take one of the topic numbers listed in the table and put it into the dropdown box on this 
-      tab."),
+      tab. Or if that sounds like too much work, just click the question you are focusing on followed by
+      the 'View Topic' button ."),
       easyClose = TRUE,
       footer = NULL
     ))
@@ -284,7 +285,7 @@ function(input, output, session) {
   )
   
   addPopover(session, "wordcloud", "Wordcloud",
-             content = paste0("This wordcloud shows the words that are most important to the topic.<br> The bigger the word, the more important it is."),
+             content = paste0("This wordcloud shows the words that are most important to the topic.<br><br> The bigger the word, the more important it is."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   
@@ -327,7 +328,7 @@ function(input, output, session) {
 
   
   addPopover(session, "topic_plot", "Questions plotted over time",
-             content = paste0("This plot shows when questions in the topic were asked. <br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic."),
+             content = paste0("This plot shows when questions in the topic were asked. <br><br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$topic_documents <- renderDataTable({
@@ -368,7 +369,7 @@ function(input, output, session) {
   })
   
   addPopover(session, "topic_documents", "Questions in the topic",
-             content = paste0("This table contains all of the information on the questions asked on this topic.<br>",
+             content = paste0("This table contains all of the information on the questions asked on this topic.<br><br>",
                               "Click on a row to see the corresponding question and answer text."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
@@ -419,7 +420,7 @@ function(input, output, session) {
   
   addPopover(session, "member_wordcloud", "Wordcloud",
              content = paste0("This wordcloud shows the words that are most important in the questions asked by this
-                              member.<br> The bigger the word, the more important it is."),
+                              member.<br><br> The bigger the word, the more important it is."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$member_plot <- renderPlot({
@@ -459,7 +460,7 @@ function(input, output, session) {
   })
   
   addPopover(session, "member_plot", "Questions plotted over time",
-             content = paste0("This plot shows when the selected MP/peer tabled written questions <br> Each bar shows the number of questions tabled by the MP/peer in a particular fortnight - the higher the bar, the more questions."),
+             content = paste0("This plot shows when the selected MP/peer tabled written questions <br><br> Each bar shows the number of questions tabled by the MP/peer in a particular fortnight - the higher the bar, the more questions."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$member_table <- renderDataTable({
@@ -489,7 +490,7 @@ function(input, output, session) {
   })
   
   addPopover(session, "member_table", "Questions asked by the member",
-             content = paste0("This table contains all of the information on the questions asked by this member.<br>",
+             content = paste0("This table contains all of the information on the questions asked by this member.<br><br>",
                               "Click on a row to see the corresponding question and answer text."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
