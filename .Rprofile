@@ -11,7 +11,15 @@ JUSTICE_STOP_WORDS <- c(
   "tackle", "policy", "latest", "period", "figures",
   "available", "representations", "ensure", "ensuring",
   "timetable", "much", "reduce", "since", "created", "came",
-  "changes", "changed"
+  "changes", "changed",
+  "ability", "among", "announced", "bring", "change", "col",
+  "column", "date", "deb", "definition", "delay", "early",
+  "effect", "engage", "former", "hall", "highest", "hon",
+  "implications", "items", "last", "matter", "merits",
+  "paragraph", "plans", "questions", "tabled",
+  "announce", "determining", "determine", "determines",
+  "columns",
+  "improve"
 
 )
 source("packrat/init.R")
