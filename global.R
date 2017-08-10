@@ -69,6 +69,7 @@ queryVec <- function(query){
   query <- query %>% iconv(to = "utf-8", sub = "") %>%
     gsub("High Down", "Highdown", .) %>%
     gsub("-", " ", .) %>%
+    gsub("<i>|</i>", "", .) %>%
     gsub("[^(A-Z a-z 0-9 //s)]", "", .) %>%
     removePunctuation() %>%
     removeWords(c("Justice")) %>%

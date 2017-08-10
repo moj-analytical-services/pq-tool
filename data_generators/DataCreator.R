@@ -93,6 +93,8 @@ cleanCorpus <- function(corp) {
     tm_map(function(x) gsub("High Down", "Highdown", x)) %>%
     #replace hyphens with spaces
     tm_map(function(x) gsub("-", " ", x)) %>%
+    #take out italic html tags wholesale
+    tm_map(function(x) gsub("<i>|</i>", "", x)) %>%
     #get rid of all other non-alphanumeric symbols
     tm_map(function(x) gsub("[^(A-Z a-z 0-9 //s)]", "", x)) %>%
     #we now remove Justice with a capital J here before the transformation to lower
@@ -122,6 +124,10 @@ cleanCorpus <- function(corp) {
     ) %>%
     tm_map(content_transformer(
       function(x) gsub("direction|directions", "drctn", x))
+    ) %>%
+    #issue with "internal" and "international" being stemmed to the same thing (!).
+    tm_map(content_transformer(
+      function(x) gsub("internal", "intrnl", x))
     ) %>%
     #replace instances of the word "probation" with "probatn" to avoid the
     #issue with "probate" and "probation" being stemmed to the same thing.
@@ -179,6 +185,8 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
   names(termsAndSumsN) <- gsub("drctv", "directive", names(termsAndSumsN))
   #replace "drctn" with "direction"
   names(termsAndSumsN) <- gsub("drctn", "direction", names(termsAndSumsN))
+  #replace "intrnl" with "internal"
+  names(termsAndSumsN) <- gsub("intrnl", "internal", names(termsAndSumsN))
   #replace "probatn" with "probation"
   names(termsAndSumsN) <- gsub("probatn", "probation", names(termsAndSumsN))
   #replace "probabl" with "probability"

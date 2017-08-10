@@ -19,7 +19,9 @@ JUSTICE_STOP_WORDS <- c(
   "paragraph", "plans", "questions", "tabled",
   "announce", "determining", "determine", "determines",
   "columns",
-  "improve"
+  "improve",
+  "forward",
+  "discussions"
 
 )
 source("packrat/init.R")
