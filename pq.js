@@ -13,6 +13,7 @@ var text_to_return = "";
 function format(d, questionMPCol, tab) {
     console.log(d);
     d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
+    d[2] = d[2].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
     if(tab == 'search') {
         buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by<br>' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
         buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + '<br>(' + d[10] + ') </button>';
@@ -75,7 +76,13 @@ function get_point_locations(e) {
             //console.log(e.clientX);
             //console.log(e);
             point_centres = [];
-            points = document.getElementsByClassName("points")[0].children;
+            //Get the correct points group:
+            for (var group of $("g.points")){
+                points = group.children;
+                if(points.length > search_rows){
+                    break;
+                }
+            }
             if (point_centres.length === 0){
                 
                 for (var p of points){
