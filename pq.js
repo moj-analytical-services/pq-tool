@@ -75,7 +75,13 @@ function get_point_locations(e) {
             //console.log(e.clientX);
             //console.log(e);
             point_centres = [];
-            points = document.getElementsByClassName("points")[0].children;
+            //Get the correct points group:
+            for (var group of $("g.points")){
+                points = group.children;
+                if(points.length > search_rows){
+                    break;
+                }
+            }
             if (point_centres.length === 0){
                 
                 for (var p of points){
