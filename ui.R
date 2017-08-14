@@ -67,7 +67,7 @@ navbarPage("PQ Text Analysis",
                                ),
                                data.step = 2,
                                data.position = "right",
-                               data.intro = "Pick a range of dates you want to consider (leave this the way it is to search all the questions we have)"
+                               data.intro = "Pick a range of dates you want to consider (leave this alone to search all the questions we have)"
                                ),
                                bsTooltip("q_date_range",
                                          "Choose the time period you wish to search.",
@@ -84,7 +84,7 @@ navbarPage("PQ Text Analysis",
                                class="btn btn-primary"
                              ),
                              bsTooltip("tutorial_button",
-                                "If this is your first time using the tool, click here to complete a quick tutorial",
+                                "If this is your first time using the tool, click here to complete a short, interactive tutorial",
                                 "auto")
                              )
                     ),
@@ -147,7 +147,7 @@ navbarPage("PQ Text Analysis",
                                "topic_choice",
                                "Enter a topic number from the previous page.
               You can do this by selecting a number from
-              the dropdown or simply type it ins.",
+              the dropdown or simply type it in.",
                                "right",
                                options = list(container = "body")
                              )
@@ -178,7 +178,9 @@ navbarPage("PQ Text Analysis",
                                  plotOutput("topic_plot"),
                                  data.step = 14, 
                                  data.position = "left",
-                                 data.intro = "This plot shows when questions in the topic were asked. <br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic.")
+                                 data.intro = "This plot shows when questions in the topic were asked. <br> Each bar 
+                                 shows the number of questions asked in a particular fortnight - the higher the bar, 
+                                 the more questions from that topic.")
                       )),
                       fluidRow(
                         introBox(
@@ -186,11 +188,11 @@ navbarPage("PQ Text Analysis",
                         dataTableOutput("topic_documents"),
                         data.step = 15,
                         data.position = "right",
-                        data.intro = "This table contains all of the information on the questions asked on this topic.<br><br>",
-                        "Click on a row to see the corresponding question and answer text."),
+                        data.intro = "This table contains all of the information on the questions asked on this topic.<br><br>
+                        Click on a row to see the corresponding question and answer text."),
                         data.step = 16,
                         data.position = "top",
-                        data.intro = "That's it! You have made it to the end of the tutorial! <br><br> We hope this was useful, and if you have any
+                        data.intro = "That's it! You have made it to the end of the tutorial! <br><br> We hope this was useful. If you have any
                         feedback on this tutorial, or the tool in general, please see the link at the bottom of the page.")
                       )
                     )
