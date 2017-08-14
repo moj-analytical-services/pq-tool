@@ -88,12 +88,13 @@ cleanCorpus <- function(corp) {
       content_transformer(
         function(x) iconv(x, to = "utf-8", sub = ""))
     ) %>%
-    #inelegant special cleaning step to take care of the fact that reoffending is
-    #sometimes spelled "re-offending" and sometimes "reoffending"
-    tm_map(function(x) gsub("re-off", "reoff", x)) %>%
+    #inelegant special cleaning steps 1
+    #ensure High Down doesn't get confused with Legal Highs
     tm_map(function(x) gsub("High Down", "Highdown", x)) %>%
     #replace hyphens with spaces
     tm_map(function(x) gsub("-", " ", x)) %>%
+    #take out italic html tags wholesale
+    tm_map(function(x) gsub("<i>|</i>", "", x)) %>%
     #get rid of all other non-alphanumeric symbols
     tm_map(function(x) gsub("[^(A-Z a-z 0-9 //s)]", "", x)) %>%
     #we now remove Justice with a capital J here before the transformation to lower
@@ -102,10 +103,40 @@ cleanCorpus <- function(corp) {
     #access to justice related questions
     tm_map(function(x) removeWords(x, c("Justice"))) %>%
     tm_map(content_transformer(tolower)) %>%
-    #now replace instances of the word "probation" with "probatn" to avoid the
+    #inelegant special cleaning steps 2
+    #put "re-offending" and "reoffending" together
+    tm_map(function(x) gsub("re off", "reoff", x)) %>%
+    #anti- always part of the word that follows it,
+    #eg antisemitism not anti-semitism
+    tm_map(function(x) gsub("anti ", "anti", x)) %>%
+    #ditto for cross-examination
+    tm_map(function(x) gsub("cross exam", "crossexam", x)) %>%
+    #ditto for socio-economic
+    tm_map(function(x) gsub("socio eco", "socioeco", x)) %>%
+    #ditto for inter-library and inter-parliamentary
+    tm_map(function(x) gsub("inter ", "inter", x)) %>%
+    #correct one-off spelling mistakes in data
+    tm_map(function(x) gsub("rehabilitaiton", "rehabilitation", x)) %>%
+    tm_map(function(x) gsub("organisaitons", "organisation", x)) %>%
+    #issue with "directive" and "direction" being stemmed to the same thing.
+    tm_map(content_transformer(
+      function(x) gsub("directive|directives", "drctv", x))
+    ) %>%
+    tm_map(content_transformer(
+      function(x) gsub("direction|directions", "drctn", x))
+    ) %>%
+    #issue with "internal" and "international" being stemmed to the same thing (!).
+    tm_map(content_transformer(
+      function(x) gsub("internal", "intrnl", x))
+    ) %>%
+    #replace instances of the word "probation" with "probatn" to avoid the
     #issue with "probate" and "probation" being stemmed to the same thing.
     tm_map(content_transformer(
       function(x) gsub("probation", "probatn", x))
+    ) %>%
+    #make sure Network Rail is seen as distinct form other mentions of network
+    tm_map(content_transformer(
+      function(x) gsub("network rail", "networkrail", x))
     ) %>%
     # JUSTICE_STOP_WORDS assigned in .Rprofile
     tm_map(function(x) removeWords(x, c(stopwords(), JUSTICE_STOP_WORDS))) %>%
@@ -150,10 +181,18 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
   fixed <- sapply(names(partialCompletion[toFix]), fromItoY)
   partialCompletion[toFix] <- fixed
   names(termsAndSumsN) <- partialCompletion # update names
+  #replace "drctv" with "directive"
+  names(termsAndSumsN) <- gsub("drctv", "directive", names(termsAndSumsN))
+  #replace "drctn" with "direction"
+  names(termsAndSumsN) <- gsub("drctn", "direction", names(termsAndSumsN))
+  #replace "intrnl" with "internal"
+  names(termsAndSumsN) <- gsub("intrnl", "internal", names(termsAndSumsN))
   #replace "probatn" with "probation"
   names(termsAndSumsN) <- gsub("probatn", "probation", names(termsAndSumsN))
   #replace "probabl" with "probability"
   names(termsAndSumsN) <- gsub("probabl", "probability", names(termsAndSumsN))
+  #replace "networkrail" with "network rail"
+  names(termsAndSumsN) <- gsub("networkrail", "network rail", names(termsAndSumsN))
   
   termsAndSumsN
 }
@@ -247,6 +286,7 @@ print(str_interp('K has been set to ${k}'))
 #read in questions
 print('Reading questions')
 aPQ <- read.csv(file, stringsAsFactors = F)
+aPQ <- aPQ[order(aPQ$Question_Date, decreasing = TRUE),] #reorder to have most recent first
 questionsVec <- aPQ$Question_Text
 
 #MAKE THE TERM-DOCUMENT MATRIX AND LATENT SEMANTIC ANALYSIS SPACE

@@ -67,14 +67,25 @@ vocab <- search.space$dimnames[[1]]
 
 queryVec <- function(query){
   query <- query %>% iconv(to = "utf-8", sub = "") %>%
-    gsub("re-off", "reoff", .) %>%
     gsub("High Down", "Highdown", .) %>%
     gsub("-", " ", .) %>%
+    gsub("<i>|</i>", "", .) %>%
     gsub("[^(A-Z a-z 0-9 //s)]", "", .) %>%
     removePunctuation() %>%
     removeWords(c("Justice")) %>%
     tolower() %>%
+    gsub("re off", "reoff", .) %>%
+    gsub("anti ", "anti", .) %>%
+    gsub("cross exam", "crossexam", .) %>%
+    gsub("socio eco", "socioeco", .) %>%
+    gsub("inter ", "inter", .) %>%
+    gsub("rehabilitaiton", "rehabilitation", .) %>% #included out of completeness to be the same as cleanCorpus
+    gsub("organisaiton", "organisation", .) %>% #included out of completeness to be the same as cleanCorpus
+    gsub("directive|directives", "drctv", .) %>%
+    gsub("direction|directions", "drctn", .) %>%
+    gsub("internal", "intrnl", .) %>%
     gsub("probation", "probatn", .) %>%
+    gsub("network rail", "networkrail", .) %>%
     removeWords(c(stopwords(), JUSTICE_STOP_WORDS)) %>%
     stripWhitespace() %>%
     strsplit(" ") %>%
