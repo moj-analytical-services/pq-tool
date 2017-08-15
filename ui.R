@@ -52,7 +52,7 @@ navbarPage("PQ Text Analysis",
                              )
                       ),
                       
-                      column(2,
+                      column(3,
                              conditionalPanel(
                                condition = searchTextEntered,
                                introBox(
@@ -77,7 +77,7 @@ navbarPage("PQ Text Analysis",
                              )
                       ),
                       column(2,
-                             offset = 4,
+                             offset = 3,
                              actionButton(
                                "tutorial_button",
                                "Click here for a quick tour",
