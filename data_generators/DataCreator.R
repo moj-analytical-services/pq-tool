@@ -48,26 +48,44 @@ library(optparse)
 option_list = list(
   make_option(c("-i", "--input_file"),
     type    = "character",
-    default = str_interp("${SHINY_ROOT}/tests/testthat/examples/data/lsa_training_sample.csv"), 
+    default = NULL, 
     help    = "dataset file name",
     metavar = "character"
   ),
   make_option(c("-k", "--k_clusters"),
     type    = "numeric",
-    default = 100, 
+    default = NULL, 
     help    = "number of clusters [default= %default]",
     metavar = "character"
   ),
   make_option(c("-o", "--output_dir"),
     type    = "character",
-    default = str_interp("${SHINY_ROOT}/tests/testthat/examples/data/"), 
+    default = NULL, 
     help    = "directory to which outputs are saved [default= %default]",
+    metavar = "character"
+  ),
+  make_option(c("-e", "--environment"),
+    type    = "character",
+    default = NULL, 
+    help    = "Sets K, input and output to sensible values for 'test' and 'prod' environments.  Values can be either 'test' or 'prod'",
     metavar = "character"
   )
 )
  
 opt_parser = OptionParser(option_list=option_list);
 opt = parse_args(opt_parser);
+
+## Override options if 'environment' is set
+
+if( opt$environment == 'test' ) {
+  opt$input_file <- str_interp("${SHINY_ROOT}/tests/testthat/examples/data/lsa_training_sample.csv")
+  opt$output_dir <- str_interp("${SHINY_ROOT}/tests/testthat/examples/data/")
+  opt$k_clusters <- 100
+} else if( opt$environment == 'prod' ) {
+  opt$input_file <- str_interp("${SHINY_ROOT}/Data/archived_pqs.csv")
+  opt$output_dir <- str_interp("${SHINY_ROOT}/Data/")
+  opt$k_clusters <- 1000
+}
 
 #PARAMETERS
 
