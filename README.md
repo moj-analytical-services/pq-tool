@@ -33,21 +33,21 @@ Input, output and K can also be set individually, but if environment is also set
     * "${SHINY_ROOT}/tests/testthat/examples/lsa_training_sample.csv"
 * When `-e prod`
     * "${SHINY_ROOT}/Data/archived_pqs.csv"
-* Override using `-i` or `--input_file`
+* Set to something else using `-i` or `--input_file`
 
 *Output directory (where the new data files are saved)*
 * When `-e test`
     * "${SHINY_ROOT}/tests/testthat/examples/"
 * When `-e prod`
     * "${SHINY_ROOT}/Data/"
-* Override using `-o` or `--output_dir`
+* Set to something else using `-o` or `--output_dir`
 
 *Number of clusters (k)*
 * When `-e test`
     * 100
 * When `-e prod`
     * 1000 
-* Override using `-k` or `--k_clusters`
+* Set to something else using `-k` or `--k_clusters`
 
 ### Examples
 1. Defaulting to `-e test`
