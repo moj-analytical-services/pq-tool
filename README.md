@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/moj-analytical-services/PQTool.svg?branch=master)](https://travis-ci.org/moj-analytical-services/PQTool)
+[![Build Status](https://travis-ci.org/moj-analytical-services/PQTool.svg?branch=master)](https://travis-ci.org/moj-analytical-services/pq-tool)
 
 # PQ Tool
 ## Introduction
@@ -16,45 +16,63 @@ To access the deployed tool go to https://mojproducts.shinyapps.io/pqtool/
 3. A new csv of the 12 most significant terms in each cluster.
 4. A new csv of the 12 most significant terms for each MP/Peer.
 
-### Defaults
+### Arguments
+
+Four arguments can be passed to the DataCreator.R script.  The environment flag `-e` can be used as a shortcut to set sensible values for input (`-i`), output (`-o`) and K (`-k`), for the two most common use cases:
+1. Quickly generating a small data set for testing purposes and avoid overwriting production data.
+2. Generating the full data set for use in production, overwriting previously generated producttion data
+
+Input, output and K can also be set individually, but if environment is also set, they will be overridden.
+
+*Environment (test/prod)*
+* A shortcut to set values for the other three arguments in one go.
+* Use `-e test` OR `-e prod`
+
 *Input file (questions)*
-* "${SHINY_ROOT}/tests/testthat/examples/lsa_training_sample.csv"
+* When `-e test`
+    * "${SHINY_ROOT}/tests/testthat/examples/lsa_training_sample.csv"
+* When `-e prod`
+    * "${SHINY_ROOT}/Data/archived_pqs.csv"
 * Override using `-i` or `--input_file`
 
 *Output directory (where the new data files are saved)*
-* "${SHINY_ROOT}/tests/testthat/examples/"
+* When `-e test`
+    * "${SHINY_ROOT}/tests/testthat/examples/"
+* When `-e prod`
+    * "${SHINY_ROOT}/Data/"
 * Override using `-o` or `--output_dir`
 
 *Number of clusters (k)*
-* 100
+* When `-e test`
+    * 100
+* When `-e prod`
+    * 1000 
 * Override using `-k` or `--k_clusters`
 
-### From the command line
-1. With defaults
+### Examples
+1. Defaulting to `-e test`
     ```
-    Rscript DataCreator.R
+    # From the command line
+    Rscript ./data_generators/DataCreator.R
+    
+    # From an R console
+    system("Rscript ./data_generators/DataCreator.R")    
     ```
-2. With args
+2. For production
     ```
-    Rscript DataCreator.R -i  my_input_file.csv -o my_destination_dir -k 1000
+    # From the command line
+    Rscript ./data_generators/DataCreator.R -e prod
+    
+    # From an R console
+    system("Rscript ./data_generators/DataCreator.R -e prod")
     ```
+3. With specific args
     ```
-    for example, from the PQTool directory
-    Rscript data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000
-    ```
-  
-### From an R console
-1. With defaults
-    ```
-    system("Rscript DataCreator.R")
-    ```
-2. With args
-    ```
-    system("Rscript DataCreator.R -i  my_input_file.csv -o my_destination_dir -k 1000")
-    ```
-    ```
-    for example, from the PQTool directory
-    system("Rscript data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000")
+    # From the command line
+    Rscript ./data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000
+    
+    # From an R console
+    system("Rscript ./data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000")
     ```
 
 ## Running the tool
