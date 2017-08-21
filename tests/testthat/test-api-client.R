@@ -267,7 +267,7 @@ test_that("The archive is updated without duplcation", {
     `read_csv` = function(filepath) { archive },
     `write_csv` = function(updated_archive, filepath) {
       expect_equal(nrow(updated_archive), 14)
-      expect_equal(filepath, ARCHIVE_FILEPATH())
+      expect_equal(filepath, ARCHIVE_FILEPATH)
     },
 
     update_archive(new_questions)
