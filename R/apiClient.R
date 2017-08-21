@@ -1,7 +1,7 @@
 library(tidyverse)
 
 last_answer_date <- function() {
-  archive <- read_csv(ARCHIVE_FILEPATH())
+  archive <- read_csv(ARCHIVE_FILEPATH)
   max(archive$Answer_Date)
 }
 
@@ -10,7 +10,7 @@ number_to_fetch <- function() {
   download_size  <- "_pageSize=1"
   answering_body <- "AnsweringBody.=Ministry+of+Justice"
 
-  if( file.exists(ARCHIVE_FILEPATH()) ) {
+  if( file.exists(ARCHIVE_FILEPATH) ) {
     date        <- last_answer_date()
     date_filter <- str_interp("min-answer.dateOfAnswer=${date}")
     response    <- fromJSON(str_interp("${API_endpoint}?${date_filter}&${answering_body}&${download_size}"))
@@ -22,7 +22,6 @@ number_to_fetch <- function() {
 }
 
 parse_response <- function(raw_response) {
-
   tibble(
     Question_MP     = do.call("rbind", raw_response$tablingMemberPrinted)$'_value',
     Question_Text   = raw_response$questionText,
@@ -36,20 +35,16 @@ parse_response <- function(raw_response) {
 }
 
 update_archive <- function(questions_tibble) {
-  archive    <- read_csv(ARCHIVE_FILEPATH())
-
+  archive    <- read_csv(ARCHIVE_FILEPATH)
   if(nrow(archive) > 0) {
-      duplicates      <- questions_tibble$Question_ID %in% archive$Question_ID
-      updated_archive <- rbind(archive, questions_tibble[!duplicates,])
+      updated_archive <- rbind(archive, questions_tibble)
     } else {
       updated_archive <- questions_tibble
     }
-
-  write_csv(updated_archive, ARCHIVE_FILEPATH())
+  write_csv(updated_archive, ARCHIVE_FILEPATH)
 }
 
 party <- function(member) {
-
   upper_house_titles <- c('Lord', 'Baroness', 'Earl', 'Viscount', 'Marquess')
 
   member <- gsub('Mr |Ms |Mrs ', '', member)
@@ -79,7 +74,14 @@ party <- function(member) {
 }
 
 fetch_questions <- function(show_progress = FALSE) {
-  iterations     <- ceiling(number_to_fetch() / 1000)
+
+  number_of_questions = number_to_fetch()
+
+  if(show_progress == TRUE) {
+    print(str_interp("Fetching ${number_of_questions} questions"))
+  }
+
+  iterations <- ceiling(number_of_questions / 1000)
 
   if(iterations == 0) {
     stop("There are no new questions to fetch")
@@ -90,12 +92,12 @@ fetch_questions <- function(show_progress = FALSE) {
   answering_body <- "AnsweringBody.=Ministry+of+Justice"
   API_endpoint   <- "http://lda.data.parliament.uk/answeredquestions.json"
 
-  if(file.exists(ARCHIVE_FILEPATH())) {
+  if(file.exists(ARCHIVE_FILEPATH)) {
     date        <- last_answer_date()
     date_param  <- str_interp("min-answer.dateOfAnswer=${date}")
     base_params <- str_interp("${date_param}&${answering_body}&${download_size}")
   } else {
-    file.create(ARCHIVE_FILEPATH())
+    file.create(ARCHIVE_FILEPATH)
     base_params <- str_interp("${answering_body}&${download_size}")
   }
 
