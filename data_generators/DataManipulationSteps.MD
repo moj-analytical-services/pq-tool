@@ -24,8 +24,8 @@ We now follow a series of steps to clean the data. Some of these steps are stand
 | 5    | Remove word "Justice"                            | Prevent references to "Secretary of State for Justice" becoming conflated with other uses of "justice"                |
 | 6    | Make all text lower case                         | Standard practice                                                                                                     |
 | 7    | Swap "re off" for "reoff"                        | Make sure variant spellings of reoffending are considered to be the same after step 2's hyphen swap                   |
-| 8    | Swap "anti " for "anti"                          | Make sure variant spellings of e.g. "anti-semitism" are considered to be the same                                     |
-| 9    | Swap "cross exam" for "crossexam"                | Make sure variant spellings of cross-examination are considered to be the same                                        |
+| 8    | Swap "anti " for "anti"                          | Make sure variant spellings, e.g. "anti-semitic"/"antisemitic" are considered to be the same                          |
+| 9    | Swap "cross exam" for "crossexam"                | Make sure variant spellings, e.g. "cross-examination"/"crossexamination" are considered to be the same                |
 | 10   | Swap "socio eco" for "socioeco"                  | Make sure variant spellings of socio-economics are considered to be the same                                          |
 | 11   | Swap "inter " for "inter"                        | So we don't get clusters based around the prefix "inter"                                                              |
 | 12   | Swap "rehabilitaiton" for "rehabilitation"       | Correct one-off typo in a question                                                                                    |
@@ -42,7 +42,13 @@ We now follow a series of steps to clean the data. Some of these steps are stand
 Having done this processing we now have a list of cleaned up and boiled down PQs which we turn into a term-document matrix. Our weighting scheme is as follows:
 
  * Boolean term frequency score: Given a term *t* and a document *d*, score 1 if *t* is in *d* and 0 otherwise.
- * Inverse document frequency score: Given a term *t* which occurs in *M* of *N* documents, score *log*~2~(*N*/*M*), i.e. score higher for terms found in a smaller proportion of documents.
- * Normalisation: need to rerun code
+ * Normalisation: since some documents are longer than others (especially once we remove stopwords and so on) we need to make sure that they don't get scored highly based on their length alone. So after the above step we normalise so that each column vector (each document) has length 1.
+ * Inverse document frequency score: Given a term *t* which occurs in *M* of *N* documents, score *log*~2~(*N*/*M*), i.e. score higher for terms found in a smaller proportion of documents. Multiply this score by the previous and you've got your final score.
+
+This gives us our term-document matrix (TDM).
+
+## Phase 3: The LSA
+
+ We now do a Latent Semantic Analysis, using the R library tm. This will allow us to use a rank-reduced space.
 
  
