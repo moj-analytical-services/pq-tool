@@ -2,13 +2,23 @@
 
 # PQ Tool
 ## Introduction
-This is a prototype tool for analysing and comparing written Parliamentary Questions for answer by the Ministry of Justice. Questions have been scraped from the parliamentary website (http://www.parliament.uk/business/publications/written-questions-answers-statements/written-questions-answers/).
+This is a prototype tool for analysing and comparing written Parliamentary Questions for answer by the Ministry of Justice. Questions have been taken from the API provided by Parliament (accessed via http://www.data.parliament.uk/).
 
 The tool allows the user to input a new question, or a key phrase, and produces a score and ranking of similarity between the input and the bank of past PQs. It also groups questions under 'topics' based on similar subject matter.
 
 The tool is written in R and is based on a technique called Latent Semantic Analysis. For more information, or to provide any feedback/ideas please send an email to samuel.tazzyman@justice.gsi.gov.uk
 
-To access the deployed tool go to https://mojproducts.shinyapps.io/pqtool/
+To access the deployed tool within the Ministry of Justice go to https://pq-tool.apps.alpha.mojanalytics.xyz/. If you are not from the MoJ, you can fork and run locally.
+
+##Generating the data
+There are three files that create the data, within the data_generators folder.
+1. MoJScraper.R
+Previously we scraped the parliament website to get our data, but now we use the API, so this file is no longer used, but is included for completeness.
+2. DataCreator.R
+This does the work of getting and manipulating the data. See below for details of how to run it.
+3. MPClustering.R
+This is a work in progress and is not yet used in the tool.
+
 ## Running DataCreator.R
 ### This script will create four data files
 1. The search space.
@@ -20,7 +30,7 @@ To access the deployed tool go to https://mojproducts.shinyapps.io/pqtool/
 
 Four arguments can be passed to the DataCreator.R script.  The environment flag `-e` can be used as a shortcut to set sensible values for input (`-i`), output (`-o`) and K (`-k`), for the two most common use cases:
 1. Quickly generating a small data set for testing purposes and avoid overwriting production data.
-2. Generating the full data set for use in production, overwriting previously generated producttion data
+2. Generating the full data set for use in production, overwriting previously generated production data
 
 Input, output and K can also be set individually, but if environment is also set, they will be overridden.
 
