@@ -7,7 +7,7 @@ library(jsonlite)
 library(stringr)
 
 expected_endpoint   <- "http://lda.data.parliament.uk/answeredquestions"
-answering_body      <- "AnsweringBody.=Ministry+of+Justice"
+answering_body      <- "AnsweringBody=Ministry+of+Justice"
 date_filter         <- "min-answer.dateOfAnswer=2017-03-23"
 
 dummy_pqs_api_response <- readRDS(file.path(SHINY_ROOT, 'tests/testthat/examples/api-responses', 'response-full.rds'))
@@ -37,7 +37,7 @@ test_that("number_to_fetch() calls the API with the correct params", {
 
   download_size     <- "_pageSize=1"
   expected_API_call <- str_interp(
-    "${expected_endpoint}.json?${date_filter}&${answering_body}&${download_size}"
+    "${expected_endpoint}.json?${date_filter}&${answering_body}&${download_size}&_sort=dateOfAnswer"
   )
 
 	with_mock(
@@ -66,7 +66,7 @@ test_that("fetch_questions() calls the API with the correct params", {
   page_param        <- "_page=0"
   download_size     <- "_pageSize=1000"
   expected_API_call <- str_interp(
-    "${expected_endpoint}.json?${date_filter}&${answering_body}&${download_size}&_sort=date&${page_param}"
+    "${expected_endpoint}.json?${date_filter}&${answering_body}&${download_size}&_sort=dateOfAnswer&${page_param}"
   )
 
   with_mock(
@@ -115,7 +115,7 @@ test_that("fetch_questions() calls the API with the correct params", {
   page_param        <- "_page=0"
   download_size     <- "_pageSize=1000"
   expected_API_call <- str_interp(
-    "${expected_endpoint}.json?${answering_body}&${download_size}&_sort=date&${page_param}"
+    "${expected_endpoint}.json?${answering_body}&${download_size}&_sort=dateOfAnswer&${page_param}"
   )
 
   with_mock(

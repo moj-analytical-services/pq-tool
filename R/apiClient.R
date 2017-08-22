@@ -1,4 +1,6 @@
 library(tidyverse)
+library(jsonlite)
+library(stringr)
 
 last_answer_date <- function() {
   archive <- read_csv(ARCHIVE_FILEPATH)
@@ -8,12 +10,12 @@ last_answer_date <- function() {
 number_to_fetch <- function() {
   API_endpoint   <- "http://lda.data.parliament.uk/answeredquestions.json"
   download_size  <- "_pageSize=1"
-  answering_body <- "AnsweringBody.=Ministry+of+Justice"
+  answering_body <- "AnsweringBody=Ministry+of+Justice"
 
   if( file.exists(ARCHIVE_FILEPATH) ) {
     date        <- last_answer_date()
     date_filter <- str_interp("min-answer.dateOfAnswer=${date}")
-    response    <- fromJSON(str_interp("${API_endpoint}?${date_filter}&${answering_body}&${download_size}"))
+    response    <- fromJSON(str_interp("${API_endpoint}?${date_filter}&${answering_body}&${download_size}&_sort=dateOfAnswer"))
     response$result$totalResults
   } else {
     response    <- fromJSON(str_interp("${API_endpoint}?${answering_body}&${download_size}"))
@@ -41,6 +43,9 @@ update_archive <- function(questions_tibble) {
     } else {
       updated_archive <- questions_tibble
     }
+
+  duplicates_filter <- duplicated(updated_archive)
+  updated_archive   <- updated_archive[!duplicates_filter,]
   write_csv(updated_archive, ARCHIVE_FILEPATH)
 }
 
@@ -89,7 +94,7 @@ fetch_questions <- function(show_progress = FALSE) {
 
   questions      <- tibble()
   download_size  <- "_pageSize=1000"
-  answering_body <- "AnsweringBody.=Ministry+of+Justice"
+  answering_body <- "AnsweringBody=Ministry+of+Justice"
   API_endpoint   <- "http://lda.data.parliament.uk/answeredquestions.json"
 
   if(file.exists(ARCHIVE_FILEPATH)) {
@@ -105,7 +110,7 @@ fetch_questions <- function(show_progress = FALSE) {
     page       <- iteration - 1
     page_param <- str_interp("_page=${page}")
     if(show_progress == TRUE) { print(str_interp("Fetching page ${iteration} of ${iterations}")) }
-    response   <- fromJSON(str_interp("${API_endpoint}?${base_params}&_sort=date&${page_param}"))
+    response   <- fromJSON(str_interp("${API_endpoint}?${base_params}&_sort=dateOfAnswer&${page_param}"))
     parsed_response <- parse_response(response$result$items)
     update_archive(parsed_response)
   }
