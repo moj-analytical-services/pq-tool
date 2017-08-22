@@ -43,7 +43,7 @@ Having done this processing we now have a list of cleaned up and boiled down PQs
 
  * Boolean term frequency score: Given a term *t* and a document *d*, score 1 if *t* is in *d* and 0 otherwise.
  * Normalisation: since some documents are longer than others (especially once we remove stopwords and so on) we need to make sure that they don't get scored highly based on their length alone. So after the above step we normalise so that each column vector (each document) has length 1.
- * Inverse document frequency score: Given a term *t* which occurs in *M* of *N* documents, score *log*_2_(*N*/*M*), i.e. score higher for terms found in a smaller proportion of documents. Multiply this score by the previous and you've got your final score.
+ * Inverse document frequency score: Given a term *t* which occurs in *M* of *N* documents, score *log*<sub>2</sub>(*N*/*M*), i.e. score higher for terms found in a smaller proportion of documents. Multiply this score by the previous and you've got your final score.
 
 This gives us our term-document matrix (TDM).
 
