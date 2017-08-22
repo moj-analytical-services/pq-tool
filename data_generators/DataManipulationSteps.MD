@@ -43,6 +43,6 @@ Having done this processing we now have a list of cleaned up and boiled down PQs
 
  * Boolean term frequency score: Given a term *t* and a document *d*, score 1 if *t* is in *d* and 0 otherwise.
  * Inverse document frequency score: Given a term *t* which occurs in *M* of *N* documents, score *log*~2~(*N*/*M*), i.e. score higher for terms found in a smaller proportion of documents.
- * Normalisation: For a document with 
+ * Normalisation: need to rerun code
 
  
