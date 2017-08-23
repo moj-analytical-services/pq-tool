@@ -70,13 +70,15 @@ test_that("fetch_questions() calls the API with the correct params", {
   )
 
   with_mock(
-    `file.exists`      = function(filepath)            { TRUE         },
-    `write_csv`        = function(questions, filepath) { NULL         },
-    `last_answer_date` = function()                    { '2017-03-23' },
-    `number_to_fetch`  = function()                    { 1000         },
-    `update_archive`   = function(questions)           { NULL         },
-    `party`            = function(member)              { 'party'      },
-    `jsonlite::fromJSON` = function(actual_API_call) {
+    `file.exists`          = function(filepath)            { TRUE         },
+    `write_csv`            = function(questions, filepath) { NULL         },
+    `last_answer_date`     = function()                    { '2017-03-23' },
+    `number_in_archive`    = function()                    { 1000         },
+    `number_to_fetch`      = function()                    { 1000         },
+    `number_held_remotely` = function()                    { 2000         },
+    `update_archive`       = function(questions)           { NULL         },
+    `party`                = function(member)              { 'party'      },
+    `jsonlite::fromJSON`   = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
       dummy_pqs_api_response
     },
@@ -119,13 +121,14 @@ test_that("fetch_questions() calls the API with the correct params", {
   )
 
   with_mock(
-    `file.exists`     = function(filepath)            { FALSE   },
-    `number_to_fetch` = function()                    { 1000    },
-    `file.create`     = function(filepath)            { NULL    },
-    `write_csv`       = function(questions, filepath) { NULL    },
-    `update_archive`  = function(questions)           { NULL    },
-    `party`           = function(member)              { 'party' },
-    `jsonlite::fromJSON` = function(actual_API_call) {
+    `file.exists`          = function(filepath)            { FALSE   },
+    `number_to_fetch`      = function()                    { 1000    },
+    `number_held_remotely` = function()                    { 1000    },
+    `file.create`          = function(filepath)            { NULL    },
+    `write_csv`            = function(questions, filepath) { NULL    },
+    `update_archive`       = function(questions)           { NULL    },
+    `party`                = function(member)              { 'party' },
+    `jsonlite::fromJSON`   = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
       dummy_pqs_api_response
     },
@@ -137,10 +140,11 @@ test_that("fetch_questions() calls the API with the correct params", {
 test_that("fetch_questions creates an archive file if one does not already exist", {
 
   with_mock(
-    `file.exists`     = function(filepath) { FALSE   },
-    `number_to_fetch` = function()         { 1000    },
-    `party`           = function(memeber)  { 'party' },
-    `jsonlite::fromJSON` = function(actual_API_call) {
+    `file.exists`          = function(filepath) { FALSE   },
+    `number_to_fetch`      = function()         { 1000    },
+    `number_held_remotely` = function()         { 1000    },
+    `party`                = function(memeber)  { 'party' },
+    `jsonlite::fromJSON`   = function(actual_API_call) {
       dummy_pqs_api_response
     },
     `write_csv`      = function(questions, filepath) { NULL },
@@ -160,11 +164,12 @@ test_that("fetch_questions creates an archive file if one does not already exist
 test_that("fetch_questions() downloads new questions and calls the update_archive function", {
 
   with_mock(
-    `file.exists`       = function(filepath) { FALSE   },
-    `number_to_fetch`   = function()         { 3000    },
-    `file.create`       = function(filepath) { NULL    },
-    `party`             = function(member)   { 'party' },
-    `jsonlite::fromJSON` = function(actual_API_call) {
+    `file.exists`          = function(filepath) { FALSE   },
+    `number_to_fetch`      = function()         { 3000    },
+    `number_held_remotely` = function()         { 3000    },
+    `file.create`          = function(filepath) { NULL    },
+    `party`                = function(member)   { 'party' },
+    `jsonlite::fromJSON`   = function(actual_API_call) {
       dummy_pqs_api_response
     },
 

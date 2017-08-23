@@ -169,6 +169,11 @@ Source: CRAN
 Version: 1.2
 Hash: 1290583b9d16fb60322126a8698fb729
 
+Package: compare
+Source: CRAN
+Version: 0.2-6
+Hash: b9aea3450a31bce297fb0a45321002ab
+
 Package: crayon
 Source: CRAN
 Version: 1.3.2
