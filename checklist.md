@@ -18,8 +18,8 @@
 |All non trivial functions are documented using the programming language's accepted standard. For R, use `roxygen2` to document your functions.|✅||
 |**Unit testing**|||
 |Unit tests exist that test the overall codebase, but not individual functions. In R, you should use the [testthat](https://github.com/hadley/testthat) package for unit testing.  You can find examples of how to do unit testing [here](https://github.com/ukgovdatascience/eesectors/tree/master/tests) and [here](https://github.com/RobinL/costmodelr/tree/master/tests)|✅||
-|Unit tests exist at the function level, which test a range of parameters. |✅❌||
-|Your unit testing has reached code coverage of at least 75%|✅❌||
+|Unit tests exist at the function level, which test a range of parameters. |✅||
+|Your unit testing has reached code coverage of at least 75%|❌||
 |**Dependency Management**|||
 |You dependencies are explicitly managed. For R, use packrat|✅||
 |**Packages and versions**|||
