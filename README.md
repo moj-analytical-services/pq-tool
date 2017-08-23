@@ -10,7 +10,23 @@ The tool is written in R and is based on a technique called Latent Semantic Anal
 
 To access the deployed tool within the Ministry of Justice go to https://pq-tool.apps.alpha.mojanalytics.xyz/. If you are not from the MoJ, you can fork and run locally.
 
-##Generating the data
+## Generating and updating the archive of PQs
+### In an R console
+```
+source('./R/apiClient.R')
+# Without feedback
+fetch_questions()
+# With feedback
+fetch_questions(show_progress=TRUE)
+```
+
+- When this function is called for the first time, and no archive exists, it will create archived_pqs.csv in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions
+
+- When an archive already exists, the function will update archived_pqs.csv by appending newly answered questions (downloaded from the same endpoint).
+
+- Variables in BLOCK_CAPITALS are defined in .Rprofile
+
+## Generating the data
 There are three files that create the data, within the data_generators folder.
 1. MoJScraper.R
 Previously we scraped the parliament website to get our data, but now we use the API, so this file is no longer used, but is included for completeness.
