@@ -323,6 +323,7 @@ tdm <- TermDocumentMatrix(
          control = list(
            weighting = function(x) weightSMART(x, spec = "btc")))
 
+
 #Create the latent semantic space. The idea is that it creates a basis of variation, like a PCA, and
 #allows you to cut down the number of dimensions you need. 
 print('Making the LSA')
