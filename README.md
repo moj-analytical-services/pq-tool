@@ -20,7 +20,7 @@ fetch_questions()
 fetch_questions(show_progress=TRUE)
 ```
 
-- When this function is called for the first time, and no archive exists, it will create archived_pqs.csv in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes.
+- When this function is called for the first time, and no archive exists, it will create archived_pqs.csv in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
 
 - When an archive already exists, the function will update archived_pqs.csv by appending newly answered questions (downloaded from the same endpoint).
 
@@ -92,7 +92,7 @@ Input, output and K can also be set individually, but if environment is also set
     # From an R console
     system("Rscript ./data_generators/DataCreator.R -e prod")
 
-    This takes about 11 minutes.
+    This takes about 11 minutes on a 2016 Macbook Pro.
     ```
 3. With specific args
     ```
