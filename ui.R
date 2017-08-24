@@ -218,6 +218,9 @@ navbarPage("PQ Text Analysis",
                                "right",
                                options = list(container = "body")
                              )
+                      ),
+                      column(2,
+                             htmlOutput("memberlink")
                       )
                     ),
                     
