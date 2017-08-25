@@ -324,7 +324,8 @@ PQCorp.stems <- tm_map(cleanCorpus(PQCorp), stemDocument)
 tdm <- TermDocumentMatrix(
          PQCorp.stems,
          control = list(
-           weighting = function(x) weightSMART(x, spec = "btc")))
+           weighting = function(x) weightSMART(x, spec = "btc"),
+           wordLengths = c(2, Inf)))
 
 
 #Create the latent semantic space. The idea is that it creates a basis of variation, like a PCA, and
