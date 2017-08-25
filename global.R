@@ -20,6 +20,7 @@ load(file = "./Data/searchSpace.rda")
 load(file = "./Data/allMPs.rda")
 load(file = "./Data/allTopics.rda")
 
+
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
 setClass("R_date")
@@ -70,15 +71,20 @@ queryVec <- function(query){
     gsub("High Down", "Highdown", .) %>%
     gsub("-", " ", .) %>%
     gsub("<i>|</i>", "", .) %>%
-    gsub("[^(A-Z a-z 0-9 //s)]", "", .) %>%
+    gsub("'", "", .) %>%
+    gsub("[^A-Z a-z 0-9 //s]", " ", .) %>%
     removePunctuation() %>%
     removeWords(c("Justice")) %>%
     tolower() %>%
     gsub("re off", "reoff", .) %>%
+    gsub("post mortem", "postmortem", .) %>%
     gsub("anti ", "anti", .) %>%
     gsub("cross exam", "crossexam", .) %>%
+    gsub("co oper", "cooper", .) %>%
     gsub("socio eco", "socioeco", .) %>%
     gsub("inter ", "inter", .) %>%
+    gsub("non ", "non", .) %>%
+    gsub("pre ", "pre", .) %>%
     gsub("rehabilitaiton", "rehabilitation", .) %>% #included out of completeness to be the same as cleanCorpus
     gsub("organisaiton", "organisation", .) %>% #included out of completeness to be the same as cleanCorpus
     gsub("directive|directives", "drctv", .) %>%

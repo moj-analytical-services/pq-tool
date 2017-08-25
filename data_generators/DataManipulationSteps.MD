@@ -17,27 +17,33 @@ We now follow a series of steps to clean the data. Some of these steps are stand
 
 | Step | Process                                          | Reason                                                                                                                |
 | ---- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| 1    | Swap occurrences of "High Down" with "Highdown"  | So HMP Highdown is not conflated with questions about legal highs                                                     |
-| 2    | Replace hyphens with spaces                      | So "Northern Ireland-related" doesn't become "Northern Irelandrelated" when we remove punctuation later               |
-| 3    | Take out html tags for italics                   | Ensures consistency with the names of companies                                                                       |
-| 4    | Take out all non-alphanumeric symbols            | Standard practice                                                                                                     |
-| 5    | Remove word "Justice"                            | Prevent references to "Secretary of State for Justice" becoming conflated with other uses of "justice"                |
-| 6    | Make all text lower case                         | Standard practice                                                                                                     |
-| 7    | Swap "re off" for "reoff"                        | Make sure variant spellings of reoffending are considered to be the same after step 2's hyphen swap                   |
-| 8    | Swap "anti " for "anti"                          | Make sure variant spellings, e.g. "anti-semitic"/"antisemitic" are considered to be the same                          |
-| 9    | Swap "cross exam" for "crossexam"                | Make sure variant spellings, e.g. "cross-examination"/"crossexamination" are considered to be the same                |
-| 10   | Swap "socio eco" for "socioeco"                  | Make sure variant spellings of socio-economics are considered to be the same                                          |
-| 11   | Swap "inter " for "inter"                        | So we don't get clusters based around the prefix "inter"                                                              |
-| 12   | Swap "rehabilitaiton" for "rehabilitation"       | Correct one-off typo in a question                                                                                    |
-| 13   | Swap "organisaitons" for "organisations"         | Correct one-off typo in a question                                                                                    |
-| 14   | Swap "directive" and "directives" for "drctv"    | Prevent "directive", "directly", and "direction" all becoming identical following stemming step 21                    |
-| 15   | Swap "direction" and "directions" for "drctn"    | Prevent "directive", "directly", and "direction" all becoming identical following stemming step 21                    |
-| 16   | Swap "internal" for "intrnl"                     | Prevent "internal" and "international" becoming identical following stemming step 21                                  |
-| 17   | Swap "probation" for "probatn"                   | Prevent "probation" and "probate" becoming identical following stemming step 21                                       |
-| 18   | Swap "network rail" for "networkrail"            | So Network Rail is seen as distinct from other types of networks                                                      |
-| 19   | Remove bespoke list of stopwords                 | Remove unhelpful common words and parliamentary phrases - see .Rprofile file for complete list of removed words       |
-| 20   | Remove excess white space                        | Clean up                                                                                                              |
-| 21   | Word stemming                                    | Reduce words to their stems using standard algorithm to make sure tenses and cases don't obscure similar meanings     |
+| 1    | Convert to utf-8 and block out everything else   | Deal with encoding                                                                                                    |
+| 2    | Swap occurrences of "High Down" with "Highdown"  | So HMP Highdown is not conflated with questions about legal highs                                                     |
+| 3    | Replace hyphens with spaces                      | So "Northern Ireland-related" doesn't become "Northern Irelandrelated" when we remove punctuation later               |
+| 4    | Take out html tags for italics                   | Ensures consistency with the names of companies                                                                       |
+| 5    | Take out apostrophes                             | So that Majesty's becomes Majestys (which we remove as a stopword)                                                    |
+| 6    | Replace non-alphanumeric symbols with spaces     | Standard practice                                                                                                     |
+| 7    | Remove word "Justice"                            | Prevent references to "Secretary of State for Justice" becoming conflated with other uses of "justice"                |
+| 8    | Make all text lower case                         | Standard practice                                                                                                     |
+| 9    | Swap "re off" for "reoff"                        | Make sure variant spellings of reoffending are considered to be the same after step 2's hyphen swap                   |
+| 10   | Swap "post mortem" for "postmortem"              | So it doesn't get confused with questions about staff in post                                                         |
+| 11   | Swap "anti " for "anti"                          | Make sure variant spellings, e.g. "anti-semitic"/"antisemitic" are considered to be the same                          |
+| 12   | Swap "cross exam" for "crossexam"                | Make sure variant spellings, e.g. "cross-examination"/"crossexamination" are considered to be the same                |
+| 13   | Swap "co oper" for "cooper".                     | Make sure cooperation doesn't get confused with operation (we later remove cooperation as a stopword)                 |
+| 14   | Swap "socio eco" for "socioeco"                  | Make sure variant spellings of socio-economics are considered to be the same                                          |
+| 15   | Swap "inter " for "inter"                        | So we don't get clusters based around the prefix "inter"                                                              |
+| 16   | Swap "non " for "non".                           | So we don't get clusters based around the prefix "non"                                                                |
+| 17   | Swap "pre " for "pre".                           | So we don't get clusters based around the prefix "pre"                                                                |
+| 18   | Swap "rehabilitaiton" for "rehabilitation"       | Correct one-off typo in a question                                                                                    |
+| 19   | Swap "organisaiton" for "organisation"           | Correct one-off typo in a question                                                                                    |
+| 20   | Swap "directive" and "directives" for "drctv"    | Prevent "directive", "directly", and "direction" all becoming identical following stemming step 21                    |
+| 21   | Swap "direction" and "directions" for "drctn"    | Prevent "directive", "directly", and "direction" all becoming identical following stemming step 21                    |
+| 22   | Swap "internal" for "intrnl"                     | Prevent "internal" and "international" becoming identical following stemming step 21                                  |
+| 23   | Swap "probation" for "probatn"                   | Prevent "probation" and "probate" becoming identical following stemming step 21                                       |
+| 24   | Swap "network rail" for "networkrail"            | So Network Rail is seen as distinct from other types of networks                                                      |
+| 25   | Remove bespoke list of stopwords                 | Remove unhelpful common words and parliamentary phrases - see .Rprofile file for complete list of removed words       |
+| 26   | Remove excess white space                        | Clean up                                                                                                              |
+| 27   | Word stemming                                    | Reduce words to their stems using standard algorithm to make sure tenses and cases don't obscure similar meanings     |
 
 Having done this processing we now have a list of cleaned up and boiled down PQs which we turn into a term-document matrix. Our weighting scheme is as follows:
 
