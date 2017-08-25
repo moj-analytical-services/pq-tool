@@ -418,6 +418,28 @@ function(input, output, session) {
               min.freq = 0.1)
   )
   
+  
+  
+  linkText <- reactive({
+    paste0("TheyWorkForYouPage for ",
+           input$person_choice)
+  })
+  
+  linkURL <- reactive({
+    paste0("https://www.theyworkforyou.com/",
+           if(input$member_analysis=="Commons"){
+             "mp/"
+           } else {
+             "peer/"
+           },
+           urlName(input$person_choice)
+           )
+  })
+  
+  output$memberlink <- renderUI({
+    tags$a(href = linkURL(), target="_blank", linkText())
+  })
+  
   addPopover(session, "member_wordcloud", "Wordcloud",
              content = paste0("This wordcloud shows the words that are most important in the questions asked by this
                               member.<br><br> The bigger the word, the more important it is."),

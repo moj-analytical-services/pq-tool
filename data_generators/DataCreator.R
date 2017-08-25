@@ -288,6 +288,12 @@ nameCleaner <- function(name){
   else if (name == "Soames, Nicholas"){
     name <- "Soames, Sir Nicholas"
   }
+  else if (name == "Roberts, Liz Saville"){
+    name <- "Saville Roberts, Liz"
+  }
+  else if (name == "Bailey, Rebecca Long"){
+    name <- "Long Bailey, Rebecca"
+  }
   name
 }
 
