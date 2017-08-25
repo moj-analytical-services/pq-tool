@@ -20,6 +20,7 @@ load(file = "./Data/searchSpace.rda")
 load(file = "./Data/allMPs.rda")
 load(file = "./Data/allTopics.rda")
 
+
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
 setClass("R_date")
@@ -65,31 +66,64 @@ vocab <- search.space$dimnames[[1]]
 #If you change this you also need to change cleanCorpus function in
 #the dataCreator.R file
 
-queryVec <- function(query){
-  query <- query %>% iconv(to = "utf-8", sub = "") %>%
+cleanPQ <- function(PQ){
+  PQ <- PQ %>% iconv(to = "utf-8", sub = "") %>%
+    #inelegant special cleaning steps 1
+    #ensure High Down doesn't get confused with Legal Highs
     gsub("High Down", "Highdown", .) %>%
     gsub("-", " ", .) %>%
     gsub("<i>|</i>", "", .) %>%
-    gsub("[^(A-Z a-z 0-9 //s)]", "", .) %>%
-    removePunctuation() %>%
+    gsub("'", "", .) %>%
+    gsub("[^A-Z a-z 0-9 //s]", " ", .) %>%
+    #we now remove Justice with a capital J here before the transformation to lower
+    #case, because this deals with the fact that a lot of questions start with "To ask
+    #the Secretary of State for Justice" without losing potential information about eg
+    #access to justice related questions
     removeWords(c("Justice")) %>%
     tolower() %>%
+    #inelegant special cleaning steps 2
+    #put "re-offending" and "reoffending" together
     gsub("re off", "reoff", .) %>%
+    #put "post-morterm" and "postmortem" together
+    sub("post mortem", "postmortem", .) %>%
+    #anti- always part of the word that follows it,
+    #eg antisemitism not anti-semitism
     gsub("anti ", "anti", .) %>%
+    #ditto for cross-examination
     gsub("cross exam", "crossexam", .) %>%
+    #ditto for co-operation
+    gsub("co oper", "cooper", .) %>%
+    #ditto for socio-economic
     gsub("socio eco", "socioeco", .) %>%
+    #ditto for inter-library and inter-parliamentary
     gsub("inter ", "inter", .) %>%
-    gsub("rehabilitaiton", "rehabilitation", .) %>% #included out of completeness to be the same as cleanCorpus
-    gsub("organisaiton", "organisation", .) %>% #included out of completeness to be the same as cleanCorpus
+    #ditto for non-profit, non-molestation, non-payroll, etc
+    gsub("non ", "non", .) %>%
+    #ditto for pre-nuptial, pre-recorded, etc
+    gsub("pre ", "pre", .) %>%
+    #correct one-off spelling mistakes in data
+    gsub("rehabilitaiton", "rehabilitation", .) %>%
+    gsub("organisaiton", "organisation", .) %>%
+    #issue with "directive" and "direction" being stemmed to the same thing.
     gsub("directive|directives", "drctv", .) %>%
     gsub("direction|directions", "drctn", .) %>%
+    #issue with "internal" and "international" being stemmed to the same thing (!).
     gsub("internal", "intrnl", .) %>%
+    #replace instances of the word "probation" with "probatn" to avoid the
+    #issue with "probate" and "probation" being stemmed to the same thing.
     gsub("probation", "probatn", .) %>%
+    #make sure Network Rail is seen as distinct from other mentions of network
     gsub("network rail", "networkrail", .) %>%
     removeWords(c(stopwords(), JUSTICE_STOP_WORDS)) %>%
-    stripWhitespace() %>%
+    stripWhitespace()
+}
+
+queryVec <- function(query){
+  query <- query %>%
+    cleanPQ() %>%
+    stemDocument() %>%
     strsplit(" ") %>%
-    sapply(stemDocument) %>%
+    unlist() %>%
     (function(vec){
       return(vec[sapply(vec, function(x) x %in% vocab)])
     })

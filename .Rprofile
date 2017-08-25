@@ -26,7 +26,9 @@ JUSTICE_STOP_WORDS <- c(
   "improve",
   "forward",
   "discussions",
-  "taken", "recent"
+  "taken", "recent",
+  "cooperation",
+  "matters"
 
 )
 source("packrat/init.R")

@@ -96,69 +96,64 @@ file <- opt$input_file
 
 #FUNCTIONS
 
-#a function to clean a corpus of text, making sure of the encoding, removing punctuation, putting it
-#all in lower case, stripping white space, and removing stopwords.
-#If you update this you also need to update queryVec in global.R to be in line with any changes, so
-#that we are consistent in how we are treating search text and PQ text.
-cleanCorpus <- function(corp) {
-  corp <- corp %>%
-    tm_map(
-      content_transformer(
-        function(x) iconv(x, to = "utf-8", sub = ""))
-    ) %>%
+#cleans PQs, making sure of the encoding, removing punctuation, putting it
+#all in lower case, stripping white space, and removing stopwords. Plus a
+#couple of phases of inelegant special cleaning dealing with specific cases.
+
+cleanPQ <- function(PQ){
+  PQ <- PQ %>% iconv(to = "utf-8", sub = "") %>%
     #inelegant special cleaning steps 1
     #ensure High Down doesn't get confused with Legal Highs
-    tm_map(function(x) gsub("High Down", "Highdown", x)) %>%
-    #replace hyphens with spaces
-    tm_map(function(x) gsub("-", " ", x)) %>%
-    #take out italic html tags wholesale
-    tm_map(function(x) gsub("<i>|</i>", "", x)) %>%
-    #get rid of all other non-alphanumeric symbols
-    tm_map(function(x) gsub("[^(A-Z a-z 0-9 //s)]", "", x)) %>%
+    gsub("High Down", "Highdown", .) %>%
+    gsub("-", " ", .) %>%
+    gsub("<i>|</i>", "", .) %>%
+    gsub("'", "", .) %>%
+    gsub("[^A-Z a-z 0-9 //s]", " ", .) %>%
     #we now remove Justice with a capital J here before the transformation to lower
     #case, because this deals with the fact that a lot of questions start with "To ask
     #the Secretary of State for Justice" without losing potential information about eg
     #access to justice related questions
-    tm_map(function(x) removeWords(x, c("Justice"))) %>%
-    tm_map(content_transformer(tolower)) %>%
+    removeWords(c("Justice")) %>%
+    tolower() %>%
     #inelegant special cleaning steps 2
     #put "re-offending" and "reoffending" together
-    tm_map(function(x) gsub("re off", "reoff", x)) %>%
+    gsub("re off", "reoff", .) %>%
+    #put "post-morterm" and "postmortem" together
+    sub("post mortem", "postmortem", .) %>%
     #anti- always part of the word that follows it,
     #eg antisemitism not anti-semitism
-    tm_map(function(x) gsub("anti ", "anti", x)) %>%
+    gsub("anti ", "anti", .) %>%
     #ditto for cross-examination
-    tm_map(function(x) gsub("cross exam", "crossexam", x)) %>%
+    gsub("cross exam", "crossexam", .) %>%
+    #ditto for co-operation
+    gsub("co oper", "cooper", .) %>%
     #ditto for socio-economic
-    tm_map(function(x) gsub("socio eco", "socioeco", x)) %>%
+    gsub("socio eco", "socioeco", .) %>%
     #ditto for inter-library and inter-parliamentary
-    tm_map(function(x) gsub("inter ", "inter", x)) %>%
+    gsub("inter ", "inter", .) %>%
+    #ditto for non-profit, non-molestation, non-payroll, etc
+    gsub("non ", "non", .) %>%
+    #ditto for pre-nuptial, pre-recorded, etc
+    gsub("pre ", "pre", .) %>%
     #correct one-off spelling mistakes in data
-    tm_map(function(x) gsub("rehabilitaiton", "rehabilitation", x)) %>%
-    tm_map(function(x) gsub("organisaitons", "organisation", x)) %>%
+    gsub("rehabilitaiton", "rehabilitation", .) %>%
+    gsub("organisaiton", "organisation", .) %>%
     #issue with "directive" and "direction" being stemmed to the same thing.
-    tm_map(content_transformer(
-      function(x) gsub("directive|directives", "drctv", x))
-    ) %>%
-    tm_map(content_transformer(
-      function(x) gsub("direction|directions", "drctn", x))
-    ) %>%
+    gsub("directive|directives", "drctv", .) %>%
+    gsub("direction|directions", "drctn", .) %>%
     #issue with "internal" and "international" being stemmed to the same thing (!).
-    tm_map(content_transformer(
-      function(x) gsub("internal", "intrnl", x))
-    ) %>%
+    gsub("internal", "intrnl", .) %>%
     #replace instances of the word "probation" with "probatn" to avoid the
     #issue with "probate" and "probation" being stemmed to the same thing.
-    tm_map(content_transformer(
-      function(x) gsub("probation", "probatn", x))
-    ) %>%
-    #make sure Network Rail is seen as distinct form other mentions of network
-    tm_map(content_transformer(
-      function(x) gsub("network rail", "networkrail", x))
-    ) %>%
-    # JUSTICE_STOP_WORDS assigned in .Rprofile
-    tm_map(function(x) removeWords(x, c(stopwords(), JUSTICE_STOP_WORDS))) %>%
-    tm_map(stripWhitespace)
+    gsub("probation", "probatn", .) %>%
+    #make sure Network Rail is seen as distinct from other mentions of network
+    gsub("network rail", "networkrail", .) %>%
+    removeWords(c(stopwords(), JUSTICE_STOP_WORDS)) %>%
+    stripWhitespace()
+}
+
+cleanCorpus <- function(corp) {
+  corp <- corp %>% tm_map(function(x) cleanPQ(x))
 }
 
 #a function useful in debugging so you can read a given document in a given corpus easily
@@ -211,6 +206,8 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
   names(termsAndSumsN) <- gsub("probabl", "probability", names(termsAndSumsN))
   #replace "networkrail" with "network rail"
   names(termsAndSumsN) <- gsub("networkrail", "network rail", names(termsAndSumsN))
+  #replace "disabl" with "disability" (for clusters where the word disabled isn't present)
+  names(termsAndSumsN) <- gsub("disabl", "disability", names(termsAndSumsN))
   
   termsAndSumsN
 }
@@ -327,7 +324,8 @@ PQCorp.stems <- tm_map(cleanCorpus(PQCorp), stemDocument)
 tdm <- TermDocumentMatrix(
          PQCorp.stems,
          control = list(
-           weighting = function(x) weightSMART(x, spec = "btc")))
+           weighting = function(x) weightSMART(x, spec = "btc"),
+           wordLengths = c(2, Inf)))
 
 
 #Create the latent semantic space. The idea is that it creates a basis of variation, like a PCA, and
