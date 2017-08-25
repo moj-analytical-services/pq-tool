@@ -101,6 +101,8 @@ cleanPQ <- function(PQ){
     gsub("non ", "non", .) %>%
     #ditto for pre-nuptial, pre-recorded, etc
     gsub("pre ", "pre", .) %>%
+    #ditto for ex-offenders, etc
+    gsub(" ex ", " ex", .) %>%
     #correct one-off spelling mistakes in data
     gsub("rehabilitaiton", "rehabilitation", .) %>%
     gsub("organisaiton", "organisation", .) %>%

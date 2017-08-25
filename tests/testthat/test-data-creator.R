@@ -24,13 +24,16 @@ test_that('otherwise, removes excess whitespace and formats: surname, firstname 
 })
 
 test_that('deals with some special cases and duplicated entries', {
+  expect_equal(nameCleaner('Sir David Amess'), 'Amess, Sir David')
   expect_equal(nameCleaner('Sir Hugh Bayley'), 'Bayley, Sir Hugh')
   expect_equal(nameCleaner('Dr Roberta Blackman-Woods'), 'Blackman-Woods, Dr Roberta')
+  expect_equal(nameCleaner('Nick de Bois'), 'de Bois, Nick')
   expect_equal(nameCleaner('Sir Simon Burns'),'Burns, Sir Simon')
+  expect_equal(nameCleaner('Sir David Crausby'),'Crausby, Sir David')
+  expect_equal(nameCleaner('Graham P Jones'), 'Jones, Graham')
   expect_equal(nameCleaner('Ian C. Lucas'), 'Lucas, Ian')
   expect_equal(nameCleaner('Grahame M. Morris'), 'Morris, Grahame')
   expect_equal(nameCleaner('Gloria De Piero'), 'De Piero, Gloria')
-  expect_equal(nameCleaner('Nick de Bois'), 'de Bois, Nick')
   expect_equal(nameCleaner('Sir Nicholas Soames'), 'Soames, Sir Nicholas')
 })
 

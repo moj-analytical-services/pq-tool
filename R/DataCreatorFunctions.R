@@ -47,6 +47,9 @@ cleanPQ <- function(PQ){
     gsub("non ", "non", .) %>%
     #ditto for pre-nuptial, pre-recorded, etc
     gsub("pre ", "pre", .) %>%
+    #ditto for ex-offenders, etc, while not accidentally doing
+    #is for Essex probation
+    gsub(" ex ", " ex", .) %>%
     #correct one-off spelling mistakes in data
     gsub("rehabilitaiton", "rehabilitation", .) %>%
     gsub("organisaiton", "organisation", .) %>%
@@ -173,14 +176,26 @@ nameCleaner <- function(name){
   #now a series of horrible inelegant special cases
   #covering issues like MPs being in the list twice
   #or whatever
-  if (name == "Bayley, Hugh"){
+  if (name == "Amess, David"){
+    name <- "Amess, Sir David"
+  }
+  else if (name == "Bayley, Hugh"){
     name <- "Bayley, Sir Hugh"
   }
   else if (name == "Blackman-Woods, Roberta"){
     name <- "Blackman-Woods, Dr Roberta"
   }
+  else if (name == "Bois, Nick de"){
+    name <- "de Bois, Nick"
+  }
   else if (name == "Burns, Simon"){
     name <- "Burns, Sir Simon"
+  }
+  else if (name == "Crausby, David"){
+    name <- "Crausby, Sir David"
+  }
+  else if (name == "Jones, Graham P"){
+    name <- "Jones, Graham"
   }
   else if (name == "Lucas, Ian C."){
     name <- "Lucas, Ian"
@@ -191,8 +206,8 @@ nameCleaner <- function(name){
   else if (name == "Piero, Gloria De"){
     name <- "De Piero, Gloria"
   }
-  else if (name == "Bois, Nick de"){
-    name <- "de Bois, Nick"
+  else if (name == "Poulter, Dr"){
+    name <- "Poulter, David"
   }
   else if (name == "Soames, Nicholas"){
     name <- "Soames, Sir Nicholas"
