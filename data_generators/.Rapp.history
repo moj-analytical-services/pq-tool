@@ -1,2 +1,0 @@
-load("/Users/admin/Documents/PQtools/Data generators/medianpercluster.rda")
-load("/Users/admin/Documents/PQtools/Data generators/silhouettewidths.rda")
