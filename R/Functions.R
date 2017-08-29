@@ -209,7 +209,7 @@ nameCleaner <- function(name){
     name <- "De Piero, Gloria"
   }
   else if (name == "Poulter, Dr"){
-    name <- "Poulter, David"
+    name <- "Poulter, Daniel"
   }
   else if (name == "Soames, Nicholas"){
     name <- "Soames, Sir Nicholas"
