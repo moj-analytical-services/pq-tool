@@ -132,7 +132,7 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
 #This gets the length of a vector
 normVec <- function(vec){
              return(sqrt(sum(vec^2)))
-           }
+  }
 
 #This normalises the lengths of a matrix to length 1
 normalize <- function(mat){
