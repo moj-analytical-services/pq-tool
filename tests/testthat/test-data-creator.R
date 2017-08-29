@@ -51,7 +51,7 @@ context('summarise')
 test_that('Summarises top 12 terms per cluster', {
   matrix    <- readRDS('./examples/data/matrix.rda')
   hierarchy <- readRDS('./examples/data/clustering_hierarchy.rda')
-  questions <- read_csv('./examples/data/lsa_training_sample.csv')$Question_Text
+  questions <- read.csv('./examples/data/lsa_training_sample.csv')$Question_Text
   actual    <- summarise(type = 'cluster', 1, matrix, hierarchy, 12, questions, 100)
   expected  <- readRDS('./examples/data/cluster_one_summary.rda')
   expect_equal(actual, expected)
