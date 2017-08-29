@@ -221,7 +221,7 @@ nameCleaner <- function(name){
 #Functions for shinyapp
 #note shinyapp also uses cleanPQ function from above
 
-queryVec <- function(query){
+queryVec <- function(query, vocab){
   query <- query %>%
     cleanPQ() %>%
     stemDocument() %>%

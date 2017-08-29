@@ -7,7 +7,7 @@ function(input, output, session) {
   ### Similarity Pane
   returnNearestMatches <- reactive({
     space <- search.space
-    foundWords <- which(space$i %in% queryVec(input$question))
+    foundWords <- which(space$i %in% queryVec(input$question, vocab))
     if(length(foundWords)==0){
       return("Unable to determine similarity to query")
     }
