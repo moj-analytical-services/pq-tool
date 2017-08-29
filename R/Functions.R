@@ -7,6 +7,8 @@ library(stringr)
 
 #FUNCTIONS
 
+#Data Creator functions
+
 #a function to clean a corpus of text, making sure of the encoding, removing punctuation, putting it
 #all in lower case, stripping white space, and removing stopwords.
 #If you update this you also need to update queryVec in global.R to be in line with any changes, so
@@ -214,3 +216,50 @@ nameCleaner <- function(name){
   }
   name
 }
+
+
+#Functions for shinyapp
+#note shinyapp also uses cleanPQ function from above
+
+queryVec <- function(query){
+  query <- query %>%
+    cleanPQ() %>%
+    stemDocument() %>%
+    strsplit(" ") %>%
+    unlist() %>%
+    (function(vec){
+      return(vec[sapply(vec, function(x) x %in% vocab)])
+    })
+  return(which(vocab %in% query))
+}
+
+familyName <- function(name){
+  commaPosn <- regexpr(",", name) %>% as.vector()
+  substr(name, 1, commaPosn-1)
+}
+
+firstName <- function(name){
+  commaPosn <- regexpr(",", name) %>% as.vector()
+  substr(name, commaPosn+2, nchar(name))
+}
+
+urlName <- function(name){
+  fn <- firstName(name)
+  if(
+    grepl(
+      "Lord|Lady|The|Baroness|Baron|Viscount",
+      name
+    )){
+    name %>%
+      gsub("The ", "", .) %>%
+      gsub("Lord Bishop", "Bishop", .) %>%
+      gsub(" ", "_", .)
+  } else {
+    paste0(firstName(name), "_", familyName(name), sep="") %>%
+      gsub("Dr |Sir ", "", .) %>%
+      gsub("de ", "de_", .) %>%
+      gsub(" ", "-", .)
+  }
+}
+
+
