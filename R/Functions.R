@@ -244,20 +244,22 @@ firstName <- function(name){
 }
 
 urlName <- function(name){
-  fn <- firstName(name)
+  #first take out peers
   if(
-    grepl(
-      "Lord|Lady|The|Baroness|Baron|Viscount",
+    !grepl(
+      ",",
       name
     )){
     name %>%
       gsub("The ", "", .) %>%
       gsub("Lord Bishop", "Bishop", .) %>%
       gsub(" ", "_", .)
-  } else {
+  } #now deal with MPs
+  else {
     paste0(firstName(name), "_", familyName(name), sep="") %>%
       gsub("Dr |Sir ", "", .) %>%
       gsub("de ", "de_", .) %>%
+      gsub("De ", "De_", .) %>%
       gsub(" ", "-", .)
   }
 }

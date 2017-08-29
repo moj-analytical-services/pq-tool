@@ -82,3 +82,40 @@ test_that('normalises the lengths of a matrix to length 1', {
   expected <- readRDS('./examples/data/normalised_matrix.rda')
   expect_equal(actual, expected)
 })
+
+context("queryVec")
+
+test_that("returns vector of numbers representing indices in vocab", {
+  load(file = "./examples/data/searchSpace.rda")
+  vocab <- search.space$dimnames[[1]]
+  actual <- indices <- queryVec("prison officer")
+  expected <- c(38, 303)
+  expect_equal(actual, expected)
+})
+
+context("familyName")
+
+test_that("returns expected family name", {
+  expect_equal(familyName("Abbott, Diane"), "Abbott")
+  expect_equal(familyName("Fox, Dr Liam"), "Fox")
+  expect_equal(familyName("De Piero, Gloria"), "De Piero")
+})
+
+context("firstName")
+
+test_that("returns expected first name", {
+  expect_equal(firstName("Abbott, Diane"), "Diane")
+  expect_equal(firstName("Fox, Dr Liam"), "Dr Liam")
+  expect_equal(firstName("De Piero, Gloria"), "Gloria")
+})
+
+context("urlName")
+
+test_that("returns expected first name", {
+  expect_equal(urlName("Abbott, Diane"), "Diane_Abbott")
+  expect_equal(urlName("Fox, Dr Liam"), "Liam_Fox")
+  expect_equal(urlName("De Piero, Gloria"), "Gloria_De_Piero")
+  expect_equal(urlName("The Lord Bishop of Rochester"), "Bishop_of_Rochester")
+  expect_equal(urlName("Baroness Armstrong of Hill Top"), "Baroness_Armstrong_of_Hill_Top")
+})
+
