@@ -34,6 +34,7 @@ test_that("deals with some special cases and duplicated entries", {
   expect_equal(nameCleaner("Ian C. Lucas"), "Lucas, Ian")
   expect_equal(nameCleaner("Grahame M. Morris"), "Morris, Grahame")
   expect_equal(nameCleaner("Gloria De Piero"), "De Piero, Gloria")
+  expect_equal(nameCleaner("Liz Saville Roberts"), "Saville Roberts, Liz")
   expect_equal(nameCleaner("Sir Nicholas Soames"), "Soames, Sir Nicholas")
 })
 
@@ -114,6 +115,7 @@ test_that("returns expected first name", {
   expect_equal(urlName("Abbott, Diane"), "Diane_Abbott")
   expect_equal(urlName("Fox, Dr Liam"), "Liam_Fox")
   expect_equal(urlName("De Piero, Gloria"), "Gloria_De_Piero")
+  expect_equal(urlName("Saville Roberts, Liz"), "Liz_Saville-Roberts")
   expect_equal(urlName("The Lord Bishop of Rochester"), "Bishop_of_Rochester")
   expect_equal(urlName("Baroness Armstrong of Hill Top"), "Baroness_Armstrong_of_Hill_Top")
 })
