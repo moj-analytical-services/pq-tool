@@ -211,6 +211,9 @@ nameCleaner <- function(name){
   else if (name == "Poulter, Dr"){
     name <- "Poulter, Daniel"
   }
+  else if (name == "Roberts, Liz Saville"){
+    name <- "Saville Roberts, Liz"
+  }
   else if (name == "Soames, Nicholas"){
     name <- "Soames, Sir Nicholas"
   }
@@ -245,23 +248,79 @@ firstName <- function(name){
 
 urlName <- function(name){
   #first take out peers
-  if(
+  if (
     !grepl(
       ",",
       name
     )){
-    name %>%
+    urlName <- name %>%
       gsub("The ", "", .) %>%
       gsub("Lord Bishop", "Bishop", .) %>%
       gsub(" ", "_", .)
   } #now deal with MPs
   else {
-    paste0(firstName(name), "_", familyName(name), sep="") %>%
+    urlName <- paste0(firstName(name), "_", familyName(name), sep="") %>%
       gsub("Dr |Sir ", "", .) %>%
       gsub("de ", "de_", .) %>%
       gsub("De ", "De_", .) %>%
       gsub(" ", "-", .)
   }
+  #special cleaning
+  if (name == "Ashworth, Jonathan"){
+    urlName <- "Jon_Ashworth"
+  }
+  else if (name == "Baker, Steve"){
+    urlName <- "Steven_Baker"
+  }
+  else if (name == "Brown, Nicholas"){
+    urlName <- "Nick_Brown"
+  }
+  else if (familyName(name) == "Coffey"){
+    urlName <- "Therese_Coffey"
+  }
+  else if (name == "Dakin, Nic"){
+    urlName <- "Nicholas_Dakin"
+  }
+  else if (name == "Davies, David T.C."){
+    urlName <- "David_Davies/Monmouth"
+  }
+  else if (name == "Docherty-Hughes, Martin"){
+    urlName <- "Martin_Docherty"
+  }
+  else if (name == "Donaldson, Stuart Blair"){
+    urlName <- "Stuart_Donaldson"
+  }
+  else if (name == "Flello, Robert"){
+    urlName <- "Rob_Flello"
+  }
+  else if (name == "Johnson, Diana"){
+    urlName <- "11647" #using her number seems easiest here
+  }
+  else if (name == "Jones, Susan Elan"){
+    urlName <- "Susan_Elan_Jones"
+  }
+  else if (name == "Lady Hermon"){
+    urlName <- "Sylvia_Hermon"
+  }
+  else if (name == "Leslie, Chris"){
+    urlName <- "10354" #using his number seems easiest here
+  }
+  else if (name == "Matheson, Christian"){
+    urlName <- "Chris_Matheson"
+  }
+  else if (name == "McDonnell, John"){
+    urlName <- "John_Martin_McDonnell"
+  }
+  else if (name == "Pound, Stephen"){
+    urlName <- "Steve_Pound"
+  }
+  else if (name == "Shah, Naseem"){
+    urlName <- "Naz_Shah"
+  }
+  else if (name == "Slaughter, Andy"){
+    urlName <- "Andrew_Slaughter"
+  }
+  urlName
 }
 
 
