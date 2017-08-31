@@ -328,7 +328,7 @@ function tidy_table(){
 }
  
  function codeAddress() {
-    alert("Welcome! Just a quick reminder that I cannot be run in Internet Explorer, try Chrome or Firefox instead")
+    alert("Welcome! Just a quick reminder that I cannot be run in Internet Explorer, try Mozille Firefox or Google Chrome instead.")
   }
 
   window.onload = codeAddress;
