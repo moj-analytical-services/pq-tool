@@ -268,11 +268,11 @@ function(input, output, session) {
       split them into different groups, or 'topics', with each group containing questions related to  
       similar issues. For each topic there is a set of three 'Topic Keywords' to give an idea of what 
       the topic is about. <br><br>
-      Each of these topics have also been assigned a number as a unique identifier. To to find  
-      out about your chosen topic is, go to the 'Search' tab and, once you have entered your search 
+      Each of these topics have also been assigned a number as a unique identifier. To find  
+      out about your chosen topic, go to the 'Search' tab and, once you have entered your search 
       terms, take one of the topic numbers listed in the table and put it into the dropdown box on this 
       tab. Or if that sounds like too much work, just click the question you are focusing on followed by
-      the 'View Topic' button ."),
+      the 'View Topic' button."),
       easyClose = TRUE,
       footer = NULL
     ))
@@ -329,7 +329,7 @@ function(input, output, session) {
   
   addPopover(session, "topic_plot", "Questions plotted over time",
              content = paste0("This plot shows when questions in the topic were asked. <br><br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic."),
-             trigger = 'hover', placement = 'top', options = list(container = "body"))
+             trigger = 'hover', placement = 'left', options = list(container = "body"))
   
   output$topic_documents <- renderDataTable({
     datatable(
@@ -483,7 +483,7 @@ function(input, output, session) {
   
   addPopover(session, "member_plot", "Questions plotted over time",
              content = paste0("This plot shows when the selected MP/peer tabled written questions <br><br> Each bar shows the number of questions tabled by the MP/peer in a particular fortnight - the higher the bar, the more questions."),
-             trigger = 'hover', placement = 'top', options = list(container = "body"))
+             trigger = 'hover', placement = 'left', options = list(container = "body"))
   
   output$member_table <- renderDataTable({
     datatable(
