@@ -326,6 +326,13 @@ function tidy_table(){
         table_entries[i].innerHTML = a_text.format_html();
     }
 }
+ 
+ function codeAddress() {
+    alert("Welcome! Just a quick reminder that I cannot be run in Internet Explorer, try Chrome or Firefox instead")
+  }
 
+  window.onload = codeAddress;
+
+//Walkthrough fixing
 
 
