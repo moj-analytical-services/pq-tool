@@ -10,7 +10,7 @@
 # browser     <- remDr$sessionInfo$browserName
 # appURL      <- "http://127.0.0.1:8888"
 # 
-# test_that("entering search terms returns 10 questions per page", {  
+# test_that("entering search terms returns 10 questions per page", {
 #   remDr$setImplicitWaitTimeout(10000)
 #   remDr$navigate(appURL)
 #   searchBox  <- remDr$findElement("css selector", "#question")
