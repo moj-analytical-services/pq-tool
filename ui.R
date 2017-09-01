@@ -6,7 +6,7 @@ searchTextEntered = "input.question.length > 0"
 tableHasRows      = "document.getElementsByClassName('dataTables_empty').length < 1"
 topicChosen       = "input.topic_choice.length > 0"
 
-navbarPage("PQ Text Analysis",
+navbarPage("MoJ Parliamentary Analysis Tool",
            theme = shinytheme("spacelab"),
            footer = column(12, helpText(
              "Love the tool? Hate it? Got a suggestion to improve it? Found a bug? We'd love to hear from you",
