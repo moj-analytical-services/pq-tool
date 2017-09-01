@@ -327,11 +327,11 @@ function tidy_table(){
     }
 }
  
- function codeAddress() {
-    alert("Welcome! Just a quick reminder that I cannot be run in Internet Explorer, try Mozille Firefox or Google Chrome instead.")
-  }
+ //function codeAddress() {
+//    alert("Welcome! Just a quick reminder that I cannot be run in Internet Explorer, try Mozille Firefox or Google Chrome instead.")
+//  }
 
-  window.onload = codeAddress;
+//  window.onload = codeAddress;
 
 //Walkthrough fixing
 
