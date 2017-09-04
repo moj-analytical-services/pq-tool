@@ -77,7 +77,7 @@ test_that("fetch_questions() calls the API with the correct params", {
     `number_to_fetch`      = function()                    { 1000         },
     `number_held_remotely` = function()                    { 2000         },
     `update_archive`       = function(questions)           { NULL         },
-    `party`                = function(member)              { 'party'      },
+    `get_party`            = function(member)              { 'party'      },
     `jsonlite::fromJSON`   = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
       dummy_pqs_api_response
@@ -127,7 +127,7 @@ test_that("fetch_questions() calls the API with the correct params", {
     `file.create`          = function(filepath)            { NULL    },
     `write_csv`            = function(questions, filepath) { NULL    },
     `update_archive`       = function(questions)           { NULL    },
-    `party`                = function(member)              { 'party' },
+    `get_party`            = function(member)              { 'party' },
     `jsonlite::fromJSON`   = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
       dummy_pqs_api_response
@@ -143,7 +143,7 @@ test_that("fetch_questions creates an archive file if one does not already exist
     `file.exists`          = function(filepath) { FALSE   },
     `number_to_fetch`      = function()         { 1000    },
     `number_held_remotely` = function()         { 1000    },
-    `party`                = function(memeber)  { 'party' },
+    `get_party`            = function(memeber)  { 'party' },
     `jsonlite::fromJSON`   = function(actual_API_call) {
       dummy_pqs_api_response
     },
@@ -168,7 +168,7 @@ test_that("fetch_questions() downloads new questions and calls the update_archiv
     `number_to_fetch`      = function()         { 3000    },
     `number_held_remotely` = function()         { 3000    },
     `file.create`          = function(filepath) { NULL    },
-    `party`                = function(member)   { 'party' },
+    `get_party`            = function(member)   { 'party' },
     `jsonlite::fromJSON`   = function(actual_API_call) {
       dummy_pqs_api_response
     },
@@ -192,34 +192,34 @@ test_that("fetch_questions() stops and raises an error if there are no new qs to
   )
 })
 
-context('party')
+context('get_party')
 
-test_that('party() cannot retrieve party for members of HoL', {
+test_that('get_party() cannot retrieve party for members of HoL', {
 
   hol_parties <- c(
-    party('Lord Someone'),
-    party('Viscount Someone'),
-    party('Baroness Someone'),
-    party('Earl someone'),
-    party('Marquess someone')
+    get_party('Lord Someone'),
+    get_party('Viscount Someone'),
+    get_party('Baroness Someone'),
+    get_party('Earl someone'),
+    get_party('Marquess someone')
   )
 
   expect_true( all(hol_parties %in% 'Not found') )
 })
 
-test_that('party() can return the party for people whose name includes Lord', {
+test_that('get_party() can return the party for people whose name includes Lord', {
 
   with_mock(
     `fromJSON` = function(actual_API_call) {
       dummy_member_api_response()
     },
-    member_party <- party('Someone Lord'),
+    member_party <- get_party('Someone Lord'),
     expect_equal(member_party, 'Party')
   )
 
 })
 
-test_that('party() calls the API with the correct params', {
+test_that('get_party() calls the API with the correct params', {
 
   member_endpoint   <- 'http://lda.data.parliament.uk/members.json'
   first             <- 'Firstname'
@@ -233,9 +233,9 @@ test_that('party() calls the API with the correct params', {
       expect_equal(expected_API_call, actual_API_call)
       dummy_member_api_response()
     },
-    party('Mrs Firstname Surname'),
-    party('Mr Firstname Surname'),
-    party('Ms Firstname Surname')
+    get_party('Mrs Firstname Surname'),
+    get_party('Mr Firstname Surname'),
+    get_party('Ms Firstname Surname')
   )
 
 })

@@ -57,7 +57,7 @@ update_archive <- function(questions_tibble) {
   write_csv(updated_archive, ARCHIVE_FILEPATH)
 }
 
-party <- function(member) {
+get_party <- function(member) {
   upper_house_titles <- c('Lord', 'Baroness', 'Earl', 'Viscount', 'Marquess')
 
   member <- gsub('Mr |Ms |Mrs ', '', member)
