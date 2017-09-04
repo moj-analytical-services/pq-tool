@@ -44,6 +44,7 @@ function(input, output, session) {
       'Similarity_score',
       'Rank',
       'Question_MP',
+      'MP_Party',
       'Date',
       'Answer_Date',
       'Topic',
@@ -80,13 +81,13 @@ function(input, output, session) {
                         Scores = Scores))
     })
   })
-  
+
   output$similarity_table <- renderDataTable({
     datatable(
       cbind(' ' = '&oplus;', plot_points()), escape = -2,
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 2, 3, 4)),
+          list(visible = FALSE, targets = c(0, 2, 3, 4, 9, 10)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
         deferRender = TRUE,
@@ -106,7 +107,7 @@ function(input, output, session) {
       caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:"
     )
   })
-  
+
   addPopover(session, "similarity_table", "What does this table show?",
              content = paste0("<p> This table shows the past written PQs that are most similar to your search (the most",
                               " similar questions are at the top). </p><p> You can click any row to see the question text,",
@@ -114,8 +115,7 @@ function(input, output, session) {
                               " our database have been grouped into topics by an algorithm and given Topic numbers. Try",
                               " clicking on the 'View Topic' button to see all the questions . ",
                               "Analysis\' page.</p>"), trigger = 'hover', placement = 'right', options = list(container = "body"))
-  
-  
+
   y_axis <- list(
     title = "Similarity",
     autotick = TRUE,
@@ -240,6 +240,7 @@ function(input, output, session) {
       'Answer_Text',
       'Question_MP',
       'MP_Constituency',
+      'MP_Party',
       'Date',
       'Answer_MP',
       'Answer_Date'
@@ -395,6 +396,7 @@ function(input, output, session) {
       'Answer_Text',
       'Question_MP',
       'MP_Constituency',
+      'MP_Party',
       'Date',
       'Answer_MP',
       'Answer_Date',
