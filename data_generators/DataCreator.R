@@ -130,10 +130,6 @@ tdm <- TermDocumentMatrix(
 print('Making the LSA')
 lsaAll <- lsa(tdm, dims = dimcalc_raw())
 
-####FIX MP NAMES####
-questionerNames <- sapply(aPQ$Question_MP,nameCleaner)
-answererNames <- sapply(aPQ$Answer_MP, nameCleaner)
-
 #CLUSTERING
 print('Doing some clustering')
 #We reduce the LSA space to rank k, and then get the positions of our documents in this latent semantic space.
@@ -183,14 +179,14 @@ clusterKeywordsVec <- sapply(seq_along(clusterKeywords[1, ]),
 #Member summaries
 print("summarising members")
 
-allMembers <- sort(unique(questionerNames))
+allMembers <- sort(unique(aPQ$Question_MP))
 
 topDozenWordsPerMember <- data.frame(
   member = unlist(lapply(allMembers, function(x)rep(x, 12))),
   word = unlist(lapply(allMembers,
-                       function(x) names(summarise("MP", x, m, questionerNames, 12, questionsVec)))),
+                       function(x) names(summarise("MP", x, m, aPQ$Question_MP, 12, questionsVec)))),
   freq = unlist(lapply(allMembers,
-                       function(x) summarise("MP", x, m, questionerNames, 12, questionsVec))),
+                       function(x) summarise("MP", x, m, aPQ$Question_MP, 12, questionsVec))),
   row.names = NULL, stringsAsFactors = F)
 
 
@@ -233,9 +229,10 @@ savedf <- data.frame(
   Question_ID = aPQ$Question_ID,
   Question_Text = aPQ$Question_Text,
   Answer_Text = aPQ$Answer_Text,
-  Question_MP = questionerNames,
+  Question_MP = aPQ$Question_MP,
+  MP_Party    = aPQ$Party,
   MP_Constituency = aPQ$MP_Constituency,
-  Answer_MP = answererNames,
+  Answer_MP = aPQ$Answer_MP,
   Date = aPQ$Question_Date,
   Answer_Date = aPQ$Answer_Date,
   #Corrected_Date = aPQ$Corrected_Date,

@@ -1,3 +1,4 @@
+source('./R/Functions.R')
 library(tidyverse)
 library(jsonlite)
 library(stringr)
@@ -57,33 +58,34 @@ update_archive <- function(questions_tibble) {
   write_csv(updated_archive, ARCHIVE_FILEPATH)
 }
 
-get_party <- function(member) {
-  upper_house_titles <- c('Lord', 'Baroness', 'Earl', 'Viscount', 'Marquess')
+total_members <- function() {
+  fromJSON('http://lda.data.parliament.uk/members.json?exists-party=true&_pageSize=1')$result$totalResults
+}
 
-  member <- gsub('Mr |Ms |Mrs ', '', member)
-  member <- strsplit(member, ' ')[[1]]
-  
-  first  <- member[1]
-  last   <- member[2]
-  member_endpoint <- 'http://lda.data.parliament.uk/members.json'
-  party_api_call  <- str_interp(
-      paste0(
-        "${member_endpoint}?",
-        "familyName=${last}",
-        "&givenName=${first}",
-        "&_view=members",
-        "&_pageSize=10&_page=0"
-      )
+get_all_members <- function(page_size) {
+members <- fromJSON(
+    str_interp(
+      "http://lda.data.parliament.uk/members.json?exists-party=true&_pageSize=${page_size}"
     )
+  )$result$items
+members$fullName <- sapply(members$fullName[[1]], nameCleaner)
+members
+}
 
-  member_of_the_upper_house <- any(upper_house_titles %in% member[1:length(member) - 1])
+get_parties <- function(names, constituencies) {
+  page_size <- total_members()
+  members   <- get_all_members(page_size)
+  parties   <- map_chr(1:length(names), function(n) get_party(names[n], constituencies[n], members))
+  parties
+}
 
-  if(member_of_the_upper_house == TRUE) {
-      return('Not found')
-    } else {
-      response <- fromJSON(party_api_call)
-      return(response$result$items$party[[1]])
-    }
+get_party <- function(name, constituency, members) {
+  party <- members$party[ members$fullName == name & members$constituency$label == constituency, ]
+  if(length(party) == 0) {
+    return('Not found')
+  } else {
+    return(party)
+  }
 }
 
 fetch_questions <- function(show_progress = FALSE) {
@@ -123,9 +125,11 @@ fetch_questions <- function(show_progress = FALSE) {
     if(show_progress == TRUE) { print(str_interp("Fetching page ${iteration} of ${iterations}")) }
     response   <- fromJSON(str_interp("${API_ENDPOINT}?${base_params}&_sort=dateOfAnswer&${page_param}"))
     parsed_response <- parse_response(response$result$items)
+    parsed_response$Question_MP <- sapply(parsed_response$Question_MP, nameCleaner)
+    parsed_response$Answer_MP   <- sapply(parsed_response$Answer_MP, nameCleaner)
+    parsed_response$Party       <- get_parties(parsed_response$Question_MP, parsed_response$MP_Constituency)
     update_archive(parsed_response)
   }
 
-  # questions$Party <- mapply(questions$Question_MP, FUN = function(x) { party(x) })
 
 }

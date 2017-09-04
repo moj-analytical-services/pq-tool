@@ -10,34 +10,39 @@ var text_to_return = "";
 
 //Table-clicking function
 
-function format(d, questionMPCol, tab) {
+function format(d, questionMPCol, questionDateCol, answerDateCol, tab) {
     console.log(d);
     d[3] = d[3].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
     d[2] = d[2].replace(/&lt;(.+?)&gt;/g, '<' + '$1' + '>');
     if(tab == 'search') {
         buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by<br>' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
-        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + '<br>(' + d[10] + ') </button>';
+        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[topicNumberCol] + ')\">View topic ' + d[topicNumberCol] + '<br>(' + d[topicKeywordsCol] + ') </button>';
     } else if (tab == 'topic') {
         buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"mp_finder(\'' + d[questionMPCol] + '\')\">See all questions asked by ' + d[questionMPCol].replace(/([\w\s-]+), ([\w\s]+)/, '$2' + ' ' + '$1') + '</button>';
         buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"back_to_search()\">Back to search</button>';
     } else if (tab == 'member') {
         buttonOne = '<button class=\"btn btn-info\" type = \"button\" onclick = \"back_to_search()\">Back to search</button>';
-        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[9] + ')\">View topic ' + d[9] + ' (' + d[10] + ') </button>';
+        buttonTwo = '<button class=\"btn btn-info\" type = \"button\" onclick = \"topic_finder(' + d[topicNumberCol] + ')\">View topic ' + d[topicNumberCol] + ' (' + d[topicKeywordsCol] + ') </button>';
     }
 
-    return '<div style=\"background-color:#eee; padding: 1em; margin: 1em; word-wrap:break-word;\"><h4>Question</h4><p>' +
-                d[2] +
-                '</p><h4>Answer</h4><p>' + d[3] + '</p></div>' +
-                '<div class=\"container-fluid\">' +
+    return '<div style=\"background-color:#eee; padding: 1em; margin: 1em; word-wrap:break-word;\">' +
+                '<h4>Question</h4>' +
+                '<p><em>' + d[questionDateCol] + '</em></p>' +
+                '<p>' + d[2] + '</p>' +
+                '<h4>Answer</h4>' +
+                '<p><em>' + d[answerDateCol] + '</em></p>' +
+                '<p>' + d[3] + '</p>' +
+            '</div>' +
+            '<div class=\"container-fluid\">' +
                 '<div class=\"btn-group btn-group-justified\" role=\"group\">' +
-                '<div class=\"btn-group\" role=\"group\">' +
-                buttonOne +
+                    '<div class=\"btn-group\" role=\"group\">' +
+                        buttonOne +
+                    '</div>' +
+                    '<div class=\"btn-group\" role=\"group\">' +
+                        buttonTwo +
+                    '</div>' +
                 '</div>' +
-                '<div class=\"btn-group\" role=\"group\">' +
-                buttonTwo +
-                '</div>' +
-                '</div>' +
-                '</div>';
+            '</div>';
 }
 var questionMPCol;
 var tab;
@@ -49,12 +54,24 @@ function rowActivate() {
     //Set global variables depending on tab user is on.  
     //The id of the active tab (div.active) ends in either a 1, 2, or 3 depending on the tab.
     //This is the first thing to double check if this starts breaking.
-    var active_tab = $("div.active")[0].getAttribute("id").slice(-1)
-    tab = active_tab === "1" ? "search" : active_tab === "2" ? "topic" : "member" 
-    console.log(tab)
+    var active_tab = $("div.active")[0].getAttribute("id").slice(-1);
+    tab = active_tab === "1" ? "search" : active_tab === "2" ? "topic" : "member";
+    console.log(tab);
     var table1 = tab === "search" ? search_table : tab === "topic" ? topic_table : member_table;
-    questionMPCol = tab === "search" ? 6 : 4;
     
+    if (tab == "search") {
+        questionMPCol = 6;
+        questionDateCol = 8;
+        answerDateCol = 9;
+        topicNumberCol = 10;
+        topicKeywordsCol = 11;
+    } else {
+        questionMPCol = 4;
+        questionDateCol = 7;
+        answerDateCol = 9;
+        topicNumberCol = 10;
+        topicKeywordsCol = 11;
+    }
     
     var row = this.closest('tr');
     var showHideIcon = $(row.firstChild);
@@ -63,7 +80,7 @@ function rowActivate() {
         shinyRow.child.hide();
         showHideIcon.html('&oplus;');
     } else {
-        shinyRow.child(format(shinyRow.data(), questionMPCol, tab)).show();
+        shinyRow.child(format(shinyRow.data(), questionMPCol, questionDateCol, answerDateCol, tab)).show();
         showHideIcon.html('&ominus;');
     }
 }

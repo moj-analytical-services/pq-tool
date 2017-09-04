@@ -12,17 +12,6 @@ date_filter         <- "min-answer.dateOfAnswer=2017-03-23"
 
 dummy_pqs_api_response <- readRDS(file.path(SHINY_ROOT, 'tests/testthat/examples/api-responses', 'response-full.rds'))
 
-dummy_member_api_response <- function() {
-  party           <- 'Party'
-  items           <- list(party)
-  names(items)    <- 'party'
-  result          <- list(items)
-  names(result)   <- 'items'
-  response        <- list(result)
-  names(response) <- 'result'
-  response
-}
-
 context("api functions; ARCHIVE PRESENT")
 
 test_that("last_answer_date() returns date of most recent answer", {
@@ -70,18 +59,18 @@ test_that("fetch_questions() calls the API with the correct params", {
   )
 
   with_mock(
-    `file.exists`          = function(filepath)            { TRUE         },
-    `write_csv`            = function(questions, filepath) { NULL         },
-    `last_answer_date`     = function()                    { '2017-03-23' },
-    `number_in_archive`    = function()                    { 1000         },
-    `number_to_fetch`      = function()                    { 1000         },
-    `number_held_remotely` = function()                    { 2000         },
-    `update_archive`       = function(questions)           { NULL         },
-    `get_party`            = function(member)              { 'party'      },
+    `file.exists`          = function(filepath)              { TRUE         },
+    `write_csv`            = function(questions, filepath)   { NULL         },
+    `last_answer_date`     = function()                      { '2017-03-23' },
+    `number_in_archive`    = function()                      { 1000         },
+    `number_to_fetch`      = function()                      { 1000         },
+    `number_held_remotely` = function()                      { 2000         },
+    `update_archive`       = function(questions)             { NULL         },
+    `get_parties`          = function(names, constituencies) { NULL         },
     `jsonlite::fromJSON`   = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
       dummy_pqs_api_response
-    },
+     },
     fetch_questions()
   )
 })
@@ -121,13 +110,13 @@ test_that("fetch_questions() calls the API with the correct params", {
   )
 
   with_mock(
-    `file.exists`          = function(filepath)            { FALSE   },
-    `number_to_fetch`      = function()                    { 1000    },
-    `number_held_remotely` = function()                    { 1000    },
-    `file.create`          = function(filepath)            { NULL    },
-    `write_csv`            = function(questions, filepath) { NULL    },
-    `update_archive`       = function(questions)           { NULL    },
-    `get_party`            = function(member)              { 'party' },
+    `file.exists`          = function(filepath)              { FALSE   },
+    `number_to_fetch`      = function()                      { 1000    },
+    `number_held_remotely` = function()                      { 1000    },
+    `file.create`          = function(filepath)              { NULL    },
+    `write_csv`            = function(questions, filepath)   { NULL    },
+    `update_archive`       = function(questions)             { NULL    },
+    `get_parties`          = function(names, constituencies) { NULL    },
     `jsonlite::fromJSON`   = function(actual_API_call) {
       expect_equal(actual_API_call, expected_API_call)
       dummy_pqs_api_response
@@ -140,10 +129,10 @@ test_that("fetch_questions() calls the API with the correct params", {
 test_that("fetch_questions creates an archive file if one does not already exist", {
 
   with_mock(
-    `file.exists`          = function(filepath) { FALSE   },
-    `number_to_fetch`      = function()         { 1000    },
-    `number_held_remotely` = function()         { 1000    },
-    `get_party`            = function(memeber)  { 'party' },
+    `file.exists`          = function(filepath)              { FALSE },
+    `number_to_fetch`      = function()                      { 1000  },
+    `number_held_remotely` = function()                      { 1000  },
+    `get_parties`          = function(names, constituencies) { NULL  },
     `jsonlite::fromJSON`   = function(actual_API_call) {
       dummy_pqs_api_response
     },
@@ -164,11 +153,11 @@ test_that("fetch_questions creates an archive file if one does not already exist
 test_that("fetch_questions() downloads new questions and calls the update_archive function", {
 
   with_mock(
-    `file.exists`          = function(filepath) { FALSE   },
-    `number_to_fetch`      = function()         { 3000    },
-    `number_held_remotely` = function()         { 3000    },
-    `file.create`          = function(filepath) { NULL    },
-    `get_party`            = function(member)   { 'party' },
+    `file.exists`          = function(filepath)              { FALSE   },
+    `number_to_fetch`      = function()                      { 3000    },
+    `number_held_remotely` = function()                      { 3000    },
+    `file.create`          = function(filepath)              { NULL    },
+    `get_parties`          = function(names, constituencies) { NULL    },
     `jsonlite::fromJSON`   = function(actual_API_call) {
       dummy_pqs_api_response
     },
@@ -192,52 +181,71 @@ test_that("fetch_questions() stops and raises an error if there are no new qs to
   )
 })
 
+context('total_members')
+
+test_that('total_members() calls the members API to get the total number of member records', {
+
+  expected_API_call <- 'http://lda.data.parliament.uk/members.json?exists-party=true&_pageSize=1'
+
+  with_mock(
+    `fromJSON` = function(actual_API_call) {
+      expect_equal(actual_API_call, expected_API_call)
+      readRDS('./examples/api-responses/members_api_response.rda')
+    },
+    total_members()
+  )
+})
+
+context('get_all_members')
+
+test_that('get_all_members() calls the members API to retrieve all member records in one go', {
+  expected_API_call <- 'http://lda.data.parliament.uk/members.json?exists-party=true&_pageSize=10'
+
+  with_mock(
+    `fromJSON` = function(actual_API_call) {
+      expect_equal(actual_API_call, expected_API_call)
+      readRDS('./examples/api-responses/members_api_response.rda')
+    },
+    get_all_members(10)
+  )
+})
+
+context('get_parties')
+
+test_that('get_parties calls total_members, get_all_members and get_party', {
+
+  with_mock(
+    `total_members`   = function()  { 10 },
+    `get_all_members` = function(x) {
+      expect_equal(x, 10)
+      readRDS('./examples/api-responses/members_api_response.rda')$result$items
+    },
+    `get_party` = function(name, constituency, data) {
+      expect_equal(name, 'Jane Smith')
+      'Party'
+    },
+    parties <- get_parties(c('Jane Smith'), c('constituency')),
+    expect_equal(parties, 'Party')
+  )
+})
+
 context('get_party')
 
-test_that('get_party() cannot retrieve party for members of HoL', {
+members_data <- readRDS('./examples/api-responses/members_api_response.rda')
+
+test_that('get_party() resturns "Not found" when unable to rerieve party', {
 
   hol_parties <- c(
-    get_party('Lord Someone'),
-    get_party('Viscount Someone'),
-    get_party('Baroness Someone'),
-    get_party('Earl someone'),
-    get_party('Marquess someone')
+    get_party('Not a member', 'constituency', members_data),
+    get_party('Another random person', 'constituency', members_data)
   )
 
   expect_true( all(hol_parties %in% 'Not found') )
 })
 
-test_that('get_party() can return the party for people whose name includes Lord', {
-
-  with_mock(
-    `fromJSON` = function(actual_API_call) {
-      dummy_member_api_response()
-    },
-    member_party <- get_party('Someone Lord'),
-    expect_equal(member_party, 'Party')
-  )
-
-})
-
-test_that('get_party() calls the API with the correct params', {
-
-  member_endpoint   <- 'http://lda.data.parliament.uk/members.json'
-  first             <- 'Firstname'
-  last              <- 'Surname'
-  expected_API_call <- str_interp(
-    "${member_endpoint}?familyName=${last}&givenName=${first}&_view=members&_pageSize=10&_page=0"
-  )
-
-  with_mock(
-    `fromJSON` = function(actual_API_call) {
-      expect_equal(expected_API_call, actual_API_call)
-      dummy_member_api_response()
-    },
-    get_party('Mrs Firstname Surname'),
-    get_party('Mr Firstname Surname'),
-    get_party('Ms Firstname Surname')
-  )
-
+test_that('get_party() can return the party for people in the members response', {
+    member_party <- get_party('Abbott, Diane', 'Hackney North and Stoke Newington', members_data)
+    expect_equal(member_party, 'Labour')
 })
 
 context('api response parser')

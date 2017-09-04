@@ -1,2293 +1,301 @@
 "","member","word","freq"
-"1","Abbott, Diane","incentives",2.76401124912018
-"2","Abbott, Diane","factors",2.66346788455011
-"3","Abbott, Diane","learning",2.66346788455011
-"4","Abbott, Diane","ppo",2.66346788455011
-"5","Abbott, Diane","privileges",2.48666115100757
-"6","Abbott, Diane","inflicted",2.39620664263769
-"7","Abbott, Diane","inclusion",2.32442174404035
-"8","Abbott, Diane","ombudsmans",2.12894540072526
-"9","Abbott, Diane","recommendations",1.97260759631033
-"10","Abbott, Diane","organisations",1.93196095478234
-"11","Abbott, Diane","concerned",1.93196095478234
-"12","Abbott, Diane","self",1.86168415881284
-"13","Ainsworth, Bob","midlands",3.76314527560097
-"14","Ainsworth, Bob","credits",3.51762309916869
-"15","Ainsworth, Bob","disabl",3.51762309916869
-"16","Ainsworth, Bob","jobseekers",3.34342234271281
-"17","Ainsworth, Bob","live",3.34342234271281
-"18","Ainsworth, Bob","west",3.34342234271281
-"19","Ainsworth, Bob","income",3.20830173854759
-"20","Ainsworth, Bob","tax",2.92369940982465
-"21","Ainsworth, Bob","allowance",2.85237798984825
-"22","Ainsworth, Bob","appeal",2.58483403405693
-"23","Ainsworth, Bob","coventry",2.22841711096035
-"24","Ainsworth, Bob","support",2.0475433838
-"25","Alexander, Heidi","command",3.1514577009444
-"26","Alexander, Heidi","gold",3.1514577009444
-"27","Alexander, Heidi","hostel",3.1514577009444
-"28","Alexander, Heidi","premises",2.83522993492757
-"29","Alexander, Heidi","housing",2.41719956664644
-"30","Alexander, Heidi","months",2.41347381554991
-"31","Alexander, Heidi","caused",2.33402078410405
-"32","Alexander, Heidi","nature",2.33402078410405
-"33","Alexander, Heidi","approved",2.26369412552575
-"34","Alexander, Heidi","individual",2.01779301808722
-"35","Alexander, Heidi","incident",1.91599041582293
-"36","Alexander, Heidi","occasions",1.70156525207038
-"37","Amess, David","essex",28.1307935280988
-"38","Amess, David","probation",19.7430519175229
-"39","Amess, David","trust",14.3911869092561
-"40","Amess, David","budgeted",13.3942649961021
-"41","Amess, David","will",12.6615687637539
-"42","Amess, David","board",11.6714107613166
-"43","Amess, David","2013",10.6294513797465
-"44","Amess, David","spent",8.32513299721757
-"45","Amess, David","a2c",8.22147857843677
-"46","Amess, David","aspire",8.22147857843677
-"47","Amess, David","2014",7.28670854039119
-"48","Amess, David","bonus",6.38297510968096
-"49","Anderson, David","gloucester",2.66346788455011
-"50","Anderson, David","unemployed",1.39267074556804
-"51","Anderson, David","classed",1.35204621003938
-"52","Anderson, David","data",1.31529684751464
-"53","Anderson, David","cells",1.27118290836726
-"54","Anderson, David","hours",1.24112277254189
-"55","Anderson, David","week",1.23160188218548
-"56","Anderson, David","per",1.21323762726281
-"57","Anderson, David","working",1.17082387057306
-"58","Anderson, David","spent",1.07214198404574
-"59","Anderson, David","three",1.05392238358672
-"60","Anderson, David","proportion",1.01448606615812
-"61","Ashworth, Jonathan","subscription",4.06851439734493
-"62","Ashworth, Jonathan","undertake",3.42145616597619
-"63","Ashworth, Jonathan","union",3.42145616597619
-"64","Ashworth, Jonathan","check",3.42145616597619
-"65","Ashworth, Jonathan","review",2.36614964414358
-"66","Ashworth, Jonathan","provision",2.33430525196718
-"67","Ashworth, Jonathan","blantyr",0
-"68","Ashworth, Jonathan","cell",0
-"69","Ashworth, Jonathan","class",0
-"70","Ashworth, Jonathan","data",0
-"71","Ashworth, Jonathan","hour",0
-"72","Ashworth, Jonathan","hous",0
-"73","Austin, Ian","companies",9.95090298192117
-"74","Austin, Ian","community",9.85785208834963
-"75","Austin, Ian","rehabilitation",9.06444672599043
-"76","Austin, Ian","incarceration",5.9769469173896
-"77","Austin, Ian","national",5.87699011825223
-"78","Austin, Ian","compensation",5.21075578051624
-"79","Austin, Ian","probation",4.94466781328603
-"80","Austin, Ian","records",4.52470249778125
-"81","Austin, Ian","service",4.37903370281761
-"82","Austin, Ian","assault",3.81174979430121
-"83","Austin, Ian","offenders",3.66856474684374
-"84","Austin, Ian","access",3.66602943120434
-"85","Baker, Steve","obstacle",3.52343682376344
-"86","Baker, Steve","preparation",3.16988343317017
-"87","Baker, Steve","restricted",2.8163300425769
-"88","Baker, Steve","access",1.99540449191569
-"89","Baker, Steve","books",1.90240778589046
-"90","Baker, Steve","employment",1.54885439529719
-"91","Baker, Steve","will",1.03674627409316
-"92","Baker, Steve","prisoners",0.519698473018576
-"93","Baker, Steve","blantyr",0
-"94","Baker, Steve","cell",0
-"95","Baker, Steve","class",0
-"96","Baker, Steve","data",0
-"97","Barclay, Stephen","dangerous",2.12894540072526
-"98","Barclay, Stephen","handed",2.12894540072526
-"99","Barclay, Stephen","causing",1.97260759631033
-"100","Barclay, Stephen","serious",1.86168415881284
-"101","Barclay, Stephen","drive",1.8162697918954
-"102","Barclay, Stephen","length",1.61930745195181
-"103","Barclay, Stephen","introduction",1.54900854998297
-"104","Barclay, Stephen","injury",1.36511785060536
-"105","Barclay, Stephen","average",1.2609002598408
-"106","Barclay, Stephen","2012",1.09126539745017
-"107","Barclay, Stephen","convictions",0.928447163712025
-"108","Barclay, Stephen","sentence",0.924186606899589
-"109","Baroness Corston","range",2.96306795767028
-"110","Baroness Corston","sanitary",2.70251127310224
-"111","Baroness Corston","products",2.53088697247126
-"112","Baroness Corston","purchased",2.40269909157713
-"113","Baroness Corston","underwear",2.34895788250896
-"114","Baroness Corston","full",2.21513381472864
-"115","Baroness Corston","prohibits",2.11325562211345
-"116","Baroness Corston","female",2.07830047731537
-"117","Baroness Corston","instruction",1.97537863844686
-"118","Baroness Corston","sufficient",1.97537863844686
-"119","Baroness Corston","help",1.87755336171793
-"120","Baroness Corston","longer",1.87755336171793
-"121","Baroness Drake","lower",3.66026610688107
-"122","Baroness Drake","access",2.30409464109942
-"123","Baroness Drake","level",2.27535831832086
-"124","Baroness Drake","fees",2.24795906259576
-"125","Baroness Drake","tribunals",1.88130295038835
-"126","Baroness Drake","employment",1.78846300412074
-"127","Baroness Drake","blantyr",0
-"128","Baroness Drake","cell",0
-"129","Baroness Drake","class",0
-"130","Baroness Drake","data",0
-"131","Baroness Drake","hour",0
-"132","Baroness Drake","hous",0
-"133","Baroness Golding","1999",2.03425719867246
-"134","Baroness Golding","kingston",2.03425719867246
-"135","Baroness Golding","leeds",2.03425719867246
-"136","Baroness Golding","liverpool",2.03425719867246
-"137","Baroness Golding","thames",2.03425719867246
-"138","Baroness Golding","drawn",1.83013305344053
-"139","Baroness Golding","upon",1.83013305344053
-"140","Baroness Golding","announcement",1.83013305344053
-"141","Baroness Golding","pilot",1.71072808298809
-"142","Baroness Golding","basis",1.71072808298809
-"143","Baroness Golding","conclusions",1.56029561101357
-"144","Baroness Golding","june",1.4612082748448
-"145","Baroness Gould of Potternewton","genital",2.39620664263769
-"146","Baroness Gould of Potternewton","mutilation",2.39620664263769
-"147","Baroness Gould of Potternewton","sufficient",2.23986883822275
-"148","Baroness Gould of Potternewton","practice",2.23986883822275
-"149","Baroness Gould of Potternewton","kingdom",1.97260759631033
-"150","Baroness Gould of Potternewton","abroad",1.97260759631033
-"151","Baroness Gould of Potternewton","consider",1.91317072159204
-"152","Baroness Gould of Potternewton","legislation",1.8162697918954
-"153","Baroness Gould of Potternewton","carried",1.77564525636674
-"154","Baroness Gould of Potternewton","protection",1.59442291690041
-"155","Baroness Gould of Potternewton","united",1.57104748932666
-"156","Baroness Gould of Potternewton","female",1.57104748932666
-"157","Baroness Hayter of Kentish Town","bank",5.59074334756344
-"158","Baroness Hayter of Kentish Town","ombudsman",5.59074334756344
-"159","Baroness Hayter of Kentish Town","manage",5.24119250887978
-"160","Baroness Hayter of Kentish Town","complaints",5.02410558807664
-"161","Baroness Hayter of Kentish Town","reform)",4.18705398119979
-"162","Baroness Hayter of Kentish Town","heard",4.17933240863183
-"163","Baroness Hayter of Kentish Town","enable",3.71318998584551
-"164","Baroness Hayter of Kentish Town","financial",3.62041622171298
-"165","Baroness Hayter of Kentish Town","claims",3.39447269994943
-"166","Baroness Hayter of Kentish Town","legal",2.99360940595126
-"167","Baroness Hayter of Kentish Town","act",2.63636088379492
-"168","Baroness Hayter of Kentish Town","services",2.50801871753926
-"169","Baroness Healy of Primrose Hill","subsequently",2.23986883822275
-"170","Baroness Healy of Primrose Hill","remanded",2.12894540072526
-"171","Baroness Healy of Primrose Hill","immediate",2.04290649827917
-"172","Baroness Healy of Primrose Hill","crown",1.57104748932666
-"173","Baroness Healy of Primrose Hill","women",1.47163465192957
-"174","Baroness Healy of Primrose Hill","magistrates",1.20437341001715
-"175","Baroness Healy of Primrose Hill","custodial",1.1474484429993
-"176","Baroness Healy of Primrose Hill","wales",1.02534809340867
-"177","Baroness Healy of Primrose Hill","proportion",1.01448606615812
-"178","Baroness Healy of Primrose Hill","england",0.993639017928373
-"179","Baroness Healy of Primrose Hill","receive",0.969071699240679
-"180","Baroness Healy of Primrose Hill","convicted",0.928447163712025
-"181","Baroness Lister of Burtersett","200203",2.57315443775946
-"182","Baroness Lister of Burtersett","forcible",2.57315443775946
-"183","Baroness Lister of Burtersett","installation",2.57315443775946
-"184","Baroness Lister of Burtersett","meters",2.57315443775946
-"185","Baroness Lister of Burtersett","prepayment",2.57315443775946
-"186","Baroness Lister of Burtersett","utility",2.57315443775946
-"187","Baroness Lister of Burtersett","warrants",2.57315443775946
-"188","Baroness Lister of Burtersett","customers",2.16391887978237
-"189","Baroness Lister of Burtersett","permitting",2.05675665826513
-"190","Baroness Lister of Burtersett","homes",1.43906295578087
-"191","Baroness Lister of Burtersett","issued",1.42173414492392
-"192","Baroness Lister of Burtersett","companies",1.30620073386255
-"193","Baroness Meacher","die",3.32192809488736
-"194","Baroness Meacher","illness",2.98859476155403
-"195","Baroness Meacher","terminal",2.6552614282207
-"196","Baroness Meacher","assisted",2.46027392798031
-"197","Baroness Meacher","law",1.90595225707283
-"198","Baroness Meacher","level",1.85782228729444
-"199","Baroness Meacher","support",1.62610714780392
-"200","Baroness Meacher","made",1.13706514432815
-"201","Baroness Meacher","people",1.11214255486083
-"202","Baroness Meacher","blantyr",0
-"203","Baroness Meacher","cell",0
-"204","Baroness Meacher","class",0
-"205","Baroness Morgan of Huyton","literacy",5.87540908327428
-"206","Baroness Morgan of Huyton","light",4.19163204858908
-"207","Baroness Morgan of Huyton","skills",3.76671240527594
-"208","Baroness Morgan of Huyton","stop",3.52343682376344
-"209","Baroness Morgan of Huyton","improvement",3.38874793226672
-"210","Baroness Morgan of Huyton","monitored",2.88910607652652
-"211","Baroness Morgan of Huyton","parcels",2.8163300425769
-"212","Baroness Morgan of Huyton","link",2.76401124912018
-"213","Baroness Morgan of Huyton","showing",2.76401124912018
-"214","Baroness Morgan of Huyton","targets",2.70563198161058
-"215","Baroness Morgan of Huyton","governors",2.70563198161058
-"216","Baroness Morgan of Huyton","sent",2.53088697247126
-"217","Baroness Stern","inspector",9.40966772241443
-"218","Baroness Stern","chief",8.38925204354972
-"219","Baroness Stern","belmarsh",8.12208136703055
-"220","Baroness Stern","hmp",7.14245310986739
-"221","Baroness Stern","high",6.20891064543851
-"222","Baroness Stern","special",6.04181867391242
-"223","Baroness Stern","conclusion",5.37380312987877
-"224","Baroness Stern","standards",5.13086525343506
-"225","Baroness Stern","unit",5.09860064806583
-"226","Baroness Stern","recommendation",5.03073319661998
-"227","Baroness Stern","report",4.82400190250149
-"228","Baroness Stern","secure",4.77931602994684
-"229","Baroness Taylor of Bolton","category",2.89792964160989
-"230","Baroness Taylor of Bolton","currently",2.75317633301239
-"231","Baroness Taylor of Bolton","held",2.72111116430254
-"232","Baroness Taylor of Bolton","prisoners",0.734964628887458
-"233","Baroness Taylor of Bolton","blantyr",0
-"234","Baroness Taylor of Bolton","cell",0
-"235","Baroness Taylor of Bolton","class",0
-"236","Baroness Taylor of Bolton","data",0
-"237","Baroness Taylor of Bolton","hour",0
-"238","Baroness Taylor of Bolton","hous",0
-"239","Baroness Taylor of Bolton","per",0
-"240","Baroness Taylor of Bolton","proport",0
-"241","Baroness Thornton","workplace",2.65024855012089
-"242","Baroness Thornton","monitoring",2.41719956664644
-"243","Baroness Thornton","brought",2.20277440289389
-"244","Baroness Thornton","harassment",2.20277440289389
-"245","Baroness Thornton","concerning",2.20277440289389
-"246","Baroness Thornton","conducting",2.1009718006296
-"247","Baroness Thornton","increase",1.80814507316668
-"248","Baroness Thornton","tribunal",1.45725099920499
-"249","Baroness Thornton","costs",1.35767930715546
-"250","Baroness Thornton","cases",1.26127582387873
-"251","Baroness Thornton","blantyr",0
-"252","Baroness Thornton","cell",0
-"253","Baroness Wheatcroft","current",8.10431126097316
-"254","Baroness Wheatcroft","women",8.10431126097316
-"255","Baroness Wheatcroft","proportion",5.58678802465374
-"256","Baroness Wheatcroft","jailed",5.24061548621989
-"257","Baroness Wheatcroft","children",4.14245032513385
-"258","Baroness Wheatcroft","crime",3.74699485776717
-"259","Baroness Wheatcroft","combined",3.1514577009444
-"260","Baroness Wheatcroft","woman",3.1514577009444
-"261","Baroness Wheatcroft","violent",2.88910607652652
-"262","Baroness Wheatcroft","keeping",2.83522993492757
-"263","Baroness Wheatcroft","addiction",2.76401124912018
-"264","Baroness Wheatcroft","prison",2.62829071970602
-"265","Bayley, Sir Hugh","york",9.56587066192861
-"266","Bayley, Sir Hugh","crown",5.24959715366647
-"267","Bayley, Sir Hugh","1995",5.07486013613045
-"268","Bayley, Sir Hugh","court",4.04720917618122
-"269","Bayley, Sir Hugh","2004",3.89882075422509
-"270","Bayley, Sir Hugh","civil",3.8466278322314
-"271","Bayley, Sir Hugh","witness",3.33911051990017
-"272","Bayley, Sir Hugh","magristrates",3.32192809488736
-"273","Bayley, Sir Hugh","magistrages",3.00479701944041
-"274","Bayley, Sir Hugh","cash",2.8768741197177
-"275","Bayley, Sir Hugh","real",2.8768741197177
-"276","Bayley, Sir Hugh","aid",2.86346147758868
-"277","Benn, Hilary","determined",2.3149555480123
-"278","Benn, Hilary","fit",2.3149555480123
-"279","Benn, Hilary","waiting",2.3149555480123
-"280","Benn, Hilary","deemed",2.16391887978237
-"281","Benn, Hilary","two",1.64752110028805
-"282","Benn, Hilary","six",1.61770501095913
-"283","Benn, Hilary","appeal",1.59009962401079
-"284","Benn, Hilary","one",1.4763442700619
-"285","Benn, Hilary","currently",1.42173414492392
-"286","Benn, Hilary","work",1.13112332079373
-"287","Benn, Hilary","three",1.01818575478647
-"288","Benn, Hilary","five",1.01818575478647
-"289","Berger, Luciana","burglary",4.83866971298858
-"290","Berger, Luciana","children",3.30120614605073
-"291","Berger, Luciana","made",1.96945460149199
-"292","Berger, Luciana","blantyr",0
-"293","Berger, Luciana","cell",0
-"294","Berger, Luciana","class",0
-"295","Berger, Luciana","data",0
-"296","Berger, Luciana","hour",0
-"297","Berger, Luciana","hous",0
-"298","Berger, Luciana","per",0
-"299","Berger, Luciana","prison",0
-"300","Berger, Luciana","proport",0
-"301","Berry, Jake","darwen",3.00479701944041
-"302","Berry, Jake","drunk",3.00479701944041
-"303","Berry, Jake","rossendale",3.00479701944041
-"304","Berry, Jake","behaviour",2.52691284474264
-"305","Berry, Jake","aggravated",2.40177433028488
-"306","Berry, Jake","disorderly",2.30470935753804
-"307","Berry, Jake","guilty",1.92389015558711
-"308","Berry, Jake","found",1.79875164112936
-"309","Berry, Jake","three",1.18898480259236
-"310","Berry, Jake","people",1.00597079123471
-"311","Berry, Jake","years",0.505262290326757
-"312","Berry, Jake","blantyr",0
-"313","Bingham, Andrew","manchester",4.96515162990468
-"314","Bingham, Andrew","books",3.49517251338402
-"315","Bingham, Andrew","specialist",3.32192809488736
-"316","Bingham, Andrew","delivered",2.65024855012089
-"317","Bingham, Andrew","packages",2.41719956664644
-"318","Bingham, Andrew","courses",2.38614312086816
-"319","Bingham, Andrew","educational",2.38614312086816
-"320","Bingham, Andrew","contain",2.33402078410405
-"321","Bingham, Andrew","subjects",2.32192809488736
-"322","Bingham, Andrew","drugs",2.20277440289389
-"323","Bingham, Andrew","found",1.88654663687705
-"324","Bingham, Andrew","access",1.88128539659157
-"325","Blenkinsop, Tom","availability",3.7480174432406
-"326","Blenkinsop, Tom","books",2.40637665674072
-"327","Blenkinsop, Tom","made",1.52553297453801
-"328","Blenkinsop, Tom","will",1.31139183273104
-"329","Blenkinsop, Tom","prisoners",0.657372348500105
-"330","Blenkinsop, Tom","blantyr",0
-"331","Blenkinsop, Tom","cell",0
-"332","Blenkinsop, Tom","class",0
-"333","Blenkinsop, Tom","data",0
-"334","Blenkinsop, Tom","hour",0
-"335","Blenkinsop, Tom","hous",0
-"336","Blenkinsop, Tom","per",0
-"337","Blunkett, David","books",5.27851709194251
-"338","Blunkett, David","first",3.885145404469
-"339","Blunkett, David","withheld",3.76671240527594
-"340","Blunkett, David","withhold",3.76671240527594
-"341","Blunkett, David","arrive",3.01078345925749
-"342","Blunkett, David","brixton",2.70328567486265
-"343","Blunkett, David","borrowed",2.70328567486265
-"344","Blunkett, David","restrictions",2.40177433028488
-"345","Blunkett, David","reasons",2.1906288996178
-"346","Blunkett, David","belmarsh",2.15834766218382
-"347","Blunkett, David","represents",2.00319801296027
-"348","Blunkett, David","population",2.00319801296027
-"349","Bone, Peter","wellingborough",9.82520830659548
-"350","Bone, Peter","hmp",6.36254274673691
-"351","Bone, Peter","future",3.41843641011376
-"352","Bone, Peter","capacity",2.78968841594226
-"353","Bone, Peter","discuss",2.77439793460745
-"354","Bone, Peter","meet",2.65620735305962
-"355","Bone, Peter","decisions",2.62886526821267
-"356","Bone, Peter","will",2.30545986790692
-"357","Bone, Peter","member",2.24795906259576
-"358","Bone, Peter","increase",2.16114672127584
-"359","Bone, Peter","open",1.91208208719284
-"360","Bone, Peter","made",1.52553297453801
-"361","Bottomley, Sir Peter","benjamin",12.0378955178326
-"362","Bottomley, Sir Peter","mire",12.0378955178326
-"363","Bottomley, Sir Peter","judicial",10.4630496260515
-"364","Bottomley, Sir Peter","conduct",8.11409174354252
-"365","Bottomley, Sir Peter","investigation",7.65181833645029
-"366","Bottomley, Sir Peter","office",5.46397861114093
-"367","Bottomley, Sir Peter","appointment",5.41132950433569
-"368","Bottomley, Sir Peter","property",5.05827340365552
-"369","Bottomley, Sir Peter","report",3.67356154177066
-"370","Bottomley, Sir Peter","shown",3.16988343317017
-"371","Bottomley, Sir Peter","tribunal",2.78131421726193
-"372","Bottomley, Sir Peter","subsequently",2.65024855012089
-"373","Bradshaw, Ben","mediation",25.4764766553097
-"374","Bradshaw, Ben","family",12.7400164913908
-"375","Bradshaw, Ben","inform",10.1135651195648
-"376","Bradshaw, Ben","profit",8.37013573396847
-"377","Bradshaw, Ben","made",6.47595570466523
-"378","Bradshaw, Ben","evasion",6.10495938769579
-"379","Bradshaw, Ben","non",5.28139541385243
-"380","Bradshaw, Ben","imprisoned",5.20833146441551
-"381","Bradshaw, Ben","hold",5.20833146441551
-"382","Bradshaw, Ben","divorcing",4.94473174602817
-"383","Bradshaw, Ben","television",4.71980658867271
-"384","Bradshaw, Ben","increase",4.68162437775101
-"385","Bridgen, Andrew","754w",1.85059968293988
-"386","Bridgen, Andrew","default",1.85059968293988
-"387","Bridgen, Andrew","tooting",1.85059968293988
-"388","Bridgen, Andrew","care",1.47920900658577
-"389","Bridgen, Andrew","imprisonment",1.26195938780115
-"390","Bridgen, Andrew","result",1.14359162312833
-"391","Bridgen, Andrew","television",1.14359162312833
-"392","Bridgen, Andrew","2009",1.12510831256761
-"393","Bridgen, Andrew","2008",1.10781833023167
-"394","Bridgen, Andrew","children",1.06177934677937
-"395","Bridgen, Andrew","fine",1.03496681373602
-"396","Bridgen, Andrew","fee",1.02250402043958
-"397","Brown, Nicholas","northumbria",3.52343682376344
-"398","Brown, Nicholas","organisations",2.46277665198362
-"399","Brown, Nicholas","remain",2.34895788250896
-"400","Brown, Nicholas","bidding",2.34895788250896
-"401","Brown, Nicholas","process",2.25596117648374
-"402","Brown, Nicholas","company",1.7885890164158
-"403","Brown, Nicholas","community",1.77186392056148
-"404","Brown, Nicholas","rehabilitation",1.62925614725093
-"405","Brown, Nicholas","blantyr",0
-"406","Brown, Nicholas","cell",0
-"407","Brown, Nicholas","class",0
-"408","Brown, Nicholas","data",0
-"409","Buckland, Robert","injury",4.20473150330093
-"410","Buckland, Robert","personal",3.60628205926115
-"411","Buckland, Robert","proposal",3.31659649823886
-"412","Buckland, Robert","fraud",3.1376249596713
-"413","Buckland, Robert","12th",2.8768741197177
-"414","Buckland, Robert","treated",2.66346788455011
-"415","Buckland, Robert","discourage",2.66346788455011
-"416","Buckland, Robert","elements",2.66346788455011
-"417","Buckland, Robert","genuine",2.66346788455011
-"418","Buckland, Robert","adopt",2.58819898512289
-"419","Buckland, Robert","will",2.41391282461422
-"420","Buckland, Robert","losses",2.23986883822275
-"421","Burden, Richard","hours",10.048466673219
-"422","Burden, Richard","week",9.97138296195179
-"423","Burden, Richard","per",9.82270097202179
-"424","Burden, Richard","work",9.59177398798036
-"425","Burden, Richard","unemployed",8.94902448585937
-"426","Burden, Richard","classed",8.68797932186096
-"427","Burden, Richard","proportion",7.66337978953508
-"428","Burden, Richard","cells",7.59963837265723
-"429","Burden, Richard","spent",7.52230666799969
-"430","Burden, Richard","data",6.44268612511127
-"431","Burden, Richard","three",6.30076831224509
-"432","Burden, Richard","prison",4.24282639568247
-"433","Burley, Aidan","growth",4.98289214233104
-"434","Burley, Aidan","address",4.48289214233104
-"435","Burley, Aidan","culture",4.19041089197047
-"436","Burley, Aidan","compensation",2.60544839124931
-"437","Burley, Aidan","blantyr",0
-"438","Burley, Aidan","cell",0
-"439","Burley, Aidan","class",0
-"440","Burley, Aidan","data",0
-"441","Burley, Aidan","hour",0
-"442","Burley, Aidan","hous",0
-"443","Burley, Aidan","per",0
-"444","Burley, Aidan","prison",0
-"445","Burns, Sir Simon","wildlife",2.70328567486265
-"446","Burns, Sir Simon","trade",2.40177433028488
-"447","Burns, Sir Simon","illegal",2.15834766218382
-"448","Burns, Sir Simon","concerning",2.10026298570712
-"449","Burns, Sir Simon","charged",1.88907246449473
-"450","Burns, Sir Simon","five",1.18898480259236
-"451","Burns, Sir Simon","england",1.12097599403763
-"452","Burns, Sir Simon","convicted",1.04742966356473
-"453","Burns, Sir Simon","offences",1.01935612185382
-"454","Burns, Sir Simon","people",1.00597079123471
-"455","Burns, Sir Simon","years",0.505262290326757
-"456","Burns, Sir Simon","blantyr",0
-"457","Byrne, Liam","scientific",4.06851439734493
-"458","Byrne, Liam","adviser",3.42145616597619
-"459","Byrne, Liam","meetings",2.65620735305962
-"460","Byrne, Liam","departments",2.60495958504846
-"461","Byrne, Liam","chief",2.47353299065841
-"462","Byrne, Liam","months",1.55789064902208
-"463","Byrne, Liam","blantyr",0
-"464","Byrne, Liam","cell",0
-"465","Byrne, Liam","class",0
-"466","Byrne, Liam","data",0
-"467","Byrne, Liam","hour",0
-"468","Byrne, Liam","hous",0
-"469","Campbell, Gregory","10000",4.71116219064998
-"470","Campbell, Gregory","population",3.49108154820638
-"471","Campbell, Gregory","television",3.23600910369041
-"472","Campbell, Gregory","fee",2.8933687968535
-"473","Campbell, Gregory","prosecuted",2.73811850939623
-"474","Campbell, Gregory","payment",2.63338967678625
-"475","Campbell, Gregory","calendar",2.57315443775946
-"476","Campbell, Gregory","non",2.56336342793292
-"477","Campbell, Gregory","licence",2.49926227093171
-"478","Campbell, Gregory","per",2.38533652988404
-"479","Campbell, Gregory","three",2.07210813837319
-"480","Campbell, Gregory","northern",1.97260759631033
-"481","Campbell, Ronnie","stalking",2.98859476155403
-"482","Campbell, Ronnie","harassment",2.32192809488736
-"483","Campbell, Ronnie","northumberland",2.26528642773992
-"484","Campbell, Ronnie","two",2.12694059464698
-"485","Campbell, Ronnie","received",1.20864476059249
-"486","Campbell, Ronnie","sentences",1.15266321482113
-"487","Campbell, Ronnie","people",1.11214255486083
-"488","Campbell, Ronnie","years",0.558588479243156
-"489","Campbell, Ronnie","prison",0.489976419258305
-"490","Campbell, Ronnie","blantyr",0
-"491","Campbell, Ronnie","cell",0
-"492","Campbell, Ronnie","class",0
-"493","Champion, Sarah","remote",8.48072342615528
-"494","Champion, Sarah","probation",7.61972002311376
-"495","Champion, Sarah","evidence",7.0794090623498
-"496","Champion, Sarah","give",6.02156691851498
-"497","Champion, Sarah","vulnerable",5.39920298301927
-"498","Champion, Sarah","without",4.36407777462938
-"499","Champion, Sarah","service",4.2674063928779
-"500","Champion, Sarah","risk",4.2019436012592
-"501","Champion, Sarah","contracting",3.70528188472905
-"502","Champion, Sarah","competition",3.38874793226672
-"503","Champion, Sarah","avon",3.38874793226672
-"504","Champion, Sarah","merge",3.38874793226672
-"505","Chapman, Jenny","detached",5.27819401175872
-"506","Chapman, Jenny","duty",4.84659264982017
-"507","Chapman, Jenny","serving",4.65159270069191
-"508","Chapman, Jenny","wales",3.48925864445686
-"509","Chapman, Jenny","england",3.38135268896857
-"510","Chapman, Jenny","baby",3.16988343317017
-"511","Chapman, Jenny","mother",3.16988343317017
-"512","Chapman, Jenny","officers",2.78282308407059
-"513","Chapman, Jenny","january",2.78282308407059
-"514","Chapman, Jenny","2011",2.74380091300229
-"515","Chapman, Jenny","travel",2.29952385052807
-"516","Chapman, Jenny","spent",2.23018768245857
-"517","Chope, Christopher","foreign",4.10420627922337
-"518","Chope, Christopher","defendants",3.96896758984935
-"519","Chope, Christopher","pending",3.52343682376344
-"520","Chope, Christopher","crown",3.34342809159004
-"521","Chope, Christopher","nationals",3.14159829127992
-"522","Chope, Christopher","court",2.78186568976204
-"523","Chope, Christopher","magistrates",2.56308986149187
-"524","Chope, Christopher","outside",2.52691284474264
-"525","Chope, Christopher","accede",2.34895788250896
-"526","Chope, Christopher","submission",2.34895788250896
-"527","Chope, Christopher","trial",2.34895788250896
-"528","Chope, Christopher","wales",2.18209674911235
-"529","Clark, Katy","applications",5.42171362315008
-"530","Clark, Katy","hardship",5.4065713497253
-"531","Clark, Katy","compensation",4.5875317245749
-"532","Clark, Katy","injuries",4.49677101882488
-"533","Clark, Katy","criminal",4.05696229676136
-"534","Clark, Katy","authoritys",3.65365036568054
-"535","Clark, Katy","successful",3.49503465093422
-"536","Clark, Katy","fund",3.02210125718694
-"537","Clark, Katy","reached",2.48666115100757
-"538","Clark, Katy","proportion",2.28898927262316
-"539","Clark, Katy","made",2.05702824323334
-"540","Clark, Katy","initial",2.04707164592774
-"541","Coffey, Ann","17b",2.07800967073552
-"542","Coffey, Ann","17z",2.07800967073552
-"543","Coffey, Ann","19c",2.07800967073552
-"544","Coffey, Ann","19d",2.07800967073552
-"545","Coffey, Ann","19e",2.07800967073552
-"546","Coffey, Ann","19f",2.07800967073552
-"547","Coffey, Ann","19h",2.07800967073552
-"548","Coffey, Ann","20a",2.07800967073552
-"549","Coffey, Ann","20b",2.07800967073552
-"550","Coffey, Ann","22b",2.07800967073552
-"551","Coffey, Ann","88a",2.07800967073552
-"552","Coffey, Ann","code",2.07800967073552
-"553","Cooper, Rosie","boundaries",3.38874793226672
-"554","Cooper, Rosie","expand",3.38874793226672
-"555","Cooper, Rosie","freedom",2.88910607652652
-"556","Cooper, Rosie","2000",2.78968841594226
-"557","Cooper, Rosie","proposals",2.25485451323904
-"558","Cooper, Rosie","information",1.94970303559213
-"559","Cooper, Rosie","act",1.41975963626063
-"560","Cooper, Rosie","blantyr",0
-"561","Cooper, Rosie","cell",0
-"562","Cooper, Rosie","class",0
-"563","Cooper, Rosie","data",0
-"564","Cooper, Rosie","hour",0
-"565","Corbyn, Jeremy","born",4.45683422192071
-"566","Corbyn, Jeremy","romanian",4.45683422192071
-"567","Corbyn, Jeremy","british",3.30080384774064
-"568","Corbyn, Jeremy","held",2.43383581508563
-"569","Corbyn, Jeremy","prisoners",0.657372348500105
-"570","Corbyn, Jeremy","blantyr",0
-"571","Corbyn, Jeremy","cell",0
-"572","Corbyn, Jeremy","class",0
-"573","Corbyn, Jeremy","data",0
-"574","Corbyn, Jeremy","hour",0
-"575","Corbyn, Jeremy","hous",0
-"576","Corbyn, Jeremy","per",0
-"577","Crausby, David","review",5.54562836593282
-"578","Crausby, David","commissioners",5.21810437286178
-"579","Crausby, David","refusals",4.45342561158755
-"580","Crausby, David","crime",3.74556633158417
-"581","Crausby, David","police",3.60701745092786
-"582","Crausby, David","devolution",3.52343682376344
-"583","Crausby, David","funding",3.28291454915495
-"584","Crausby, David","eviction",3.00479701944041
-"585","Crausby, David","fighting",3.00479701944041
-"586","Crausby, David","repossession",3.00479701944041
-"587","Crausby, David","according",3.00479701944041
-"588","Crausby, David","devolved",3.00479701944041
-"589","Creagh, Mary","caught",2.8768741197177
-"590","Creagh, Mary","speeding",2.20659121440661
-"591","Creagh, Mary","drive",1.96179559327088
-"592","Creagh, Mary","points",1.96179559327088
-"593","Creagh, Mary","area",1.9179160798118
-"594","Creagh, Mary","force",1.84198458730466
-"595","Creagh, Mary","police",1.58954709699121
-"596","Creagh, Mary","licence",1.37303446822936
-"597","Creagh, Mary","five",1.13836628071224
-"598","Creagh, Mary","received",1.04671706682406
-"599","Creagh, Mary","people",0.963143705139204
-"600","Creagh, Mary","years",0.48375181328589
-"601","Cunningham, Alex","holme",2.41705772045778
-"602","Cunningham, Alex","kirklevington",2.41705772045778
-"603","Cunningham, Alex","wymott",2.41705772045778
-"604","Cunningham, Alex","house",1.85390743867486
-"605","Cunningham, Alex","unemployed",1.26382810814312
-"606","Cunningham, Alex","classed",1.22696194286697
-"607","Cunningham, Alex","data",1.19361243978958
-"608","Cunningham, Alex","cells",1.15357969232734
-"609","Cunningham, Alex","hours",1.12630056356586
-"610","Cunningham, Alex","week",1.11766049635308
-"611","Cunningham, Alex","per",1.10099520656349
-"612","Cunningham, Alex","working",1.0625053495409
-"613","Cunningham, Jim","mobile",6.32326026629922
-"614","Cunningham, Jim","telephones",5.90620662517406
-"615","Cunningham, Jim","estimate",4.25437755296222
-"616","Cunningham, Jim","insurance",4.03558603617443
-"617","Cunningham, Jim","wales",3.64879063682034
-"618","Cunningham, Jim","conditions",3.62141180013112
-"619","Cunningham, Jim","fraud",3.56948806922553
-"620","Cunningham, Jim","establishment",3.5394352352545
-"621","Cunningham, Jim","england",3.5359511255768
-"622","Cunningham, Jim","2013",3.53570649457847
-"623","Cunningham, Jim","prison",3.3740533089463
-"624","Cunningham, Jim","information",3.26247718698415
-"625","Cunningham, Sir Tony","cert",2.41705772045778
-"626","Cunningham, Sir Tony","gary",2.41705772045778
-"627","Cunningham, Sir Tony","jbirqk61bb77//e/1",2.41705772045778
-"628","Cunningham, Sir Tony","owh0080",2.41705772045778
-"629","Cunningham, Sir Tony","tomlinson",2.41705772045778
-"630","Cunningham, Sir Tony","workington",2.41705772045778
-"631","Cunningham, Sir Tony","withdrawn",1.93198647038512
-"632","Cunningham, Sir Tony","constituent",1.68945084534878
-"633","Cunningham, Sir Tony","reasons",1.40570235387834
-"634","Cunningham, Sir Tony","member",1.3354866855248
-"635","Cunningham, Sir Tony","aid",1.22696194286697
-"636","Cunningham, Sir Tony","funding",1.21548862176541
-"637","Curran, Margaret","scotland",2.8163300425769
-"638","Curran, Margaret","processed",2.25596117648374
-"639","Curran, Margaret","tribunals",1.62925614725093
-"640","Curran, Margaret","employment",1.54885439529719
-"641","Curran, Margaret","service",1.26341132519156
-"642","Curran, Margaret","2010",1.25737492665416
-"643","Curran, Margaret","courts",1.22258396343646
-"644","Curran, Margaret","year",0.592472552348275
-"645","Curran, Margaret","blantyr",0
-"646","Curran, Margaret","cell",0
-"647","Curran, Margaret","class",0
-"648","Curran, Margaret","data",0
-"649","Danczuk, Simon","albany",2.28630771526146
-"650","Danczuk, Simon","ashwell",2.28630771526146
-"651","Danczuk, Simon","askham",2.28630771526146
-"652","Danczuk, Simon","buckley",2.28630771526146
-"653","Danczuk, Simon","grange",1.9226923800012
-"654","Danczuk, Simon","ashfield",1.7536208773782
-"655","Danczuk, Simon","unemployed",1.19546170948067
-"656","Danczuk, Simon","classed",1.16058980824738
-"657","Danczuk, Simon","data",1.1290443364365
-"658","Danczuk, Simon","cells",1.09117714832123
-"659","Danczuk, Simon","hours",1.06537367576652
-"660","Danczuk, Simon","week",1.05720099037231
-"661","Davies, David T. C.","vat",2.41705772045778
-"662","Davies, David T. C.","calculate",2.17452209542145
-"663","Davies, David T. C.","mean",2.03264784968623
-"664","Davies, David T. C.","barristers",1.93198647038512
-"665","Davies, David T. C.","income",1.85390743867486
-"666","Davies, David T. C.","included",1.64823797891467
-"667","Davies, David T. C.","earnings",1.61137181363852
-"668","Davies, David T. C.","published",1.57802231056113
-"669","Davies, David T. C.","full",1.51956926050916
-"670","Davies, David T. C.","reasons",1.40570235387834
-"671","Davies, David T. C.","fee",1.3354866855248
-"672","Davies, David T. C.","estimate",1.22696194286697
-"673","Davies, Philip","sentence",27.0159700143843
-"674","Davies, Philip","prison",20.3474488205465
-"675","Davies, Philip","serve",19.2209978310996
-"676","Davies, Philip","men",19.1820419268502
-"677","Davies, Philip","offence",18.7255676926501
-"678","Davies, Philip","offender",17.6124941202796
-"679","Davies, Philip","number",16.6432928488424
-"680","Davies, Philip","temporary",16.1515362729437
-"681","Davies, Philip","life",15.9871663764084
-"682","Davies, Philip","release",15.1480816501681
-"683","Davies, Philip","year",15.0195362364291
-"684","Davies, Philip","five",14.6839739917891
-"685","de Bois, Nick","blade",12.7335510743442
-"686","de Bois, Nick","point",12.0886044820103
-"687","de Bois, Nick","article",11.5736245737541
-"688","de Bois, Nick","offensive",9.64976723642981
-"689","de Bois, Nick","weapon",9.64976723642981
-"690","de Bois, Nick","aged",8.58518485748448
-"691","de Bois, Nick","inception",7.84686508310128
-"692","de Bois, Nick","threatening",7.52974297223707
-"693","de Bois, Nick","sentence",7.19376123012761
-"694","de Bois, Nick","economy",6.86894008123813
-"695","de Bois, Nick","received",5.44422802733408
-"696","de Bois, Nick","prosecuted",5.2963439189057
-"697","De Piero, Gloria","ashfield",7.40061348405452
-"698","De Piero, Gloria","constituency",6.74411917548185
-"699","De Piero, Gloria","successful",5.91305188979704
-"700","De Piero, Gloria","2008",4.09781802294438
-"701","De Piero, Gloria","claims",3.32212851104909
-"702","De Piero, Gloria","atos",3.32192809488736
-"703","De Piero, Gloria","nottingham",3.32192809488736
-"704","De Piero, Gloria","maternity",3.32192809488736
-"705","De Piero, Gloria","pregnancy",3.32192809488736
-"706","De Piero, Gloria","motorists",3.32192809488736
-"707","De Piero, Gloria","nottinghamshire",3.32192809488736
-"708","De Piero, Gloria","tribunal",3.16533357393226
-"709","Dobbin, Jim","prescription",4.45683422192071
-"710","Dobbin, Jim","tranquilisers",4.45683422192071
-"711","Dobbin, Jim","trade",3.56240703092079
-"712","Dobbin, Jim","illicit",3.56240703092079
-"713","Dobbin, Jim","prisons",0.657372348500105
-"714","Dobbin, Jim","blantyr",0
-"715","Dobbin, Jim","cell",0
-"716","Dobbin, Jim","class",0
-"717","Dobbin, Jim","data",0
-"718","Dobbin, Jim","hour",0
-"719","Dobbin, Jim","hous",0
-"720","Dobbin, Jim","per",0
-"721","Doughty, Stephen","within",3.21496428169583
-"722","Doughty, Stephen","brewing",2.66346788455011
-"723","Doughty, Stephen","distilling",2.66346788455011
-"724","Doughty, Stephen","upon",2.48666115100757
-"725","Doughty, Stephen","becoming",2.32442174404035
-"726","Doughty, Stephen","stills",2.23986883822275
-"727","Doughty, Stephen","possession",2.20931105289495
-"728","Doughty, Stephen","alcohol",2.12894540072526
-"729","Doughty, Stephen","mobile",1.93196095478234
-"730","Doughty, Stephen","illegal",1.91317072159204
-"731","Doughty, Stephen","left",1.88483223896053
-"732","Doughty, Stephen","set",1.8162697918954
-"733","Dowd, Jim","passed",2.32442174404035
-"734","Dowd, Jim","maximum",1.88483223896053
-"735","Dowd, Jim","legislative",1.88483223896053
-"736","Dowd, Jim","length",1.68043475911291
-"737","Dowd, Jim","proposals",1.65461085666972
-"738","Dowd, Jim","increase",1.58584813649133
-"739","Dowd, Jim","fraud",1.56532406796751
-"740","Dowd, Jim","average",1.30849803837871
-"741","Dowd, Jim","custodial",1.19076352398791
-"742","Dowd, Jim","five",1.09370694530649
-"743","Dowd, Jim","convictions",0.963495155920466
-"744","Dowd, Jim","sentence",0.959073767164327
-"745","Esterson, Bill","judgement",3.1514577009444
-"746","Esterson, Bill","trends",3.1514577009444
-"747","Esterson, Bill","trials",2.1009718006296
-"748","Esterson, Bill","length",1.91599041582293
-"749","Esterson, Bill","time",1.50408390096266
-"750","Esterson, Bill","average",1.49191730714984
-"751","Esterson, Bill","criminal",1.45725099920499
-"752","Esterson, Bill","england",1.175689541133
-"753","Esterson, Bill","sentencing",1.09351234017802
-"754","Esterson, Bill","made",1.07871471121951
-"755","Esterson, Bill","blantyr",0
-"756","Esterson, Bill","cell",0
-"757","Field, Frank","county",5.71071932749896
-"758","Field, Frank","higher",5.47992711321844
-"759","Field, Frank","telephone",4.6644439007638
-"760","Field, Frank","money",4.23151032091319
-"761","Field, Frank","rate",4.21420448765857
-"762","Field, Frank","centre",4.15508686217851
-"763","Field, Frank","duration",3.83942644018427
-"764","Field, Frank","magistrates",3.2306317051474
-"765","Field, Frank","numbers",3.18465627519671
-"766","Field, Frank","calls",2.84510493559844
-"767","Field, Frank","claims",2.56920151238101
-"768","Field, Frank","court",2.47905386227341
-"769","Fitzpatrick, Jim","fraud",10.2007394860934
-"770","Fitzpatrick, Jim","insurance",7.74522094977163
-"771","Fitzpatrick, Jim","injury",7.46411965054815
-"772","Fitzpatrick, Jim","personal",6.4017692361138
-"773","Fitzpatrick, Jim","project",4.72831322180568
-"774","Fitzpatrick, Jim","reform",4.5929721481477
-"775","Fitzpatrick, Jim","will",4.11217120242593
-"776","Fitzpatrick, Jim","exaggerated",4.07060694615011
-"777","Fitzpatrick, Jim","fabricated",4.07060694615011
-"778","Fitzpatrick, Jim","commission",3.86202691877196
-"779","Fitzpatrick, Jim","due",3.58832730713645
-"780","Fitzpatrick, Jim","scale",3.52343682376344
-"781","Flynn, Paul","motoring",5.44385581143453
-"782","Flynn, Paul","reduced",4.64983724639391
-"783","Flynn, Paul","collected",4.22627359050298
-"784","Flynn, Paul","paid",3.87514139843108
-"785","Flynn, Paul","fines",3.62030726199668
-"786","Flynn, Paul","speeding",2.54795206325824
-"787","Flynn, Paul","alcohol",2.51900216891073
-"788","Flynn, Paul","four",2.26700126931458
-"789","Flynn, Paul","offences",2.19605031468368
-"790","Flynn, Paul","related",1.4462572086854
-"791","Flynn, Paul","years",1.08851203998457
-"792","Flynn, Paul","blantyr",0
-"793","Fovargue, Yvonne","jobseekers",4.61108538317984
-"794","Fovargue, Yvonne","allowance",3.9338609090054
-"795","Fovargue, Yvonne","appeals",3.56487730554402
-"796","Fovargue, Yvonne","tribunal",2.66752798587864
-"797","Fovargue, Yvonne","april",2.60855380552674
-"798","Fovargue, Yvonne","march",2.53588881802148
-"799","Fovargue, Yvonne","went",2.52691284474264
-"800","Fovargue, Yvonne","2012",2.36357302617447
-"801","Fovargue, Yvonne","claimants",2.20931105289495
-"802","Fovargue, Yvonne","represented",1.84267416608012
-"803","Fovargue, Yvonne","decisions",1.77238060226338
-"804","Fovargue, Yvonne","2014",1.7637451132544
-"805","Fox, Dr Liam","population",4.37330697900697
-"806","Fox, Dr Liam","spread",4.06851439734493
-"807","Fox, Dr Liam","extremism",3.66026610688107
-"808","Fox, Dr Liam","islamic",3.42145616597619
-"809","Fox, Dr Liam","prevent",3.01320787551232
-"810","Fox, Dr Liam","terrorist",2.49144607116552
-"811","Fox, Dr Liam","extremists",2.24144607116552
-"812","Fox, Dr Liam","overseas",2.24144607116552
-"813","Fox, Dr Liam","potential",1.91096404744368
-"814","Fox, Dr Liam","radicalising",1.91096404744368
-"815","Fox, Dr Liam","recruiting",1.91096404744368
-"816","Fox, Dr Liam","imprisoned",1.69896482080494
-"817","Fuller, Richard","building",7.53767345999952
-"818","Fuller, Richard","six",6.39849095930907
-"819","Fuller, Richard","listed",5.83936836495187
-"820","Fuller, Richard","closed",5.62336953351167
-"821","Fuller, Richard","counted",4.72810722217309
-"822","Fuller, Richard","preceding",4.41962719002559
-"823","Fuller, Richard","location",4.20075712406048
-"824","Fuller, Richard","cases",4.07326505750854
-"825","Fuller, Richard","fewer",4.07058408443209
-"826","Fuller, Richard","three",4.02721899404632
-"827","Fuller, Richard","months",3.89713271830558
-"828","Fuller, Richard","maintaining",3.64539636808655
-"829","Garnier, Sir Edward","638",2.34895788250896
-"830","Garnier, Sir Edward","rspca",2.11325562211345
-"831","Garnier, Sir Edward","designate",1.80167418206816
-"832","Garnier, Sir Edward","freedom",1.80167418206816
-"833","Garnier, Sir Edward","2000",1.73967637805134
-"834","Garnier, Sir Edward","purposes",1.60179939438475
-"835","Garnier, Sir Edward","legislative",1.60179939438475
-"836","Garnier, Sir Edward","authority",1.42809493800605
-"837","Garnier, Sir Edward","proposals",1.4061488409269
-"838","Garnier, Sir Edward","information",1.21585346085648
-"839","Garnier, Sir Edward","answers",1.09456740088161
-"840","Garnier, Sir Edward","official",1.09456740088161
-"841","Gibb, Nick","ford",6.84485056134831
-"842","Gibb, Nick","open",3.86216868573978
-"843","Gibb, Nick","absconders",3.20134693338282
-"844","Gibb, Nick","failed",2.65024855012089
-"845","Gibb, Nick","return",1.83281163328054
-"846","Gibb, Nick","temporary",1.72098180914174
-"847","Gibb, Nick","released",1.63123859349208
-"848","Gibb, Nick","licence",1.50408390096266
-"849","Gibb, Nick","2013",1.326339053421
-"850","Gibb, Nick","five",1.2470177812987
-"851","Gibb, Nick","prison",1.12220479388906
-"852","Gibb, Nick","years",0.529923560741418
-"853","Gilmore, Sheila","lowest",3.38874793226672
-"854","Gilmore, Sheila","visit",3.01320787551232
-"855","Gilmore, Sheila","purpose",2.77439793460745
-"856","Gilmore, Sheila","awarded",2.56859337262703
-"857","Gilmore, Sheila","ministers",2.51416825922574
-"858","Gilmore, Sheila","value",2.41172394293303
-"859","Gilmore, Sheila","2009",2.29004656020206
-"860","Gilmore, Sheila","financial",1.94970303559213
-"861","Gilmore, Sheila","january",1.82647475928967
-"862","Gilmore, Sheila","contracts",1.71577710685642
-"863","Gilmore, Sheila","made",1.39261470395404
-"864","Gilmore, Sheila","2013",1.21077636409789
-"865","Goodman, Helen","libraries",9.44402253286951
-"866","Goodman, Helen","book",6.26423023443221
-"867","Goodman, Helen","newspapers",4.98289214233104
-"868","Goodman, Helen","welsh",4.06851439734493
-"869","Goodman, Helen","prison",3.78128354550525
-"870","Goodman, Helen","interlibrary",3.76671240527594
-"871","Goodman, Helen","loan",3.76671240527594
-"872","Goodman, Helen","order",3.75378008045962
-"873","Goodman, Helen","events",3.66026610688107
-"874","Goodman, Helen","cultural",3.42145616597619
-"875","Goodman, Helen","facilities",3.38874793226672
-"876","Goodman, Helen","internet",3.38874793226672
-"877","Green, Kate","bench",13.0265317217507
-"878","Green, Kate","member",11.3077979604905
-"879","Green, Kate","youth",11.0578079423435
-"880","Green, Kate","half",10.382071152248
-"881","Green, Kate","sittings",8.40692376910482
-"882","Green, Kate","court",8.25396068353006
-"883","Green, Kate","day",7.89300789040314
-"884","Green, Kate","magistrates",7.36383233099986
-"885","Green, Kate","sat",6.71108540091088
-"886","Green, Kate","recruited",6.02851930929397
-"887","Green, Kate","information",5.36703683677092
-"888","Green, Kate","brands",5.32052010605629
-"889","Gwynne, Andrew","greater",2.70328567486265
-"890","Gwynne, Andrew","manchester",2.30470935753804
-"891","Gwynne, Andrew","levied",2.30470935753804
-"892","Gwynne, Andrew","collected",1.96173914063025
-"893","Gwynne, Andrew","written",1.79875164112936
-"894","Gwynne, Andrew","fines",1.68046348748605
-"895","Gwynne, Andrew","magistrates",1.35871645147472
-"896","Gwynne, Andrew","five",1.18898480259236
-"897","Gwynne, Andrew","proportion",1.14449463631158
-"898","Gwynne, Andrew","court",1.04262310723814
-"899","Gwynne, Andrew","years",0.505262290326757
-"900","Gwynne, Andrew","blantyr",0
-"901","Hanson, David","broken",2.03264784968623
-"902","Hanson, David","longer",1.93198647038512
-"903","Hanson, David","north",1.93198647038512
-"904","Hanson, David","immediate",1.85390743867486
-"905","Hanson, David","less",1.7901122246499
-"906","Hanson, David","area",1.61137181363852
-"907","Hanson, David","sex",1.57802231056113
-"908","Hanson, David","force",1.54757659961356
-"909","Hanson, David","six",1.51956926050916
-"910","Hanson, David","police",1.3354866855248
-"911","Hanson, David","custody",1.04129249467079
-"912","Hanson, David","wales",0.930488232918456
-"913","Hendrick, Mark","language",4.12039147189078
-"914","Hendrick, Mark","interpreted",3.70277806224316
-"915","Hendrick, Mark","preston",2.8768741197177
-"916","Hendrick, Mark","residing",2.8768741197177
-"917","Hendrick, Mark","2016",2.83522993492757
-"918","Hendrick, Mark","notice",2.83522993492757
-"919","Hendrick, Mark","seek",2.83522993492757
-"920","Hendrick, Mark","2015",2.65024855012089
-"921","Hendrick, Mark","tag",2.58819898512289
-"922","Hendrick, Mark","suspended",2.58819898512289
-"923","Hendrick, Mark","possession",2.51900216891073
-"924","Hendrick, Mark","703w",2.49144607116552
-"925","Hodgson, Sharon","marriages",9.16101461189223
-"926","Hodgson, Sharon","satisfaction",6.27206622580121
-"927","Hodgson, Sharon","formal",6.05690946982643
-"928","Hodgson, Sharon","muslim",5.86156204652152
-"929","Hodgson, Sharon","diversity",5.31030730978556
-"930","Hodgson, Sharon","white",4.88286779364525
-"931","Hodgson, Sharon","islamic",4.74375660053464
-"932","Hodgson, Sharon","younger",4.57278093154109
-"933","Hodgson, Sharon","disciplinary",4.56429058226311
-"934","Hodgson, Sharon","children",4.50210237399739
-"935","Hodgson, Sharon","eight",4.35615640768601
-"936","Hodgson, Sharon","advisory",4.07194388763557
-"937","Hoey, Kate","mercy",9.53054410592463
-"938","Hoey, Kate","prerogative",9.53054410592463
-"939","Hoey, Kate","royal",9.14537802589809
-"940","Hoey, Kate","letters",8.24574215177332
-"941","Hoey, Kate","patent",6.94359212823548
-"942","Hoey, Kate","list",5.36470040326487
-"943","Hoey, Kate","president",4.29334357811459
-"944","Hoey, Kate","will",4.03312197789588
-"945","Hoey, Kate","gazette",3.32192809488736
-"946","Hoey, Kate","lord",3.20962282134332
-"947","Hoey, Kate","council",3.20962282134332
-"948","Hoey, Kate","granted",3.04798425229477
-"949","Hollobone, Philip","foreign",6.01340480891463
-"950","Hollobone, Philip","detention",5.08761818614253
-"951","Hollobone, Philip","national",4.6030099335152
-"952","Hollobone, Philip","countries",4.23313698624855
-"953","Hollobone, Philip","548w",3.7967011016215
-"954","Hollobone, Philip","293w",3.7967011016215
-"955","Hollobone, Philip","largest",3.7967011016215
-"956","Hollobone, Philip","secure",3.19963232672923
-"957","Hollobone, Philip","answer",3.16914516333998
-"958","Hollobone, Philip","official",3.16914516333998
-"959","Hollobone, Philip","next",3.07867737702118
-"960","Hollobone, Philip","report",2.7699443689705
-"961","Hopkins, Kelvin","introduction",6.43382227886943
-"962","Hopkins, Kelvin","transforming",6.43382227886943
-"963","Hopkins, Kelvin","following",6.26508787016919
-"964","Hopkins, Kelvin","agenda",5.64449892249352
-"965","Hopkins, Kelvin","introduce",5.43541558075199
-"966","Hopkins, Kelvin","rehabilitation",5.11547055591758
-"967","Hopkins, Kelvin","magistrates",5.00237682841161
-"968","Hopkins, Kelvin","wales",4.25879341146406
-"969","Hopkins, Kelvin","england",4.12708945394251
-"970","Hopkins, Kelvin","specialisations",3.00479701944041
-"971","Hopkins, Kelvin","advisers",2.41933485649429
-"972","Hopkins, Kelvin","recidivism",2.17452209542145
-"973","Irranca-Davies, Huw","recently",3.76671240527594
-"974","Irranca-Davies, Huw","governing",2.78968841594226
-"975","Irranca-Davies, Huw","rules",2.45917015662624
-"976","Irranca-Davies, Huw","reason",2.1906288996178
-"977","Irranca-Davies, Huw","provision",2.16114672127584
-"978","Irranca-Davies, Huw","books",2.0337594699238
-"979","Irranca-Davies, Huw","prisoners",0.555581037275741
-"980","Irranca-Davies, Huw","blantyr",0
-"981","Irranca-Davies, Huw","cell",0
-"982","Irranca-Davies, Huw","class",0
-"983","Irranca-Davies, Huw","data",0
-"984","Irranca-Davies, Huw","hour",0
-"985","Jarvis, Dan","college",25.3783678489298
-"986","Jarvis, Dan","secure",22.0523553440706
-"987","Jarvis, Dan","construction",14.1331803287506
-"988","Jarvis, Dan","homicide",13.6311264889937
-"989","Jarvis, Dan","support",13.105774722265
-"990","Jarvis, Dan","victim",12.3563078717995
-"991","Jarvis, Dan","bereaved",11.3710809852336
-"992","Jarvis, Dan","wates",10.9429673949394
-"993","Jarvis, Dan","offender",9.65582571027936
-"994","Jarvis, Dan","contract",9.05976814908719
-"995","Jarvis, Dan","2010",8.75048470787334
-"996","Jarvis, Dan","estimate",7.8222508167454
-"997","Johnson, Diana","contrary",46.3899903906557
-"998","Johnson, Diana","section",41.7988193087415
-"999","Johnson, Diana","convicted",36.479488095212
-"1000","Johnson, Diana","four",35.8683603839905
-"1001","Johnson, Diana","offence",35.501753297108
-"1002","Johnson, Diana","act",35.3449660404117
-"1003","Johnson, Diana","people",35.0355740146647
-"1004","Johnson, Diana","sexual",28.5340087681075
-"1005","Johnson, Diana","2003",25.7315437443733
-"1006","Johnson, Diana","child",22.545953336835
-"1007","Johnson, Diana","year",17.2223733003396
-"1008","Johnson, Diana","committed",15.1330996733403
-"1009","Jones, Graham","100",3.91298906181995
-"1010","Jones, Graham","xiy",3.65769049627087
-"1011","Jones, Graham","xiiy",3.65769049627087
-"1012","Jones, Graham","191341",3.52343682376344
-"1013","Jones, Graham","hyndburn",3.52343682376344
-"1014","Jones, Graham","viiy",3.22125471579889
-"1015","Jones, Graham","viy",3.12419470582186
-"1016","Jones, Graham","2004",3.04011750087598
-"1017","Jones, Graham","submitted",2.8163300425769
-"1018","Jones, Graham","two",2.7848189353269
-"1019","Jones, Graham","previously",2.7344205458155
-"1020","Jones, Graham","one",2.49547728257377
-"1021","Jones, Helen","helplines",5.42342892005045
-"1022","Jones, Helen","rape",4.62379078105305
-"1023","Jones, Helen","centres",3.50593209195661
-"1024","Jones, Helen","fund",3.03152410230954
-"1025","Jones, Helen","arrest",2.98859476155403
-"1026","Jones, Helen","attached",2.98859476155403
-"1027","Jones, Helen","support",2.95091079123578
-"1028","Jones, Helen","marriage",2.54795206325824
-"1029","Jones, Helen","power",2.26528642773992
-"1030","Jones, Helen","receive",2.19333816447441
-"1031","Jones, Helen","force",2.12694059464698
-"1032","Jones, Helen","protection",1.98859476155403
-"1033","Jones, Susan Elan","huntercombe",2.22841711096035
-"1034","Jones, Susan Elan","ranby",2.22841711096035
-"1035","Jones, Susan Elan","risley",2.22841711096035
-"1036","Jones, Susan Elan","rochester",2.22841711096035
-"1037","Jones, Susan Elan","hill",2.00481031321037
-"1038","Jones, Susan Elan","rye",2.00481031321037
-"1039","Jones, Susan Elan","reading",1.8740087216203
-"1040","Jones, Susan Elan","unemployed",1.16519194294018
-"1041","Jones, Susan Elan","classed",1.13120301796685
-"1042","Jones, Susan Elan","data",1.10045629534179
-"1043","Jones, Susan Elan","cells",1.06354792584421
-"1044","Jones, Susan Elan","hours",1.03839781180694
-"1045","Kane, Mike","sanctioned",3.42145616597619
-"1046","Kane, Mike","benefits",2.71234293156329
-"1047","Kane, Mike","appeals",2.51416825922574
-"1048","Kane, Mike","length",2.47353299065841
-"1049","Kane, Mike","time",1.94176396657569
-"1050","Kane, Mike","average",1.92605696150331
-"1051","Kane, Mike","blantyr",0
-"1052","Kane, Mike","cell",0
-"1053","Kane, Mike","class",0
-"1054","Kane, Mike","data",0
-"1055","Kane, Mike","hour",0
-"1056","Kane, Mike","hous",0
-"1057","Kaufman, Sir Gerald","gorton",2.8768741197177
-"1058","Kaufman, Sir Gerald","reply",2.8768741197177
-"1059","Kaufman, Sir Gerald","sherratt",2.8768741197177
-"1060","Kaufman, Sir Gerald","dated",2.41933485649429
-"1061","Kaufman, Sir Gerald","intends",2.29952385052807
-"1062","Kaufman, Sir Gerald","regard",2.20659121440661
-"1063","Kaufman, Sir Gerald","manchester",2.20659121440661
-"1064","Kaufman, Sir Gerald","letter",2.13065972189948
-"1065","Kaufman, Sir Gerald","right",1.84198458730466
-"1066","Kaufman, Sir Gerald","member",1.58954709699121
-"1067","Kaufman, Sir Gerald","march",1.26463431811504
-"1068","Kaufman, Sir Gerald","2014",0.879570343454353
-"1069","Khan, Sadiq","prison",76.0561466487587
-"1070","Khan, Sadiq","2010",58.5950229068291
-"1071","Khan, Sadiq","2013",55.1231355551233
-"1072","Khan, Sadiq","staff",54.8025582700765
-"1073","Khan, Sadiq","month",52.1504852333099
-"1074","Khan, Sadiq","2014",51.6295369810569
-"1075","Khan, Sadiq","four",49.0697392189776
-"1076","Khan, Sadiq","january",40.5698997317401
-"1077","Khan, Sadiq","year",37.8787108498947
-"1078","Khan, Sadiq","2011",37.0865936697414
-"1079","Khan, Sadiq","may",32.5142225576366
-"1080","Khan, Sadiq","2012",32.0946374429242
-"1081","Kirby, Simon","brighton",4.06851439734493
-"1082","Kirby, Simon","relocate",4.06851439734493
-"1083","Kirby, Simon","proposals",2.43552123548948
-"1084","Kirby, Simon","offices",1.82647475928967
-"1085","Kirby, Simon","staff",1.60090083122701
-"1086","Kirby, Simon","will",1.19713148085805
-"1087","Kirby, Simon","blantyr",0
-"1088","Kirby, Simon","cell",0
-"1089","Kirby, Simon","class",0
-"1090","Kirby, Simon","data",0
-"1091","Kirby, Simon","hour",0
-"1092","Kirby, Simon","hous",0
-"1093","Kwarteng, Kwasi","sutton",2.76401124912018
-"1094","Kwarteng, Kwasi","exercise",2.48666115100757
-"1095","Kwarteng, Kwasi","association",2.32442174404035
-"1096","Kwarteng, Kwasi","permitted",2.20931105289495
-"1097","Kwarteng, Kwasi","less",2.04707164592774
-"1098","Kwarteng, Kwasi","half",1.98539108605057
-"1099","Kwarteng, Kwasi","highdown",1.80453755027725
-"1100","Kwarteng, Kwasi","rights",1.76972154781513
-"1101","Kwarteng, Kwasi","day",1.50940089678928
-"1102","Kwarteng, Kwasi","hour",1.28797396985489
-"1103","Kwarteng, Kwasi","per",1.25903618701853
-"1104","Kwarteng, Kwasi","received",1.00565322880087
-"1105","Lady Hermon","became",3.32192809488736
-"1106","Lady Hermon","comfort",3.32192809488736
-"1107","Lady Hermon","aware",2.98859476155403
-"1108","Lady Hermon","letters",2.46027392798031
-"1109","Lady Hermon","called",2.21461872992491
-"1110","Lady Hermon","first",1.90595225707283
-"1111","Lady Hermon","runs",1.85782228729444
-"1112","Lady Hermon","issued",1.83545088867493
-"1113","Lady Hermon","will",0.977453761041546
-"1114","Lady Hermon","blantyr",0
-"1115","Lady Hermon","cell",0
-"1116","Lady Hermon","class",0
-"1117","Lavery, Ian","oakwood",13.7365757562051
-"1118","Lavery, Ian","staffing",7.32445633571018
-"1119","Lavery, Ian","unemployed",6.91613074610035
-"1120","Lavery, Ian","classed",6.71438557402008
-"1121","Lavery, Ian","data",6.53188486675256
-"1122","Lavery, Ian","cells",6.31281099603349
-"1123","Lavery, Ian","increase",6.3035970464097
-"1124","Lavery, Ian","hours",6.16352960251288
-"1125","Lavery, Ian","levels",6.14441575830922
-"1126","Lavery, Ian","week",6.11624798714632
-"1127","Lavery, Ian","per",6.02504941167247
-"1128","Lavery, Ian","working",5.81441880308595
-"1129","Leech, John","unpaid",2.66346788455011
-"1130","Leech, John","evasion",2.12894540072526
-"1131","Leech, John","outstanding",1.86168415881284
-"1132","Leech, John","imprisoned",1.8162697918954
-"1133","Leech, John","television",1.64590947967961
-"1134","Leech, John","fines",1.48957167526468
-"1135","Leech, John","payment",1.33940322595816
-"1136","Leech, John","non",1.30378624741423
-"1137","Leech, John","licence",1.27118290836726
-"1138","Leech, John","average",1.2609002598408
-"1139","Leech, John","relating",1.22231043335226
-"1140","Leech, John","2012",1.09126539745017
-"1141","Leslie, Chris","financial",5.04713292259564
-"1142","Leslie, Chris","paid",4.39015342125932
-"1143","Leslie, Chris","consultancy",3.03920066456048
-"1144","Leslie, Chris","firms",3.03920066456048
-"1145","Leslie, Chris","often",2.8768741197177
-"1146","Leslie, Chris","flights",2.76401124912018
-"1147","Leslie, Chris","hotel",2.76401124912018
-"1148","Leslie, Chris","trip",2.76401124912018
-"1149","Leslie, Chris","overseas",2.48666115100757
-"1150","Leslie, Chris","internal",2.48666115100757
-"1151","Leslie, Chris","overspend",2.41705772045778
-"1152","Leslie, Chris","underspend",2.41705772045778
-"1153","Llwyd, Elfyn","agenda",9.50652584126549
-"1154","Llwyd, Elfyn","harassment",8.7383256166084
-"1155","Llwyd, Elfyn","transforming",8.46841369911954
-"1156","Llwyd, Elfyn","1997",8.33447841099591
-"1157","Llwyd, Elfyn","protection",7.48386161664658
-"1158","Llwyd, Elfyn","rehabilitation",6.73315473376542
-"1159","Llwyd, Elfyn","magistrates",6.72769806230307
-"1160","Llwyd, Elfyn","court",5.24610805544455
-"1161","Llwyd, Elfyn","introduction",4.88808474037189
-"1162","Llwyd, Elfyn","act",4.71218190987058
-"1163","Llwyd, Elfyn","guidance",4.53722383083918
-"1164","Llwyd, Elfyn","wales",4.44881875106339
-"1165","Lord Alton of Liverpool","howard",2.66346788455011
-"1166","Lord Alton of Liverpool","league",2.66346788455011
-"1167","Lord Alton of Liverpool","penal",2.66346788455011
-"1168","Lord Alton of Liverpool","reverse",2.66346788455011
-"1169","Lord Alton of Liverpool","friends",2.39620664263769
-"1170","Lord Alton of Liverpool","give",2.12894540072526
-"1171","Lord Alton of Liverpool","consideration",2.12894540072526
-"1172","Lord Alton of Liverpool","sending",2.12894540072526
-"1173","Lord Alton of Liverpool","request",1.91317072159204
-"1174","Lord Alton of Liverpool","ban",1.91317072159204
-"1175","Lord Alton of Liverpool","reforms",1.59442291690041
-"1176","Lord Alton of Liverpool","books",1.43808511248548
-"1177","Lord Beecham","service",6.67501563643896
-"1178","Lord Beecham","impact",6.42535180619653
-"1179","Lord Beecham","personnel",5.82382469648159
-"1180","Lord Beecham","budget",5.61879459519576
-"1181","Lord Beecham","newcastle",5.16311685697548
-"1182","Lord Beecham","passage",5.07486013613045
-"1183","Lord Beecham","probation",4.91620922800091
-"1184","Lord Beecham","material",4.82964505628841
-"1185","Lord Beecham","closure",4.82625511099987
-"1186","Lord Beecham","national",4.60488009453714
-"1187","Lord Beecham","secure",4.13545066661951
-"1188","Lord Beecham","december",3.96293870304751
-"1189","Lord Blencathra","soldiers",6.43723268248072
-"1190","Lord Blencathra","british",5.66914181401535
-"1191","Lord Blencathra","firm",5.21983745881676
-"1192","Lord Blencathra","abuse",3.82393636803011
-"1193","Lord Blencathra","plan",3.57888012725548
-"1194","Lord Blencathra","lawyers",3.3395065848153
-"1195","Lord Blencathra","interest",3.25804186554588
-"1196","Lord Blencathra","law",2.96236938036122
-"1197","Lord Blencathra","pursuing",2.8768741197177
-"1198","Lord Blencathra","unfounded",2.8768741197177
-"1199","Lord Blencathra","iraqis",2.49144607116552
-"1200","Lord Blencathra","recover",2.49144607116552
-"1201","Lord Boateng","inquest",8.13310490234115
-"1202","Lord Boateng","families",6.37894152985425
-"1203","Lord Boateng","deceased",6.16391953234342
-"1204","Lord Boateng","legal",5.22143975023673
-"1205","Lord Boateng","representation",5.1077614563986
-"1206","Lord Boateng","aid",4.92814287219193
-"1207","Lord Boateng","victims",4.15560628877379
-"1208","Lord Boateng","agency",4.08942063403483
-"1209","Lord Boateng","cherry",4.03780049120206
-"1210","Lord Boateng","groce",4.03780049120206
-"1211","Lord Boateng","absence",3.58460292809794
-"1212","Lord Boateng","funded",3.34883274290225
-"1213","Lord Bourne of Aberystwyth","training",3.30120614605073
-"1214","Lord Bourne of Aberystwyth","temporary",2.72111116430254
-"1215","Lord Bourne of Aberystwyth","provide",2.66056414737173
-"1216","Lord Bourne of Aberystwyth","magistrates",2.6017439247928
-"1217","Lord Bourne of Aberystwyth","release",2.57921468130224
-"1218","Lord Bourne of Aberystwyth","licence",2.37816545951657
-"1219","Lord Bourne of Aberystwyth","prisoners",0.734964628887458
-"1220","Lord Bourne of Aberystwyth","blantyr",0
-"1221","Lord Bourne of Aberystwyth","cell",0
-"1222","Lord Bourne of Aberystwyth","class",0
-"1223","Lord Bourne of Aberystwyth","data",0
-"1224","Lord Bourne of Aberystwyth","hour",0
-"1225","Lord Bradley","kingdoms",2.33402078410405
-"1226","Lord Bradley","population",2.1009718006296
-"1227","Lord Bradley","mental",2.04707164592774
-"1228","Lord Bradley","individual",2.01779301808722
-"1229","Lord Bradley","treatment",1.98539108605057
-"1230","Lord Bradley","type",1.91599041582293
-"1231","Lord Bradley","united",1.85888845797897
-"1232","Lord Bradley","health",1.84267416608012
-"1233","Lord Bradley","area",1.84267416608012
-"1234","Lord Bradley","private",1.83281163328054
-"1235","Lord Bradley","budget",1.80814507316668
-"1236","Lord Bradley","current",1.74126160247788
-"1237","Lord Bradshaw","sharia",4.78420682894596
-"1238","Lord Bradshaw","law",3.43411375882606
-"1239","Lord Bradshaw","decided",2.98859476155403
-"1240","Lord Bradshaw","fit",2.83522993492757
-"1241","Lord Bradshaw","facilities",2.83522993492757
-"1242","Lord Bradshaw","escalation",2.66346788455011
-"1243","Lord Bradshaw","availability",2.65024855012089
-"1244","Lord Bradshaw","kingdom",2.46027392798031
-"1245","Lord Bradshaw","legal",2.4271328778684
-"1246","Lord Bradshaw","make",2.39620664263769
-"1247","Lord Bradshaw","compliant",2.39620664263769
-"1248","Lord Bradshaw","society",2.39620664263769
-"1249","Lord Donoughue","374)",2.28630771526146
-"1250","Lord Donoughue","mauley",2.28630771526146
-"1251","Lord Donoughue","owner",2.28630771526146
-"1252","Lord Donoughue","make",2.0568919813909
-"1253","Lord Donoughue","rspca",2.0568919813909
-"1254","Lord Donoughue","property",1.9226923800012
-"1255","Lord Donoughue","entry",1.82747624752034
-"1256","Lord Donoughue","permission",1.7536208773782
-"1257","Lord Donoughue","attempting",1.69327664613064
-"1258","Lord Donoughue","without",1.59806051364978
-"1259","Lord Donoughue","inspector",1.55907704474093
-"1260","Lord Donoughue","lord",1.43736862168035
-"1261","Lord Empey","1987",2.8768741197177
-"1262","Lord Empey","pardons",2.8768741197177
-"1263","Lord Empey","applies",2.58819898512289
-"1264","Lord Empey","whole",2.58819898512289
-"1265","Lord Empey","loss",2.41933485649429
-"1266","Lord Empey","royal",2.20659121440661
-"1267","Lord Empey","kingdom",2.13065972189948
-"1268","Lord Empey","records",2.01084871593326
-"1269","Lord Empey","1997",1.9179160798118
-"1270","Lord Empey","united",1.69692523386846
-"1271","Lord Empey","granted",1.6089212965139
-"1272","Lord Empey","reported",1.17170168199358
-"1273","Lord Fellowes","encouraged",2.58819898512289
-"1274","Lord Fellowes","chancellor",2.58819898512289
-"1275","Lord Fellowes","behaviour",2.41933485649429
-"1276","Lord Fellowes","preventing",2.13065972189948
-"1277","Lord Fellowes","considers",2.06646055973731
-"1278","Lord Fellowes","lord",1.80864918602333
-"1279","Lord Fellowes","post",1.72217358133845
-"1280","Lord Fellowes","books",1.55330945270985
-"1281","Lord Fellowes","rehabilitation",1.33028207368586
-"1282","Lord Fellowes","receiving",1.04671706682406
-"1283","Lord Fellowes","will",0.846499788086623
-"1284","Lord Fellowes","prisoners",0.424332026333027
-"1285","Lord Hodgson of Astley Abbotts","238)",2.66346788455011
-"1286","Lord Hodgson of Astley Abbotts","position",2.66346788455011
-"1287","Lord Hodgson of Astley Abbotts","revision",2.39620664263769
-"1288","Lord Hodgson of Astley Abbotts","discount",2.39620664263769
-"1289","Lord Hodgson of Astley Abbotts","now",2.39620664263769
-"1290","Lord Hodgson of Astley Abbotts","faulks",1.91317072159204
-"1291","Lord Hodgson of Astley Abbotts","lord",1.67448376985766
-"1292","Lord Hodgson of Astley Abbotts","implement",1.67448376985766
-"1293","Lord Hodgson of Astley Abbotts","written",1.59442291690041
-"1294","Lord Hodgson of Astley Abbotts","february",1.59442291690041
-"1295","Lord Hodgson of Astley Abbotts","rate",1.57104748932666
-"1296","Lord Hodgson of Astley Abbotts","injury",1.36511785060536
-"1297","Lord Jopling","365)",3.32192809488736
-"1298","Lord Jopling","newby",3.32192809488736
-"1299","Lord Jopling","now",2.98859476155403
-"1300","Lord Jopling","put",2.6552614282207
-"1301","Lord Jopling","lord",2.08844818884033
-"1302","Lord Jopling","written",1.98859476155403
-"1303","Lord Jopling","answer",1.54795206325824
-"1304","Lord Jopling","may",1.54795206325824
-"1305","Lord Jopling","will",0.977453761041546
-"1306","Lord Jopling","blantyr",0
-"1307","Lord Jopling","cell",0
-"1308","Lord Jopling","class",0
-"1309","Lord Lester of Herne Hill","1998",6.75501114064148
-"1310","Lord Lester of Herne Hill","29b",6.75501114064148
-"1311","Lord Lester of Herne Hill","29c",6.75501114064148
-"1312","Lord Lester of Herne Hill","1986",6.48201506269887
-"1313","Lord Lester of Herne Hill","disorder",6.48201506269887
-"1314","Lord Lester of Herne Hill","brought",5.90700786823953
-"1315","Lord Lester of Herne Hill","crime",4.84876125311894
-"1316","Lord Lester of Herne Hill","access",4.52383983456324
-"1317","Lord Lester of Herne Hill","prosecutions",4.41885752370762
-"1318","Lord Lester of Herne Hill","29d",4.29833805255642
-"1319","Lord Lester of Herne Hill","29e",4.29833805255642
-"1320","Lord Lester of Herne Hill","29f",4.29833805255642
-"1321","Lord Maginnis of Drumglass","bbc",3.94338867555398
-"1322","Lord Maginnis of Drumglass","broadcast",3.94338867555398
-"1323","Lord Maginnis of Drumglass","panorama",3.94338867555398
-"1324","Lord Maginnis of Drumglass","sale",3.68610672143495
-"1325","Lord Maginnis of Drumglass","expert",3.50356226992653
-"1326","Lord Maginnis of Drumglass","regarding",3.36196979308173
-"1327","Lord Maginnis of Drumglass","allegations",3.2462803158075
-"1328","Lord Maginnis of Drumglass","june",3.14846625649231
-"1329","Lord Maginnis of Drumglass","light",2.92214338745428
-"1330","Lord Maginnis of Drumglass","trials",2.92214338745428
-"1331","Lord Maginnis of Drumglass","witnesses",2.62390945867164
-"1332","Lord Maginnis of Drumglass","programme",2.45135789674583
-"1333","Lord Marlesford","escape",5.62272244258934
-"1334","Lord Marlesford","recaptured",3.52343682376344
-"1335","Lord Marlesford","uncaptured",3.52343682376344
-"1336","Lord Marlesford","absconded",2.9224165496896
-"1337","Lord Marlesford","large",2.8163300425769
-"1338","Lord Marlesford","long",2.46277665198362
-"1339","Lord Marlesford","establishments",2.36614964414358
-"1340","Lord Marlesford","category",2.04914570098385
-"1341","Lord Marlesford","custodial",1.75275644870117
-"1342","Lord Marlesford","years",1.27660092751976
-"1343","Lord Marlesford","prisoner",1.119794579608
-"1344","Lord Marlesford","blantyr",0
-"1345","Lord Mendelsohn","board",3.76587474289178
-"1346","Lord Mendelsohn","management",3.2497748930437
-"1347","Lord Mendelsohn","user",3.00479701944041
-"1348","Lord Mendelsohn","departmental",2.8768741197177
-"1349","Lord Mendelsohn","merit",2.8768741197177
-"1350","Lord Mendelsohn","percentage",2.8768741197177
-"1351","Lord Mendelsohn","customer",2.52691284474264
-"1352","Lord Mendelsohn","surveys",2.52691284474264
-"1353","Lord Mendelsohn","satisfaction",2.40177433028488
-"1354","Lord Mendelsohn","occurred",2.29952385052807
-"1355","Lord Mendelsohn","months",2.25217353889595
-"1356","Lord Mendelsohn","conducted",2.00319801296027
-"1357","Lord Ouseley","repeat",4.42821117012574
-"1358","Lord Ouseley","facilitate",4.13929751822923
-"1359","Lord Ouseley","resettlement",4.13929751822923
-"1360","Lord Ouseley","return",2.86258156604736
-"1361","Lord Ouseley","effectiveness",2.84458264154717
-"1362","Lord Ouseley","community",2.47522906453574
-"1363","Lord Ouseley","past",2.3149555480123
-"1364","Lord Ouseley","receipt",2.11325562211345
-"1365","Lord Ouseley","leave",2.11325562211345
-"1366","Lord Ouseley","strategy",2.11325562211345
-"1367","Lord Ouseley","provided",2.07669517419497
-"1368","Lord Ouseley","offenders",1.99291432805199
-"1369","Lord Pearson of Rannoch","drawing",3.52343682376344
-"1370","Lord Pearson of Rannoch","note",3.16988343317017
-"1371","Lord Pearson of Rannoch","compliant",3.16988343317017
-"1372","Lord Pearson of Rannoch","society",3.16988343317017
-"1373","Lord Pearson of Rannoch","guarantee",3.1514577009444
-"1374","Lord Pearson of Rannoch","lennon",3.1514577009444
-"1375","Lord Pearson of Rannoch","winchester",3.1514577009444
-"1376","Lord Pearson of Rannoch","yaxley",3.1514577009444
-"1377","Lord Pearson of Rannoch","practice",2.96306795767028
-"1378","Lord Pearson of Rannoch","stephen",2.83522993492757
-"1379","Lord Pearson of Rannoch","sharia",2.8163300425769
-"1380","Lord Pearson of Rannoch","safety",2.51900216891073
-"1381","Lord Roberts of Llandudno","verne",9.07984508227027
-"1382","Lord Roberts of Llandudno","surgeries",5.08312189840007
-"1383","Lord Roberts of Llandudno","migrants",4.68296872768739
-"1384","Lord Roberts of Llandudno","immigration",4.61471092733214
-"1385","Lord Roberts of Llandudno","site",4.33365911478978
-"1386","Lord Roberts of Llandudno","detained",4.16065315784944
-"1387","Lord Roberts of Llandudno","legal",3.84000458910548
-"1388","Lord Roberts of Llandudno","intention",3.76671240527594
-"1389","Lord Roberts of Llandudno","hmp",3.66917948979362
-"1390","Lord Roberts of Llandudno","249)",3.61511270756402
-"1391","Lord Roberts of Llandudno","torture",3.304676360487
-"1392","Lord Roberts of Llandudno","held",3.03441867945624
-"1393","Lord Rooker","constitutional",3.32192809488736
-"1394","Lord Rooker","governance",2.46027392798031
-"1395","Lord Rooker","set",2.26528642773992
-"1396","Lord Rooker","plan",2.21461872992491
-"1397","Lord Rooker","implement",2.08844818884033
-"1398","Lord Rooker","reform",1.98859476155403
-"1399","Lord Rooker","sections",1.48074077620169
-"1400","Lord Rooker","act",1.25211030634438
-"1401","Lord Rooker","2010",1.18546444950813
-"1402","Lord Rooker","blantyr",0
-"1403","Lord Rooker","cell",0
-"1404","Lord Rooker","class",0
-"1405","Lord Stoddart of Swindon","easily",2.66346788455011
-"1406","Lord Stoddart of Swindon","understood",2.66346788455011
-"1407","Lord Stoddart of Swindon","disadvantageous",2.58819898512289
-"1408","Lord Stoddart of Swindon","past",2.58819898512289
-"1409","Lord Stoddart of Swindon","union",2.41933485649429
-"1410","Lord Stoddart of Swindon","general",2.23986883822275
-"1411","Lord Stoddart of Swindon","disclosure",2.20659121440661
-"1412","Lord Stoddart of Swindon","european",2.20659121440661
-"1413","Lord Stoddart of Swindon","present",2.13065972189948
-"1414","Lord Stoddart of Swindon","govern",2.13065972189948
-"1415","Lord Stoddart of Swindon","bans",2.06646055973731
-"1416","Lord Stoddart of Swindon","rule",1.87822223158603
-"1417","Lord Storey","cinderella",3.76671240527594
-"1418","Lord Storey","neglect",3.38874793226672
-"1419","Lord Storey","statements",3.1514577009444
-"1420","Lord Storey","students",3.1514577009444
-"1421","Lord Storey","needs",2.65024855012089
-"1422","Lord Storey","teams",2.51900216891073
-"1423","Lord Storey","action",2.5111416035173
-"1424","Lord Storey","proposed",2.25485451323904
-"1425","Lord Storey","special",2.20277440289389
-"1426","Lord Storey","law",2.16114672127584
-"1427","Lord Storey","childrens",2.16114672127584
-"1428","Lord Storey","right",2.01779301808722
-"1429","Lord Tebbit","1984",2.98859476155403
-"1430","Lord Tebbit","killed",2.79360726131364
-"1431","Lord Tebbit","kingdom",2.46027392798031
-"1432","Lord Tebbit","homicide",2.21461872992491
-"1433","Lord Tebbit","previously",2.08844818884033
-"1434","Lord Tebbit","united",1.95944048113725
-"1435","Lord Tebbit","persons",1.46027392798031
-"1436","Lord Tebbit","convicted",1.15797706277747
-"1437","Lord Tebbit","people",1.11214255486083
-"1438","Lord Tebbit","blantyr",0
-"1439","Lord Tebbit","cell",0
-"1440","Lord Tebbit","class",0
-"1441","Lord Vinson","statutory",2.34895788250896
-"1442","Lord Vinson","unlawfully",2.34895788250896
-"1443","Lord Vinson","undertaking",1.97537863844686
-"1444","Lord Vinson","beyond",1.87755336171793
-"1445","Lord Vinson","detained",1.87755336171793
-"1446","Lord Vinson","illegal",1.68725798164751
-"1447","Lord Vinson","lawyers",1.64185110132242
-"1448","Lord Vinson","immigrants",1.47675587648576
-"1449","Lord Vinson","compensation",1.22822015032265
-"1450","Lord Vinson","aid",1.19239267761054
-"1451","Lord Vinson","funds",1.18124261370765
-"1452","Lord Vinson","payments",1.18124261370765
-"1453","Lord Wigley","awaiting",2.76401124912018
-"1454","Lord Wigley","offered",2.48666115100757
-"1455","Lord Wigley","tariff",2.48666115100757
-"1456","Lord Wigley","beyond",2.20931105289495
-"1457","Lord Wigley","courses",1.98539108605057
-"1458","Lord Wigley","imprisoned",1.88483223896053
-"1459","Lord Wigley","completed",1.84267416608012
-"1460","Lord Wigley","protection",1.65461085666972
-"1461","Lord Wigley","successfully",1.60748214084791
-"1462","Lord Wigley","programmes",1.54580158097075
-"1463","Lord Wigley","rehabilitation",1.27809367499592
-"1464","Lord Wigley","public",1.11261431825261
-"1465","Lucas, Caroline","245",2.28630771526146
-"1466","Lucas, Caroline","concession",2.28630771526146
-"1467","Lucas, Caroline","conversations",2.28630771526146
-"1468","Lucas, Caroline","eni",2.28630771526146
-"1469","Lucas, Caroline","nigerian",2.28630771526146
-"1470","Lucas, Caroline","oil",2.28630771526146
-"1471","Lucas, Caroline","opl",2.28630771526146
-"1472","Lucas, Caroline","shell",2.28630771526146
-"1473","Lucas, Caroline","attorney",2.0568919813909
-"1474","Lucas, Caroline","nigeria",2.0568919813909
-"1475","Lucas, Caroline","senior",2.0568919813909
-"1476","Lucas, Caroline","general",1.9226923800012
-"1477","Lucas, Ian","wrexham",7.27236684084877
-"1478","Lucas, Ian","north",4.51044824007625
-"1479","Lucas, Ian","magistrates",3.91033845444196
-"1480","Lucas, Ian","provision",3.2376092659713
-"1481","Lucas, Ian","police",3.11784976898408
-"1482","Lucas, Ian","continue",3.00479701944041
-"1483","Lucas, Ian","court",3.00063285853201
-"1484","Lucas, Ian","replace",2.49144607116552
-"1485","Lucas, Ian","future",2.41719956664644
-"1486","Lucas, Ian","2016",2.24144607116552
-"1487","Lucas, Ian","wales",2.17233354214023
-"1488","Lucas, Ian","considered",2.15834766218382
-"1489","Mactaggart, Fiona","sanitary",4.85266142079628
-"1490","Mactaggart, Fiona","product",4.54449078305198
-"1491","Mactaggart, Fiona","female",3.73182108340063
-"1492","Mactaggart, Fiona","free",2.79360726131364
-"1493","Mactaggart, Fiona","range",2.79360726131364
-"1494","Mactaggart, Fiona","brands",2.52691284474264
-"1495","Mactaggart, Fiona","full",2.08844818884033
-"1496","Mactaggart, Fiona","charge",2.08844818884033
-"1497","Mactaggart, Fiona","purchase",2.04902867004487
-"1498","Mactaggart, Fiona","types",1.82682518284027
-"1499","Mactaggart, Fiona","list",1.72399868319316
-"1500","Mactaggart, Fiona","provided",1.53607742668133
-"1501","Mahmood, Shabana","upper",2.3149555480123
-"1502","Mahmood, Shabana","panel",2.3149555480123
-"1503","Mahmood, Shabana","sat",2.16391887978237
-"1504","Mahmood, Shabana","expert",2.05675665826513
-"1505","Mahmood, Shabana","tier",2.05675665826513
-"1506","Mahmood, Shabana","judges",2.05675665826513
-"1507","Mahmood, Shabana","tax",1.79855776851797
-"1508","Mahmood, Shabana","paid",1.54035887877081
-"1509","Mahmood, Shabana","first",1.4763442700619
-"1510","Mahmood, Shabana","members",1.42173414492392
-"1511","Mahmood, Shabana","days",1.40517576300304
-"1512","Mahmood, Shabana","tribunal",1.18984045840439
-"1513","Mann, John","courthouse",4.45683422192071
-"1514","Mann, John","worksop",4.45683422192071
-"1515","Mann, John","planned",2.97122281461381
-"1516","Mann, John","privatised",2.83522993492757
-"1517","Mann, John","third",2.65024855012089
-"1518","Mann, John","reasons",2.59198706906052
-"1519","Mann, John","sector",2.51900216891073
-"1520","Mann, John","close",2.46251577386373
-"1521","Mann, John","bidders",2.26369412552575
-"1522","Mann, John","private",1.83281163328054
-"1523","Mann, John","work",1.38533748605354
-"1524","Mann, John","employ",1.38533748605354
-"1525","Maynard, Paul","respite",2.22841711096035
-"1526","Maynard, Paul","short",2.00481031321037
-"1527","Maynard, Paul","disadvantage",2.00481031321037
-"1528","Maynard, Paul","experiencing",2.00481031321037
-"1529","Maynard, Paul","breaks",1.8740087216203
-"1530","Maynard, Paul","organisation",1.55759671771042
-"1531","Maynard, Paul","board",1.42679512612034
-"1532","Maynard, Paul","youth",1.40097363531999
-"1533","Maynard, Paul","types",1.35480981571683
-"1534","Maynard, Paul","young",1.31443263410634
-"1535","Maynard, Paul","provision",1.2785516426052
-"1536","Maynard, Paul","children",1.2785516426052
-"1537","McCabe, Steve","652",2.28630771526146
-"1538","McCabe, Steve","parents",2.0568919813909
-"1539","McCabe, Steve","commence",1.9226923800012
-"1540","McCabe, Steve","needs",1.9226923800012
-"1541","McCabe, Steve","future",1.7536208773782
-"1542","McCabe, Steve","local",1.69327664613064
-"1543","McCabe, Steve","hearings",1.69327664613064
-"1544","McCabe, Steve","educational",1.64225632558249
-"1545","McCabe, Steve","special",1.59806051364978
-"1546","McCabe, Steve","represented",1.52420514350764
-"1547","McCabe, Steve","publishing",1.49265967169676
-"1548","McCabe, Steve","authorities",1.39000554211794
-"1549","McCann, Michael","aid",10.6887368239985
-"1550","McCann, Michael","legal",9.01207820078626
-"1551","McCann, Michael","cases",8.42715345651163
-"1552","McCann, Michael","lawyers",6.60832320868167
-"1553","McCann, Michael","interest",6.44711819789214
-"1554","McCann, Michael","pensions",6.22397786719428
-"1555","McCann, Michael","funded",5.83437663827973
-"1556","McCann, Michael","defence",5.34722865961638
-"1557","McCann, Michael","home",3.86905743998836
-"1558","McCann, Michael","public",3.80572650985519
-"1559","McCann, Michael","years",3.54065865851273
-"1560","McCann, Michael","received",3.43986329295106
-"1561","McCarthy, Kerry","achievements",3.32192809488736
-"1562","McCarthy, Kerry","behaviour",2.79360726131364
-"1563","McCarthy, Kerry","reoffending",2.46027392798031
-"1564","McCarthy, Kerry","educational",2.38614312086816
-"1565","McCarthy, Kerry","substantive",2.17452209542145
-"1566","McCarthy, Kerry","named",2.17452209542145
-"1567","McCarthy, Kerry","baby",2.17452209542145
-"1568","McCarthy, Kerry","mother",2.17452209542145
-"1569","McCarthy, Kerry","293w",2.03264784968623
-"1570","McCarthy, Kerry","rates",1.95944048113725
-"1571","McCarthy, Kerry","access",1.88128539659157
-"1572","McCarthy, Kerry","books",1.79360726131364
-"1573","McCartney, Jason","nuisance",3.32192809488736
-"1574","McCartney, Jason","persistent",2.98859476155403
-"1575","McCartney, Jason","regulator",2.26528642773992
-"1576","McCartney, Jason","calls",2.21461872992491
-"1577","McCartney, Jason","result",2.05280978753483
-"1578","McCartney, Jason","closed",1.83545088867493
-"1579","McCartney, Jason","management",1.83545088867493
-"1580","McCartney, Jason","companies",1.68629789635119
-"1581","McCartney, Jason","claims",1.61216708923904
-"1582","McCartney, Jason","blantyr",0
-"1583","McCartney, Jason","cell",0
-"1584","McCartney, Jason","class",0
-"1585","McCartney, Karl","confinement",3.1514577009444
-"1586","McCartney, Karl","lincoln",3.1514577009444
-"1587","McCartney, Karl","solitary",3.1514577009444
-"1588","McCartney, Karl","rscpas",2.66346788455011
-"1589","McCartney, Karl","wooler",2.66346788455011
-"1590","McCartney, Karl","kept",2.65024855012089
-"1591","McCartney, Karl","exceptional",2.41705772045778
-"1592","McCartney, Karl","fairclough",2.41705772045778
-"1593","McCartney, Karl","judgment",2.41705772045778
-"1594","McCartney, Karl","summers",2.41705772045778
-"1595","McCartney, Karl","supreme",2.41705772045778
-"1596","McCartney, Karl","stephen",2.39620664263769
-"1597","McDonald, Andy","blundeston",2.8768741197177
-"1598","McDonald, Andy","bristol",2.8768741197177
-"1599","McDonald, Andy","bullingdon",2.8768741197177
-"1600","McDonald, Andy","bullwood",2.8768741197177
-"1601","McDonald, Andy","brinsford",2.58819898512289
-"1602","McDonald, Andy","cells",1.37303446822936
-"1603","McDonald, Andy","hours",1.34056581062217
-"1604","McDonald, Andy","week",1.33028207368586
-"1605","McDonald, Andy","per",1.31044641130698
-"1606","McDonald, Andy","working",1.26463431811504
-"1607","McDonald, Andy","spent",1.15804569841283
-"1608","McDonald, Andy","prison",0.424332026333027
-"1609","McDonnell, John","thameside",6.29003841888342
-"1610","McDonnell, John","race",6.03583368365623
-"1611","McDonnell, John","discrimination",5.24620165319882
-"1612","McDonnell, John","probation",4.14611392381515
-"1613","McDonnell, John","wales",3.70525020632761
-"1614","McDonnell, John","nature",3.69747356979806
-"1615","McDonnell, John","outcome",3.69747356979806
-"1616","McDonnell, John","england",3.59066467267217
-"1617","McDonnell, John","doncaster",3.42145616597619
-"1618","McDonnell, John","pilot",3.42145616597619
-"1619","McDonnell, John","avon",3.38874793226672
-"1620","McDonnell, John","merge",3.38874793226672
-"1621","McIntosh, Anne","independence",4.59093364987979
-"1622","McIntosh, Anne","appeal",3.83059521267732
-"1623","McIntosh, Anne","length",3.76868318086772
-"1624","McIntosh, Anne","farms",3.76671240527594
-"1625","McIntosh, Anne","rustling",3.76671240527594
-"1626","McIntosh, Anne","sheep",3.76671240527594
-"1627","McIntosh, Anne","payment",3.11725015776605
-"1628","McIntosh, Anne","takes",2.98859476155403
-"1629","McIntosh, Anne","time",2.95847810790707
-"1630","McIntosh, Anne","personal",2.72490824609535
-"1631","McIntosh, Anne","procedure",2.21461872992491
-"1632","McIntosh, Anne","speed",2.20659121440661
-"1633","Mearns, Ian","shop",4.45683422192071
-"1634","Mearns, Ian","bought",4.00962062642075
-"1635","Mearns, Ian","books",2.40637665674072
-"1636","Mearns, Ian","england",1.66267609421049
-"1637","Mearns, Ian","prisons",0.657372348500105
-"1638","Mearns, Ian","blantyr",0
-"1639","Mearns, Ian","cell",0
-"1640","Mearns, Ian","class",0
-"1641","Mearns, Ian","data",0
-"1642","Mearns, Ian","hour",0
-"1643","Mearns, Ian","hous",0
-"1644","Mearns, Ian","per",0
-"1645","Morrice, Graeme","membership",3.16988343317017
-"1646","Morrice, Graeme","union",2.96306795767028
-"1647","Morrice, Graeme","end",2.96306795767028
-"1648","Morrice, Graeme","check",2.96306795767028
-"1649","Morrice, Graeme","trade",2.8163300425769
-"1650","Morrice, Graeme","employee",2.34895788250896
-"1651","Morrice, Graeme","dues",2.30034304546865
-"1652","Morrice, Graeme","system",2.10922326139035
-"1653","Morrice, Graeme","blantyr",0
-"1654","Morrice, Graeme","cell",0
-"1655","Morrice, Graeme","class",0
-"1656","Morrice, Graeme","data",0
-"1657","Morris, Grahame","agenda",4.93265647236584
-"1658","Morris, Grahame","introduction",4.3940106344962
-"1659","Morris, Grahame","transforming",4.3940106344962
-"1660","Morris, Grahame","rehabilitation",3.49363582779969
-"1661","Morris, Grahame","wales",2.9085639498553
-"1662","Morris, Grahame","england",2.81861608296199
-"1663","Morris, Grahame","fast",2.66346788455011
-"1664","Morris, Grahame","national",2.35413404485083
-"1665","Morris, Grahame","interviews",2.22841711096035
-"1666","Morris, Grahame","reports",2.16956993625392
-"1667","Morris, Grahame","delivery",2.04290649827917
-"1668","Morris, Grahame","responsible",2.04290649827917
-"1669","Mowat, David","leigh",2.70328567486265
-"1670","Mowat, David","lawyers",2.10026298570712
-"1671","Mowat, David","interest",2.04902867004487
-"1672","Mowat, David","paid",1.79875164112936
-"1673","Mowat, David","day",1.64089177178884
-"1674","Mowat, David","aid",1.5253138382625
-"1675","Mowat, David","claims",1.45826000028145
-"1676","Mowat, David","legal",1.2860497753392
-"1677","Mowat, David","public",1.20953928401571
-"1678","Mowat, David","three",1.18898480259236
-"1679","Mowat, David","years",0.505262290326757
-"1680","Mowat, David","blantyr",0
-"1681","Mulholland, Greg","careless",3.00479701944041
-"1682","Mulholland, Greg","dangerous",2.40177433028488
-"1683","Mulholland, Greg","causing",2.22540150016488
-"1684","Mulholland, Greg","drive",2.04902867004487
-"1685","Mulholland, Greg","death",2.00319801296027
-"1686","Mulholland, Greg","average",1.4224873386154
-"1687","Mulholland, Greg","convicted",1.04742966356473
-"1688","Mulholland, Greg","sentence",1.04262310723814
-"1689","Mulholland, Greg","offence",1.01935612185382
-"1690","Mulholland, Greg","people",1.00597079123471
-"1691","Mulholland, Greg","year",0.505262290326757
-"1692","Mulholland, Greg","blantyr",0
-"1693","Murray, Ian","tribunal",8.5301326947825
-"1694","Murray, Ian","employment",8.10918132122739
-"1695","Murray, Ian","fees",6.1646156348877
-"1696","Murray, Ian","independent",5.39920298301927
-"1697","Murray, Ian","statistics",5.39920298301927
-"1698","Murray, Ian","system",4.69037574872851
-"1699","Murray, Ian","departments",4.66768511941677
-"1700","Murray, Ian","accuracy",3.76671240527594
-"1701","Murray, Ian","audit",3.52343682376344
-"1702","Murray, Ian","lower",3.38874793226672
-"1703","Murray, Ian","partially",3.32192809488736
-"1704","Murray, Ian","assessed",3.01078345925749
-"1705","Nash, Pamela","93w",2.57315443775946
-"1706","Nash, Pamela","zero",2.3149555480123
-"1707","Nash, Pamela","june",1.84829851375796
-"1708","Nash, Pamela","records",1.79855776851797
-"1709","Nash, Pamela","conditions",1.79855776851797
-"1710","Nash, Pamela","two",1.64752110028805
-"1711","Nash, Pamela","hours",1.19903851234532
-"1712","Nash, Pamela","answer",1.19903851234532
-"1713","Nash, Pamela","official",1.19903851234532
-"1714","Nash, Pamela","contracts",1.17209890262122
-"1715","Nash, Pamela","employed",1.13112332079373
-"1716","Nash, Pamela","report",1.04800184411539
-"1717","Nuttall, David","compensation",12.7580934857822
-"1718","Nuttall, David","services)",7.05273158708125
-"1719","Nuttall, David","authority",7.02591188523195
-"1720","Nuttall, David","2006",6.21119936400075
-"1721","Nuttall, David","injuries",5.92302451257783
-"1722","Nuttall, David","decision",5.88957132634814
-"1723","Nuttall, David","regulation",5.71893457035015
-"1724","Nuttall, David","region",5.38142768293491
-"1725","Nuttall, David","criminal",5.3437204228827
-"1726","Nuttall, David","investigation",5.27248934142971
-"1727","Nuttall, David","makers",4.97332230201514
-"1728","Nuttall, David","management",4.63377320010505
-"1729","O'Brien, Stephen","adjusted",2.22841711096035
-"1730","O'Brien, Stephen","approach",2.22841711096035
-"1731","O'Brien, Stephen","quality",2.22841711096035
-"1732","O'Brien, Stephen","quantify",2.22841711096035
-"1733","O'Brien, Stephen","willingness",2.22841711096035
-"1734","O'Brien, Stephen","intervention",2.00481031321037
-"1735","O'Brien, Stephen","calculation",2.00481031321037
-"1736","O'Brien, Stephen","fatality",1.7812035154604
-"1737","O'Brien, Stephen","circumstances",1.70921820505688
-"1738","O'Brien, Stephen","tools",1.70921820505688
-"1739","O'Brien, Stephen","preventing",1.65040192387032
-"1740","O'Brien, Stephen","pay",1.60067346669141
-"1741","Offord, Dr Matthew","round",8.08342174629402
-"1742","Offord, Dr Matthew","tender",7.48982061047108
-"1743","Offord, Dr Matthew","contract",7.47760268683894
-"1744","Offord, Dr Matthew","immigration",6.35787019924169
-"1745","Offord, Dr Matthew","provide",6.13353693582096
-"1746","Offord, Dr Matthew","firm",5.66991203730919
-"1747","Offord, Dr Matthew","funded",5.08559832491627
-"1748","Offord, Dr Matthew","2007",4.94473174602817
-"1749","Offord, Dr Matthew","bid",4.82405554338203
-"1750","Offord, Dr Matthew","withdrawn",4.8185260194388
-"1751","Offord, Dr Matthew","2010",4.73354393526231
-"1752","Offord, Dr Matthew","grave",4.62211829072787
-"1753","Onwurah, Chi","815",2.49144607116552
-"1754","Onwurah, Chi","digital",2.49144607116552
-"1755","Onwurah, Chi","lasting",2.49144607116552
-"1756","Onwurah, Chi","oral",2.49144607116552
-"1757","Onwurah, Chi","attorney",2.24144607116552
-"1758","Onwurah, Chi","assisted",1.84520544598523
-"1759","Onwurah, Chi","power",1.69896482080494
-"1760","Onwurah, Chi","accessed",1.41096404744368
-"1761","Onwurah, Chi","place",1.2528969935688
-"1762","Onwurah, Chi","answer",1.16096404744368
-"1763","Onwurah, Chi","official",1.16096404744368
-"1764","Onwurah, Chi","provided",1.152058070011
-"1765","Patel, Priti","purse",2.34895788250896
-"1766","Patel, Priti","funding",1.77186392056148
-"1767","Patel, Priti","support",1.7247470867221
-"1768","Patel, Priti","provided",1.62925614725093
-"1769","Patel, Priti","victims",1.57056276604747
-"1770","Patel, Priti","public",1.4183105299682
-"1771","Patel, Priti","services",1.26341132519156
-"1772","Patel, Priti","years",0.592472552348275
-"1773","Patel, Priti","blantyr",0
-"1774","Patel, Priti","cell",0
-"1775","Patel, Priti","class",0
-"1776","Patel, Priti","data",0
-"1777","Pearce, Teresa","unemployed",6.72723881914099
-"1778","Pearce, Teresa","hmp",6.65950367131817
-"1779","Pearce, Teresa","classed",6.53100366931276
-"1780","Pearce, Teresa","data",6.35348738346998
-"1781","Pearce, Teresa","cells",6.14039681282225
-"1782","Pearce, Teresa","hours",5.99519256172658
-"1783","Pearce, Teresa","week",5.94920229202195
-"1784","Pearce, Teresa","per",5.86049451310612
-"1785","Pearce, Teresa","working",5.65561660396863
-"1786","Pearce, Teresa","spent",5.17893780540461
-"1787","Pearce, Teresa","three",5.09092877393236
-"1788","Pearce, Teresa","proportion",4.900433262819
-"1789","Percy, Andrew","cellular",6.55863136543689
-"1790","Percy, Andrew","devices",6.55863136543689
-"1791","Percy, Andrew","illegal",4.68923463465508
-"1792","Percy, Andrew","mobile",4.56303963769074
-"1793","Percy, Andrew","telephone",4.2620821860989
-"1794","Percy, Andrew","estate",3.96896758984935
-"1795","Percy, Andrew","brigg",3.52343682376344
-"1796","Percy, Andrew","goole",3.52343682376344
-"1797","Percy, Andrew","blocking",3.52343682376344
-"1798","Percy, Andrew","roll",3.16988343317017
-"1799","Percy, Andrew","technology",3.16988343317017
-"1800","Percy, Andrew","across",2.96306795767028
-"1801","Phillipson, Bridget","1990",2.17471242114597
-"1802","Phillipson, Bridget","209w",2.17471242114597
-"1803","Phillipson, Bridget","compliance",2.17471242114597
-"1804","Phillipson, Bridget","computer",2.17471242114597
-"1805","Phillipson, Bridget","cyber",2.17471242114597
-"1806","Phillipson, Bridget","strategy",1.95649453090998
-"1807","Phillipson, Bridget","misuse",1.95649453090998
-"1808","Phillipson, Bridget","measures",1.66802617099997
-"1809","Phillipson, Bridget","governments",1.61062735789944
-"1810","Phillipson, Bridget","managing",1.20158466167526
-"1811","Phillipson, Bridget","answer",1.01337250029199
-"1812","Phillipson, Bridget","official",1.01337250029199
-"1813","Powell, Lucy","job",3.98442270797437
-"1814","Powell, Lucy","outsourcing",3.1514577009444
-"1815","Powell, Lucy","privatisations",2.83522993492757
-"1816","Powell, Lucy","sector",2.51900216891073
-"1817","Powell, Lucy","compressed",2.22841711096035
-"1818","Powell, Lucy","flexi",2.22841711096035
-"1819","Powell, Lucy","result",1.94746635950891
-"1820","Powell, Lucy","transferred",1.85888845797897
-"1821","Powell, Lucy","private",1.83281163328054
-"1822","Powell, Lucy","share",1.7812035154604
-"1823","Powell, Lucy","term",1.65040192387032
-"1824","Powell, Lucy","reduced",1.60067346669141
-"1825","Qureshi, Yasmin","within",16.5980158472547
-"1826","Qureshi, Yasmin","child",13.6923006358518
-"1827","Qureshi, Yasmin","victims",12.3591590122994
-"1828","Qureshi, Yasmin","intermediaries",7.29369452770804
-"1829","Qureshi, Yasmin","registered",6.22986604595968
-"1830","Qureshi, Yasmin","use",5.60530699031021
-"1831","Qureshi, Yasmin","remote",4.75454327766485
-"1832","Qureshi, Yasmin","site",4.75454327766485
-"1833","Qureshi, Yasmin","given",4.7498985033692
-"1834","Qureshi, Yasmin","scotland",4.70129818081296
-"1835","Qureshi, Yasmin","abuse",4.19800909647521
-"1836","Qureshi, Yasmin","evidence",4.05083075023409
-"1837","Raab, Dominic","affairs",5.53851560979021
-"1838","Raab, Dominic","field",5.53851560979021
-"1839","Raab, Dominic","justice",4.30303738860101
-"1840","Raab, Dominic","countries",3.58032895874765
-"1841","Raab, Dominic","agreements",3.53214375635984
-"1842","Raab, Dominic","home",3.44294846218829
-"1843","Raab, Dominic","operation",3.28756312798414
-"1844","Raab, Dominic","capita",2.79360726131364
-"1845","Raab, Dominic","spending",2.79360726131364
-"1846","Raab, Dominic","personality",2.70620495248513
-"1847","Raab, Dominic","negotiating",2.70328567486265
-"1848","Raab, Dominic","concluded",2.65024855012089
-"1849","Reckless, Mark","eves",4.98289214233104
-"1850","Reckless, Mark","called",3.32192809488736
-"1851","Reckless, Mark","implementation",3.1326722832605
-"1852","Reckless, Mark","law",2.85892838560925
-"1853","Reckless, Mark","blantyr",0
-"1854","Reckless, Mark","cell",0
-"1855","Reckless, Mark","class",0
-"1856","Reckless, Mark","data",0
-"1857","Reckless, Mark","hour",0
-"1858","Reckless, Mark","hous",0
-"1859","Reckless, Mark","per",0
-"1860","Reckless, Mark","prison",0
-"1861","Redwood, John","consumables",3.1514577009444
-"1862","Redwood, John","fasteners",3.1514577009444
-"1863","Redwood, John","printercartridges",3.1514577009444
-"1864","Redwood, John","stationery",3.1514577009444
-"1865","Redwood, John","stock",3.1514577009444
-"1866","Redwood, John","treasury",3.1514577009444
-"1867","Redwood, John","tags",2.83522993492757
-"1868","Redwood, John","holds",2.14903939929738
-"1869","Redwood, John","levels",1.76248497470224
-"1870","Redwood, John","office",1.41478126499942
-"1871","Redwood, John","blantyr",0
-"1872","Redwood, John","cell",0
-"1873","Reed, Jamie","transparency",3.76671240527594
-"1874","Reed, Jamie","copeland",3.76671240527594
-"1875","Reed, Jamie","accountability",3.16765288895149
-"1876","Reed, Jamie","constituency",2.63281898624826
-"1877","Reed, Jamie","cautions",2.63281898624826
-"1878","Reed, Jamie","decisions",2.22179666653796
-"1879","Reed, Jamie","proceedings",2.1906288996178
-"1880","Reed, Jamie","police",2.08120568361701
-"1881","Reed, Jamie","issued",2.08120568361701
-"1882","Reed, Jamie","family",1.96953385630257
-"1883","Reed, Jamie","openness",1.91208208719284
-"1884","Reed, Jamie","five",1.49047132855691
-"1885","Reed, Steve","breaches",1.84829851375796
-"1886","Reed, Steve","consult",1.75468332180528
-"1887","Reed, Steve","immigration",1.61770501095913
-"1888","Reed, Steve","expects",1.59009962401079
-"1889","Reed, Steve","protection",1.54035887877081
-"1890","Reed, Steve","2008",1.54035887877081
-"1891","Reed, Steve","introduction",1.49648443205812
-"1892","Reed, Steve","data",1.270697476694
-"1893","Reed, Steve","criminal",1.18984045840439
-"1894","Reed, Steve","relating",1.18086406603371
-"1895","Reed, Steve","section",1.14697687325588
-"1896","Reed, Steve","custodial",1.10854051228876
-"1897","Reid, Alan","indian",3.76671240527594
-"1898","Reid, Alan","serving",1.93056817856371
-"1899","Reid, Alan","nationals",1.81266442660857
-"1900","Reid, Alan","wales",1.45006117985193
-"1901","Reid, Alan","england",1.40521777525739
-"1902","Reid, Alan","sentence",1.30699723364097
-"1903","Reid, Alan","prison",0.555581037275741
-"1904","Reid, Alan","blantyr",0
-"1905","Reid, Alan","cell",0
-"1906","Reid, Alan","class",0
-"1907","Reid, Alan","data",0
-"1908","Reid, Alan","hour",0
-"1909","Ritchie, Margaret","northern",3.01320787551232
-"1910","Ritchie, Margaret","met",3.01320787551232
-"1911","Ritchie, Margaret","ireland",2.9224165496896
-"1912","Ritchie, Margaret","subjects",2.84376952595334
-"1913","Ritchie, Margaret","discussed",2.77439793460745
-"1914","Ritchie, Margaret","meeting",2.65620735305962
-"1915","Ritchie, Margaret","blantyr",0
-"1916","Ritchie, Margaret","cell",0
-"1917","Ritchie, Margaret","class",0
-"1918","Ritchie, Margaret","data",0
-"1919","Ritchie, Margaret","hour",0
-"1920","Ritchie, Margaret","hous",0
-"1921","Robertson, Laurence","coroners",2.79360726131364
-"1922","Robertson, Laurence","supply",2.79360726131364
-"1923","Robertson, Laurence","connected",2.6552614282207
-"1924","Robertson, Laurence","parties",2.46027392798031
-"1925","Robertson, Laurence","inquests",2.21461872992491
-"1926","Robertson, Laurence","police",1.83545088867493
-"1927","Robertson, Laurence","cost",1.43111964756353
-"1928","Robertson, Laurence","reports",1.35296456301786
-"1929","Robertson, Laurence","will",0.977453761041546
-"1930","Robertson, Laurence","blantyr",0
-"1931","Robertson, Laurence","cell",0
-"1932","Robertson, Laurence","class",0
-"1933","Rosindell, Andrew","suicide",3.66026610688107
-"1934","Rosindell, Andrew","inmates",3.2520178164172
-"1935","Rosindell, Andrew","committed",2.17266804670937
-"1936","Rosindell, Andrew","2010",1.45189150475213
-"1937","Rosindell, Andrew","2013",1.21077636409789
-"1938","Rosindell, Andrew","prison",0.600096106589425
-"1939","Rosindell, Andrew","blantyr",0
-"1940","Rosindell, Andrew","cell",0
-"1941","Rosindell, Andrew","class",0
-"1942","Rosindell, Andrew","data",0
-"1943","Rosindell, Andrew","hour",0
-"1944","Rosindell, Andrew","hous",0
-"1945","Rotheram, Steve","zone",6.61590158596289
-"1946","Rotheram, Steve","exclusion",6.28826697917833
-"1947","Rotheram, Steve","murder",5.82649193658458
-"1948","Rotheram, Steve","attempted",5.82649193658458
-"1949","Rotheram, Steve","formed",5.49885732980002
-"1950","Rotheram, Steve","arrangement",5.36471689399083
-"1951","Rotheram, Steve","sex",4.71369672155434
-"1952","Rotheram, Steve","part",4.70944768042171
-"1953","Rotheram, Steve","complaint",4.64983724639391
-"1954","Rotheram, Steve","enter",4.1965667294686
-"1955","Rotheram, Steve","licence",3.75469352312115
-"1956","Rotheram, Steve","child",3.56542933936208
-"1957","Ruane, Chris","prestatyn",4.98289214233104
-"1958","Ruane, Chris","redevelopment",4.98289214233104
-"1959","Ruane, Chris","appear",3.38874793226672
-"1960","Ruane, Chris","parliamentary",3.16765288895149
-"1961","Ruane, Chris","directly",3.00479701944041
-"1962","Ruane, Chris","indirectly",3.00479701944041
-"1963","Ruane, Chris","party",2.78968841594226
-"1964","Ruane, Chris","short",2.70328567486265
-"1965","Ruane, Chris","zero",2.70328567486265
-"1966","Ruane, Chris","defined",2.66346788455011
-"1967","Ruane, Chris","formulating",2.66346788455011
-"1968","Ruane, Chris","index",2.66346788455011
-"1969","Ruffley, David","bury",6.36048560925097
-"1970","Ruffley, David","edmunds",6.36048560925097
-"1971","Ruffley, David","suffolk",6.36048560925097
-"1972","Ruffley, David","five",2.99279048829918
-"1973","Ruffley, David","wales",2.91164896859473
-"1974","Ruffley, David","england",2.82160569693821
-"1975","Ruffley, David","persistent",2.3149555480123
-"1976","Ruffley, David","attributable",2.3149555480123
-"1977","Ruffley, David","translation",2.17452209542145
-"1978","Ruffley, David","cost",2.14983300695955
-"1979","Ruffley, David","east",2.03264784968623
-"1980","Ruffley, David","daily",1.9736351815868
-"1981","Seabeck, Alison","prorogation",3.32192809488736
-"1982","Seabeck, Alison","session",3.32192809488736
-"1983","Seabeck, Alison","substantive",2.98859476155403
-"1984","Seabeck, Alison","parliamentary",2.79360726131364
-"1985","Seabeck, Alison","probation",2.49260631230852
-"1986","Seabeck, Alison","advertised",2.30470935753804
-"1987","Seabeck, Alison","recruit",2.30470935753804
-"1988","Seabeck, Alison","discrimination",2.1009718006296
-"1989","Seabeck, Alison","grounds",2.05748936849472
-"1990","Seabeck, Alison","next",2.04902867004487
-"1991","Seabeck, Alison","departments",1.92389015558711
-"1992","Seabeck, Alison","first",1.90595225707283
-"1993","Shannon, Jim","sex",4.75951320209489
-"1994","Shannon, Jim","three",4.0736643952167
-"1995","Shannon, Jim","shoplifting",4.06851439734493
-"1996","Shannon, Jim","binding",4.06851439734493
-"1997","Shannon, Jim","nuptial",4.06851439734493
-"1998","Shannon, Jim","women",4.02799533849239
-"1999","Shannon, Jim","pre",3.66026610688107
-"2000","Shannon, Jim","child",3.60008481967727
-"2001","Shannon, Jim","offence",3.49248765046309
-"2002","Shannon, Jim","committal",3.00479701944041
-"2003","Shannon, Jim","restorative",3.00479701944041
-"2004","Shannon, Jim","legislative",2.77439793460745
-"2005","Sheerman, Barry","undermined",4.06851439734493
-"2006","Sheerman, Barry","sharia",3.2520178164172
-"2007","Sheerman, Barry","rights",2.60495958504846
-"2008","Sheerman, Barry","law",2.33430525196718
-"2009","Sheerman, Barry","womens",2.24795906259576
-"2010","Sheerman, Barry","use",1.97449337437182
-"2011","Sheerman, Barry","blantyr",0
-"2012","Sheerman, Barry","cell",0
-"2013","Sheerman, Barry","class",0
-"2014","Sheerman, Barry","data",0
-"2015","Sheerman, Barry","hour",0
-"2016","Sheerman, Barry","hous",0
-"2017","Simpson, David","attacks",3.76671240527594
-"2018","Simpson, David","prioritised",3.76671240527594
-"2019","Simpson, David","professionals",3.01078345925749
-"2020","Simpson, David","kill",2.79360726131364
-"2021","Simpson, David","dangerous",2.6552614282207
-"2022","Simpson, David","justice",2.63281898624826
-"2023","Simpson, David","speeding",2.54795206325824
-"2024","Simpson, David","health",2.5111416035173
-"2025","Simpson, David","drive",2.26528642773992
-"2026","Simpson, David","system",2.25485451323904
-"2027","Simpson, David","length",2.01963122968452
-"2028","Simpson, David","review",1.93195309440659
-"2029","Slaughter, Andy","tribunal",11.6609685981882
-"2030","Slaughter, Andy","aarhus",11.619985313239
-"2031","Slaughter, Andy","remission",11.5522584257839
-"2032","Slaughter, Andy","fee",10.7215913755427
-"2033","Slaughter, Andy","employment",9.99030894486187
-"2034","Slaughter, Andy","defendant",9.06278360972814
-"2035","Slaughter, Andy","claim",8.96448669115858
-"2036","Slaughter, Andy","july",8.23746307274818
-"2037","Slaughter, Andy","2013",8.10395622231571
-"2038","Slaughter, Andy","group",7.52163687926341
-"2039","Slaughter, Andy","applications",7.07920225226899
-"2040","Slaughter, Andy","granted",7.02393113026187
-"2041","Smith, Angela","hunting",3.16988343317017
-"2042","Smith, Angela","2004",2.46277665198362
-"2043","Smith, Angela","involved",2.17733358187799
-"2044","Smith, Angela","successful",2.04914570098385
-"2045","Smith, Angela","prosecutions",1.84233022548397
-"2046","Smith, Angela","act",1.32806353261451
-"2047","Smith, Angela","offences",1.19530100470392
-"2048","Smith, Angela","2013",1.04856308961053
-"2049","Smith, Angela","blantyr",0
-"2050","Smith, Angela","cell",0
-"2051","Smith, Angela","class",0
-"2052","Smith, Angela","data",0
-"2053","Smith, Nick","vulnerable",6.31401172325296
-"2054","Smith, Nick","held",4.65561377706291
-"2055","Smith, Nick","dedicated",4.45683422192071
-"2056","Smith, Nick","accommodation",2.97122281461381
-"2057","Smith, Nick","currently",2.24795906259576
-"2058","Smith, Nick","wales",1.56624508390796
-"2059","Smith, Nick","england",1.51780867103945
-"2060","Smith, Nick","prisoner",1.25746845508953
-"2061","Smith, Nick","blantyr",0
-"2062","Smith, Nick","cell",0
-"2063","Smith, Nick","class",0
-"2064","Smith, Nick","data",0
-"2065","Soames, Sir Nicholas","surrey",10.0760086756429
-"2066","Soames, Sir Nicholas","sussex",10.0760086756429
-"2067","Soames, Sir Nicholas","probation",9.47013146012768
-"2068","Soames, Sir Nicholas","trust",9.11180432770073
-"2069","Soames, Sir Nicholas","rehabilitation",8.53214141611023
-"2070","Soames, Sir Nicholas","external",6.88273766909565
-"2071","Soames, Sir Nicholas","commission",6.18801273113323
-"2072","Soames, Sir Nicholas","companies",6.15492921667283
-"2073","Soames, Sir Nicholas","community",6.09737447369911
-"2074","Soames, Sir Nicholas","within",5.42698774534081
-"2075","Soames, Sir Nicholas","will",5.25597062064899
-"2076","Soames, Sir Nicholas","level",5.20543343689053
-"2077","Spellar, John","dogs",3.00479701944041
-"2078","Spellar, John","handler",3.00479701944041
-"2079","Spellar, John","recognising",2.70328567486265
-"2080","Spellar, John","extension",2.70328567486265
-"2081","Spellar, John","50w",2.66346788455011
-"2082","Spellar, John","649",2.66346788455011
-"2083","Spellar, John","lodging",2.66346788455011
-"2084","Spellar, John","spend",2.23986883822275
-"2085","Spellar, John","judges",2.12894540072526
-"2086","Spellar, John","legislative",2.04902867004487
-"2087","Spellar, John","housing",2.04290649827917
-"2088","Spellar, John","introduce",1.88907246449473
-"2089","Teather, Sarah","verne",7.02581628967437
-"2090","Teather, Sarah","hmp",3.64756038256943
-"2091","Teather, Sarah","772w",2.76401124912018
-"2092","Teather, Sarah","detained",2.40177433028488
-"2093","Teather, Sarah","purposes",2.04902867004487
-"2094","Teather, Sarah","health",2.00319801296027
-"2095","Teather, Sarah","made",1.97460950963621
-"2096","Teather, Sarah","individuals",1.92389015558711
-"2097","Teather, Sarah","immigration",1.88907246449473
-"2098","Teather, Sarah","judicial",1.84267416608012
-"2099","Teather, Sarah","applications",1.70804098793796
-"2100","Teather, Sarah","access",1.70168666838251
-"2101","The Earl of Sandwich","chamber",1.9179160798118
-"2102","The Earl of Sandwich","sensitive",1.9179160798118
-"2103","The Earl of Sandwich","significantly",1.9179160798118
-"2104","The Earl of Sandwich","unrepresented",1.9179160798118
-"2105","The Earl of Sandwich","volume",1.9179160798118
-"2106","The Earl of Sandwich","alternative",1.72546599008192
-"2107","The Earl of Sandwich","appellants",1.72546599008192
-"2108","The Earl of Sandwich","asylum",1.72546599008192
-"2109","The Earl of Sandwich","panel",1.72546599008192
-"2110","The Earl of Sandwich","deportation",1.72546599008192
-"2111","The Earl of Sandwich","expert",1.53301590035205
-"2112","The Earl of Sandwich","fully",1.53301590035205
-"2113","Thomas, Gareth","mortgage",2.76401124912018
-"2114","Thomas, Gareth","borough",2.48666115100757
-"2115","Thomas, Gareth","possession",2.20931105289495
-"2116","Thomas, Gareth","approved",1.98539108605057
-"2117","Thomas, Gareth","london",1.93196095478234
-"2118","Thomas, Gareth","region",1.76972154781513
-"2119","Thomas, Gareth","claims",1.34140410112313
-"2120","Thomas, Gareth","2011",1.22344548613215
-"2121","Thomas, Gareth","2012",1.13245962221819
-"2122","Thomas, Gareth","england",1.0311479402661
-"2123","Thomas, Gareth","courts",0.959073767164327
-"2124","Thomas, Gareth","2013",0.82256056233188
-"2125","Thornberry, Emily","cautioned",7.70563096643732
-"2126","Thornberry, Emily","given",5.82458492578986
-"2127","Thornberry, Emily","prosecuted",5.76435415873315
-"2128","Thornberry, Emily","non",5.39645548044879
-"2129","Thornberry, Emily","2008",5.10797335446881
-"2130","Thornberry, Emily","custodial",4.74936321121407
-"2131","Thornberry, Emily","convicted",3.84290277248877
-"2132","Thornberry, Emily","sentence",3.82526805268264
-"2133","Thornberry, Emily","people",3.69079478761551
-"2134","Thornberry, Emily","trafficking",2.76401124912018
-"2135","Thornberry, Emily","cruelty",2.76401124912018
-"2136","Thornberry, Emily","human",2.48666115100757
-"2137","Timms, Stephen","entitlement",2.03425719867246
-"2138","Timms, Stephen","universal",2.03425719867246
-"2139","Timms, Stephen","rolled",1.83013305344053
-"2140","Timms, Stephen","credit",1.71072808298809
-"2141","Timms, Stephen","claimants",1.6260089082086
-"2142","Timms, Stephen","fully",1.6260089082086
-"2143","Timms, Stephen","extending",1.56029561101357
-"2144","Timms, Stephen","assistance",1.50660393775616
-"2145","Timms, Stephen","visits",1.50660393775616
-"2146","Timms, Stephen","remission",1.4612082748448
-"2147","Timms, Stephen","civil",1.38719896730372
-"2148","Timms, Stephen","purse",1.35617146578164
-"2149","Tomlinson, Justin","2015",2.96306795767028
-"2150","Tomlinson, Justin","beyond",2.8163300425769
-"2151","Tomlinson, Justin","extend",2.70251127310224
-"2152","Tomlinson, Justin","progress",2.60951456707701
-"2153","Tomlinson, Justin","funding",1.77186392056148
-"2154","Tomlinson, Justin","support",1.7247470867221
-"2155","Tomlinson, Justin","victim",1.57056276604747
-"2156","Tomlinson, Justin","made",1.20603971130794
-"2157","Tomlinson, Justin","blantyr",0
-"2158","Tomlinson, Justin","cell",0
-"2159","Tomlinson, Justin","class",0
-"2160","Tomlinson, Justin","data",0
-"2161","Turner, Andrew","depending",4.06851439734493
-"2162","Turner, Andrew","different",3.66026610688107
-"2163","Turner, Andrew","religion",3.01320787551232
-"2164","Turner, Andrew","subject",2.84376952595334
-"2165","Turner, Andrew","conditions",2.84376952595334
-"2166","Turner, Andrew","prisoners",0.600096106589425
-"2167","Turner, Andrew","blantyr",0
-"2168","Turner, Andrew","cell",0
-"2169","Turner, Andrew","class",0
-"2170","Turner, Andrew","data",0
-"2171","Turner, Andrew","hour",0
-"2172","Turner, Andrew","hous",0
-"2173","Umunna, Chuka","cherry",4.92077649919561
-"2174","Umunna, Chuka","groce",4.92077649919561
-"2175","Umunna, Chuka","death",4.10416981358988
-"2176","Umunna, Chuka","inquest",4.10416981358988
-"2177","Umunna, Chuka","grant",3.44294846218829
-"2178","Umunna, Chuka","family",3.21897474382097
-"2179","Umunna, Chuka","aid",3.12507648806859
-"2180","Umunna, Chuka","legal",2.6348701589022
-"2181","Umunna, Chuka","concluded",2.52691284474264
-"2182","Umunna, Chuka","consideration",2.40177433028488
-"2183","Umunna, Chuka","request",2.26369412552575
-"2184","Umunna, Chuka","expects",1.85683631760606
-"2185","Vaz, Keith","built",3.52343682376344
-"2186","Vaz, Keith","population",2.34895788250896
-"2187","Vaz, Keith","foreign",2.21513381472864
-"2188","Vaz, Keith","country",2.04914570098385
-"2189","Vaz, Keith","national",1.69559231039058
-"2190","Vaz, Keith","march",1.54885439529719
-"2191","Vaz, Keith","2014",1.07724926717386
-"2192","Vaz, Keith","prison",0.519698473018576
-"2193","Vaz, Keith","blantyr",0
-"2194","Vaz, Keith","cell",0
-"2195","Vaz, Keith","class",0
-"2196","Vaz, Keith","data",0
-"2197","Vaz, Valerie","unemployed",6.77446180088083
-"2198","Vaz, Valerie","classed",6.57684914548959
-"2199","Vaz, Valerie","data",6.39808675429062
-"2200","Vaz, Valerie","cells",6.18350035862506
-"2201","Vaz, Valerie","hours",6.03727682192316
-"2202","Vaz, Valerie","week",5.99096371580305
-"2203","Vaz, Valerie","per",5.90163323774771
-"2204","Vaz, Valerie","working",5.69531715374796
-"2205","Vaz, Valerie","hmp",5.32760293705453
-"2206","Vaz, Valerie","spent",5.21529222836943
-"2207","Vaz, Valerie","three",5.1266654027326
-"2208","Vaz, Valerie","proportion",4.93483267641332
-"2209","Ward, David","car",8.92432810793541
-"2210","Ward, David","statute",7.65277557550121
-"2211","Ward, David","claim",7.36760946870646
-"2212","Ward, David","limitations",7.15347884964075
-"2213","Ward, David","whiplash",6.79922218490794
-"2214","Ward, David","insurance",6.79462571406374
-"2215","Ward, David","region",6.52971537105469
-"2216","Ward, David","fraud",6.00986701901533
-"2217","Ward, David","humber",5.82382469648159
-"2218","Ward, David","instances",5.43705813978476
-"2219","Ward, David","yorkshire",4.96515162990468
-"2220","Ward, David","reported",4.322117803024
-"2221","Watson, Tom","aeroyn",2.28630771526146
-"2222","Watson, Tom","agents",2.28630771526146
-"2223","Watson, Tom","aircraft",2.28630771526146
-"2224","Watson, Tom","airport",2.28630771526146
-"2225","Watson, Tom","around",2.28630771526146
-"2226","Watson, Tom","drone",2.28630771526146
-"2227","Watson, Tom","gatwick",2.28630771526146
-"2228","Watson, Tom","skyranger",2.28630771526146
-"2229","Watson, Tom","surveillance",2.28630771526146
-"2230","Watson, Tom","bodies",1.9226923800012
-"2231","Watson, Tom","commissioners",1.82747624752034
-"2232","Watson, Tom","role",1.64225632558249
-"2233","Williams, Hywel","bilingual",3.32192809488736
-"2234","Williams, Hywel","registered",2.38614312086816
-"2235","Williams, Hywel","lawyer",2.32192809488736
-"2236","Williams, Hywel","crown",1.95944048113725
-"2237","Williams, Hywel","duty",1.77397603162912
-"2238","Williams, Hywel","times",1.58544363967771
-"2239","Williams, Hywel","wales",1.27883375590571
-"2240","Williams, Hywel","courts",1.15266321482113
-"2241","Williams, Hywel","will",0.977453761041546
-"2242","Williams, Hywel","blantyr",0
-"2243","Williams, Hywel","cell",0
-"2244","Williams, Hywel","class",0
-"2245","Williamson, Gavin","assault",12.4661071754889
-"2246","Williamson, Gavin","incidents",10.7361050109138
-"2247","Williamson, Gavin","fly",10.2653081351902
-"2248","Williamson, Gavin","staff",8.54943941996743
-"2249","Williamson, Gavin","tippers",8.00654937912158
-"2250","Williamson, Gavin","2011",7.61957626102662
-"2251","Williamson, Gavin","2012",7.05291944090166
-"2252","Williamson, Gavin","possible",5.97718952310806
-"2253","Williamson, Gavin","2009",5.78831441055225
-"2254","Williamson, Gavin","2013",5.12287879193964
-"2255","Williamson, Gavin","maximum",4.2270820210108
-"2256","Williamson, Gavin","appropriately",4.06851439734493
-"2257","Wilson, Rob","strong",4.06851439734493
-"2258","Wilson, Rob","connection",3.2520178164172
-"2259","Wilson, Rob","targeted",2.9224165496896
-"2260","Wilson, Rob","aid",2.06528470019454
-"2261","Wilson, Rob","legal",1.74131962752152
-"2262","Wilson, Rob","people",1.36209089032214
-"2263","Wilson, Rob","blantyr",0
-"2264","Wilson, Rob","cell",0
-"2265","Wilson, Rob","class",0
-"2266","Wilson, Rob","data",0
-"2267","Wilson, Rob","hour",0
-"2268","Wilson, Rob","hous",0
-"2269","Wollaston, Dr Sarah","1939",4.06851439734493
-"2270","Wollaston, Dr Sarah","cancer",4.06851439734493
-"2271","Wollaston, Dr Sarah","prosecutions",2.12733970323871
-"2272","Wollaston, Dr Sarah","place",2.04597222300711
-"2273","Wollaston, Dr Sarah","act",1.53351567611183
-"2274","Wollaston, Dr Sarah","years",0.684128375171483
-"2275","Wollaston, Dr Sarah","blantyr",0
-"2276","Wollaston, Dr Sarah","cell",0
-"2277","Wollaston, Dr Sarah","class",0
-"2278","Wollaston, Dr Sarah","data",0
-"2279","Wollaston, Dr Sarah","hour",0
-"2280","Wollaston, Dr Sarah","hous",0
-"2281","Wright, Iain","fathers",3.1514577009444
-"2282","Wright, Iain","presumption",3.1514577009444
-"2283","Wright, Iain","contact",2.65024855012089
-"2284","Wright, Iain","annex",2.49144607116552
-"2285","Wright, Iain","utero",2.49144607116552
-"2286","Wright, Iain","role",2.26369412552575
-"2287","Wright, Iain","undertook",2.24144607116552
-"2288","Wright, Iain","sustained",2.24144607116552
-"2289","Wright, Iain","damage",2.24144607116552
-"2290","Wright, Iain","effectiveness",2.1009718006296
-"2291","Wright, Iain","excluding",2.09520544598523
-"2292","Wright, Iain","illegal",1.78960734065112
+"1","Andrew Gwynne","greater",2.00319801296027
+"2","Andrew Gwynne","levied",2.00319801296027
+"3","Andrew Gwynne","manchester",2.00319801296027
+"4","Andrew Gwynne","written",1.40017532380475
+"5","Andrew Gwynne","magistrates",1.22380249368474
+"6","Andrew Gwynne","proportion",1.22380249368474
+"7","Andrew Gwynne","collected",1.15674865570368
+"8","Andrew Gwynne","fines",1.00159900648014
+"9","Andrew Gwynne","five",0.922291149106977
+"10","Andrew Gwynne","court",0.85523731112592
+"11","Andrew Gwynne","years",0.387835304402583
+"12","Andrew Gwynne","12",0
+"13","Bill Esterson","judgement",2.1009718006296
+"14","Bill Esterson","trends",2.1009718006296
+"15","Bill Esterson","time",1.46851626859593
+"16","Bill Esterson","trials",1.46851626859593
+"17","Bill Esterson","average",1.28353488378925
+"18","Bill Esterson","length",1.28353488378925
+"19","Bill Esterson","criminal",1.21320822521095
+"20","Bill Esterson","england",1.21320822521095
+"21","Bill Esterson","made",1.15228850257909
+"22","Bill Esterson","sentencing",0.930790015281867
+"23","Bill Esterson","12",0
+"24","Bill Esterson","agenc",0
+"25","Bridget Phillipson","1990",1.41647489902363
+"26","Bridget Phillipson","209w",1.41647489902363
+"27","Bridget Phillipson","compliance",1.41647489902363
+"28","Bridget Phillipson","computer",1.41647489902363
+"29","Bridget Phillipson","cyber",1.41647489902363
+"30","Bridget Phillipson","governments",1.41647489902363
+"31","Bridget Phillipson","measures",1.41647489902363
+"32","Bridget Phillipson","misuse",1.41647489902363
+"33","Bridget Phillipson","rehabilitating",1.41647489902363
+"34","Bridget Phillipson","strategy",1.41647489902363
+"35","Bridget Phillipson","12",1.20327418266802
+"36","Bridget Phillipson","answer",1.0785597584731
+"37","Chris Leslie","made",1.84658181363824
+"38","Chris Leslie","flights",1.84267416608012
+"39","Chris Leslie","hotel",1.84267416608012
+"40","Chris Leslie","internal",1.84267416608012
+"41","Chris Leslie","overseas",1.84267416608012
+"42","Chris Leslie","trip",1.84267416608012
+"43","Chris Leslie","accommodation",1.56532406796751
+"44","Chris Leslie","subsistence",1.56532406796751
+"45","Chris Leslie","award",1.52420514350764
+"46","Chris Leslie","let",1.52420514350764
+"47","Chris Leslie","level",1.52420514350764
+"48","Chris Leslie","overspend",1.52420514350764
+"49","Dan Jarvis","personal",4.44041291735605
+"50","Dan Jarvis","agencies",4.13258821034956
+"51","Dan Jarvis","support",3.86859701899899
+"52","Dan Jarvis","database",3.84513730892404
+"53","Dan Jarvis","information",3.84513730892404
+"54","Dan Jarvis","managed",3.66842750732347
+"55","Dan Jarvis","will",3.46982238469863
+"56","Dan Jarvis","secure",3.41491712554452
+"57","Dan Jarvis","2010",3.38469211934812
+"58","Dan Jarvis","youth",3.31390285467831
+"59","Dan Jarvis","executive",3.28498837603512
+"60","Dan Jarvis","children",3.26412829723222
+"61","David Simpson","dangerous",2.21461872992491
+"62","David Simpson","kill",2.21461872992491
+"63","David Simpson","review",2.21461872992491
+"64","David Simpson","speeding",1.88128539659157
+"65","David Simpson","drive",1.54795206325824
+"66","David Simpson","given",1.54795206325824
+"67","David Simpson","length",1.35296456301786
+"68","David Simpson","sentencing",0.981138823877878
+"69","David Simpson","will",0.945500422572374
+"70","David Simpson","12",0
+"71","David Simpson","agenc",0
+"72","David Simpson","board",0
+"73","Dr Matthew Offord","increase",1.9179160798118
+"74","Dr Matthew Offord","olds",1.9179160798118
+"75","Dr Matthew Offord","17",1.62924094521699
+"76","Dr Matthew Offord","15",1.62924094521699
+"77","Dr Matthew Offord","education",1.62924094521699
+"78","Dr Matthew Offord","hours",1.62924094521699
+"79","Dr Matthew Offord","provided",1.46037681658839
+"80","Dr Matthew Offord","week",1.46037681658839
+"81","Dr Matthew Offord","contracted",1.34056581062217
+"82","Dr Matthew Offord","custody",1.24763317450071
+"83","Dr Matthew Offord","average",1.17170168199358
+"84","Dr Matthew Offord","year",0.371324033779964
+"85","Graham Jones","100",1.10730936496245
+"86","Graham Jones","2004",1.10730936496245
+"87","Graham Jones","30",1.10730936496245
+"88","Graham Jones","40",1.10730936496245
+"89","Graham Jones","41",1.10730936496245
+"90","Graham Jones","50",1.10730936496245
+"91","Graham Jones","51",1.10730936496245
+"92","Graham Jones","75",1.10730936496245
+"93","Graham Jones","76",1.10730936496245
+"94","Graham Jones","ix",1.10730936496245
+"95","Graham Jones","noncustodial",1.10730936496245
+"96","Graham Jones","two",1.10730936496245
+"97","Jenny Chapman","wales",2.68311620194355
+"98","Jenny Chapman","england",2.38175612462545
+"99","Jenny Chapman","baby",2.34895788250896
+"100","Jenny Chapman","mother",2.34895788250896
+"101","Jenny Chapman","units",2.34895788250896
+"102","Jenny Chapman","estate",1.99540449191569
+"103","Jenny Chapman","places",1.7885890164158
+"104","Jenny Chapman","cells",1.77564525636674
+"105","Jenny Chapman","work",1.77564525636674
+"106","Jenny Chapman","custodial",1.52803233184776
+"107","Jenny Chapman","training",1.50838401445432
+"108","Jenny Chapman","per",1.50838401445432
+"109","Lady Hermon","aware",2.21461872992491
+"110","Lady Hermon","became",2.21461872992491
+"111","Lady Hermon","comfort",2.21461872992491
+"112","Lady Hermon","letters",2.21461872992491
+"113","Lady Hermon","runs",2.21461872992491
+"114","Lady Hermon","called",1.68629789635119
+"115","Lady Hermon","first",1.54795206325824
+"116","Lady Hermon","issued",1.15797706277747
+"117","Lady Hermon","will",0.945500422572374
+"118","Lady Hermon","12",0
+"119","Lady Hermon","agenc",0
+"120","Lady Hermon","board",0
+"121","Lord Lester of Herne Hill","18",2.23820795069437
+"122","Lord Lester of Herne Hill","19",2.23820795069437
+"123","Lord Lester of Herne Hill","1986",2.23820795069437
+"124","Lord Lester of Herne Hill","1998",2.23820795069437
+"125","Lord Lester of Herne Hill","22",2.23820795069437
+"126","Lord Lester of Herne Hill","29b",2.23820795069437
+"127","Lord Lester of Herne Hill","29c",2.23820795069437
+"128","Lord Lester of Herne Hill","29d",2.23820795069437
+"129","Lord Lester of Herne Hill","29e",2.23820795069437
+"130","Lord Lester of Herne Hill","29f",2.23820795069437
+"131","Lord Lester of Herne Hill","32",2.23820795069437
+"132","Lord Lester of Herne Hill","brought",2.23820795069437
+"133","Lord Mendelsohn","commissioned",1.9179160798118
+"134","Lord Mendelsohn","customer",1.9179160798118
+"135","Lord Mendelsohn","satisfaction",1.9179160798118
+"136","Lord Mendelsohn","surveys",1.9179160798118
+"137","Lord Mendelsohn","user",1.9179160798118
+"138","Lord Mendelsohn","12",1.62924094521699
+"139","Lord Mendelsohn","conducted",1.62924094521699
+"140","Lord Mendelsohn","board",1.46037681658839
+"141","Lord Mendelsohn","agencies",1.24763317450071
+"142","Lord Mendelsohn","management",1.10750251983141
+"143","Lord Mendelsohn","months",1.10750251983141
+"144","Lord Mendelsohn","report",1.10750251983141
+"145","Mark Hendrick","interpreters",1.71543629183964
+"146","Mark Hendrick","language",1.71543629183964
+"147","Mark Hendrick","paid",1.71543629183964
+"148","Mark Hendrick","towards",1.71543629183964
+"149","Mark Hendrick","hm",1.45723740209248
+"150","Mark Hendrick","tribunal",1.45723740209248
+"151","Mark Hendrick","defendants",1.19903851234532
+"152","Mark Hendrick","service",0.990580367838137
+"153","Mark Hendrick","spent",0.990580367838137
+"154","Mark Hendrick","costs",0.940839622598155
+"155","Mark Hendrick","2011",0.857718145919819
+"156","Mark Hendrick","2012",0.75998686503931
+"157","Mark Reckless","eves",3.32192809488736
+"158","Mark Reckless","implementation",3.32192809488736
+"159","Mark Reckless","law",3.32192809488736
+"160","Mark Reckless","called",2.52944684452678
+"161","Mark Reckless","12",0
+"162","Mark Reckless","agenc",0
+"163","Mark Reckless","board",0
+"164","Mark Reckless","commiss",0
+"165","Mark Reckless","conduct",0
+"166","Mark Reckless","custom",0
+"167","Mark Reckless","manag",0
+"168","Mark Reckless","month",0
+"169","Mary Creagh","caught",1.9179160798118
+"170","Mary Creagh","points",1.9179160798118
+"171","Mary Creagh","police",1.9179160798118
+"172","Mary Creagh","area",1.62924094521699
+"173","Mary Creagh","speeding",1.62924094521699
+"174","Mary Creagh","people",1.34056581062217
+"175","Mary Creagh","drive",1.34056581062217
+"176","Mary Creagh","force",1.24763317450071
+"177","Mary Creagh","licence",1.24763317450071
+"178","Mary Creagh","received",1.00283755336498
+"179","Mary Creagh","five",0.883026547398763
+"180","Mary Creagh","years",0.371324033779964
+"181","Mr Andy Slaughter","child",2.97122281461381
+"182","Mr Andy Slaughter","parents",2.97122281461381
+"183","Mr Andy Slaughter","proceedings",2.97122281461381
+"184","Mr Andy Slaughter","represented",2.97122281461381
+"185","Mr Andy Slaughter","court",1.26852193057596
+"186","Mr Andy Slaughter","12",0
+"187","Mr Andy Slaughter","agenc",0
+"188","Mr Andy Slaughter","board",0
+"189","Mr Andy Slaughter","commiss",0
+"190","Mr Andy Slaughter","conduct",0
+"191","Mr Andy Slaughter","custom",0
+"192","Mr Andy Slaughter","manag",0
+"193","Mr David Amess","essex",9.30509792395696
+"194","Mr David Amess","probation",8.87117059647728
+"195","Mr David Amess","trust",5.70518420208012
+"196","Mr David Amess","will",4.48049992310375
+"197","Mr David Amess","current",3.78014852652845
+"198","Mr David Amess","budgeted",3.70067110360864
+"199","Mr David Amess","2014",3.6397962201736
+"200","Mr David Amess","chief",3.56948806922553
+"201","Mr David Amess","2013",3.07677699863604
+"202","Mr David Amess","spent",2.80646921106871
+"203","Mr David Amess","executive",2.73342733266328
+"204","Mr David Amess","refreshments",2.5111416035173
+"205","Mr Elfyn Llwyd","bidders",2.34895788250896
+"206","Mr Elfyn Llwyd","criteria",2.34895788250896
+"207","Mr Elfyn Llwyd","identify",2.34895788250896
+"208","Mr Elfyn Llwyd","preferred",2.34895788250896
+"209","Mr Elfyn Llwyd","used",1.99540449191569
+"210","Mr Elfyn Llwyd","contracts",1.64185110132242
+"211","Mr Elfyn Llwyd","probation",1.22822015032264
+"212","Mr Elfyn Llwyd","will",1.00285464062351
+"213","Mr Elfyn Llwyd","12",0
+"214","Mr Elfyn Llwyd","agenc",0
+"215","Mr Elfyn Llwyd","board",0
+"216","Mr Elfyn Llwyd","commiss",0
+"217","Mr Frank Field","claims",1.9179160798118
+"218","Mr Frank Field","county",1.9179160798118
+"219","Mr Frank Field","higher",1.9179160798118
+"220","Mr Frank Field","money",1.9179160798118
+"221","Mr Frank Field","telephone",1.9179160798118
+"222","Mr Frank Field","centres",1.62924094521699
+"223","Mr Frank Field","rate",1.62924094521699
+"224","Mr Frank Field","use",1.62924094521699
+"225","Mr Frank Field","magistrates",1.17170168199358
+"226","Mr Frank Field","proportion",1.17170168199358
+"227","Mr Frank Field","numbers",1.10750251983141
+"228","Mr Frank Field","court",0.818827385236597
+"229","Mr Philip Hollobone","28",1.44980828076398
+"230","Mr Philip Hollobone","293w",1.44980828076398
+"231","Mr Philip Hollobone","548w",1.44980828076398
+"232","Mr Philip Hollobone","february",1.44980828076398
+"233","Mr Philip Hollobone","largest",1.23159039052799
+"234","Mr Philip Hollobone","next",1.10394110775345
+"235","Mr Philip Hollobone","answers",1.10394110775345
+"236","Mr Philip Hollobone","detention",1.10394110775345
+"237","Mr Philip Hollobone","foreign",1.10394110775345
+"238","Mr Philip Hollobone","uk",1.01337250029199
+"239","Mr Philip Hollobone","nationals",0.943122030617982
+"240","Mr Philip Hollobone","return",0.943122030617982
+"241","Mr Simon Burns","illegal",2.00319801296027
+"242","Mr Simon Burns","trade",2.00319801296027
+"243","Mr Simon Burns","wildlife",2.00319801296027
+"244","Mr Simon Burns","concerning",1.70168666838251
+"245","Mr Simon Burns","charged",1.70168666838251
+"246","Mr Simon Burns","people",1.40017532380475
+"247","Mr Simon Burns","england",1.15674865570368
+"248","Mr Simon Burns","offences",1.04742966356473
+"249","Mr Simon Burns","convicted",0.960140134150114
+"250","Mr Simon Burns","five",0.922291149106977
+"251","Mr Simon Burns","years",0.387835304402583
+"252","Mr Simon Burns","12",0
+"253","Philip Davies","men",6.47702555411181
+"254","Philip Davies","women",5.31762960969925
+"255","Philip Davies","sentence",5.31295392739654
+"256","Philip Davies","collected",5.00519866803712
+"257","Philip Davies","crown",4.67600945976395
+"258","Philip Davies","data",4.51054269372309
+"259","Philip Davies","recall",4.24526054251415
+"260","Philip Davies","offence",4.16793571912346
+"261","Philip Davies","offender",4.12738270095986
+"262","Philip Davies","prison",4.10276875689364
+"263","Philip Davies","magistrates",4.08699677823387
+"264","Philip Davies","received",3.84290277248877
+"265","Sadiq Khan","2013",11.0930253344805
+"266","Sadiq Khan","2010",10.7800323739673
+"267","Sadiq Khan","prison",10.728966981308
+"268","Sadiq Khan","fines",9.88799901766371
+"269","Sadiq Khan","uncollected",9.30033868770272
+"270","Sadiq Khan","outstanding",9.20080033252474
+"271","Sadiq Khan","2011",8.03709319542
+"272","Sadiq Khan","staff",7.94421039973846
+"273","Sadiq Khan","value",7.83219880464843
+"274","Sadiq Khan","confiscation",7.6459540939366
+"275","Sadiq Khan","issued",7.5639831330575
+"276","Sadiq Khan","remain",7.34596335426511
+"277","Sarah Champion","borough",1.9179160798118
+"278","Sarah Champion","integrated",1.9179160798118
+"279","Sarah Champion","islington",1.9179160798118
+"280","Sarah Champion","model",1.9179160798118
+"281","Sarah Champion","piloted",1.9179160798118
+"282","Sarah Champion","area",1.62924094521699
+"283","Sarah Champion","rates",1.62924094521699
+"284","Sarah Champion","reoffending",1.62924094521699
+"285","Sarah Champion","london",1.62924094521699
+"286","Sarah Champion","management",1.10750251983141
+"287","Sarah Champion","made",1.05189067602736
+"288","Sarah Champion","offender",0.763215541432548
+"289","Steve Rotheram","arrangement",3.86020076087422
+"290","Steve Rotheram","attempted",3.86020076087422
+"291","Steve Rotheram","exclusion",3.86020076087422
+"292","Steve Rotheram","formed",3.86020076087422
+"293","Steve Rotheram","murder",3.86020076087422
+"294","Steve Rotheram","zone",3.86020076087422
+"295","Steve Rotheram","part",3.54350541818018
+"296","Steve Rotheram","licence",3.29785742610635
+"297","Steve Rotheram","10",2.92745134075098
+"298","Steve Rotheram","individual",2.66780808326369
+"299","Steve Rotheram","enter",2.45711609987393
+"300","Steve Rotheram","convicted",2.42988267949766
