@@ -138,3 +138,20 @@ devtools::test()
 
 [1]: https://cran.r-project.org/web/packages/RSelenium/vignettes/RSelenium-basics.html
 [2]: https://github.com/mozilla/geckodriver/
+
+## Deploying within MoJ
+
+To deploy, you will need access to the Jenkins console.  Once there, find the name of this app (pq-tool), select the branch that you want to deploy then go to 'build with parameters'.  If you're not sure what parameters to use, have a look at previous builds and see what parameters were used there.
+
+At the moment, using this pipeline, the only way for us to deploy to more than one env, is to have more than one repo.  We have created a second repo called pq-tool-staging.  This is new repo exclusively for the purpose of testing branches and all branches pushed there should be considered disposable.  You should also clean up after yourself and delete branches (from that repo) that are no longer needed for testing.
+
+### To add this as a remote repo
+```
+git remote add staging git@github.com:moj-analytical-services/pq-tool-staging.git
+```
+
+### Then you can push to that repo (and deploy from the Jenkins console using the pq-tool-staging job)
+```
+git push staging branch-to-test
+```
+
