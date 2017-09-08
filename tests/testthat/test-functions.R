@@ -50,12 +50,16 @@ test_that("Cleans the corpus of various troublesome elements", {
 context("summarise")
 
 test_that("Summarises top 12 terms per cluster", {
+  expected_terms  <- c("hours", "week", "cells", "unemploy", "per", "class", "data", "work", "spent", "three", "proportion", "hmp")
+  expected_scores <- c(36.3, 36, 34.6, 33.5, 33.0, 32.5, 31.6, 31.6, 29.2, 28.8, 25.2, 14.7)
   matrix    <- readRDS("./examples/data/matrix.rda")
   hierarchy <- readRDS("./examples/data/clustering_hierarchy.rda")
   questions <- read.csv("./examples/data/lsa_training_sample.csv")$Question_Text
   actual    <- summarise(type = "cluster", 1, matrix, hierarchy, 12, questions, 100)
-  expected  <- readRDS("./examples/data/cluster_one_summary.rda")
-  expect_equal(actual, expected)
+  actual_names  <- names(actual)
+  actual_scores <- signif(unname(actual), digits = 3)
+  expect_equal(actual_names, expected_terms)
+  expect_equal(actual_scores, expected_scores)
 })
 
 context("fromItoY")
