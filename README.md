@@ -72,6 +72,13 @@ Input, output and K can also be set individually, but if environment is also set
     * "${SHINY_ROOT}/Data/"
 * Set to something else using `-o` or `--output_dir`
 
+*Number of dimensions for rank-reduced space (x)*
+* When `-e test`
+    * 100
+* When `-e prod`
+    * 2000 
+* Set to something else using `-x` or `--x_dims`
+
 *Number of clusters (k)*
 * When `-e test`
     * 100
@@ -101,10 +108,10 @@ Input, output and K can also be set individually, but if environment is also set
 3. With specific args
     ```
     # From the command line
-    Rscript ./data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000
+    Rscript ./data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000 -x 2000
     
     # From an R console
-    system("Rscript ./data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000")
+    system("Rscript ./data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000 -x 2000")
     ```
 
 ## Running the tool
