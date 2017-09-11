@@ -378,6 +378,11 @@ function(input, output, session) {
 
   output$member_ui <- renderUI({
 
+    parties <- sort(unique(data$MP_Party[ data$MP_Party != 'Not found' ]))
+    hoc_members <- list()
+    for(party in parties) { hoc_members <- append(hoc_members, list(sort(unique(data$Question_MP[ data$MP_Party == party ])))) }
+    names(hoc_members) <- parties
+
     switch(input$member_analysis,
            "Lords" = selectInput(inputId = "person_choice",
                                  label = "Choose a Peer:",
@@ -385,10 +390,14 @@ function(input, output, session) {
            ),
            "Commons" = selectInput(inputId = "person_choice",
                                    label = "Choose an MP:",
-                                   choices = sort(unique(data$Question_MP[ !grepl("HL", data$Question_ID) ]))
+                                   choices = hoc_members
            )
     )
   })
+
+  grouped_hoc_members <- function(hoc_data) {
+
+  }
 
   dfMP <- function(){
     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
