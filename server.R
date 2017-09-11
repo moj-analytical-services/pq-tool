@@ -375,19 +375,21 @@ function(input, output, session) {
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   ### Q&A Analysis Pane
+
   output$member_ui <- renderUI({
+
     switch(input$member_analysis,
            "Lords" = selectInput(inputId = "person_choice",
                                  label = "Choose a Peer:",
-                                 choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == TRUE]))
+                                 choices = sort(unique(data$Question_MP[ grepl("HL", data$Question_ID) ]))
            ),
            "Commons" = selectInput(inputId = "person_choice",
                                    label = "Choose an MP:",
-                                   choices = sort(unique(data$Question_MP[grepl("HL", data$Question_ID) == FALSE]))
+                                   choices = sort(unique(data$Question_MP[ !grepl("HL", data$Question_ID) ]))
            )
     )
   })
-  
+
   dfMP <- function(){
     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
     df <- df[order(-as.numeric(df$Date)),]
@@ -448,13 +450,15 @@ function(input, output, session) {
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   output$member_plot <- renderPlot({
-    p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) +
-      geom_histogram(binwidth = 14, fill = "#67a9cf")
-    maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #this is a hack from stackoverflow to get us the max value of the histogram
-    yBreaks <- if(maxCount < 11){
-      1} else if(maxCount < 21){
-        2} else{
-          5}
+    p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) + geom_histogram(binwidth = 14, fill = "#67a9cf")
+    maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #max value of the histogram
+    yBreaks <- if(maxCount < 11) {
+      1 
+    } else if(maxCount < 21){
+      2
+    } else {
+      5
+    }
     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
     p +
       xlim(min(data$Date) - 1, max(data$Date) + 1) +
@@ -466,7 +470,7 @@ function(input, output, session) {
         breaks = seq(0, yMax, yBreaks),
         expand = c(0,0),
         limits = c(0, yMax)) +
-      labs(title = paste0(input$person_choice),
+      labs(title = member_plot_title(input$person_choice, data),
            subtitle = paste0("Each bar shows the number of questions from ", input$person_choice,  " in a particular fortnight"),
            x = "Question Date",
            y = "Count"
@@ -482,6 +486,16 @@ function(input, output, session) {
                 #axis.ticks.x = element_line(size = 0)
       )
   })
+
+  member_plot_title <- function(selected_member, data) {
+    party        = data$MP_Party[ data$Question_MP == selected_member ]
+    constituency = data$MP_Constituency[ data$Question_MP == selected_member ]
+    if(party == 'Not found') {
+      selected_member
+    } else {
+      paste0(selected_member, ' - ', party, ' - ', constituency)
+    }
+  }
   
   addPopover(session, "member_plot", "Questions plotted over time",
              content = paste0("This plot shows when the selected MP/peer tabled written questions <br><br> Each bar shows the number of questions tabled by the MP/peer in a particular fortnight - the higher the bar, the more questions."),
@@ -492,7 +506,7 @@ function(input, output, session) {
       cbind(' ' = '&oplus;', dfMP()), escape = -2,
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 2, 3)),
+          list(visible = FALSE, targets = c(0, 2, 3, 4, 5, 6)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
         caption = "Documents contained within the topic:",
