@@ -383,11 +383,20 @@ function(input, output, session) {
     members <- lapply(parties, function(party) {
                  data$Question_MP[ data$MP_Party == party ] %>%
                  unique() %>%
-                 sort()
+                 sort() %>%
+                 list_if_one()
                })
     
     names(members) <- parties
     merge_labour_and_co_op(members)
+  }
+
+  list_if_one <- function(members) {
+    if(length(members) == 1) {
+      return(list(members))
+    } else {
+      return(members)
+    }
   }
 
   merge_labour_and_co_op <- function(members) {
