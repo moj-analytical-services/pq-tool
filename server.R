@@ -376,17 +376,23 @@ function(input, output, session) {
   
   ### Q&A Analysis Pane
   hoc_members <- function(data) {
-    parties <- data$MP_Party[ !grepl('Co-op|Not found', data$MP_Party) ] %>%
+    parties <- data$MP_Party[ data$MP_Party != 'Not found' ] %>%
                  unique() %>%
                  sort()
 
     members <- lapply(parties, function(party) {
-                 data$Question_MP[ grepl(party, data$MP_Party) ] %>%
+                 data$Question_MP[ data$MP_Party == party ] %>%
                  unique() %>%
                  sort()
                })
     
     names(members) <- parties
+    merge_labour_and_co_op(members)
+  }
+
+  merge_labour_and_co_op <- function(members) {
+    members$Labour <- append(members$Labour, members$'Labour (Co-op)')
+    members$'Labour (Co-op)' <- NULL
     members
   }
 
