@@ -375,14 +375,22 @@ function(input, output, session) {
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
   ### Q&A Analysis Pane
+  hoc_members <- function(data) {
+    parties <- data$MP_Party[ !grepl('Co-op|Not found', data$MP_Party) ] %>%
+                 unique() %>%
+                 sort()
+
+    members <- lapply(parties, function(party) {
+                 data$Question_MP[ grepl(party, data$MP_Party) ] %>%
+                 unique() %>%
+                 sort()
+               })
+    
+    names(members) <- parties
+    members
+  }
 
   output$member_ui <- renderUI({
-
-    parties <- sort(unique(data$MP_Party[ data$MP_Party != 'Not found' ]))
-    hoc_members <- list()
-    for(party in parties) { hoc_members <- append(hoc_members, list(sort(unique(data$Question_MP[ data$MP_Party == party ])))) }
-    names(hoc_members) <- parties
-
     switch(input$member_analysis,
            "Lords" = selectInput(inputId = "person_choice",
                                  label = "Choose a Peer:",
@@ -390,7 +398,7 @@ function(input, output, session) {
            ),
            "Commons" = selectInput(inputId = "person_choice",
                                    label = "Choose an MP:",
-                                   choices = hoc_members
+                                   choices = hoc_members(data)
            )
     )
   })
