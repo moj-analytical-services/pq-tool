@@ -55,6 +55,12 @@ option_list = list(
     help    = "dataset file name",
     metavar = "character"
   ),
+  make_option(c("-x", "--x_dims"),
+              type    = "numeric",
+              default = NULL, 
+              help    = "number of dimensions [default= %default]",
+              metavar = "character"
+  ),
   make_option(c("-k", "--k_clusters"),
     type    = "numeric",
     default = NULL, 
@@ -84,12 +90,15 @@ if( opt$environment == 'test' ) {
   opt$input_file <- str_interp("${SHINY_ROOT}/tests/testthat/examples/data/lsa_training_sample.csv")
   opt$output_dir <- str_interp("${SHINY_ROOT}/tests/testthat/examples/data/")
   opt$k_clusters <- 100
+  opt$x_dims <- 100
 } else if( opt$environment == 'prod' ) {
   opt$input_file <- str_interp("${SHINY_ROOT}/Data/archived_pqs.csv")
   opt$output_dir <- str_interp("${SHINY_ROOT}/Data/")
   opt$k_clusters <- 1000
+  opt$x_dims <- 2000
 }
 
+print(str_interp('X has been set to ${opt$x_dims}'))
 print(str_interp('K has been set to ${opt$k_clusters}'))
 print(str_interp('Reading from file ${opt$input_file}'))
 print(str_interp('Saving to ${opt$output_dir} directory'))
@@ -121,8 +130,10 @@ PQCorp.stems <- tm_map(cleanCorpus(PQCorp), stemDocument)
 tdm <- TermDocumentMatrix(
          PQCorp.stems,
          control = list(
-           weighting = function(x) weightSMART(x, spec = "btc"),
+           weighting = function(x) weightSMART(x, spec = "btn"),
            wordLengths = c(2, Inf)))
+
+tdm <- as.matrix(tdm) %>% normalize() %>% as.simple_triplet_matrix() #normalize doc lengths
 
 
 #Create the latent semantic space. The idea is that it creates a basis of variation, like a PCA, and
@@ -133,7 +144,7 @@ lsaAll <- lsa(tdm, dims = dimcalc_raw())
 #CLUSTERING
 print('Doing some clustering')
 #We reduce the LSA space to rank k, and then get the positions of our documents in this latent semantic space.
-posns <- diag(lsaAll$sk[1:opt$k_clusters]) %*% t(lsaAll$dk[, 1:opt$k_clusters])
+posns <- diag(lsaAll$sk[1:opt$x_dims]) %*% t(lsaAll$dk[, 1:opt$x_dims])
 
 #distances between documents in this space, based on cosine similarity.
 #first normalise columns so all have length 1
@@ -194,11 +205,13 @@ topDozenWordsPerMember <- data.frame(
 print('Making the search space')
 #We reduce the dimensionality of the space to be of rank k, where k is our
 #parameter above (also the number of clusters we are going to use)
-lsaOut <- lsaAll$tk[, 1:opt$k_clusters] %*% posns
+lsaOut <- lsaAll$tk[, 1:opt$x_dims] %*% posns
 #normalise the space
 search.space <- normalize(lsaOut)
-#"sparsify" by setting all near-zero terms to zero
-search.space[which(abs(search.space) < 0.01)] <- 0
+
+#"sparsify" by setting middle 95% of values to zero
+quant95s <- quantile(as.vector(search.space), c(0.025, 0.975))
+search.space[which(search.space > quant95s[1] & search.space < quant95s[2])] <- 0
 
 ##This is just a check to see that this sparsification doesn't lead to wildly varying document lengths
 collengths <- sapply(seq_along(aPQ$Question_ID),
