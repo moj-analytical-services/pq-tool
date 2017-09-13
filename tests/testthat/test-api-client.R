@@ -210,6 +210,21 @@ test_that('get_all_members() calls the members API to retrieve all member record
   )
 })
 
+context('get_constituencies')
+
+test_that('returns NA for members of the HoL', {
+  questions     <- readRDS('./examples/api-responses/response-full.rds')$result$items
+  hol_questions <- questions[questions$houseId$'_value' == 2,][1:2,]
+  expect_equal(get_constituencies(hol_questions), c('NA', 'NA'))
+})
+
+test_that('returns the constituency for member of the HoC', {
+  questions     <- readRDS('./examples/api-responses/response-full.rds')$result$items
+  hoc_questions <- questions[questions$houseId$'_value' == 1,][1:2,]
+  expect_equal(get_constituencies(hoc_questions), c('Blaydon', 'Blaydon'))
+})
+
+
 context('get_parties')
 
 test_that('get_parties calls total_members, get_all_members and get_party', {
