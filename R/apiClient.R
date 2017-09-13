@@ -32,12 +32,23 @@ number_to_fetch <- function() {
   }
 }
 
+get_constituencies <- function(raw_response) 
+  map_chr(1:nrow(raw_response), function(n) {
+    constituency <- raw_response$tablingMemberConstituency$'_value'[n]
+
+    if(length(constituency) == 0 | is.na(constituency)) {
+      'NA'
+    } else {
+      constituency
+    }
+})
+
 parse_response <- function(raw_response) {
   tibble(
     Question_MP     = do.call("rbind", raw_response$tablingMemberPrinted)$'_value',
     Question_Text   = raw_response$questionText,
     Question_ID     = raw_response$uin,
-    MP_Constituency = raw_response$tablingMemberConstituency$'_value',
+    MP_Constituency = get_constituencies(raw_response),
     Question_Date   = raw_response$date$'_value',
     Answer_Text     = raw_response$answer$answerText$'_value',
     Answer_MP       = raw_response$answer$answeringMemberPrinted$'_value',
