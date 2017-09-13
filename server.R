@@ -376,8 +376,39 @@ function(input, output, session) {
   
   ### Q&A Analysis Pane
 
-  output$member_ui <- renderUI({
+  # Each item in hoc_members must be a list to achieve the desired effect in the hoc members dropdown
+  list_if_one <- function(members) {
+    if(length(members) == 1) {
+      return(list(members))
+    } else {
+      return(members)
+    }
+  }
 
+  # Merge labur and labour (co-op) members for the sake of the drop down list (only)
+  merge_labour_and_co_op <- function(members) {
+    members$Labour <- append(members$Labour, members$'Labour (Co-op)') %>% sort()
+    members$'Labour (Co-op)' <- NULL
+    members
+  }
+
+  hoc_members <- function(data) {
+    parties <- data$MP_Party[ data$MP_Party != 'Not found' ] %>%
+                 unique() %>%
+                 sort()
+
+    members <- lapply(parties, function(party) {
+                 data$Question_MP[ data$MP_Party == party ] %>%
+                 unique() %>%
+                 sort() %>%
+                 list_if_one()
+               })
+    
+    names(members) <- parties
+    merge_labour_and_co_op(members)
+  }
+
+  output$member_ui <- renderUI({
     switch(input$member_analysis,
            "Lords" = selectInput(inputId = "person_choice",
                                  label = "Choose a Peer:",
@@ -385,10 +416,14 @@ function(input, output, session) {
            ),
            "Commons" = selectInput(inputId = "person_choice",
                                    label = "Choose an MP:",
-                                   choices = sort(unique(data$Question_MP[ !grepl("HL", data$Question_ID) ]))
+                                   choices = hoc_members(data)
            )
     )
   })
+
+  grouped_hoc_members <- function(hoc_data) {
+
+  }
 
   dfMP <- function(){
     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
