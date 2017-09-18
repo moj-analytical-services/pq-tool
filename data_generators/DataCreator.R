@@ -95,7 +95,7 @@ if( opt$environment == 'test' ) {
   opt$input_file <- str_interp("${SHINY_ROOT}/Data/archived_pqs.csv")
   opt$output_dir <- str_interp("${SHINY_ROOT}/Data/")
   opt$k_clusters <- 1000
-  opt$x_dims <- 2000
+  opt$x_dims <- 1000
 }
 
 print(str_interp('X has been set to ${opt$x_dims}'))

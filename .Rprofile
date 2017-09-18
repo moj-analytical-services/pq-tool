@@ -2,7 +2,7 @@
 SHINY_ROOT <- getwd()
 ARCHIVE_FILEPATH  <- file.path(SHINY_ROOT, 'Data', 'archived_pqs.csv')
 API_ENDPOINT      <- "http://lda.data.parliament.uk/answeredquestions.json"
-MOJ_ONLY          <- "AnsweringBody=Ministry+of+Justice"
+MOJ_ONLY          <- "AnsweringBody=Home+Office"
 MIN_DOWNLOAD      <- "_pageSize=1"
 MAX_DOWNLOAD      <- "_pageSize=1000"
 JUSTICE_STOP_WORDS <- c(
