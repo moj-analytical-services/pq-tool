@@ -189,7 +189,7 @@ function(input, output, session) {
                                $('.introjs-nextbutton').click()
                                }, 1000)
                                })
-                               } else if (this._currentStep==10) { debugger
+                               } else if (this._currentStep==10) {
                                $('.btn-info')[2].addEventListener('mouseup', function(){
                                setTimeout(function(){
                                $('.introjs-nextbutton').click()
@@ -202,7 +202,17 @@ function(input, output, session) {
                                $('.introjs-nextbutton').click()
                                }, 1000)
                                })
-                               }")
+                               }"),
+              "onbeforechange" = I("if (this._currentStep==1) {
+                                   question = $('#question');
+                                   if(question.val() == '') {
+                                    question.val('Prison officers');
+                                    Shiny.onInputChange('question', 'Prison officers');
+                                    this._currentStep = 0;
+                                    $('.introjs-tooltiptext').text(\"We've added some search terms for you, but you can change them if you like.\");
+                                    introJs().previousStep();
+                                   }
+                                 }")
               ),
               options = list("nextLabel" = "Next",
                              "scrollToElement" = FALSE,
