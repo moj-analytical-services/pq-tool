@@ -14,6 +14,12 @@ pipeline {
       description: 'Determine if the app requires authentication.',
       defaultValue: true
     )
+    
+    string(
+      name: 'AWS_IAM_ROLE',
+      description: 'IAM role that the webapp will assume (optional)',
+      defaultValue: '',
+    )
   }
 
   agent any
