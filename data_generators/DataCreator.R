@@ -92,7 +92,7 @@ if( opt$environment == 'test' ) {
   opt$k_clusters <- 100
   opt$x_dims <- 100
 } else if( opt$environment == 'prod' ) {
-  opt$input_file <- str_interp("${SHINY_ROOT}/Data/archived_pqs.csv")
+  opt$input_file <- str_interp("${SHINY_ROOT}/Data/moj_archived_pqs.csv")
   opt$output_dir <- str_interp("${SHINY_ROOT}/Data/")
   opt$k_clusters <- 1000
   opt$x_dims <- 1000
@@ -232,7 +232,7 @@ print('Saving the output')
 save_location = opt$output_dir
 setwd(save_location)
 
-save(search.space, file = "searchSpace.rda")
+save(search.space, file = "MojSearchSpace.rda")
 
 #Save data to be directly loaded in to Tableau
 
@@ -255,10 +255,10 @@ savedf <- data.frame(
 write.csv(savedf, "MoJwrittenPQs.csv")
 
 #The information about the clusters
-write.csv(topDozenWordsPerTopic, "topDozenWordsPerTopic.csv")
+write.csv(topDozenWordsPerTopic, "mojTopDozenWordsPerTopic.csv")
 
 #The information about the members
-write.csv(topDozenWordsPerMember, "topDozenWordsPerMember.csv")
+write.csv(topDozenWordsPerMember, "mojTopDozenWordsPerMember.csv")
 
 ##### APPENDIX #####
 
