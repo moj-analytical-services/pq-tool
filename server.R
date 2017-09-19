@@ -203,13 +203,20 @@ function(input, output, session) {
                                }, 1000)
                                })
                                }"),
-              "onbeforechange" = I("if (this._currentStep==1) {
+              "onbeforechange" = I("if (this._currentStep == 1) {
                                    question = $('#question');
                                    if(question.val() == '') {
                                     question.val('Prison officers');
                                     Shiny.onInputChange('question', 'Prison officers');
                                     this._currentStep = 0;
                                     $('.introjs-tooltiptext').text(\"We've added some search terms for you, but you can change them if you like.\");
+                                    introJs().previousStep();
+                                   }
+                                 } else if (this._currentStep == 3) {
+                                   selected_rows = $('.selected')
+                                   if ( selected_rows.length == 0 ) {
+                                    this._currentStep = 2;
+                                    $('.introjs-tooltiptext').text('Please select a row before continuing.');
                                     introJs().previousStep();
                                    }
                                  }")
