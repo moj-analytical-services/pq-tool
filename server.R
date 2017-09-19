@@ -219,6 +219,14 @@ function(input, output, session) {
                                     $('.introjs-tooltiptext').text('Please select a row before continuing.');
                                     introJs().previousStep();
                                    }
+                                 } else if (this._currentStep == 5 ) {
+                                   new_selection = $('.selected')
+                                   prev_selection = selected_rows
+                                   if(noChange(new_selection, prev_selection)) {
+                                    this._currentStep = 4;
+                                    $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
+                                    introJs().previousStep();
+                                   }
                                  }")
               ),
               options = list("nextLabel" = "Next",

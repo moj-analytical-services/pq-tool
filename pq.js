@@ -343,6 +343,10 @@ function tidy_table(){
         table_entries[i].innerHTML = a_text.format_html();
     }
 }
+
+function noChange(set_one, set_two) {
+  return set_one.length == set_one.filter(set_two).length;
+}
  
  //function codeAddress() {
 //    alert("Welcome! Just a quick reminder that I cannot be run in Internet Explorer, try Mozille Firefox or Google Chrome instead.")
