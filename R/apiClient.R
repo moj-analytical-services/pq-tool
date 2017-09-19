@@ -1,29 +1,33 @@
+source(".Rprofile")
+
 library(tidyverse)
 library(jsonlite)
 library(stringr)
 
 
 api_answering_body <- function(){
-  if(answering_body == moj){
+  if(answering_body == "moj"){
     body <- "Ministry+of+Justice"
-  } else if(answering_body == ho) {
+  } else if(answering_body == "ho") {
     body <- "Home+Office"
   }
   file.path("AnsweringBody=", body)
 }
 
-archive_filepath  <- file.path(SHINY_ROOT, 'Data', answering_body, 'archived_pqs.csv')
+archive_filepath  <- function(answering_body){
+   file.path(SHINY_ROOT, 'Data', answering_body, 'archived_pqs.csv')
+ }
 
 number_in_archive <- function() {
-  if(file.exists(archive_filepath)) {
-    nrow(read_csv(archive_filepath))
+  if(file.exists(archive_filepath())) {
+    nrow(read_csv(archive_filepath()))
   } else {
     0
   }
 }
 
 last_answer_date <- function() {
-  archive <- read_csv(archive_filepath)
+  archive <- read_csv(archive_filepath())
   max(archive$Answer_Date)
 }
 
@@ -33,7 +37,7 @@ number_held_remotely <- function() {
 }
 
 number_to_fetch <- function() {
-  if( file.exists(archive_filepath)) {
+  if( file.exists(archive_filepath())) {
     date        <- last_answer_date()
     date_filter <- str_interp("min-answer.dateOfAnswer=${date}")
     response    <- fromJSON(str_interp("${API_ENDPOINT}?${date_filter}&${api_answering_body}&${MIN_DOWNLOAD}&_sort=dateOfAnswer"))
@@ -57,7 +61,7 @@ parse_response <- function(raw_response) {
 }
 
 update_archive <- function(questions_tibble) {
-  archive    <- read_csv(ARCHIVE_FILEPATH)
+  archive    <- read_csv(archive_filepath())
   if(nrow(archive) > 0) {
       updated_archive <- rbind(archive, questions_tibble)
     } else {
@@ -100,7 +104,7 @@ party <- function(member) {
 
 fetch_questions <- function(answering_body, show_progress = FALSE) {
   
-  archive_filepath     <- file.path(SHINY_ROOT, 'Data', api_answering_body, 'archived_pqs.csv')
+  archive_filepath     <- archive_filepath(answering_body)
   number_to_fetch      <- number_to_fetch()
   number_in_archive    <- number_in_archive()
   number_held_remotely <- number_held_remotely()
