@@ -182,27 +182,27 @@ function(input, output, session) {
     input$tutorial_button, {
       introjs(session,
               events = list(
-                "onchange" = I("console.log(this._currentStep)
-                              if (this._currentStep==6) { 
-                               $('.btn-info')[0].addEventListener('mouseup', function(){
-                               setTimeout(function(){
-                               $('.introjs-nextbutton').click()
-                               }, 1000)
-                               })
-                               } else if (this._currentStep==10) {
-                               $('.btn-info')[2].addEventListener('mouseup', function(){
-                               setTimeout(function(){
-                               $('.introjs-nextbutton').click()
-                               }, 1000)
-                               })
-                               } else if (this._currentStep==11) {
-                               $('.btn-info')[1].addEventListener('mouseup', function(){
-                               console.log('btn info clicked')
-                               setTimeout(function(){
-                               $('.introjs-nextbutton').click()
-                               }, 1000)
-                               })
-                               }"),
+                "onchange" = I("$('.introjs-nextbutton').css('visibility', 'visible');
+                                if (this._currentStep==6) {
+                                  $('.introjs-nextbutton').css('visibility', 'hidden');
+                                  $('.btn-info')[0].addEventListener('mouseup', function(){
+                                    setTimeout(function(){
+                                      $('.introjs-nextbutton').click()
+                                    }, 1000)
+                                  })
+                                } else if (this._currentStep==10) {
+                                  $('.btn-info')[2].addEventListener('mouseup', function(){
+                                    setTimeout(function(){
+                                      $('.introjs-nextbutton').click()
+                                    }, 1000)
+                                  })
+                                } else if (this._currentStep==11) {
+                                  $('.btn-info')[1].addEventListener('mouseup', function(){
+                                    setTimeout(function(){
+                                      $('.introjs-nextbutton').click()
+                                    }, 1000)
+                                  })
+                                }"),
               "onbeforechange" = I("if (this._currentStep == 1) {
                                    question = $('#question');
                                    if(question.val() == '') {

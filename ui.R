@@ -108,7 +108,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                data.step = 7,
                                data.position = "right",
                                data.intro = "You can see all the questions asked by this MP/peer by clicking the 'See all questions asked by' button. 
-                               <br> <br> Try it!"),
+                               <br> <br> To continue, try it!"),
                                data.step = 12,
                                data.position = "right",
                                data.intro = "All the questions in our database have been grouped into topics by an algorithm. These topics have been given a
