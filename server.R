@@ -235,6 +235,13 @@ function(input, output, session) {
                                     $('.introjs-tooltiptext').text(\"Please click 'See all questions asked by...' to continue.\");
                                     introJs().previousStep();
                                    }
+                                 } else if (this._currentStep == 10) {
+                                   selected_rows = $('.selected')
+                                   if ( selected_rows.length == prev_selection.length ) {
+                                    this._currentStep = 9;
+                                    $('.introjs-tooltiptext').text('Please select a row before continuing.');
+                                    introJs().previousStep();
+                                   }
                                  }")
               ),
               options = list("nextLabel" = "Next",
