@@ -184,9 +184,11 @@ function(input, output, session) {
               events = list(
                 "onchange" = I("$('.introjs-nextbutton').css('visibility', 'visible');
                                 if (this._currentStep==6) {
+                                  next_button_disabled = true;
                                   $('.introjs-nextbutton').css('visibility', 'hidden');
                                   $('.btn-info')[0].addEventListener('mouseup', function(){
                                     setTimeout(function(){
+                                      next_button_disabled = false;
                                       $('.introjs-nextbutton').click()
                                     }, 1000)
                                   })
@@ -219,12 +221,18 @@ function(input, output, session) {
                                     $('.introjs-tooltiptext').text('Please select a row before continuing.');
                                     introJs().previousStep();
                                    }
-                                 } else if (this._currentStep == 5 ) {
+                                 } else if (this._currentStep == 5) {
                                    new_selection = $('.selected')
                                    prev_selection = selected_rows
                                    if(noChange(new_selection, prev_selection)) {
                                     this._currentStep = 4;
                                     $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
+                                    introJs().previousStep();
+                                   }
+                                 } else if (this._currentStep == 7) {
+                                   if (next_button_disabled == true) {
+                                    this._currentStep = 6;
+                                    $('.introjs-tooltiptext').text(\"Please click 'See all questions asked by...' to continue.\");
                                     introJs().previousStep();
                                    }
                                  }")
@@ -235,28 +243,7 @@ function(input, output, session) {
                              "showBullets" = FALSE,
                              "keyboardNavigation" = TRUE))
   })
-  
-#   observeEvent(input$startButton, {
-#     introjs(
-#       session,
-#       events = list(
-#         "onchange" = I("debugger;
-#                     if (this._currentStep==7) {
-#                        $('a[data-value=\"Second tab\"]').removeClass('active');
-#                        $('a[data-value=\"First tab\"]').addClass('active');
-#                        $('a[data-value=\"First tab\"]').trigger('click');
-#   }
-#                        if (this._currentStep==1) {
-#                        $('a[data-value=\"First tab\"]').removeClass('active');
-#                        $('a[data-value=\"Second tab\"]').addClass('active');
-#                        $('a[data-value=\"Second tab\"]').trigger('click');
-#                        }")
-#       )
-#         )
-#     
-# })
-  
-  
+
   ### Cluster Pane
   
   dfClus <- function(){

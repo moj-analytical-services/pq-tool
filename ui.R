@@ -13,7 +13,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
              a(href="https://www.surveymonkey.co.uk/r/FV9PCT2", target="_blank", "here")
            )
            ),
-           
+
            ########################### Search Tab
            tabPanel("Search",
                     introjsUI(),
@@ -31,7 +31,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                below. You will get a ranked list of the 100 most similar past questions, and 
                                a visualisation showing when they were asked.")
                       )),
-                    
+
                     fluidRow(
                       column(4,
                              introBox(
@@ -51,7 +51,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                        options = list(container = "body")
                              )
                       ),
-                      
+
                       column(3,
                              conditionalPanel(
                                condition = searchTextEntered,
@@ -88,7 +88,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                 "auto")
                              )
                     ),
-                    
+
                     fluidRow(
                       column(6,
                              conditionalPanel(
@@ -135,7 +135,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                       )
                     )
            ),
-           
+
            ########################### Topic Tab
            tabPanel("Topic Analysis",
                     fluidRow(
@@ -161,7 +161,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              )
                       )
                     ),
-                    
+
                     conditionalPanel(
                       condition = topicChosen,
                       fluidRow(
@@ -197,7 +197,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                       )
                     )
            ),
-           
+
            ########################### Member tab
            tabPanel("Member Analysis",
                     fluidRow(
