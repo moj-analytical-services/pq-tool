@@ -193,14 +193,20 @@ function(input, output, session) {
                                     }, 1000)
                                   })
                                 } else if (this._currentStep==10) {
+                                  next_button_disabled = true;
+                                  $('.introjs-nextbutton').css('visibility', 'hidden');
                                   $('.btn-info')[2].addEventListener('mouseup', function(){
                                     setTimeout(function(){
+                                      next_button_disabled = false;
                                       $('.introjs-nextbutton').click()
                                     }, 1000)
                                   })
                                 } else if (this._currentStep==11) {
+                                  next_button_disabled = true;
+                                  $('.introjs-nextbutton').css('visibility', 'hidden');
                                   $('.btn-info')[1].addEventListener('mouseup', function(){
                                     setTimeout(function(){
+                                      next_button_disabled = false;
                                       $('.introjs-nextbutton').click()
                                     }, 1000)
                                   })
@@ -228,6 +234,8 @@ function(input, output, session) {
                                     this._currentStep = 4;
                                     $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
                                     introJs().previousStep();
+                                   } else {
+                                    prev_selection = new_selection
                                    }
                                  } else if (this._currentStep == 7) {
                                    if (next_button_disabled == true) {
@@ -239,6 +247,27 @@ function(input, output, session) {
                                    selected_rows = $('.selected')
                                    if ( selected_rows.length == prev_selection.length ) {
                                     this._currentStep = 9;
+                                    $('.introjs-tooltiptext').text('Please select a row before continuing.');
+                                    introJs().previousStep();
+                                   } else {
+                                     prev_selection = selected_rows
+                                   }
+                                 } else if (this._currentStep == 11) {
+                                   if (next_button_disabled == true) {
+                                    this._currentStep = 10;
+                                    $('.introjs-tooltiptext').text(\"Please click 'Back to search' to continue.\");
+                                    introJs().previousStep();
+                                   }
+                                 } else if (this._currentStep == 12) {
+                                   if (next_button_disabled == true) {
+                                    this._currentStep = 11;
+                                    $('.introjs-tooltiptext').text(\"Please click 'View topic...' to continue.\");
+                                    introJs().previousStep();
+                                   }
+                                 } else if (this._currentStep == 15) {
+                                   selected_rows = $('.selected')
+                                   if ( selected_rows.length == prev_selection.length ) {
+                                    this._currentStep = 14;
                                     $('.introjs-tooltiptext').text('Please select a row before continuing.');
                                     introJs().previousStep();
                                    }
