@@ -18,15 +18,16 @@ library(scales)
 library(readr)
 library(rintrojs)
 
-load(file = "./Data/searchSpace.rda")
-load(file = "./Data/allMPs.rda")
-load(file = "./Data/allTopics.rda")
+
+load(file = "./Data/ho/searchSpace.rda")
+load(file = "./Data/ho/allMPs.rda")
+load(file = "./Data/ho/allTopics.rda")
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
 setClass("R_date")
 
-rawData <- read_csv("./Data/MoJwrittenPQs.csv")
+rawData <- read_csv("./Data/writtenPQs.csv")
 data <- data.frame(rawData)
 drops <- c("X1","Document_Number", "Corrected_Date")
 tables_data <- data[ , !(names(data) %in% drops)]

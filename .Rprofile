@@ -2,7 +2,7 @@
 SHINY_ROOT <- getwd()
 API_ENDPOINT      <- "http://lda.data.parliament.uk/answeredquestions.json"
 MIN_DOWNLOAD      <- "_pageSize=1"
-MAX_DOWNLOAD      <- "_pageSize=1000"
+MAX_DOWNLOAD      <- "_pageSize=500"
 JUSTICE_STOP_WORDS <- c(
   "a", "b", "c", "d", "i", "ii", "iii", "iv",
   "secretary", "state", "ministry", "majesty","majestys",
