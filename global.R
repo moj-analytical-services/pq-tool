@@ -18,6 +18,7 @@ library(scales)
 library(readr)
 library(rintrojs)
 
+answering_bodies <- data.table(read_csv("./Data/answeringBodyLookup.csv"))
 
 data_file <- reactive({
   return(file.path("./Data", input$answering_body_choice))
@@ -75,5 +76,6 @@ yBreaks <- function(hist) {
 yMax <- function(hist) {
   ( floor(maxCount(hist) / yBreaks(hist)) + 1) * yBreaks(hist)
 }
+
 
 
