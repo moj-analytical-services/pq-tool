@@ -18,7 +18,7 @@ function(input, output, session) {
     outGroup <- JayVees[,
                         .("Similarity_score" = sum(vees)),
                         by = Document ][order(-Similarity_score)]
-    table_output <- outGroup #[1:30]
+    table_output <- outGroup 
     data <- merge.data.frame(table_output,
                              data,
                              by.x = "Document",
