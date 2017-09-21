@@ -38,7 +38,11 @@ number_held_remotely <- function(api_answering) {
 
 number_to_fetch <- function(filepath, api_answering) {
   if( file.exists(filepath)) {
+<<<<<<< HEAD
     date        <- last_answer_date(filepath)
+=======
+    date        <- last_answer_date()
+>>>>>>> 1efceadd17f22b7d4377b91a27a7f28ba83c0435
     date_filter <- str_interp("min-answer.dateOfAnswer=${date}")
     response    <- fromJSON(str_interp("${API_ENDPOINT}?${date_filter}&${api_answering}&${MIN_DOWNLOAD}&_sort=dateOfAnswer"))
     response$result$totalResults
@@ -60,8 +64,13 @@ parse_response <- function(raw_response) {
   )
 }
 
+<<<<<<< HEAD
 update_archive <- function(filepath, questions_tibble) {
   archive    <- read_csv(filepath)
+=======
+update_archive <- function(questions_tibble) {
+  archive    <- read_csv(archive_filepath)
+>>>>>>> 1efceadd17f22b7d4377b91a27a7f28ba83c0435
   if(nrow(archive) > 0) {
       updated_archive <- rbind(archive, questions_tibble)
     } else {
@@ -106,7 +115,10 @@ fetch_questions <- function(answering_body, show_progress = FALSE) {
   
   archive_filepath     <- archive_filepath(answering = answering_body)
   api_answering_body   <- api_answering_body(answering = answering_body)
+<<<<<<< HEAD
   
+=======
+>>>>>>> 1efceadd17f22b7d4377b91a27a7f28ba83c0435
   number_to_fetch      <- number_to_fetch(filepath = archive_filepath, api_answering = api_answering_body)
   number_in_archive    <- number_in_archive(filepath = archive_filepath)
   number_held_remotely <- number_held_remotely(api_answering = api_answering_body)
@@ -124,7 +136,11 @@ fetch_questions <- function(answering_body, show_progress = FALSE) {
   questions <- tibble()
 
   if(file.exists(archive_filepath)) {
+<<<<<<< HEAD
     date        <- last_answer_date(archive_filepath())
+=======
+    date        <- last_answer_date()
+>>>>>>> 1efceadd17f22b7d4377b91a27a7f28ba83c0435
     date_param  <- str_interp("min-answer.dateOfAnswer=${date}")
     base_params <- str_interp("${date_param}&${api_answering_body}&${MAX_DOWNLOAD}")
   } else {
