@@ -53,6 +53,13 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                       ),
                       
                       column(3,
+                             selectizeInput(inputId = "answering_body_choice",
+                                            label = "Choose Answering Body:",
+                                            choices = answering_bodies$Name
+                                            )
+                             ),
+                      
+                      column(3,
                              conditionalPanel(
                                condition = searchTextEntered,
                                introBox(
