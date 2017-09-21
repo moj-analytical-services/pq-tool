@@ -7,10 +7,12 @@ library(stringr)
 library(gtools)
 
 api_answering_body <- function(answering){
-  body <- ANSWERING_BODIES_LOOKUP$Name[ANSWERING_BODIES_LOOKUP$Code == answering]
-  body <- gsub(" ","+",body)
-  body <- paste0("AnsweringBody=", body)
-  return(body)
+  if(answering == "moj"){
+    body <- "Ministry+of+Justice"
+  } else if(answering == "ho") {
+    body <- "Home+Office"
+  }
+  return(paste0("AnsweringBody=", body))
 }
 
 archive_filepath  <- function(answering){
@@ -134,18 +136,10 @@ fetch_questions <- function(answering_body, show_progress = FALSE) {
 
   questions <- tibble()
 
-<<<<<<< HEAD
-  if(file.exists(ARCHIVE_FILEPATH)) {
-    date        <- last_answer_date()
-    date_param  <- str_interp("_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%22${date}%22)")
-    base_params <- str_interp("${date_param}&${MOJ_ONLY}&${MAX_DOWNLOAD}")
-=======
   if(file.exists(archive_filepath)) {
-    
     date        <- last_answer_date(archive_filepath())
     date_param  <- str_interp("min-answer.dateOfAnswer=${date}")
     base_params <- str_interp("${date_param}&${api_answering_body}&${MAX_DOWNLOAD}")
->>>>>>> Allow user to specify answering body in API call
   } else {
     file.create(archive_filepath)
     base_params <- str_interp("${api_answering_body}&${MAX_DOWNLOAD}")
