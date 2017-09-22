@@ -1,4 +1,4 @@
-?source(file = "global.R")
+source(file = "global.R")
 ############### Server
 
 function(input, output, session) {
@@ -313,41 +313,42 @@ function(input, output, session) {
   addPopover(session, "wordcloud", "Wordcloud",
              content = paste0("This wordcloud shows the words that are most important to the topic.<br><br> The bigger the word, the more important it is."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
-  
-  
+
+
   output$topic_plot <- renderPlot({
-    p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
-      geom_histogram(binwidth = 14, fill = "#67a9cf")
-    maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #this is a hack from stackoverflow to get us the max value of the histogram
-    yBreaks <- if(maxCount < 11){
-      1} else if(maxCount < 21){
-        2} else{
-          5}
-    yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
-    p + 
+    # Plot is generated first so that it can be used to grab values for other layers
+    plot <- ggplot(data = NULL, aes(x = dfClus()$Date)) +
+              geom_histogram(binwidth = 14, fill = "#67a9cf")
+    # Now add the other layers
+    plot + 
       xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_x_date(limits = c(minDate, maxDate),
-                   labels = date_format("%b %y"),
-                   date_breaks = "6 months",
-                   date_minor_breaks = "1 month") +
+      scale_x_date(
+        limits = c(minDate, maxDate),
+        labels = date_format("%b %y"),
+        date_breaks = "6 months",
+        date_minor_breaks = "1 month"
+      ) +
       scale_y_continuous(
-        breaks = seq(0, yMax, yBreaks),
+        breaks = seq(0, yMax(plot), yBreaks(plot)),
         expand = c(0,0),
-        limits = c(0, yMax)) +
-      labs(title = paste0("Topic ", input$topic_choice, ": ", keyword()),
-           subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
-           x = "Question Date",
-           y = "Count"
+        limits = c(0, yMax(plot))
+      ) +
+      labs(
+        title = paste0("Topic ", input$topic_choice, ": ", keyword()),
+        subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
+        x = "Question Date",
+        y = "Count"
       ) + 
-      theme(panel.background = element_rect(fill = "white", colour = "grey"),
-            panel.grid.minor = element_line(colour = "#efefef"),
-            panel.grid.major = element_line(colour = "#efefef"),
-            axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
-            axis.text = element_text(family = "Arial", size = 14),
-            axis.line = element_line(colour = "grey"),
-            plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
-            plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
-            #axis.ticks.x = element_line(size = 0)
+      theme(
+        panel.background = element_rect(fill = "white", colour = "grey"),
+        panel.grid.minor = element_line(colour = "#efefef"),
+        panel.grid.major = element_line(colour = "#efefef"),
+        axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
+        axis.text = element_text(family = "Arial", size = 14),
+        axis.line = element_line(colour = "grey"),
+        plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
+        plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
+        #axis.ticks.x = element_line(size = 0)
       )
   })
   

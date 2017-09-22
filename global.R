@@ -45,5 +45,22 @@ merged_clusters <- ddply(
 #Search space for query vector
 vocab <- search.space$dimnames[[1]]
 
+# server functions for plotting
+maxCount <- function(hist) {
+  ggplot_build(hist)$data[[1]]$count %>% max()
+}
 
+yBreaks <- function(hist) {
+  if(maxCount(hist) < 11) {
+      1
+    } else if(maxCount(hist) < 21) {
+      2
+    } else {
+      5
+    }
+}
+
+yMax <- function(hist) {
+  ( floor(maxCount(hist) / yBreaks(hist)) + 1) * yBreaks(hist)
+}
 
