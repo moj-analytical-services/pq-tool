@@ -280,7 +280,7 @@ function(input, output, session) {
     })
   
   minDate <- min(tables_data$Date)
-  maxDate <- max(tables_data$Date)
+  maxDate <- max(tables_data$Date + 14)
   
   wordcloud_df <- function(){
     df <- subset(topic_data,
@@ -469,7 +469,7 @@ function(input, output, session) {
   }
   
   minDate <- min(tables_data$Date)
-  maxDate <- max(tables_data$Date)
+  maxDate <- max(tables_data$Date + 14)
   
   member_wordcloud_df <- function(){
     df <- subset(member_data,
