@@ -5,9 +5,12 @@ library(tidyverse)
 library(jsonlite)
 library(stringr)
 library(gtools)
+library(data.table)
+library(readr)
 
 api_answering_body <- function(answering){
-  body <- ANSWERING_BODIES_LOOKUP$Name[ANSWERING_BODIES_LOOKUP$Code == answering]
+  answering_bodies_lookup <- data.table(read_csv("./Data/answering_body_lookup.csv"))
+  body <- answering_bodies_lookup$Name[answering_bodies_lookup$Code == answering]
   body <- gsub(" ","+",body)
   body <- paste0("AnsweringBody=", body)
   return(body)

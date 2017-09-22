@@ -86,17 +86,17 @@ opt = parse_args(opt_parser);
 
 ## Override options if 'environment' is set
 
-if( opt$environment == 'test' ) {
-  opt$input_file <- str_interp("${SHINY_ROOT}/tests/testthat/examples/data/lsa_training_sample.csv")
-  opt$output_dir <- str_interp("${SHINY_ROOT}/tests/testthat/examples/data/")
-  opt$k_clusters <- 100
-  opt$x_dims <- 100
-} else if( opt$environment == 'prod' ) {
-  opt$input_file <- str_interp("${SHINY_ROOT}/Data/archived_pqs.csv")
-  opt$output_dir <- str_interp("${SHINY_ROOT}/Data/")
-  opt$k_clusters <- 1000
-  opt$x_dims <- 2000
-}
+# if( opt$environment == 'test' ) {
+#   opt$input_file <- str_interp("${SHINY_ROOT}/tests/testthat/examples/data/lsa_training_sample.csv")
+#   opt$output_dir <- str_interp("${SHINY_ROOT}/tests/testthat/examples/data/")
+#   opt$k_clusters <- 100
+#   opt$x_dims <- 100
+# } else if( opt$environment == 'prod' ) {
+#   opt$input_file <- str_interp("${SHINY_ROOT}/Data/archived_pqs.csv")
+#   opt$output_dir <- str_interp("${SHINY_ROOT}/Data/")
+#   opt$k_clusters <- 1000
+#   opt$x_dims <- 2000
+# }
 
 print(str_interp('X has been set to ${opt$x_dims}'))
 print(str_interp('K has been set to ${opt$k_clusters}'))
