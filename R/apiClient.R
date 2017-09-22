@@ -7,12 +7,10 @@ library(stringr)
 library(gtools)
 
 api_answering_body <- function(answering){
-  if(answering == "moj"){
-    body <- "Ministry+of+Justice"
-  } else if(answering == "ho") {
-    body <- "Home+Office"
-  }
-  return(paste0("AnsweringBody=", body))
+  body <- ANSWERING_BODIES_LOOKUP$Name[ANSWERING_BODIES_LOOKUP$Code == answering]
+  body <- gsub(" ","+",body)
+  body <- paste0("AnsweringBody=", body)
+  return(body)
 }
 
 archive_filepath  <- function(answering){

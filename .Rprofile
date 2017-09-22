@@ -2,18 +2,12 @@
 source("packrat/init.R")
 
 SHINY_ROOT <- getwd()
-<<<<<<< HEAD
 TRAVIS <- FALSE
 API_ENDPOINT      <- "http://lda.data.parliament.uk/answeredquestions.json"
 MIN_DOWNLOAD      <- "_pageSize=1"
 MAX_DOWNLOAD      <- "_pageSize=500"
 ANSWERING_BODIES_LOOKUP <- data.table(read_csv("./Data/answering_body_lookup.csv"))
 
-=======
-API_ENDPOINT      <- "http://lda.data.parliament.uk/answeredquestions.json"
-MIN_DOWNLOAD      <- "_pageSize=1"
-MAX_DOWNLOAD      <- "_pageSize=500"
->>>>>>> Allow user to specify answering body in API call
 JUSTICE_STOP_WORDS <- c(
   "a", "b", "c", "d", "i", "ii", "iii", "iv",
   "secretary", "state", "ministry", "majesty","majestys",
