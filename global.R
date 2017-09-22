@@ -18,7 +18,7 @@ library(scales)
 library(readr)
 library(rintrojs)
 
-dates <- data.table(read_csv("./Data/moj/moj_WrittenPQs.csv"))
+dates <- data.table(read_csv("./Data/moj/moj_WrittenPQs.tsv"))
 answering_bodies_lookup <- read_csv("./Data/answering_body_lookup.csv")
 
 
@@ -29,3 +29,4 @@ for(code in answering_bodies_lookup$Code){
   # assign(paste0(i, "_allTopics"), allTopics)
 }
   # load(file = "./Data/allMPs.rda")
+
