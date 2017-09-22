@@ -5,7 +5,7 @@ SHINY_ROOT <- getwd()
 API_ENDPOINT      <- "http://lda.data.parliament.uk/answeredquestions.json"
 MIN_DOWNLOAD      <- "_pageSize=1"
 MAX_DOWNLOAD      <- "_pageSize=500"
-ANSWERING_BODIES_LOOKUP <- data.table(read_csv("./Data/answering_body_lookup.csv"))
+
 
 JUSTICE_STOP_WORDS <- c(
   "a", "b", "c", "d", "i", "ii", "iii", "iv",

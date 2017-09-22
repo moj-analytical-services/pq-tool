@@ -20,6 +20,7 @@ library(rintrojs)
 
 answering_bodies_lookup <- read_csv("./Data/answering_body_lookup.csv")
 
+<<<<<<< HEAD
 for(i in answering_bodies_lookup$Code){
   load(file = file.path("./Data", i, paste0(i, "_SearchSpace.rda")))
   assign(paste0(i, ".search.space"), search.space)
@@ -27,6 +28,19 @@ for(i in answering_bodies_lookup$Code){
   # assign(paste0(i, "_allTopics"), allTopics)
 }
   load(file = "./Data/allMPs.rda")
+=======
+
+answering_bodies_lookup <- data.table(read_csv("./Data/answering_body_lookup.csv"))
+
+
+data_file <- reactive({
+  return(file.path("./Data", answering_bodies_lookup$Code[answering_bodies_lookup$Name == input$answering_body_choice]))
+})
+
+load(file = file.path(data_file(), "searchSpace.rda"))
+load(file = file.path(data_file(), "allMPs.rda"))
+load(file = file.path(data_file(), "allTopics.rda"))
+>>>>>>> 236ba1112764bc76e33de84071e93c515b5d1b8f
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
