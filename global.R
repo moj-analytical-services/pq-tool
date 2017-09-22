@@ -19,8 +19,12 @@ library(readr)
 library(rintrojs)
 
 
+
+answering_bodies_lookup <- data.table(read_csv("./Data/answering_body_lookup.csv"))
+
+
 data_file <- reactive({
-  return(file.path("./Data", input$answering_body_choice))
+  return(file.path("./Data", answering_bodies_lookup$Code[answering_bodies_lookup$Name == input$answering_body_choice]))
 })
 
 load(file = file.path(data_file(), "searchSpace.rda"))

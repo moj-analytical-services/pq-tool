@@ -57,7 +57,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                       column(3,
                              selectizeInput(inputId = "answering_body_choice",
                                             label = "Choose Answering Body:",
-                                            choices = answering_bodies$Name
+                                            choices = answering_bodies_lookup$Name
                              )
                       ),
                       
