@@ -182,6 +182,7 @@ function(input, output, session) {
               events = list(
                 "onchange" = I("$('.introjs-nextbutton').css('visibility', 'visible');
                                 step = this._currentStep
+                                prev_selection = $('.selected')
                                 buttonIndices = {6 : 0, 10 : 2, 11 : 1}
                                 if ([6, 10, 11].includes(step)) {
                                   next_button_disabled = true;
@@ -194,68 +195,53 @@ function(input, output, session) {
                                   })
                                 }"),
 
-              "onbeforechange" = I("if (this._currentStep == 1) {
-                                   question = $('#question');
-                                   if(question.val() == '') {
-                                    question.val('Prison officers');
-                                    Shiny.onInputChange('question', 'Prison officers');
-                                    this._currentStep = 0;
-                                    $('.introjs-tooltiptext').text(\"We've added some search terms for you, but you can change them if you like.\");
-                                    introJs().previousStep();
-                                   }
-                                 } else if (this._currentStep == 3) {
-                                   selected_rows = $('.selected')
-                                   if ( selected_rows.length == 0 ) {
-                                    this._currentStep = 2;
-                                    $('.introjs-tooltiptext').text('Please select a row before continuing.');
-                                    introJs().previousStep();
-                                   }
-                                 } else if (this._currentStep == 5) {
-                                   new_selection = $('.selected')
-                                   prev_selection = selected_rows
-                                   if(noChange(new_selection, prev_selection)) {
-                                    this._currentStep = 4;
-                                    $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
-                                    introJs().previousStep();
-                                   } else {
-                                    prev_selection = new_selection
-                                   }
-                                 } else if (this._currentStep == 7) {
-                                   if (next_button_disabled == true) {
-                                    this._currentStep = 6;
-                                    $('.introjs-tooltiptext').text(\"Please click 'See all questions asked by...' to continue.\");
-                                    introJs().previousStep();
-                                   }
-                                 } else if (this._currentStep == 10) {
-                                   selected_rows = $('.selected')
-                                   if ( selected_rows.length == prev_selection.length ) {
-                                    this._currentStep = 9;
-                                    $('.introjs-tooltiptext').text('Please select a row before continuing.');
-                                    introJs().previousStep();
-                                   } else {
-                                     prev_selection = selected_rows
-                                   }
-                                 } else if (this._currentStep == 11) {
-                                   if (next_button_disabled == true) {
-                                    this._currentStep = 10;
-                                    $('.introjs-tooltiptext').text(\"Please click 'Back to search' to continue.\");
-                                    introJs().previousStep();
-                                   }
-                                 } else if (this._currentStep == 12) {
-                                   if (next_button_disabled == true) {
-                                    this._currentStep = 11;
-                                    $('.introjs-tooltiptext').text(\"Please click 'View topic...' to continue.\");
-                                    introJs().previousStep();
-                                   }
-                                 } else if (this._currentStep == 15) {
-                                   selected_rows = $('.selected')
-                                   if ( selected_rows.length == prev_selection.length ) {
-                                    this._currentStep = 14;
-                                    $('.introjs-tooltiptext').text('Please select a row before continuing.');
-                                    introJs().previousStep();
-                                   }
-                                 }")
-              ),
+              "onbeforechange" = I("new_selection = $('.selected');
+                                   if (this._currentStep == 1) {
+                                     question = $('#question');
+                                     if(question.val() == '') {
+                                       question.val('Prison officers');
+                                       Shiny.onInputChange('question', 'Prison officers');
+                                       this._currentStep = this._currentStep - 1;
+                                       $('.introjs-tooltiptext').text(\"We've added some search terms for you, but you can change them if you like.\");
+                                       introJs().previousStep();
+                                     }
+
+                                   } else if ([3, 10, 15].includes(this._currentStep)) {
+                                     if(noChange(new_selection, prev_selection)) {
+                                       this._currentStep = this._currentStep - 1;
+                                       $('.introjs-tooltiptext').text('Please select a row before continuing.');
+                                       introJs().previousStep();
+                                     }
+
+                                   } else if (this._currentStep == 5) {
+                                     if(noChange(new_selection, prev_selection)) {
+                                       this._currentStep = this._currentStep - 1;
+                                       $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
+                                       introJs().previousStep();
+                                     }
+
+                                   } else if (this._currentStep == 7) {
+                                     if (next_button_disabled == true) {
+                                       this._currentStep = this._currentStep - 1;
+                                       $('.introjs-tooltiptext').text(\"Please click 'See all questions asked by...' to continue.\");
+                                       introJs().previousStep();
+                                     }
+
+                                   } else if (this._currentStep == 11) {
+                                     if (next_button_disabled == true) {
+                                      this._currentStep = this._currentStep - 1;
+                                      $('.introjs-tooltiptext').text(\"Please click 'Back to search' to continue.\");
+                                      introJs().previousStep();
+                                     }
+
+                                   } else if (this._currentStep == 12) {
+                                     if (next_button_disabled == true) {
+                                      this._currentStep = this._currentStep - 1;
+                                      $('.introjs-tooltiptext').text(\"Please click 'View topic...' to continue.\");
+                                      introJs().previousStep();
+                                     }
+                                   }")
+                ),
               options = list("nextLabel" = "Next",
                              "scrollToElement" = FALSE,
                              "showProgress" = TRUE,
