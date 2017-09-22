@@ -113,7 +113,7 @@ get_party <- function(name, constituency, members) {
   }
 }
 
-fetch_questions <- function(show_progress = FALSE) {
+fetch_questions <- function(answering_body, show_progress = FALSE) {
 
   archive_filepath     <- archive_filepath(answering = answering_body)
   api_answering_body   <- api_answering_body(answering = answering_body)
