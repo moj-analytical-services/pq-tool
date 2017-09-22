@@ -20,7 +20,7 @@ library(rintrojs)
 
 
 
-answering_bodies_lookup <- data.table(read_csv("./Data/answering_body_lookup.csv"))
+answering_bodies_lookup <- data.table(read_tsv("./Data/answering_body_lookup.tsv"))
 
 
 data_file <- reactive({
