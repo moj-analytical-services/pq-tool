@@ -59,30 +59,33 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              )
                       ),
                       
+                      # column(3,
+                      #        conditionalPanel(
+                      #          condition = searchTextEntered,
+                      #          introBox(
+                      #          dateRangeInput(
+                      #            "q_date_range", 
+                      #            label = "Question Date Range",
+                      #            format = "dd-mm-yyyy",
+                      #            min = min(data()$Date),
+                      #            max = max(data()$Date),
+                      #            start = min(data()$Date),
+                      #            end = max(data()$Date)
+                      #          ),
+                      #          data.step = 2,
+                      #          data.position = "right",
+                      #          data.intro = "Pick a range of dates you want to consider (leave this alone to search all the questions we have)"
+                      #          ),
+                      #          bsTooltip("q_date_range",
+                      #                    "Choose the time period you wish to search.",
+                      #                    "auto",
+                      #                    options = list(container = "body")
+                      #          )
+                      #        )
+                      # ),
+                      
                       column(3,
-                             conditionalPanel(
-                               condition = searchTextEntered,
-                               introBox(
-                               dateRangeInput(
-                                 "q_date_range", 
-                                 label = "Question Date Range",
-                                 format = "dd-mm-yyyy",
-                                 min = min(data()$Date),
-                                 max = max(data()$Date),
-                                 start = min(data()$Date),
-                                 end = max(data()$Date)
-                               ),
-                               data.step = 2,
-                               data.position = "right",
-                               data.intro = "Pick a range of dates you want to consider (leave this alone to search all the questions we have)"
-                               ),
-                               bsTooltip("q_date_range",
-                                         "Choose the time period you wish to search.",
-                                         "auto",
-                                         options = list(container = "body")
-                               )
-                             )
-                      ),
+                             dataTableOutput("test")),
                       column(2,
                              offset = 3,
                              actionButton(

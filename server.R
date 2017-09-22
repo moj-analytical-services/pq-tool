@@ -9,7 +9,9 @@ function(input, output, session) {
     answering_bodies_lookup$Code[answering_bodies_lookup$Name == input$answering_body_choice]
   })
   
-  data_folder <- file.path("./Data", answering_body_code())
+  data_folder <- reactive({
+    file.path("./Data", answering_body_code())
+  })
   
   #Search space for query vector
   
@@ -17,45 +19,51 @@ function(input, output, session) {
     assign(search.space, paste0(answering_body_code, ".search.space"))
   })
   
-  vocab <- search.space$dimnames[[1]]
+  vocab <- reactive({
+    search.space()$dimnames[[1]]
+  })
   
   data_filepath <- reactive({
     file.path(data_folder(), paste0(answering_body_code(), "_WrittenPQs.csv"))
   })
-  data <- data.frame(read_csv(data_filepath()))
+  data <- reactive({
+    data.frame(read_csv(data_filepath()))
+  })
   #data <- data.frame(rawData())
   drops <- c("X1","Document_Number", "Corrected_Date")
-  tables_data <- data()[ , !(names(data()) %in% drops)]
+  tables_data <- reactive({
+    data()[ , !(names(data()) %in% drops)]
+  })
   
   
   ### Similarity Pane
   returnNearestMatches <- reactive({
-    space <- reactive({
-      search.space()
-    })
-    foundWords <- which(space()$i %in% queryVec(input$question, vocab))
+    
+    foundWords <- which(search.space()$i %in% queryVec(input$question, vocab()))
     if(length(foundWords)==0){
       return("Unable to determine similarity to query")
     }
-    Document <- space$j[foundWords]
-    vees <- space$v[foundWords]
-    JayVees <- data.table(Document = Document, vees = vees)
+    Document <- search.space()$j[foundWords]
+    vees <- search.space()$v[foundWords]
+    JayVees <- data.table(Document = Document(), vees = vees())
     
-    outGroup <- JayVees[,
-                        .("Similarity_score" = sum(vees)),
+    outGroup <- JayVees()[,
+                        .("Similarity_score" = sum(vees())),
                         by = Document ][order(-Similarity_score)]
-    table_output <- outGroup 
-    data <- merge.data.frame(table_output,
-                             data,
+    table_output <- outGroup() 
+    data <- merge.data.frame(table_output(),
+                             data(),
                              by.x = "Document",
                              by.y = "Document_Number")
     
-    data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
-    data <- data[with(data, order(-data["Similarity_score"])), ]
-    rownames(data) <- 1:nrow(data)
-    data["Rank"] <- as.numeric(rownames(data))
-    return(data)
+    data["Similarity_score"] <- round(data()["Similarity_score"], digits = 2)
+    data <- data()[with(data(), order(-data()["Similarity_score"])), ]
+    rownames(data) <- 1:nrow(data())
+    data["Rank"] <- as.numeric(rownames(data)())
+    return(data())
   })
+  
+  output$test <- renderDataTable(returnNearestMatches())
   
   df <- reactive({
     subset(returnNearestMatches(),
