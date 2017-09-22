@@ -3,7 +3,7 @@
 
 function(input, output, session) {
 
-  
+
   ### Similarity Pane
   returnNearestMatches <- reactive({
     space <- search.space
@@ -23,20 +23,20 @@ function(input, output, session) {
                              data,
                              by.x = "Document",
                              by.y = "Document_Number")
-    
+
     data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
     data <- data[with(data, order(-data["Similarity_score"])), ]
     rownames(data) <- 1:nrow(data)
     data["Rank"] <- as.numeric(rownames(data))
     return(data)
   })
-  
+
   df <- reactive({
     subset(returnNearestMatches(),
            returnNearestMatches()$Date >= input$q_date_range[1] &
              returnNearestMatches()$Date <= input$q_date_range[2])
   })
-  
+
   plot_points <- reactive({
     cols <- c(
       'Question_Text',
@@ -60,9 +60,7 @@ function(input, output, session) {
       
     })
   })
-  
 
-  
   #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
   #give an indication of how interest has risen and fallen over time.
   line_points <- reactive({
@@ -123,7 +121,7 @@ function(input, output, session) {
     showticklabels = FALSE,
     rangemode = "tozero"
   )
-  
+
   output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = plot_points()$Date) %>%
       #add trend line first so it's the bottom layer
@@ -167,11 +165,11 @@ function(input, output, session) {
                 text = NULL,
                 hoverinfo = "text"
       ) %>%
-      
+
       config(displayModeBar = F) %>%
       layout(legend = list(orientation = 'h'))
   })
-  
+
   addPopover(session, "similarity_plot", "What does this plot show?",
              content = paste0("<p>This graph plots Similarity on the y axis against Time on the x axis.</p><p>",
                               "Each point represents a past PQ from our database with the height showing ",
@@ -183,34 +181,19 @@ function(input, output, session) {
       introjs(session,
               events = list(
                 "onchange" = I("$('.introjs-nextbutton').css('visibility', 'visible');
-                                if (this._currentStep==6) {
+                                step = this._currentStep
+                                buttonIndices = {6 : 0, 10 : 2, 11 : 1}
+                                if ([6, 10, 11].includes(step)) {
                                   next_button_disabled = true;
                                   $('.introjs-nextbutton').css('visibility', 'hidden');
-                                  $('.btn-info')[0].addEventListener('mouseup', function(){
-                                    setTimeout(function(){
-                                      next_button_disabled = false;
-                                      $('.introjs-nextbutton').click()
-                                    }, 1000)
-                                  })
-                                } else if (this._currentStep==10) {
-                                  next_button_disabled = true;
-                                  $('.introjs-nextbutton').css('visibility', 'hidden');
-                                  $('.btn-info')[2].addEventListener('mouseup', function(){
-                                    setTimeout(function(){
-                                      next_button_disabled = false;
-                                      $('.introjs-nextbutton').click()
-                                    }, 1000)
-                                  })
-                                } else if (this._currentStep==11) {
-                                  next_button_disabled = true;
-                                  $('.introjs-nextbutton').css('visibility', 'hidden');
-                                  $('.btn-info')[1].addEventListener('mouseup', function(){
+                                  $('.btn-info')[buttonIndices[step]].addEventListener('mouseup', function(){
                                     setTimeout(function(){
                                       next_button_disabled = false;
                                       $('.introjs-nextbutton').click()
                                     }, 1000)
                                   })
                                 }"),
+
               "onbeforechange" = I("if (this._currentStep == 1) {
                                    question = $('#question');
                                    if(question.val() == '') {
