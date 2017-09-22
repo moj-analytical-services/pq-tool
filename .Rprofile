@@ -1,5 +1,6 @@
 #### -- Packrat Autoloader (version 0.4.8-1) -- ####
 SHINY_ROOT <- getwd()
+TRAVIS <- FALSE
 ARCHIVE_FILEPATH  <- file.path(SHINY_ROOT, 'Data', 'archived_pqs.csv')
 API_ENDPOINT      <- "http://lda.data.parliament.uk/answeredquestions.json"
 MOJ_ONLY          <- "AnsweringBody=Ministry+of+Justice"
