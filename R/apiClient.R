@@ -1,4 +1,6 @@
 source('./R/Functions.R')
+source(".Rprofile")
+
 library(tidyverse)
 library(jsonlite)
 library(stringr)
