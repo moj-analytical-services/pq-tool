@@ -252,7 +252,7 @@ savedf <- data.frame(
   Topic = klusters,
   Topic_Keywords = clusterKeywordsVec[klusters],
   stringsAsFactors = FALSE)
-write.csv(savedf, "MoJwrittenPQs.csv")
+write.csv(savedf, "writtenPQs.csv")
 
 #The information about the clusters
 write.csv(topDozenWordsPerTopic, "topDozenWordsPerTopic.csv")
