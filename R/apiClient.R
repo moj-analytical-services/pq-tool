@@ -82,7 +82,7 @@ update_archive <- function(filepath, questions_tibble) {
 
   duplicates_filter <- duplicated(updated_archive)
   updated_archive   <- updated_archive[!duplicates_filter,]
-  write_csv(updated_archive, ARCHIVE_FILEPATH)
+  write_csv(updated_archive, filepath )
 }
 
 total_members <- function() {
@@ -166,7 +166,7 @@ fetch_questions <- function(answering_body, show_progress = FALSE) {
     parsed_response$Question_MP <- sapply(parsed_response$Question_MP, nameCleaner)
     parsed_response$Answer_MP   <- sapply(parsed_response$Answer_MP, nameCleaner)
     parsed_response$Party       <- get_parties(parsed_response$Question_MP, parsed_response$MP_Constituency)
-    update_archive(parsed_response)
+    update_archive(archive_filepath, parsed_response)
   }
 
 
