@@ -18,7 +18,7 @@ library(scales)
 library(readr)
 library(rintrojs)
 
-dates <- data.frame(read_csv("./Data/moj/moj_writtenPQs.csv"))
+dates <- data.table(read_csv("./Data/moj/moj_writtenPQs.csv"))
 answering_bodies_lookup <- read_csv("./Data/answering_body_lookup.csv")
 
 

@@ -27,7 +27,7 @@ function(input, output, session) {
     file.path(data_folder(), paste0(answering_body_code(), "_WrittenPQs.csv"))
   })
   data <- reactive({
-    data.frame(read_csv(data_filepath()))
+    data.table(read_csv(data_filepath()))
   })
   
   drops <- c("X1","Document_Number", "Corrected_Date")
@@ -63,8 +63,6 @@ function(input, output, session) {
     return(data)
   })
   
-  output$test <- renderDataTable(returnNearestMatches()[,1])
-  
   df <- reactive({
     subset(returnNearestMatches(),
            returnNearestMatches()$Date >= input$q_date_range[1] &
@@ -84,15 +82,8 @@ function(input, output, session) {
       'Topic',
       'Topic_Keywords'
     )
-    tryCatch({
       df()[1:100, cols]
-    }, warning = function(war){
-      print("warning")
-    }, error = function(err){
-      print("Unable to complete query.  Try resolving typos or including more search terms.")
-    }, finally = {
-
-    })
+    
   })
   
 
@@ -124,6 +115,7 @@ function(input, output, session) {
           list(visible = FALSE, targets = c(0, 2, 3, 4, 9, 10)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
+        searchDelay = 500,
         deferRender = TRUE,
         #scrollY = 400,
         scroller = TRUE,
