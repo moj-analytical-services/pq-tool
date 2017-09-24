@@ -2,8 +2,10 @@
 ############### Server
 
 function(input, output, session) {
-
-  ### Data Stuff
+  # ------------------------------------------------------------------------- #
+  #                                   DATA                                    #
+  # ------------------------------------------------------------------------- #
+  
   
   answering_body_code <- reactive({
     answering_bodies_lookup$Code[answering_bodies_lookup$Name == input$answering_body_choice]
@@ -13,6 +15,28 @@ function(input, output, session) {
     file.path("./Data", answering_body_code())
   })
   
+  data_filepath <- reactive({
+    file.path(data_folder(), paste0(answering_body_code(), "_WrittenPQs.csv"))
+  })
+  
+  data <- reactive({
+    data.table(read_csv(file.path(data_folder(), paste0(answering_body_code(), "_WrittenPQs.csv"))))
+  })
+  
+  drops <- c("X1","Document_Number", "Corrected_Date")
+  
+  # tables_data <- reactive({
+  #   data()[ , !(names(data()) %in% drops)]
+  # })
+  
+  topic_data <- reactive({
+     data.table(read.csv(file.path(data_folder(), paste0(answering_body_code(), "_TopDozenWordsPerTopic.csv"))))
+   })
+   
+  member_data <- reactive({
+    data.table(read.csv(file.path(data_folder(), paste0(answering_body_code(), "_TopDozenWordsPerMember.csv"))))
+  })
+
   #Search space for query vector
   
   search.space <- reactive({
@@ -23,20 +47,10 @@ function(input, output, session) {
     search.space()$dimnames[[1]]
   })
   
-  data_filepath <- reactive({
-    file.path(data_folder(), paste0(answering_body_code(), "_WrittenPQs.csv"))
-  })
-  data <- reactive({
-    data.table(read_csv(data_filepath()))
-  })
+  # ------------------------------------------------------------------------- #
+  #                            SIMILARITY TAB                                 #
+  # ------------------------------------------------------------------------- #
   
-  drops <- c("X1","Document_Number", "Corrected_Date")
-  tables_data <- reactive({
-    data()[ , !(names(data()) %in% drops)]
-  })
-  
-  
-  ### Similarity Pane
   returnNearestMatches <- reactive({
     
     foundWords <- which(search.space()$i %in% queryVec(input$question, vocab()))
@@ -261,172 +275,176 @@ function(input, output, session) {
                              "showBullets" = FALSE,
                              "keyboardNavigation" = TRUE))
   })
-}
   
-#   observeEvent(input$startButton, {
-#     introjs(
-#       session,
-#       events = list(
-#         "onchange" = I("debugger;
-#                     if (this._currentStep==7) {
-#                        $('a[data-value=\"Second tab\"]').removeClass('active');
-#                        $('a[data-value=\"First tab\"]').addClass('active');
-#                        $('a[data-value=\"First tab\"]').trigger('click');
-#   }
-#                        if (this._currentStep==1) {
-#                        $('a[data-value=\"First tab\"]').removeClass('active');
-#                        $('a[data-value=\"Second tab\"]').addClass('active');
-#                        $('a[data-value=\"Second tab\"]').trigger('click');
-#                        }")
-#       )
-#         )
-#     
-# })
+  observeEvent(input$startButton, {
+    introjs(
+      session,
+      events = list(
+        "onchange" = I("debugger;
+                    if (this._currentStep==7) {
+                       $('a[data-value=\"Second tab\"]').removeClass('active');
+                       $('a[data-value=\"First tab\"]').addClass('active');
+                       $('a[data-value=\"First tab\"]').trigger('click');
+  }
+                       if (this._currentStep==1) {
+                       $('a[data-value=\"First tab\"]').removeClass('active');
+                       $('a[data-value=\"Second tab\"]').addClass('active');
+                       $('a[data-value=\"Second tab\"]').trigger('click');
+                       }")
+      )
+        )
+
+})
+}  
   
   
-#   ### Cluster Pane
-#   
-#   dfClus <- function(){
-#     cols <- c(
-#       'Question_Text',
-#       'Answer_Text',
-#       'Question_MP',
-#       'MP_Constituency',
-#       'MP_Party',
-#       'Date',
-#       'Answer_MP',
-#       'Answer_Date'
-#     )
-#     df <- subset(tables_data, (tables_data$Topic == input$topic_choice))
-#     df <- df[order(-as.numeric(df$Date)),]
-#     df[cols]
-#   }
-#   
-#   keyword <- reactive({
-#     subset(tables_data, (tables_data$Topic == input$topic_choice))$Topic_Keywords[1]
-#     })
-#   
-#   minDate <- min(tables_data$Date)
-#   maxDate <- max(tables_data$Date)
-#   
-#   wordcloud_df <- function(){
-#     df <- subset(topic_data,
-#                  (topic_data$topic == input$topic_choice))
-#   }
-#   
-#   observeEvent(input$explanation_button, {
-#     showModal(modalDialog(
-#       title = "What do the topics mean?", 
-#       HTML("We have taken all of the questions in our database and fed them into an algorithm which has
-#       split them into different groups, or 'topics', with each group containing questions related to  
-#       similar issues. For each topic there is a set of three 'Topic Keywords' to give an idea of what 
-#       the topic is about. <br><br>
-#       Each of these topics have also been assigned a number as a unique identifier. To find  
-#       out about your chosen topic, go to the 'Search' tab and, once you have entered your search 
-#       terms, take one of the topic numbers listed in the table and put it into the dropdown box on this 
-#       tab. Or if that sounds like too much work, just click the question you are focusing on followed by
-#       the 'View Topic' button."),
-#       easyClose = TRUE,
-#       footer = NULL
-#     ))
-#   })
-#   
-#   output$wordcloud <- renderPlot(
-#     wordcloud(words = wordcloud_df()$word, freq = wordcloud_df()$freq,
-#               scale = c(4, 1), random.order = TRUE,
-#               min.freq = 0.1)
-#   )
-#   
-#   addPopover(session, "wordcloud", "Wordcloud",
-#              content = paste0("This wordcloud shows the words that are most important to the topic.<br><br> The bigger the word, the more important it is."),
-#              trigger = 'hover', placement = 'top', options = list(container = "body"))
-#   
-#   
-#   output$topic_plot <- renderPlot({
-#     p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
-#       geom_histogram(binwidth = 14, fill = "#67a9cf")
-#     maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #this is a hack from stackoverflow to get us the max value of the histogram
-#     yBreaks <- if(maxCount < 11){
-#       1} else if(maxCount < 21){
-#         2} else{
-#           5}
-#     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
-#     p + 
-#       xlim(min(data$Date) - 1, max(data$Date) + 1) +
-#       scale_x_date(limits = c(minDate, maxDate),
-#                    labels = date_format("%b %y"),
-#                    date_breaks = "6 months",
-#                    date_minor_breaks = "1 month") +
-#       scale_y_continuous(
-#         breaks = seq(0, yMax, yBreaks),
-#         expand = c(0,0),
-#         limits = c(0, yMax)) +
-#       labs(title = paste0("Topic ", input$topic_choice, ": ", keyword()),
-#            subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
-#            x = "Question Date",
-#            y = "Count"
-#       ) + 
-#       theme(panel.background = element_rect(fill = "white", colour = "grey"),
-#             panel.grid.minor = element_line(colour = "#efefef"),
-#             panel.grid.major = element_line(colour = "#efefef"),
-#             axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
-#             axis.text = element_text(family = "Arial", size = 14),
-#             axis.line = element_line(colour = "grey"),
-#             plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
-#             plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
-#             #axis.ticks.x = element_line(size = 0)
-#       )
-#   })
-#   
-# 
-#   
-#   addPopover(session, "topic_plot", "Questions plotted over time",
-#              content = paste0("This plot shows when questions in the topic were asked. <br><br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic."),
-#              trigger = 'hover', placement = 'left', options = list(container = "body"))
-#   
-#   output$topic_documents <- renderDataTable({
-#     datatable(
-#       cbind(' ' = '&oplus;', dfClus()), escape = -2,
-#       options = list(
-#         columnDefs = list(
-#           list(visible = FALSE, targets = c(0, 2, 3)),
-#           list(orderable = FALSE, className = 'details-control', targets = 1)
-#         ),
-#         caption = "Documents contained within the topic:",
-#         deferRender = TRUE,
-#         scroller = TRUE,
-#         searching = FALSE,
-#         paging = TRUE,
-#         lengthChange = FALSE,
-#         pageLength = 10,
-#         server = FALSE
-#       ),
-#       callback = JS("
-#                 topic_table = table;
-#                 table.column(1).nodes().to$().css({cursor: 'pointer'});
-#                 table.on('click', 'tr', rowActivate);"
-#       )
-#     )
-#     # datatable(data = dfClus(), #[, c("Question_Text", "Answer_Text")],
-#     #           #colnames = c("Question Text", "Answer Text"),
-#     #           caption = "Documents contained within the topic:",
-#     #           extensions = 'Buttons',
-#     #           rownames = FALSE,
-#     #           options = list(dom = 'Bfrtip', 
-#     #                          buttons = I('colvis'),
-#     #                          scroller = TRUE,
-#     #                          searching = FALSE,
-#     #                          paging = TRUE,
-#     #                          lengthChange = FALSE,
-#     #                          pageLength = 5))
-#   })
-#   
-#   addPopover(session, "topic_documents", "Questions in the topic",
-#              content = paste0("This table contains all of the information on the questions asked on this topic.<br><br>",
-#                               "Click on a row to see the corresponding question and answer text."),
-#              trigger = 'hover', placement = 'top', options = list(container = "body"))
-#   
-#   ### Q&A Analysis Pane
+  # # ------------------------------------------------------------------------- #
+  # #                              TOPIC TAB                                    #
+  # # ------------------------------------------------------------------------- #
+  # 
+  # dfClus <- reactive({
+  #   cols <- c(
+  #     'Question_Text',
+  #     'Answer_Text',
+  #     'Question_MP',
+  #     'MP_Constituency',
+  #     'MP_Party',
+  #     'Date',
+  #     'Answer_MP',
+  #     'Answer_Date'
+  #   )
+  #   df <- subset(data(), (data()$Topic == input$topic_choice))
+  #   df <- df[order(-as.numeric(df$Date)),]
+  #   df[cols]
+  # })
+  # 
+  # keyword <- reactive({
+  #   subset(data(), (data()$Topic == input$topic_choice))$Topic_Keywords[1]
+  #   })
+  # 
+  # minDate <- min(dates)
+  # maxDate <- max(dates)3,,
+  # 
+  # wordcloud_df <- reactive({
+  #   df <- subset(topic_data(),
+  #                (topic_data()$topic == input$topic_choice))
+  # })
+  # 
+  # observeEvent(input$explanation_button, {
+  #   showModal(modalDialog(
+  #     title = "What do the topics mean?",
+  #     HTML("We have taken all of the questions in our database and fed them into an algorithm which has
+  #     split them into different groups, or 'topics', with each group containing questions related to
+  #     similar issues. For each topic there is a set of three 'Topic Keywords' to give an idea of what
+  #     the topic is about. <br><br>
+  #     Each of these topics have also been assigned a number as a unique identifier. To find
+  #     out about your chosen topic, go to the 'Search' tab and, once you have entered your search
+  #     terms, take one of the topic numbers listed in the table and put it into the dropdown box on this
+  #     tab. Or if that sounds like too much work, just click the question you are focusing on followed by
+  #     the 'View Topic' button."),
+  #     easyClose = TRUE,
+  #     footer = NULL
+  #   ))
+  # })
+  # 
+  # output$wordcloud <- renderPlot(
+  #   wordcloud(words = wordcloud_df()$word, freq = wordcloud_df()$freq,
+  #             scale = c(4, 1), random.order = TRUE,
+  #             min.freq = 0.1)
+  # )
+  # 
+  # addPopover(session, "wordcloud", "Wordcloud",
+  #            content = paste0("This wordcloud shows the words that are most important to the topic.<br><br> The bigger the word, the more important it is."),
+  #            trigger = 'hover', placement = 'top', options = list(container = "body"))
+  # 
+  # 
+  # output$topic_plot <- renderPlot({
+  #   p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
+  #     geom_histogram(binwidth = 14, fill = "#67a9cf")
+  #   maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #this is a hack from stackoverflow to get us the max value of the histogram
+  #   yBreaks <- if(maxCount < 11){
+  #     1} else if(maxCount < 21){
+  #       2} else{
+  #         5}
+  #   yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
+  #   p +
+  #     xlim(min(data$Date) - 1, max(data$Date) + 1) +
+  #     scale_x_date(limits = c(minDate, maxDate),
+  #                  labels = date_format("%b %y"),
+  #                  date_breaks = "6 months",
+  #                  date_minor_breaks = "1 month") +
+  #     scale_y_continuous(
+  #       breaks = seq(0, yMax, yBreaks),
+  #       expand = c(0,0),
+  #       limits = c(0, yMax)) +
+  #     labs(title = paste0("Topic ", input$topic_choice, ": ", keyword()),
+  #          subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
+  #          x = "Question Date",
+  #          y = "Count"
+  #     ) +
+  #     theme(panel.background = element_rect(fill = "white", colour = "grey"),
+  #           panel.grid.minor = element_line(colour = "#efefef"),
+  #           panel.grid.major = element_line(colour = "#efefef"),
+  #           axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
+  #           axis.text = element_text(family = "Arial", size = 14),
+  #           axis.line = element_line(colour = "grey"),
+  #           plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
+  #           plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
+  #           #axis.ticks.x = element_line(size = 0)
+  #     )
+  # })
+  # 
+  # 
+  # 
+  # addPopover(session, "topic_plot", "Questions plotted over time",
+  #            content = paste0("This plot shows when questions in the topic were asked. <br><br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic."),
+  #            trigger = 'hover', placement = 'left', options = list(container = "body"))
+  # 
+  # output$topic_documents <- renderDataTable({
+  #   datatable(
+  #     cbind(' ' = '&oplus;', dfClus()), escape = -2,
+  #     options = list(
+  #       columnDefs = list(
+  #         list(visible = FALSE, targets = c(0, 2, 3)),
+  #         list(orderable = FALSE, className = 'details-control', targets = 1)
+  #       ),
+  #       caption = "Documents contained within the topic:",
+  #       deferRender = TRUE,
+  #       scroller = TRUE,
+  #       searching = FALSE,
+  #       paging = TRUE,
+  #       lengthChange = FALSE,
+  #       pageLength = 10,
+  #       server = FALSE
+  #     ),
+  #     callback = JS("
+  #               topic_table = table;
+  #               table.column(1).nodes().to$().css({cursor: 'pointer'});
+  #               table.on('click', 'tr', rowActivate);"
+  #     )
+  #   )
+  #   # datatable(data = dfClus(), #[, c("Question_Text", "Answer_Text")],
+  #   #           #colnames = c("Question Text", "Answer Text"),
+  #   #           caption = "Documents contained within the topic:",
+  #   #           extensions = 'Buttons',
+  #   #           rownames = FALSE,
+  #   #           options = list(dom = 'Bfrtip',
+  #   #                          buttons = I('colvis'),
+  #   #                          scroller = TRUE,
+  #   #                          searching = FALSE,
+  #   #                          paging = TRUE,
+  #   #                          lengthChange = FALSE,
+  #   #                          pageLength = 5))
+  # })
+  # 
+  # addPopover(session, "topic_documents", "Questions in the topic",
+  #            content = paste0("This table contains all of the information on the questions asked on this topic.<br><br>",
+  #                             "Click on a row to see the corresponding question and answer text."),
+  #            trigger = 'hover', placement = 'top', options = list(container = "body"))
+
+#   # ------------------------------------------------------------------------- #
+#   #                               MEMBER TAB                                  #
+#   # ------------------------------------------------------------------------- #
 # 
 #   # Each item in hoc_members must be a list to achieve the desired effect in the hoc members dropdown
 #   list_if_one <- function(members) {
@@ -444,21 +462,21 @@ function(input, output, session) {
 #     members
 #   }
 # 
-#   hoc_members <- function(data) {
-#     parties <- data$MP_Party[ data$MP_Party != 'Not found' ] %>%
+#   hoc_members <- reactive({
+#     parties <- data()$MP_Party[ data()$MP_Party != 'Not found' ] %>%
 #                  unique() %>%
 #                  sort()
 # 
 #     members <- lapply(parties, function(party) {
-#                  data$Question_MP[ data$MP_Party == party ] %>%
+#                  data()$Question_MP[ data()$MP_Party == party ] %>%
 #                  unique() %>%
 #                  sort() %>%
 #                  list_if_one()
 #                })
-#     
+# 
 #     names(members) <- parties
 #     merge_labour_and_co_op(members)
-#   }
+#   })
 # 
 #   output$member_ui <- renderUI({
 #     switch(input$member_analysis,
@@ -477,8 +495,8 @@ function(input, output, session) {
 # 
 #   }
 # 
-#   dfMP <- function(){
-#     df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
+#   dfMP <- reactive({
+#     df <- subset(tables_data(), (tables_data$Question_MP == input$person_choice))
 #     df <- df[order(-as.numeric(df$Date)),]
 #     cols <- c(
 #       'Question_Text',
@@ -493,29 +511,29 @@ function(input, output, session) {
 #       'Topic_Keywords'
 #     )
 #     df[cols]
-#   }
-#   
-#   minDate <- min(tables_data$Date)
-#   maxDate <- max(tables_data$Date)
-#   
-#   member_wordcloud_df <- function(){
-#     df <- subset(member_data,
-#                  (member_data$member == input$person_choice))
-#   }
-#   
+#   })
+# 
+#   minDate <- min(tables_data()$Date)
+#   maxDate <- max(tables_data()$Date)
+# 
+#   member_wordcloud_df <- reactive({
+#     df <- subset(member_data(),
+#                  (member_data()$member == input$person_choice))
+#   })
+# 
 #   output$member_wordcloud <- renderPlot(
 #     wordcloud(words = member_wordcloud_df()$word, freq = member_wordcloud_df()$freq,
 #               scale = c(4, 1), random.order = TRUE,
 #               min.freq = 0.1)
 #   )
-#   
-#   
-#   
+# 
+# 
+# 
 #   linkText <- reactive({
 #     paste0("TheyWorkForYouPage for ",
 #            input$person_choice)
 #   })
-#   
+# 
 #   linkURL <- reactive({
 #     paste0("https://www.theyworkforyou.com/",
 #            if(input$member_analysis=="Commons"){
@@ -526,21 +544,21 @@ function(input, output, session) {
 #            urlName(input$person_choice)
 #            )
 #   })
-#   
+# 
 #   output$memberlink <- renderUI({
 #     tags$a(href = linkURL(), target="_blank", linkText())
 #   })
-#   
+# 
 #   addPopover(session, "member_wordcloud", "Wordcloud",
 #              content = paste0("This wordcloud shows the words that are most important in the questions asked by this
 #                               member.<br><br> The bigger the word, the more important it is."),
 #              trigger = 'hover', placement = 'top', options = list(container = "body"))
-#   
+# 
 #   output$member_plot <- renderPlot({
 #     p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) + geom_histogram(binwidth = 14, fill = "#67a9cf")
 #     maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #max value of the histogram
 #     yBreaks <- if(maxCount < 11) {
-#       1 
+#       1
 #     } else if(maxCount < 21){
 #       2
 #     } else {
@@ -548,7 +566,7 @@ function(input, output, session) {
 #     }
 #     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
 #     p +
-#       xlim(min(data$Date) - 1, max(data$Date) + 1) +
+#       xlim(min(data()$Date) - 1, max(data()$Date) + 1) +
 #       scale_x_date(limits = c(minDate, maxDate),
 #                    labels = date_format("%b %y"),
 #                    date_breaks = "6 months",
@@ -561,7 +579,7 @@ function(input, output, session) {
 #            subtitle = paste0("Each bar shows the number of questions from ", input$person_choice,  " in a particular fortnight"),
 #            x = "Question Date",
 #            y = "Count"
-#       ) + 
+#       ) +
 #       theme(panel.background = element_rect(fill = "white", colour = "grey"),
 #                 panel.grid.minor = element_line(colour = "#efefef"),
 #                 panel.grid.major = element_line(colour = "#efefef"),
@@ -575,7 +593,7 @@ function(input, output, session) {
 #   })
 # 
 #   member_plot_title <- function(selected_member, data) {
-#     party        = data$MP_Party[ data$Question_MP == selected_member ]
+#     party        = data()$MP_Party[ data$Question_MP == selected_member ]
 #     constituency = data$MP_Constituency[ data$Question_MP == selected_member ]
 #     if(party == 'Not found') {
 #       selected_member
@@ -583,11 +601,11 @@ function(input, output, session) {
 #       paste0(selected_member, ' - ', party, ' - ', constituency)
 #     }
 #   }
-#   
+# 
 #   addPopover(session, "member_plot", "Questions plotted over time",
 #              content = paste0("This plot shows when the selected MP/peer tabled written questions <br><br> Each bar shows the number of questions tabled by the MP/peer in a particular fortnight - the higher the bar, the more questions."),
 #              trigger = 'hover', placement = 'left', options = list(container = "body"))
-#   
+# 
 #   output$member_table <- renderDataTable({
 #     datatable(
 #       cbind(' ' = '&oplus;', dfMP()), escape = -2,
@@ -611,13 +629,13 @@ function(input, output, session) {
 #                 table.on('click', 'tr', rowActivate);"
 #       )
 #     )
-#     
+# 
 #   })
-#   
+# 
 #   addPopover(session, "member_table", "Questions asked by the member",
 #              content = paste0("This table contains all of the information on the questions asked by this member.<br><br>",
 #                               "Click on a row to see the corresponding question and answer text."),
 #              trigger = 'hover', placement = 'top', options = list(container = "body"))
-#   
-#   
+# 
+# 
 # }
