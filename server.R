@@ -16,7 +16,7 @@ function(input, output, session) {
   #Search space for query vector
   
   search.space <- reactive({
-    assign(search.space, paste0(answering_body_code, ".search.space"))
+    eval(parse(text = paste0(answering_body_code(), ".search.space")))
   })
   
   vocab <- reactive({
@@ -29,7 +29,7 @@ function(input, output, session) {
   data <- reactive({
     data.frame(read_csv(data_filepath()))
   })
-  #data <- data.frame(rawData())
+  
   drops <- c("X1","Document_Number", "Corrected_Date")
   tables_data <- reactive({
     data()[ , !(names(data()) %in% drops)]
@@ -40,30 +40,30 @@ function(input, output, session) {
   returnNearestMatches <- reactive({
     
     foundWords <- which(search.space()$i %in% queryVec(input$question, vocab()))
-    if(length(foundWords)==0){
-      return("Unable to determine similarity to query")
-    }
+     if(length(foundWords)==0){
+       return("Unable to determine similarity to query")
+     }
     Document <- search.space()$j[foundWords]
     vees <- search.space()$v[foundWords]
-    JayVees <- data.table(Document = Document(), vees = vees())
+    JayVees <- data.table(Document = Document, vees = vees)
     
-    outGroup <- JayVees()[,
-                        .("Similarity_score" = sum(vees())),
-                        by = Document ][order(-Similarity_score)]
-    table_output <- outGroup() 
-    data <- merge.data.frame(table_output(),
+    outGroup <- JayVees[,
+                          .("Similarity_score" = sum(vees)),
+                          by = Document ][order(-Similarity_score)]
+    table_output <- outGroup
+    data <- merge.data.frame(table_output,
                              data(),
                              by.x = "Document",
                              by.y = "Document_Number")
     
-    data["Similarity_score"] <- round(data()["Similarity_score"], digits = 2)
-    data <- data()[with(data(), order(-data()["Similarity_score"])), ]
-    rownames(data) <- 1:nrow(data())
-    data["Rank"] <- as.numeric(rownames(data)())
-    return(data())
+    data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
+    data <- data[with(data, order(-data["Similarity_score"])), ]
+    rownames(data) <- 1:nrow(data)
+    data["Rank"] <- as.numeric(rownames(data))
+    return(data)
   })
   
-  output$test <- renderDataTable(returnNearestMatches())
+  output$test <- renderDataTable(returnNearestMatches()[,1])
   
   df <- reactive({
     subset(returnNearestMatches(),
@@ -91,7 +91,7 @@ function(input, output, session) {
     }, error = function(err){
       print("Unable to complete query.  Try resolving typos or including more search terms.")
     }, finally = {
-      
+
     })
   })
   
@@ -185,27 +185,27 @@ function(input, output, session) {
                size=14,
                color='#696969')
       ) %>%
-      add_trace(x = plot_points()$Date[input$similarity_table_rows_current], 
+      add_trace(x = plot_points()$Date[input$similarity_table_rows_current],
                 y = plot_points()$Similarity_score[input$similarity_table_rows_current],
                 name = "Current Table Page",
                 type = "scatter", mode = 'markers',  marker = list(color = "#ef8a62"),
                 text = ~paste("Rank:", plot_points()$Rank[input$similarity_table_rows_current],
                               "<br> Member HoC/HoL:", plot_points()$Question_MP[input$similarity_table_rows_current],
                               "<br> Date:", plot_points()$Date[input$similarity_table_rows_current] ),
-                hoverinfo = "text" 
+                hoverinfo = "text"
       ) %>%
-      add_trace(x = plot_points()$Date[input$similarity_table_rows_selected], 
-                y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
+      add_trace(x = plot_points()$Date[input$similarity_table_rows_selected],
+                y = plot_points()$Similarity_score[input$similarity_table_rows_selected],
                 name = 'Qs selected',
                 type = "scatter", mode = 'markers', marker = list(size = 12, color = "red"),
                 text = NULL,
                 hoverinfo = "text"
       ) %>%
-      
+
       config(displayModeBar = F) %>%
       layout(legend = list(orientation = 'h'))
   })
-  
+
   addPopover(session, "similarity_plot", "What does this plot show?",
              content = paste0("<p>This graph plots Similarity on the y axis against Time on the x axis.</p><p>",
                               "Each point represents a past PQ from our database with the height showing ",

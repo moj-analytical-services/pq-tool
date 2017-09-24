@@ -18,12 +18,14 @@ library(scales)
 library(readr)
 library(rintrojs)
 
+dates <- data.frame(read_csv("./Data/moj/moj_writtenPQs.csv"))
 answering_bodies_lookup <- read_csv("./Data/answering_body_lookup.csv")
 
 
 for(i in answering_bodies_lookup$Code){
   load(file = file.path("./Data", i, paste0(i, "_SearchSpace.rda")))
   assign(paste0(i, ".search.space"), search.space)
+  
   # load(file = file.path("./Data", i, paste0(i, "_allTopics.rda")))
   # assign(paste0(i, "_allTopics"), allTopics)
 }

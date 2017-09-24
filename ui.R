@@ -23,6 +23,9 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                     ),
                     tags$body(onmousemove = "get_point_locations(event)"),
                     tags$head(includeScript("pq.js")),
+                    tags$style(type="text/css",
+                               ".recalculating { opacity: 1.0; }"
+                    ),
                     fluidRow(
                       column(8,
                              strong("Welcome to the Parliamentary Analysis Tool!"),
@@ -30,7 +33,19 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                typing some keywords (e.g. Prison Officers) or a new PQ into the search box 
                                below. You will get a ranked list of the 100 most similar past questions, and 
                                a visualisation showing when they were asked.")
-                      )),
+                      ),
+                      column(2,
+                             offset = 2,
+                             actionButton(
+                               "tutorial_button",
+                               "Click here for a quick tour",
+                               class="btn btn-primary"
+                             ),
+                             bsTooltip("tutorial_button",
+                                       "If this is your first time using the tool, click here to complete a short, interactive tutorial",
+                                       "auto")
+                      )
+                      ),
                     
                     fluidRow(
                       column(4,
@@ -59,44 +74,33 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              )
                       ),
                       
-                      # column(3,
-                      #        conditionalPanel(
-                      #          condition = searchTextEntered,
-                      #          introBox(
-                      #          dateRangeInput(
-                      #            "q_date_range", 
-                      #            label = "Question Date Range",
-                      #            format = "dd-mm-yyyy",
-                      #            min = min(data()$Date),
-                      #            max = max(data()$Date),
-                      #            start = min(data()$Date),
-                      #            end = max(data()$Date)
-                      #          ),
-                      #          data.step = 2,
-                      #          data.position = "right",
-                      #          data.intro = "Pick a range of dates you want to consider (leave this alone to search all the questions we have)"
-                      #          ),
-                      #          bsTooltip("q_date_range",
-                      #                    "Choose the time period you wish to search.",
-                      #                    "auto",
-                      #                    options = list(container = "body")
-                      #          )
-                      #        )
-                      # ),
-                      
                       column(3,
-                             dataTableOutput("test")),
-                      column(2,
-                             offset = 3,
-                             actionButton(
-                               "tutorial_button",
-                               "Click here for a quick tour",
-                               class="btn btn-primary"
-                             ),
-                             bsTooltip("tutorial_button",
-                                "If this is your first time using the tool, click here to complete a short, interactive tutorial",
-                                "auto")
+                             conditionalPanel(
+                               condition = searchTextEntered,
+                               introBox(
+                               dateRangeInput(
+                                 "q_date_range",
+                                 label = "Question Date Range",
+                                 format = "dd-mm-yyyy",
+                                 min = min(dates$Date),
+                                 max = max(dates$Date),
+                                 start = min(dates$Date),
+                                 end = max(dates$Date)
+                               ),
+                               data.step = 2,
+                               data.position = "right",
+                               data.intro = "Pick a range of dates you want to consider (leave this alone to search all the questions we have)"
+                               ),
+                               bsTooltip("q_date_range",
+                                         "Choose the time period you wish to search.",
+                                         "auto",
+                                         options = list(container = "body")
+                               )
                              )
+                      ),
+
+                      column(3,
+                             dataTableOutput("test"))
                     ),
                     
                     fluidRow(
