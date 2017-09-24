@@ -1,7 +1,7 @@
 source('./R/Functions.R')
 source(".Rprofile")
 
-library(tidyverse)
+#library(tidyverse)
 library(jsonlite)
 library(stringr)
 library(data.table)
@@ -9,7 +9,7 @@ library(readr)
 
 
 api_answering_body <- function(answering){
-  answering_bodies_lookup <- data.table(read_csv("./Data/answering_body_lookup.csv"))
+  answering_bodies_lookup <- data.table(read_tsv("./Data/answering_body_lookup.tsv"))
   body <- answering_bodies_lookup$Name[answering_bodies_lookup$Code == answering]
   body <- gsub(" ","+",body)
   body <- paste0("AnsweringBody=", body)
