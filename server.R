@@ -311,20 +311,30 @@ function(input, output, session) {
     })
   
   dfClus <- reactive({
-    cols <- c(
-      'Question_Text',
-      'Answer_Text',
-      'Question_MP',
-      'MP_Constituency',
-      'MP_Party',
-      'Date',
-      'Answer_MP',
-      'Answer_Date'
-    )
+    # cols <- c(
+    #   'Question_Text',
+    #   'Answer_Text',
+    #   'Question_MP',
+    #   'MP_Constituency',
+    #   'MP_Party',
+    #   'Date',
+    #   'Answer_MP',
+    #   'Answer_Date'
+    # )
     df <- subset(data(), 
-                 (data()$Topic == input$topic_choice))
-    #df <- df[order(-as.numeric(df$Date)),]
-    df[cols]
+                 (data()$Topic == input$topic_choice), 
+                 select = c(
+                   'Question_Text',
+                   'Answer_Text',
+                   'Question_MP',
+                   'MP_Constituency',
+                   'MP_Party',
+                   'Date',
+                   'Answer_MP',
+                   'Answer_Date'
+                 ))
+    df <- df[order(-as.numeric(df$Date)),]
+    #df[, cols]
   })
 
   keyword <- reactive({
@@ -377,7 +387,7 @@ function(input, output, session) {
           5}
     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
     p +
-      xlim(min(data$Date) - 1, max(data$Date) + 1) +
+      xlim(minDate - 1, maxDate + 1) +
       scale_x_date(limits = c(minDate, maxDate),
                    labels = date_format("%b %y"),
                    date_breaks = "6 months",
