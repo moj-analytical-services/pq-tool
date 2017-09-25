@@ -461,201 +461,222 @@ function(input, output, session) {
                               "Click on a row to see the corresponding question and answer text."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
 }
-# 
-#   # ------------------------------------------------------------------------- #
-#   #                               MEMBER TAB                                  #
-#   # ------------------------------------------------------------------------- #
-# 
-#   # Each item in hoc_members must be a list to achieve the desired effect in the hoc members dropdown
-#   list_if_one <- function(members) {
-#     if(length(members) == 1) {
-#       return(list(members))
-#     } else {
-#       return(members)
-#     }
-#   }
-# 
-#   # Merge labur and labour (co-op) members for the sake of the drop down list (only)
-#   merge_labour_and_co_op <- function(members) {
-#     members$Labour <- append(members$Labour, members$'Labour (Co-op)') %>% sort()
-#     members$'Labour (Co-op)' <- NULL
-#     members
-#   }
-# 
-#   hoc_members <- reactive({
-#     parties <- data()$MP_Party[ data()$MP_Party != 'Not found' ] %>%
-#                  unique() %>%
-#                  sort()
-# 
-#     members <- lapply(parties, function(party) {
-#                  data()$Question_MP[ data()$MP_Party == party ] %>%
-#                  unique() %>%
-#                  sort() %>%
-#                  list_if_one()
-#                })
-# 
-#     names(members) <- parties
-#     merge_labour_and_co_op(members)
-#   })
-# 
-#   output$member_ui <- renderUI({
-#     switch(input$member_analysis,
-#            "Lords" = selectInput(inputId = "person_choice",
-#                                  label = "Choose a Peer:",
-#                                  choices = sort(unique(data$Question_MP[ grepl("HL", data$Question_ID) ]))
-#            ),
-#            "Commons" = selectInput(inputId = "person_choice",
-#                                    label = "Choose an MP:",
-#                                    choices = hoc_members(data)
-#            )
-#     )
-#   })
-# 
-#   grouped_hoc_members <- function(hoc_data) {
-# 
-#   }
-# 
-#   dfMP <- reactive({
-#     df <- subset(tables_data(), (tables_data()$Question_MP == input$person_choice))
-#     df <- df[order(-as.numeric(df$Date)),]
-#     cols <- c(
-#       'Question_Text',
-#       'Answer_Text',
-#       'Question_MP',
-#       'MP_Constituency',
-#       'MP_Party',
-#       'Date',
-#       'Answer_MP',
-#       'Answer_Date',
-#       'Topic',
-#       'Topic_Keywords'
-#     )
-#     df[cols]
-#   })
-# 
-#   minDate <- reactive(min(tables_data()$Date))
-#   maxDate <- reactive(max(tables_data()$Date))
-# 
-#   member_wordcloud_df <- reactive({
-#     df <- subset(member_data(),
-#                  (member_data()$member == input$person_choice))
-#   })
-# 
-#   output$member_wordcloud <- renderPlot(
-#     wordcloud(words = member_wordcloud_df()$word, freq = member_wordcloud_df()$freq,
-#               scale = c(4, 1), random.order = TRUE,
-#               min.freq = 0.1)
-#   )
-# 
-# 
-# 
-#   linkText <- reactive({
-#     paste0("TheyWorkForYouPage for ",
-#            input$person_choice)
-#   })
-# 
-#   linkURL <- reactive({
-#     paste0("https://www.theyworkforyou.com/",
-#            if(input$member_analysis=="Commons"){
-#              "mp/"
-#            } else {
-#              "peer/"
-#            },
-#            urlName(input$person_choice)
-#            )
-#   })
-# 
-#   output$memberlink <- renderUI({
-#     tags$a(href = linkURL(), target="_blank", linkText())
-#   })
-# 
-#   addPopover(session, "member_wordcloud", "Wordcloud",
-#              content = paste0("This wordcloud shows the words that are most important in the questions asked by this
-#                               member.<br><br> The bigger the word, the more important it is."),
-#              trigger = 'hover', placement = 'top', options = list(container = "body"))
-# 
-#   output$member_plot <- renderPlot({
-#     p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) + geom_histogram(binwidth = 14, fill = "#67a9cf")
-#     maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #max value of the histogram
-#     yBreaks <- if(maxCount < 11) {
-#       1
-#     } else if(maxCount < 21){
-#       2
-#     } else {
-#       5
-#     }
-#     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
-#     p +
-#       xlim(min(data()$Date) - 1, max(data()$Date) + 1) +
-#       scale_x_date(limits = c(minDate, maxDate),
-#                    labels = date_format("%b %y"),
-#                    date_breaks = "6 months",
-#                    date_minor_breaks = "1 month") +
-#       scale_y_continuous(
-#         breaks = seq(0, yMax, yBreaks),
-#         expand = c(0,0),
-#         limits = c(0, yMax)) +
-#       labs(title = member_plot_title(input$person_choice, data),
-#            subtitle = paste0("Each bar shows the number of questions from ", input$person_choice,  " in a particular fortnight"),
-#            x = "Question Date",
-#            y = "Count"
-#       ) +
-#       theme(panel.background = element_rect(fill = "white", colour = "grey"),
-#                 panel.grid.minor = element_line(colour = "#efefef"),
-#                 panel.grid.major = element_line(colour = "#efefef"),
-#                 axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
-#                 axis.text = element_text(family = "Arial", size = 14),
-#                 axis.line = element_line(colour = "grey"),
-#                 plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
-#                 plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
-#                 #axis.ticks.x = element_line(size = 0)
-#       )
-#   })
-# 
-#   member_plot_title <- function(selected_member, data) {
-#     party        = data()$MP_Party[ data$Question_MP == selected_member ]
-#     constituency = data$MP_Constituency[ data$Question_MP == selected_member ]
-#     if(party == 'Not found') {
-#       selected_member
-#     } else {
-#       paste0(selected_member, ' - ', party, ' - ', constituency)
-#     }
-#   }
-# 
-#   addPopover(session, "member_plot", "Questions plotted over time",
-#              content = paste0("This plot shows when the selected MP/peer tabled written questions <br><br> Each bar shows the number of questions tabled by the MP/peer in a particular fortnight - the higher the bar, the more questions."),
-#              trigger = 'hover', placement = 'left', options = list(container = "body"))
-# 
-#   output$member_table <- renderDataTable({
-#     datatable(
-#       cbind(' ' = '&oplus;', dfMP()), escape = -2,
-#       options = list(
-#         columnDefs = list(
-#           list(visible = FALSE, targets = c(0, 2, 3, 4, 5, 6)),
-#           list(orderable = FALSE, className = 'details-control', targets = 1)
-#         ),
-#         caption = "Documents contained within the topic:",
-#         deferRender = TRUE,
-#         scroller = TRUE,
-#         searching = FALSE,
-#         paging = TRUE,
-#         lengthChange = FALSE,
-#         pageLength = 10,
-#         server = FALSE
-#       ),
-#       callback = JS("
-#                 member_table = table;
-#                 table.column(1).nodes().to$().css({cursor: 'pointer'});
-#                 table.on('click', 'tr', rowActivate);"
-#       )
-#     )
-# 
-#   })
-# 
-#   addPopover(session, "member_table", "Questions asked by the member",
-#              content = paste0("This table contains all of the information on the questions asked by this member.<br><br>",
-#                               "Click on a row to see the corresponding question and answer text."),
-#              trigger = 'hover', placement = 'top', options = list(container = "body"))
-# 
-# 
-# }
+
+  # ------------------------------------------------------------------------- #
+  #                               MEMBER TAB                                  #
+  # ------------------------------------------------------------------------- #
+
+  # Each item in hoc_members must be a list to achieve the desired effect in the hoc members dropdown
+  list_if_one <- function(members) {
+    if(length(members) == 1) {
+      return(list(members))
+    } else {
+      return(members)
+    }
+  }
+
+  # Merge labur and labour (co-op) members for the sake of the drop down list (only)
+  merge_labour_and_co_op <- function(members) {
+    members$Labour <- append(members$Labour, members$'Labour (Co-op)') %>% sort()
+    members$'Labour (Co-op)' <- NULL
+    members
+  }
+
+  hoc_members <- reactive({
+    parties <- data()$MP_Party[ data()$MP_Party != 'Not found' ] %>%
+                 unique() %>%
+                 sort()
+
+    members <- lapply(parties, function(party) {
+                 data()$Question_MP[ data()$MP_Party == party ] %>%
+                 unique() %>%
+                 sort() %>%
+                 list_if_one()
+               })
+
+    names(members) <- parties
+    merge_labour_and_co_op(members)
+  })
+
+  observe({
+    updateSelectInput(session, "person_choice",
+                      choices = unique(data()$Question_MP))
+  })
+  
+  # output$member_ui <- renderUI({
+  #   switch(input$member_analysis,
+  #          "Lords" = 
+  #            selectInput(inputId = "person_choice",
+  #                                label = "Choose a Peer:",
+  #                                choices = "")
+  #                                  #sort(unique(data()$Question_MP[ grepl("HL", data()$Question_ID) ]))
+           #),
+           # "Commons" = selectInput(inputId = "person_choice",
+           #                         label = "Choose an MP:",
+           #                         choices = ""
+           #                         #hoc_members(data())
+           # )
+  #  )
+  # })
+
+  grouped_hoc_members <- function(hoc_data) {
+
+  }
+
+  dfMP <- reactive({
+    df <- subset(tables_data(), 
+                 (tables_data()$Question_MP == input$person_choice),
+                 select = cols <- c(
+                   'Question_Text',
+                   'Answer_Text',
+                   'Question_MP',
+                   'MP_Constituency',
+                   'MP_Party',
+                   'Date',
+                   'Answer_MP',
+                   'Answer_Date',
+                   'Topic',
+                   'Topic_Keywords'
+                 ))
+    df <- df[order(-as.numeric(df$Date)),]
+    # cols <- c(
+    #   'Question_Text',
+    #   'Answer_Text',
+    #   'Question_MP',
+    #   'MP_Constituency',
+    #   'MP_Party',
+    #   'Date',
+    #   'Answer_MP',
+    #   'Answer_Date',
+    #   'Topic',
+    #   'Topic_Keywords'
+    # )
+    #df[cols]
+  })
+
+  minDate <- reactive(min(tables_data()$Date))
+  maxDate <- reactive(max(tables_data()$Date))
+
+  member_wordcloud_df <- reactive({
+    df <- subset(member_data(),
+                 (member_data()$member == input$person_choice))
+  })
+
+  output$member_wordcloud <- renderPlot(
+    wordcloud(words = member_wordcloud_df()$word, freq = member_wordcloud_df()$freq,
+              scale = c(4, 1), random.order = TRUE,
+              min.freq = 0.1)
+  )
+
+
+
+  linkText <- reactive({
+    paste0("TheyWorkForYouPage for ",
+           input$person_choice)
+  })
+
+  linkURL <- reactive({
+    paste0("https://www.theyworkforyou.com/",
+           if(input$member_analysis=="Commons"){
+             "mp/"
+           } else {
+             "peer/"
+           },
+           urlName(input$person_choice)
+           )
+  })
+
+  output$memberlink <- renderUI({
+    tags$a(href = linkURL(), target="_blank", linkText())
+  })
+
+  addPopover(session, "member_wordcloud", "Wordcloud",
+             content = paste0("This wordcloud shows the words that are most important in the questions asked by this
+                              member.<br><br> The bigger the word, the more important it is."),
+             trigger = 'hover', placement = 'top', options = list(container = "body"))
+
+  output$member_plot <- renderPlot({
+    p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) + geom_histogram(binwidth = 14, fill = "#67a9cf")
+    maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #max value of the histogram
+    yBreaks <- if(maxCount < 11) {
+      1
+    } else if(maxCount < 21){
+      2
+    } else {
+      5
+    }
+    yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
+    p +
+      xlim(min(data()$Date) - 1, max(data()$Date) + 1) +
+      scale_x_date(limits = c(minDate, maxDate),
+                   labels = date_format("%b %y"),
+                   date_breaks = "6 months",
+                   date_minor_breaks = "1 month") +
+      scale_y_continuous(
+        breaks = seq(0, yMax, yBreaks),
+        expand = c(0,0),
+        limits = c(0, yMax)) +
+      labs(title = member_plot_title(input$person_choice, data),
+           subtitle = paste0("Each bar shows the number of questions from ", input$person_choice,  " in a particular fortnight"),
+           x = "Question Date",
+           y = "Count"
+      ) +
+      theme(panel.background = element_rect(fill = "white", colour = "grey"),
+                panel.grid.minor = element_line(colour = "#efefef"),
+                panel.grid.major = element_line(colour = "#efefef"),
+                axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
+                axis.text = element_text(family = "Arial", size = 14),
+                axis.line = element_line(colour = "grey"),
+                plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
+                plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
+                #axis.ticks.x = element_line(size = 0)
+      )
+  })
+
+  member_plot_title <- function(selected_member, data) {
+    party        = data()$MP_Party[ data()$Question_MP == selected_member ]
+    constituency = data()$MP_Constituency[ data()$Question_MP == selected_member ]
+    if(party == 'Not found') {
+      selected_member
+    } else {
+      paste0(selected_member, ' - ', party, ' - ', constituency)
+    }
+  }
+
+  addPopover(session, "member_plot", "Questions plotted over time",
+             content = paste0("This plot shows when the selected MP/peer tabled written questions <br><br> Each bar shows the number of questions tabled by the MP/peer in a particular fortnight - the higher the bar, the more questions."),
+             trigger = 'hover', placement = 'left', options = list(container = "body"))
+
+  output$member_table <- renderDataTable({
+    datatable(
+      cbind(' ' = '&oplus;', dfMP()), escape = -2,
+      options = list(
+        columnDefs = list(
+          list(visible = FALSE, targets = c(0, 2, 3, 4, 5, 6)),
+          list(orderable = FALSE, className = 'details-control', targets = 1)
+        ),
+        caption = "Documents contained within the topic:",
+        deferRender = TRUE,
+        scroller = TRUE,
+        searching = FALSE,
+        paging = TRUE,
+        lengthChange = FALSE,
+        pageLength = 10,
+        server = FALSE
+      ),
+      callback = JS("
+                member_table = table;
+                table.column(1).nodes().to$().css({cursor: 'pointer'});
+                table.on('click', 'tr', rowActivate);"
+      )
+    )
+
+  })
+
+  addPopover(session, "member_table", "Questions asked by the member",
+             content = paste0("This table contains all of the information on the questions asked by this member.<br><br>",
+                              "Click on a row to see the corresponding question and answer text."),
+             trigger = 'hover', placement = 'top', options = list(container = "body"))
+
+
+

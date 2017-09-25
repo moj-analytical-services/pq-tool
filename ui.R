@@ -207,66 +207,69 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                        feedback on this tutorial, or the tool in general, please see the link at the bottom of the page.")
                      )
                    )
+           ),
+
+
+           ########################### Member tab
+           tabPanel("Member Analysis",
+                    fluidRow(
+                      column(2,
+                             radioButtons(
+                               inputId = "member_analysis",
+                               label = "Choose a House:",
+                               choices = c("Lords", "Commons"),
+                               inline = TRUE
+                             )
+                      ),
+                      column(3,
+                             #uiOutput("member_ui"),
+                             selectizeInput(inputId = "person_choice",
+                                            label = "Choose Person:",
+                                            choices = ""),
+                             bsTooltip(
+                               "person_choice",
+                               "Now you have chosen a house, choose an MP/Peer. You can do this by
+          selecting one from the dropdown or simply typing their name into the box.",
+                               "right",
+                               options = list(container = "body")
+                             )
+                      ),
+                      column(7,
+                             htmlOutput("memberlink")
+                      )
+                    ),
+
+                    fluidRow(
+                      column(4,
+                             introBox(
+                             plotOutput("member_wordcloud"),
+                             data.step = 8,
+                             data.position = "right",
+                             data.intro = "This wordcloud shows the words that are most important in the questions
+                             asked by this member.<br><br> The bigger the word, the more important it is.")
+                              ),
+                      column(8,
+                             introBox(
+                             plotOutput("member_plot"),
+                             data.step = 9,
+                             data.position = "left",
+                             data.intro = "This plot shows when questions were asked by the selected member. <br><br>
+                             The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date.")
+                             )
+                    ),
+
+                    fluidRow(
+                       introBox(
+                       introBox(
+                        dataTableOutput("member_table"),
+                        data.step = 10,
+                        data.position = "top",
+                        data.intro = "This table contains all of the information on the questions asked by this member.<br><br>
+                        Click on a row to see the corresponding question and answer text."),
+                      data.step = 11,
+                      data.position = "top",
+                      data.intro = "You can now navigate back to the first page by clicking on the 'Back to Search' button.")
+           )
            )
 )
-
-
-#            ########################### Member tab
-#            tabPanel("Member Analysis",
-#                     fluidRow(
-#                       column(2,
-#                              radioButtons(
-#                                inputId = "member_analysis",
-#                                label = "Choose a House:",
-#                                choices = c("Lords", "Commons"),
-#                                inline = TRUE
-#                              )
-#                       ),
-#                       column(3,
-#                              uiOutput("member_ui"),
-#                              bsTooltip(
-#                                "person_choice",
-#                                "Now you have chosen a house, choose an MP/Peer. You can do this by
-#           selecting one from the dropdown or simply typing their name into the box.",
-#                                "right",
-#                                options = list(container = "body")
-#                              )
-#                       ),
-#                       column(7,
-#                              htmlOutput("memberlink")
-#                       )
-#                     ),
-# 
-#                     fluidRow(
-#                       column(4,
-#                              introBox(
-#                              plotOutput("member_wordcloud"),
-#                              data.step = 8,
-#                              data.position = "right",
-#                              data.intro = "This wordcloud shows the words that are most important in the questions
-#                              asked by this member.<br><br> The bigger the word, the more important it is.")
-#                               ),
-#                       column(8,
-#                              introBox(
-#                              plotOutput("member_plot"),
-#                              data.step = 9,
-#                              data.position = "left",
-#                              data.intro = "This plot shows when questions were asked by the selected member. <br><br>
-#                              The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date.")
-#                              )
-#                     ),
-# 
-#                     fluidRow(
-#                        introBox(
-#                        introBox(
-#                         dataTableOutput("member_table"),
-#                         data.step = 10,
-#                         data.position = "top",
-#                         data.intro = "This table contains all of the information on the questions asked by this member.<br><br>
-#                         Click on a row to see the corresponding question and answer text."),
-#                       data.step = 11,
-#                       data.position = "top",
-#                       data.intro = "You can now navigate back to the first page by clicking on the 'Back to Search' button.")
-#            )
-#            )
 
