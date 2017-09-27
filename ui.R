@@ -25,7 +25,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                     tags$head(includeScript("pq.js")),
                     fluidRow(
                       column(8,
-                             strong("Welcome to the Parliamentary Analysis Tool!"),
+                             strong("Welcome to the Parliamentary Analysis Tool! (Please use Mozilla Firefix or Google Chrome only)"),
                              p("You can use this tool to search through our database of written PQs. Try 
                                typing some keywords (e.g. Prison Officers) or a new PQ into the search box 
                                below. You will get a ranked list of the 100 most similar past questions, and 
