@@ -85,6 +85,25 @@ function rowActivate() {
     }
 }
 
+function set_path() {
+    if (!("path" in MouseEvent.prototype))
+    Object.defineProperty(MouseEvent.prototype, "path", {
+      get: function() {
+        var path = [];
+        var currentElem = this.target;
+        while (currentElem) {
+          path.push(currentElem);
+          currentElem = currentElem.parentElement;
+        }
+        if (path.indexOf(window) === -1 && path.indexOf(document) === -1)
+          path.push(document);
+        if (path.indexOf(window) === -1)
+          path.push(window);
+        return path;
+      }
+    });
+}
+
 //Plotly point-clicking functions
 function get_point_locations(e) {
     last_mouse_location = [e.clientX, e.clientY];
