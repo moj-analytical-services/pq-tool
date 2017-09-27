@@ -240,7 +240,11 @@ function(input, output, session) {
                                       $('.introjs-tooltiptext').text(\"Please click 'View topic...' to continue.\");
                                       introJs().previousStep();
                                      }
-                                   }")
+                                   }"),
+                  "onexit" = I("question.val('Prison officers');
+                                Shiny.onInputChange('question', 'Prison officers');
+                                location.reload(true);"
+                              )
                 ),
               options = list("nextLabel" = "Next",
                              "scrollToElement" = FALSE,
