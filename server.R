@@ -498,26 +498,23 @@ function(input, output, session) {
     merge_labour_and_co_op(members)
   })
 
-  observe({
-    updateSelectInput(session, "person_choice",
-                      choices = unique(data()$Question_MP))
-  })
-  
-  # output$member_ui <- renderUI({
-  #   switch(input$member_analysis,
-  #          "Lords" = 
-  #            selectInput(inputId = "person_choice",
-  #                                label = "Choose a Peer:",
-  #                                choices = "")
-  #                                  #sort(unique(data()$Question_MP[ grepl("HL", data()$Question_ID) ]))
-           #),
-           # "Commons" = selectInput(inputId = "person_choice",
-           #                         label = "Choose an MP:",
-           #                         choices = ""
-           #                         #hoc_members(data())
-           # )
-  #  )
+  # observe({
+  #   updateSelectInput(session, "person_choice",
+  #                     choices = unique(data()$Question_MP))
   # })
+  
+  output$member_ui <- renderUI({
+    switch(input$member_analysis,
+           "Lords" =
+             selectInput(inputId = "person_choice",
+                                 label = "Choose a Peer:",
+                                 choices = sort(unique(dates$Question_MP[ grepl("HL", dates$Question_ID) ]))
+                         ),
+           "Commons" = selectInput(inputId = "person_choice",
+                          label = "Choose an MP:",
+                          choices = hoc_members(dates))
+    )
+  })
 
   grouped_hoc_members <- function(hoc_data) {
 

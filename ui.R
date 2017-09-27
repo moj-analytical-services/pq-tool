@@ -222,10 +222,10 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              )
                       ),
                       column(3,
-                             #uiOutput("member_ui"),
-                             selectizeInput(inputId = "person_choice",
-                                            label = "Choose Person:",
-                                            choices = ""),
+                             uiOutput("member_ui"),
+                             # selectizeInput(inputId = "person_choice",
+                             #                label = "Choose Person:",
+                             #                choices = ""),
                              bsTooltip(
                                "person_choice",
                                "Now you have chosen a house, choose an MP/Peer. You can do this by
