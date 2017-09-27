@@ -21,7 +21,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                       includeScript("google-analytics.js"),
                       tags$link(rel = "stylesheet", type = "text/css", href = "pq.css")
                     ),
-                    tags$body(onmousemove = "get_point_locations(event)"),
+                    tags$body(onload = 'set_path()', onmousemove = "get_point_locations(event)"),
                     tags$head(includeScript("pq.js")),
                     fluidRow(
                       column(8,
