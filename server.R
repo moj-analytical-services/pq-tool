@@ -311,16 +311,6 @@ function(input, output, session) {
     })
   
   dfClus <- reactive({
-    # cols <- c(
-    #   'Question_Text',
-    #   'Answer_Text',
-    #   'Question_MP',
-    #   'MP_Constituency',
-    #   'MP_Party',
-    #   'Date',
-    #   'Answer_MP',
-    #   'Answer_Date'
-    # )
     df <- subset(data(), 
                  (data()$Topic == input$topic_choice), 
                  select = c(
@@ -334,7 +324,6 @@ function(input, output, session) {
                    'Answer_Date'
                  ))
     df <- df[order(-as.numeric(df$Date)),]
-    #df[, cols]
   })
 
   keyword <- reactive({
@@ -387,7 +376,7 @@ function(input, output, session) {
           5}
     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
     p +
-      xlim(minDate - 1, maxDate + 1) +
+     # xlim(min(dates$Date), min(dates$Date)) +
       scale_x_date(limits = c(minDate, maxDate),
                    labels = date_format("%b %y"),
                    date_breaks = "6 months",
@@ -442,25 +431,14 @@ function(input, output, session) {
                 table.on('click', 'tr', rowActivate);"
       )
     )
-    # datatable(data = dfClus(), #[, c("Question_Text", "Answer_Text")],
-    #           #colnames = c("Question Text", "Answer Text"),
-    #           caption = "Documents contained within the topic:",
-    #           extensions = 'Buttons',
-    #           rownames = FALSE,
-    #           options = list(dom = 'Bfrtip',
-    #                          buttons = I('colvis'),
-    #                          scroller = TRUE,
-    #                          searching = FALSE,
-    #                          paging = TRUE,
-    #                          lengthChange = FALSE,
-    #                          pageLength = 5))
+    
   })
 
   addPopover(session, "topic_documents", "Questions in the topic",
              content = paste0("This table contains all of the information on the questions asked on this topic.<br><br>",
                               "Click on a row to see the corresponding question and answer text."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
-}
+
 
   # ------------------------------------------------------------------------- #
   #                               MEMBER TAB                                  #
@@ -475,44 +453,38 @@ function(input, output, session) {
     }
   }
 
-  # Merge labur and labour (co-op) members for the sake of the drop down list (only)
   merge_labour_and_co_op <- function(members) {
     members$Labour <- append(members$Labour, members$'Labour (Co-op)') %>% sort()
     members$'Labour (Co-op)' <- NULL
     members
   }
-
+  
   hoc_members <- reactive({
     parties <- data()$MP_Party[ data()$MP_Party != 'Not found' ] %>%
-                 unique() %>%
-                 sort()
-
+      unique() %>%
+      sort()
+    
     members <- lapply(parties, function(party) {
-                 data()$Question_MP[ data()$MP_Party == party ] %>%
-                 unique() %>%
-                 sort() %>%
-                 list_if_one()
-               })
-
+      data()$Question_MP[ data()$MP_Party == party ] %>%
+        unique() %>%
+        sort() %>%
+        list_if_one()
+    })
+    
     names(members) <- parties
     merge_labour_and_co_op(members)
   })
-
-  # observe({
-  #   updateSelectInput(session, "person_choice",
-  #                     choices = unique(data()$Question_MP))
-  # })
   
   output$member_ui <- renderUI({
     switch(input$member_analysis,
            "Lords" =
              selectInput(inputId = "person_choice",
-                                 label = "Choose a Peer:",
-                                 choices = sort(unique(dates$Question_MP[ grepl("HL", dates$Question_ID) ]))
-                         ),
+                         label = "Choose a Peer:",
+                         choices = sort(unique(data()$Question_MP[ grepl("HL", data()$Question_ID) ]))
+             ),
            "Commons" = selectInput(inputId = "person_choice",
-                          label = "Choose an MP:",
-                          choices = hoc_members(dates))
+                                   label = "Choose an MP:",
+                                   choices = hoc_members())
     )
   })
 
@@ -521,8 +493,8 @@ function(input, output, session) {
   }
 
   dfMP <- reactive({
-    df <- subset(tables_data(), 
-                 (tables_data()$Question_MP == input$person_choice),
+    df <- subset(data(), 
+                 (data()$Question_MP == input$person_choice),
                  select = cols <- c(
                    'Question_Text',
                    'Answer_Text',
@@ -536,23 +508,10 @@ function(input, output, session) {
                    'Topic_Keywords'
                  ))
     df <- df[order(-as.numeric(df$Date)),]
-    # cols <- c(
-    #   'Question_Text',
-    #   'Answer_Text',
-    #   'Question_MP',
-    #   'MP_Constituency',
-    #   'MP_Party',
-    #   'Date',
-    #   'Answer_MP',
-    #   'Answer_Date',
-    #   'Topic',
-    #   'Topic_Keywords'
-    # )
-    #df[cols]
   })
 
-  minDate <- reactive(min(tables_data()$Date))
-  maxDate <- reactive(max(tables_data()$Date))
+  minDate <- reactive(min(data()$Date))
+  maxDate <- reactive(max(data()$Date))
 
   member_wordcloud_df <- reactive({
     df <- subset(member_data(),
@@ -613,7 +572,7 @@ function(input, output, session) {
         breaks = seq(0, yMax, yBreaks),
         expand = c(0,0),
         limits = c(0, yMax)) +
-      labs(title = member_plot_title(input$person_choice, data),
+      labs(title = member_plot_title(input$person_choice, data()),
            subtitle = paste0("Each bar shows the number of questions from ", input$person_choice,  " in a particular fortnight"),
            x = "Question Date",
            y = "Count"
@@ -675,5 +634,5 @@ function(input, output, session) {
                               "Click on a row to see the corresponding question and answer text."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
 
-
+}
 
