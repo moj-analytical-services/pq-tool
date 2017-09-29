@@ -78,15 +78,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              conditionalPanel(
                                condition = searchTextEntered,
                                introBox(
-                               dateRangeInput(
-                                 "q_date_range",
-                                 label = "Question Date Range",
-                                 format = "dd-mm-yyyy",
-                                 min = min(dates$Date),
-                                 max = max(dates$Date),
-                                 start = min(dates$Date),
-                                 end = max(dates$Date)
-                               ),
+                                 uiOutput("date_input_ui"),
                                data.step = 2,
                                data.position = "right",
                                data.intro = "Pick a range of dates you want to consider (leave this alone to search all the questions we have)"
@@ -223,9 +215,6 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                       ),
                       column(3,
                              uiOutput("member_ui"),
-                             # selectizeInput(inputId = "person_choice",
-                             #                label = "Choose Person:",
-                             #                choices = ""),
                              bsTooltip(
                                "person_choice",
                                "Now you have chosen a house, choose an MP/Peer. You can do this by
