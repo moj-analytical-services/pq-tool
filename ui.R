@@ -25,6 +25,9 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                     ),
                     tags$body(onload = 'set_path()', onmousemove = "get_point_locations(event)"),
                     tags$head(includeScript("pq.js")),
+                    tags$style(type="text/css",
+                               ".recalculating { opacity: 1.0; }"
+                    ),
                     fluidRow(
                       column(8,
                              strong("Welcome to the Parliamentary Analysis Tool! (Please use Mozilla Firefix or Google Chrome only)"),
@@ -32,8 +35,25 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                typing some keywords (e.g. Prison Officers) or a new PQ into the search box 
                                below. You will get a ranked list of the 100 most similar past questions, and 
                                a visualisation showing when they were asked.")
+<<<<<<< HEAD
                       )),
 
+=======
+                      ),
+                      column(2,
+                             offset = 2,
+                             actionButton(
+                               "tutorial_button",
+                               "Click here for a quick tour",
+                               class="btn btn-primary"
+                             ),
+                             bsTooltip("tutorial_button",
+                                       "If this is your first time using the tool, click here to complete a short, interactive tutorial",
+                                       "auto")
+                      )
+                      ),
+                    
+>>>>>>> Feeding multiple datasets into shiny app (#153)
                     fluidRow(
                       column(4,
                              introBox(
@@ -53,8 +73,13 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                        options = list(container = "body")
                              )
                       ),
+<<<<<<< HEAD
 
                       column(3,
+=======
+                      
+                      column(2,
+>>>>>>> Feeding multiple datasets into shiny app (#153)
                              selectizeInput(inputId = "answering_body_choice",
                                             label = "Choose Answering Body:",
                                             choices = answering_bodies_lookup$Name
@@ -73,13 +98,13 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                condition = searchTextEntered,
                                introBox(
                                dateRangeInput(
-                                 "q_date_range", 
+                                 "q_date_range",
                                  label = "Question Date Range",
                                  format = "dd-mm-yyyy",
-                                 min = min(data$Date),
-                                 max = max(data$Date),
-                                 start = min(data$Date),
-                                 end = max(data$Date)
+                                 min = min(dates$Date),
+                                 max = max(dates$Date),
+                                 start = min(dates$Date),
+                                 end = max(dates$Date)
                                ),
                                data.step = 2,
                                data.position = "right",
@@ -91,18 +116,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                          options = list(container = "body")
                                )
                              )
-                      ),
-                      column(2,
-                             offset = 3,
-                             actionButton(
-                               "tutorial_button",
-                               "Click here for a quick tour",
-                               class="btn btn-primary"
-                             ),
-                             bsTooltip("tutorial_button",
-                                "If this is your first time using the tool, click here to complete a short, interactive tutorial",
-                                "auto")
-                             )
+                            )
                     ),
 
                     fluidRow(
@@ -147,6 +161,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                data.intro = "The grey line shows an average of parliamentary interest in the search terms. <br> <br>
                                The red point is highlighting the question you previously chose from the table. <br><br> Try 
                                clicking another point to highlight instead.")
+<<<<<<< HEAD
                       )
                       )
                     )
@@ -215,6 +230,76 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                     )
            ),
 
+=======
+                               )
+                             )
+                      )),
+           
+          ########################### Topic Tab
+          tabPanel("Topic Analysis",
+                   fluidRow(
+                     column(3,
+                            selectizeInput(inputId = "topic_choice",
+                                           label = "Choose Topic Number:",
+                                           choices = ""),
+                            bsTooltip(
+                              "topic_choice",
+                              "Enter a topic number from the previous page.
+             You can do this by selecting a number from
+             the dropdown or simply type it in.",
+                              "right",
+                              options = list(container = "body")
+                            )
+                     ),
+                     column(1,
+                            offset = 7,
+                            actionButton(
+                              "explanation_button",
+                              "What do these topics mean?",
+                              class="btn btn-primary"
+                            )
+                     )
+                   ),
+
+                   conditionalPanel(
+                     condition = topicChosen,
+                     fluidRow(
+                       column(4,
+                              introBox(
+                              plotOutput("wordcloud"),
+                              data.step = 13,
+                              data.position = "right",
+                              data.intro = "This wordcloud shows the words that are most important
+                              in this topic.<br><br> The bigger the word, the more important it is.")
+                              ),
+                       column(8,
+                              introBox(
+                                plotOutput("topic_plot"),
+                                data.step = 14,
+                                data.position = "left",
+                                data.intro = "This plot shows when questions in the topic were asked. <br> Each bar
+                                shows the number of questions asked in a particular fortnight - the higher the bar,
+                                the more questions from that topic.")
+                              )
+                       ),
+                     fluidRow(
+                       introBox(
+                       introBox(
+                       dataTableOutput("topic_documents"),
+                       data.step = 15,
+                       data.position = "right",
+                       data.intro = "This table contains all of the information on the questions asked on this topic.<br><br>
+                       Click on a row to see the corresponding question and answer text."),
+                       data.step = 16,
+                       data.position = "top",
+                       data.intro = "That's it! You have made it to the end of the tutorial! <br><br> We hope this was useful. If you have any
+                       feedback on this tutorial, or the tool in general, please see the link at the bottom of the page.")
+                     )
+                   )
+           ),
+
+
+>>>>>>> Feeding multiple datasets into shiny app (#153)
            ########################### Member tab
            tabPanel("Member Analysis",
                     fluidRow(
@@ -228,6 +313,9 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                       ),
                       column(3,
                              uiOutput("member_ui"),
+                             # selectizeInput(inputId = "person_choice",
+                             #                label = "Choose Person:",
+                             #                choices = ""),
                              bsTooltip(
                                "person_choice",
                                "Now you have chosen a house, choose an MP/Peer. You can do this by
@@ -240,9 +328,9 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              htmlOutput("memberlink")
                       )
                     ),
-                    
+
                     fluidRow(
-                      column(4, 
+                      column(4,
                              introBox(
                              plotOutput("member_wordcloud",
                                         width = "auto"),
@@ -260,7 +348,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              The x axis shows the date when questions were asked and the y axis shows the count of questions asked on that date.")
                              )
                     ),
-                    
+
                     fluidRow(
                        introBox(
                        introBox(
@@ -275,3 +363,4 @@ navbarPage("MoJ Parliamentary Analysis Tool",
            )
            )
 )
+
