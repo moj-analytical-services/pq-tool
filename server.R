@@ -233,8 +233,8 @@ function(input, output, session) {
                 "onchange" = I("$('.introjs-nextbutton').css('visibility', 'visible');
                                 step = this._currentStep
                                 prev_selection = $('.selected')
-                                buttonIndices = {6 : 0, 10 : 2, 11 : 1}
-                                if ([6, 10, 11].includes(step)) {
+                                buttonIndices = {7 : 0, 11 : 2, 12 : 1}
+                                if ([7, 11, 12].includes(step)) {
                                   next_button_disabled = true;
                                   $('.introjs-nextbutton').css('visibility', 'hidden');
                                   $('.btn-info')[buttonIndices[step]].addEventListener('mouseup', function(){
@@ -246,7 +246,7 @@ function(input, output, session) {
                                 }"),
 
               "onbeforechange" = I("new_selection = $('.selected');
-                                   if (this._currentStep == 1) {
+                                   if (this._currentStep == 2) {
                                      question = $('#question');
                                      if(question.val() == '') {
                                        question.val('Prison officers');
@@ -256,35 +256,35 @@ function(input, output, session) {
                                        introJs().previousStep();
                                      }
 
-                                   } else if ([3, 10, 15].includes(this._currentStep)) {
+                                   } else if ([4, 11, 16].includes(this._currentStep)) {
                                      if(noChange(new_selection, prev_selection)) {
                                        this._currentStep = this._currentStep - 1;
                                        $('.introjs-tooltiptext').text('Please select a row before continuing.');
                                        introJs().previousStep();
                                      }
 
-                                   } else if (this._currentStep == 5) {
+                                   } else if (this._currentStep == 6) {
                                      if(noChange(new_selection, prev_selection)) {
                                        this._currentStep = this._currentStep - 1;
                                        $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
                                        introJs().previousStep();
                                      }
 
-                                   } else if (this._currentStep == 7) {
+                                   } else if (this._currentStep == 8) {
                                      if (next_button_disabled == true) {
                                        this._currentStep = this._currentStep - 1;
                                        $('.introjs-tooltiptext').text(\"Please click 'See all questions asked by...' to continue.\");
                                        introJs().previousStep();
                                      }
 
-                                   } else if (this._currentStep == 11) {
+                                   } else if (this._currentStep == 12) {
                                      if (next_button_disabled == true) {
                                       this._currentStep = this._currentStep - 1;
                                       $('.introjs-tooltiptext').text(\"Please click 'Back to search' to continue.\");
                                       introJs().previousStep();
                                      }
 
-                                   } else if (this._currentStep == 12) {
+                                   } else if (this._currentStep == 13) {
                                      if (next_button_disabled == true) {
                                       this._currentStep = this._currentStep - 1;
                                       $('.introjs-tooltiptext').text(\"Please click 'View topic...' to continue.\");
