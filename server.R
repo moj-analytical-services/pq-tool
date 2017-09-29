@@ -406,7 +406,7 @@ function(input, output, session) {
                    date_breaks = "6 months",
                    date_minor_breaks = "1 month") +
       scale_y_continuous(
-        breaks = seq(0, yMax(plot), yBreaks(plot)),
+        breaks = seq(0, yMax, yBreaks),
         expand = c(0,0),
         limits = c(0, yMax)) +
       labs(title = paste0("Topic ", input$topic_choice, ": ", keyword()),
