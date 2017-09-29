@@ -19,7 +19,7 @@ library(readr)
 library(rintrojs)
 
 dates <- data.table(read_csv("./Data/moj/moj_WrittenPQs.tsv"))
-answering_bodies_lookup <- read_csv("./Data/answering_body_lookup.csv")
+answering_bodies_lookup <- read_csv("./Data/answering_body_lookup.tsv")
 
 
 for(code in answering_bodies_lookup$Code){
@@ -29,4 +29,3 @@ for(code in answering_bodies_lookup$Code){
   # assign(paste0(i, "_allTopics"), allTopics)
 }
   # load(file = "./Data/allMPs.rda")
-
