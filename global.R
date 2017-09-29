@@ -22,20 +22,10 @@ dates <- data.table(read_csv("./Data/moj/moj_WrittenPQs.csv"))
 answering_bodies_lookup <- read_csv("./Data/answering_body_lookup.csv")
 
 
-for(i in answering_bodies_lookup$Code){
-  load(file = file.path("./Data", i, paste0(i, "_SearchSpace.rda")))
-  assign(paste0(i, ".search.space"), search.space)
-  # topic <- data.table(read_csv(file.path("./Data", i, paste0(i, "_TopDozenWordsPerTopic.csv"))))
-  # assign(paste0(i, "_TopDozenWordsPerTopic"), topic)
-  # member <- data.table(read_csv(file.path("./Data", i, paste0(i, "_TopDozenWordsPerMember.csv"))))
-  # assign(paste0(i, "_TopDozenWordsPerMember"), member)
+for(code in answering_bodies_lookup$Code){
+  load(file = file.path("./Data", code, paste0(code, "_SearchSpace.rda")))
+  assign(paste0(code, ".search.space"), search.space)
   # load(file = file.path("./Data", i, paste0(i, "_allTopics.rda")))
   # assign(paste0(i, "_allTopics"), allTopics)
 }
-  load(file = "./Data/allMPs.rda")
-
-
-# Define R_date date type - to read in Long Date format in csv
-setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
-setClass("R_date")
 

@@ -129,7 +129,7 @@ fetch_questions <- function(answering_body, show_progress = FALSE) {
     print(str_interp("Fetching ${number_to_fetch} questions"))
   }
 
-  iterations <- ceiling(number_to_fetch / 500)
+  iterations <- ceiling(number_to_fetch / MAX_DOWNLOAD)
 
   if(iterations == 0) {
     stop("There are no new questions to fetch")
