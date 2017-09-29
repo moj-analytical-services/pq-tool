@@ -51,6 +51,20 @@ function(input, output, session) {
   # ------------------------------------------------------------------------- #
 >>>>>>> Feeding multiple datasets into shiny app (#153)
   
+  output$date_input_ui <- renderUI({
+    dateRangeInput(
+    "q_date_range",
+    label = "Question Date Range",
+    format = "dd-mm-yyyy",
+    min = min(data()$Date),
+    max = max(data()$Date),
+    start = min(data()$Date),
+    end = max(data()$Date)
+  )
+  })
+  
+  
+  
   returnNearestMatches <- reactive({
     
     foundWords <- which(search.space()$i %in% queryVec(input$question, vocab()))
