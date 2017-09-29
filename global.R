@@ -39,5 +39,22 @@ for(i in answering_bodies_lookup$Code){
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
 setClass("R_date")
 
+# server functions for plotting
+maxCount <- function(hist) {
+  ggplot_build(hist)$data[[1]]$count %>% max()
+}
 
+yBreaks <- function(hist) {
+  if(maxCount(hist) < 11) {
+      1
+    } else if(maxCount(hist) < 21) {
+      2
+    } else {
+      5
+    }
+}
+
+yMax <- function(hist) {
+  ( floor(maxCount(hist) / yBreaks(hist)) + 1) * yBreaks(hist)
+}
 

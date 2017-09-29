@@ -1,4 +1,4 @@
-?source(file = "global.R")
+source(file = "global.R")
 ############### Server
 
 function(input, output, session) {
@@ -34,6 +34,7 @@ function(input, output, session) {
     data.table(read.csv(file.path(data_folder(), paste0(answering_body_code(), "_TopDozenWordsPerMember.csv"))))
   })
 
+
   #Search space for query vector
   
   search.space <- reactive({
@@ -59,9 +60,7 @@ function(input, output, session) {
     end = max(data()$Date)
   )
   })
-  
-  
-  
+
   returnNearestMatches <- reactive({
     
     foundWords <- which(search.space()$i %in% queryVec(input$question, vocab()))
@@ -80,20 +79,20 @@ function(input, output, session) {
                              data(),
                              by.x = "Document",
                              by.y = "Document_Number")
-    
+
     data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
     data <- data[with(data, order(-data["Similarity_score"])), ]
     rownames(data) <- 1:nrow(data)
     data["Rank"] <- as.numeric(rownames(data))
     return(data)
   })
-  
+
   df <- reactive({
     subset(returnNearestMatches(),
            returnNearestMatches()$Date >= input$q_date_range[1] &
              returnNearestMatches()$Date <= input$q_date_range[2])
   })
-  
+
   plot_points <- reactive({
     cols <- c(
       'Question_Text',
@@ -110,9 +109,7 @@ function(input, output, session) {
       df()[1:100, cols]
     
   })
-  
 
-  
   #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
   #give an indication of how interest has risen and fallen over time.
   line_points <- reactive({
@@ -174,7 +171,7 @@ function(input, output, session) {
     showticklabels = FALSE,
     rangemode = "tozero"
   )
-  
+
   output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = plot_points()$Date) %>%
       #add trend line first so it's the bottom layer
@@ -233,53 +230,72 @@ function(input, output, session) {
     input$tutorial_button, {
       introjs(session,
               events = list(
-                "onchange" = I("console.log(this._currentStep)
-                              if (this._currentStep==6) { 
-                               $('.btn-info')[0].addEventListener('mouseup', function(){
-                               setTimeout(function(){
-                               $('.introjs-nextbutton').click()
-                               }, 1000)
-                               })
-                               } else if (this._currentStep==10) {
-                               $('.btn-info')[2].addEventListener('mouseup', function(){
-                               setTimeout(function(){
-                               $('.introjs-nextbutton').click()
-                               }, 1000)
-                               })
-                               } else if (this._currentStep==11) {
-                               $('.btn-info')[1].addEventListener('mouseup', function(){
-                               console.log('btn info clicked')
-                               setTimeout(function(){
-                               $('.introjs-nextbutton').click()
-                               }, 1000)
-                               })
-                               }"),
-              "onbeforechange" = I("if (this._currentStep == 1) {
-                                   question = $('#question');
-                                   if(question.val() == '') {
-                                    question.val('Prison officers');
-                                    Shiny.onInputChange('question', 'Prison officers');
-                                    this._currentStep = 0;
-                                    $('.introjs-tooltiptext').text(\"We've added some search terms for you, but you can change them if you like.\");
-                                    introJs().previousStep();
-                                   }
-                                 } else if (this._currentStep == 3) {
-                                   selected_rows = $('.selected')
-                                   if ( selected_rows.length == 0 ) {
-                                    this._currentStep = 2;
-                                    $('.introjs-tooltiptext').text('Please select a row before continuing.');
-                                    introJs().previousStep();
-                                   }
-                                 } else if (this._currentStep == 5 ) {
-                                   new_selection = $('.selected')
-                                   prev_selection = selected_rows
-                                   if(noChange(new_selection, prev_selection)) {
-                                    this._currentStep = 4;
-                                    $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
-                                    introJs().previousStep();
-                                   }
-                                 }")
-              ),
+                "onchange" = I("$('.introjs-nextbutton').css('visibility', 'visible');
+                                step = this._currentStep
+                                prev_selection = $('.selected')
+                                buttonIndices = {6 : 0, 10 : 2, 11 : 1}
+                                if ([6, 10, 11].includes(step)) {
+                                  next_button_disabled = true;
+                                  $('.introjs-nextbutton').css('visibility', 'hidden');
+                                  $('.btn-info')[buttonIndices[step]].addEventListener('mouseup', function(){
+                                    setTimeout(function(){
+                                      next_button_disabled = false;
+                                      $('.introjs-nextbutton').click()
+                                    }, 1000)
+                                  })
+                                }"),
+
+              "onbeforechange" = I("new_selection = $('.selected');
+                                   if (this._currentStep == 1) {
+                                     question = $('#question');
+                                     if(question.val() == '') {
+                                       question.val('Prison officers');
+                                       Shiny.onInputChange('question', 'Prison officers');
+                                       this._currentStep = this._currentStep - 1;
+                                       $('.introjs-tooltiptext').text(\"We've added some search terms for you, but you can change them if you like.\");
+                                       introJs().previousStep();
+                                     }
+
+                                   } else if ([3, 10, 15].includes(this._currentStep)) {
+                                     if(noChange(new_selection, prev_selection)) {
+                                       this._currentStep = this._currentStep - 1;
+                                       $('.introjs-tooltiptext').text('Please select a row before continuing.');
+                                       introJs().previousStep();
+                                     }
+
+                                   } else if (this._currentStep == 5) {
+                                     if(noChange(new_selection, prev_selection)) {
+                                       this._currentStep = this._currentStep - 1;
+                                       $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
+                                       introJs().previousStep();
+                                     }
+
+                                   } else if (this._currentStep == 7) {
+                                     if (next_button_disabled == true) {
+                                       this._currentStep = this._currentStep - 1;
+                                       $('.introjs-tooltiptext').text(\"Please click 'See all questions asked by...' to continue.\");
+                                       introJs().previousStep();
+                                     }
+
+                                   } else if (this._currentStep == 11) {
+                                     if (next_button_disabled == true) {
+                                      this._currentStep = this._currentStep - 1;
+                                      $('.introjs-tooltiptext').text(\"Please click 'Back to search' to continue.\");
+                                      introJs().previousStep();
+                                     }
+
+                                   } else if (this._currentStep == 12) {
+                                     if (next_button_disabled == true) {
+                                      this._currentStep = this._currentStep - 1;
+                                      $('.introjs-tooltiptext').text(\"Please click 'View topic...' to continue.\");
+                                      introJs().previousStep();
+                                     }
+                                   }"),
+                  "onexit" = I("question.val('Prison officers');
+                                Shiny.onInputChange('question', 'Prison officers');
+                                location.reload(true);"
+                              )
+                ),
               options = list("nextLabel" = "Next",
                              "scrollToElement" = FALSE,
                              "showProgress" = TRUE,
@@ -390,7 +406,7 @@ function(input, output, session) {
                    date_breaks = "6 months",
                    date_minor_breaks = "1 month") +
       scale_y_continuous(
-        breaks = seq(0, yMax, yBreaks),
+        breaks = seq(0, yMax(plot), yBreaks(plot)),
         expand = c(0,0),
         limits = c(0, yMax)) +
       labs(title = paste0("Topic ", input$topic_choice, ": ", keyword()),
