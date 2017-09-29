@@ -442,7 +442,7 @@ function(input, output, session) {
                    date_minor_breaks = "1 month") +
 >>>>>>> Feeding multiple datasets into shiny app (#153)
       scale_y_continuous(
-        breaks = seq(0, yMax(plot), yBreaks(plot)),
+        breaks = seq(0, yMax, yBreaks),
         expand = c(0,0),
 <<<<<<< HEAD
         limits = c(0, yMax(plot))
