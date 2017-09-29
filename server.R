@@ -376,8 +376,8 @@ function(input, output, session) {
           5}
     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
     p +
-     # xlim(min(dates$Date), min(dates$Date)) +
-      scale_x_date(limits = c(minDate, maxDate),
+      xlim(min(data()$Date), max(data()$Date)) +
+      scale_x_date(limits = c(min(data()$Date), max(data()$Date)),
                    labels = date_format("%b %y"),
                    date_breaks = "6 months",
                    date_minor_breaks = "1 month") +
@@ -563,8 +563,8 @@ function(input, output, session) {
     }
     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
     p +
-      xlim(min(data()$Date) - 1, max(data()$Date) + 1) +
-      scale_x_date(limits = c(minDate, maxDate),
+      xlim(min(data()$Date), max(data()$Date) + 14) +
+      scale_x_date(limits = c(min(data()$Date), max(data()$Date)),
                    labels = date_format("%b %y"),
                    date_breaks = "6 months",
                    date_minor_breaks = "1 month") +
