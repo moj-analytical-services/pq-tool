@@ -28,12 +28,6 @@ function(input, output, session) {
     data.table(read_csv(file.path(data_folder(), paste0(answering_body_code(), "_WrittenPQs.csv"))))
   })
   
-  drops <- c("X1","Document_Number", "Corrected_Date")
-  
-  tables_data <- reactive({
-    data()[ , !(names(data()) %in% drops)]
-  })
-  
   topic_data <- reactive({
      data.table(read.csv(file.path(data_folder(), paste0(answering_body_code(), "_TopDozenWordsPerTopic.csv"))))
    })
