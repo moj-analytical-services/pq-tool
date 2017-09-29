@@ -123,6 +123,8 @@ Input, output and K can also be set individually, but if environment is also set
 
 ## Testing
 
+Please make sure you run all tests, and that they pass, before making a pull request.  This is especially important because some of the tests in test-tour.R will not run on Travis.  This is, hopefully, temporary, whilst we get to the bottom of why those tests do not pass on Travis (whilst they do pass locally).
+
 ### To run the tests you will need [RSelenium][1] and [geckodriver][2]
 
 ```

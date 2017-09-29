@@ -85,6 +85,25 @@ function rowActivate() {
     }
 }
 
+function set_path() {
+    if (!("path" in MouseEvent.prototype))
+    Object.defineProperty(MouseEvent.prototype, "path", {
+      get: function() {
+        var path = [];
+        var currentElem = this.target;
+        while (currentElem) {
+          path.push(currentElem);
+          currentElem = currentElem.parentElement;
+        }
+        if (path.indexOf(window) === -1 && path.indexOf(document) === -1)
+          path.push(document);
+        if (path.indexOf(window) === -1)
+          path.push(window);
+        return path;
+      }
+    });
+}
+
 //Plotly point-clicking functions
 function get_point_locations(e) {
     last_mouse_location = [e.clientX, e.clientY];
@@ -202,7 +221,7 @@ function goto_page(i, row){
                 target = [0,1,2,3,4,5].indexOf(i);
                 buttons[target].click();
                 return row_timeout(row);
-            }, first_click_timeout)
+            }, first_click_timeout);
         }
     }else{//current_page in [5,6,7]
         if (Math.abs(page_shift) === 1){
@@ -215,7 +234,7 @@ function goto_page(i, row){
                 target = [0,1,2,3,4,5].indexOf(i);
                 buttons[target].click();
                 return row_timeout(row);
-            }, first_click_timeout)
+            }, first_click_timeout);
             
         }else{
             buttons[6].click(); //get to page 10
@@ -298,10 +317,10 @@ String.prototype.format_html = function(){
 };
 
 function table_check(){
-    var tableCheck = window.setInterval(empty_table, 20)
+    var tableCheck = window.setInterval(empty_table, 20);
     setTimeout(function(){
-        clearInterval(tableCheck)
-    }, 1000)
+        clearInterval(tableCheck);
+    }, 1000);
 }
 
 function empty_table(){
@@ -309,13 +328,13 @@ function empty_table(){
         return;
     }
     if(!!similarity_table){
-        var page_links = $("#similarity_table").find("a")
+        var page_links = $("#similarity_table").find("a");
         if (page_links.length < 3){
-            page_links.remove()
-            $("#similarity_table").find(".dataTables_info")[0].innerHTML = ""
-            $("#similarity_table").find("th")[0].innerHTML = ""
-            $("#similarity_table").find("td")[0].style['white-space'] = 'pre'
-            $("#similarity_table").find("td")[0].innerHTML = "Sorry, no matches for that!\nTry searching additional words, or checking for typos."
+            page_links.remove();
+            $("#similarity_table").find(".dataTables_info")[0].innerHTML = "";
+            $("#similarity_table").find("th")[0].innerHTML = "";
+            $("#similarity_table").find("td")[0].style['white-space'] = 'pre';
+            $("#similarity_table").find("td")[0].innerHTML = "Sorry, no matches for that!\nTry searching additional words, or checking for typos.";
         }
     }
 }

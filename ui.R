@@ -13,7 +13,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
              a(href="https://www.surveymonkey.co.uk/r/FV9PCT2", target="_blank", "here")
            )
            ),
-           
+
            ########################### Search Tab
            tabPanel("Search",
                     introjsUI(),
@@ -21,14 +21,14 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                       includeScript("google-analytics.js"),
                       tags$link(rel = "stylesheet", type = "text/css", href = "pq.css")
                     ),
-                    tags$body(onmousemove = "get_point_locations(event)"),
+                    tags$body(onload = 'set_path()', onmousemove = "get_point_locations(event)"),
                     tags$head(includeScript("pq.js")),
                     tags$style(type="text/css",
                                ".recalculating { opacity: 1.0; }"
                     ),
                     fluidRow(
                       column(8,
-                             strong("Welcome to the Parliamentary Analysis Tool!"),
+                             strong("Welcome to the Parliamentary Analysis Tool! (Please use Mozilla Firefix or Google Chrome only)"),
                              p("You can use this tool to search through our database of written PQs. Try 
                                typing some keywords (e.g. Prison Officers) or a new PQ into the search box 
                                below. You will get a ranked list of the 100 most similar past questions, and 
@@ -91,7 +91,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              )
                             )
                     ),
-                    
+
                     fluidRow(
                       column(6,
                              conditionalPanel(
@@ -111,7 +111,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                                data.step = 7,
                                data.position = "right",
                                data.intro = "You can see all the questions asked by this MP/peer by clicking the 'See all questions asked by' button. 
-                               <br> <br> Try it!"),
+                               <br> <br> To continue, try it!"),
                                data.step = 12,
                                data.position = "right",
                                data.intro = "All the questions in our database have been grouped into topics by an algorithm. These topics have been given a
