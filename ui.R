@@ -71,6 +71,11 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              selectizeInput(inputId = "answering_body_choice",
                                             label = "Choose Answering Body:",
                                             choices = answering_bodies_lookup$Name
+                             ),
+                             bsTooltip("answering_body_choice",
+                                         "Choose an answering body. Note: this changes the data for all of the pages in the tool.",
+                                         "auto",
+                                         options = list(container = "body")
                              )
                       ),
                       
