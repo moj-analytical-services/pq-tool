@@ -18,49 +18,13 @@ library(scales)
 library(readr)
 library(rintrojs)
 
-load(file = "./Data/searchSpace.rda")
-load(file = "./Data/allMPs.rda")
-load(file = "./Data/allTopics.rda")
-
-# Define R_date date type - to read in Long Date format in csv
-setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
-setClass("R_date")
-
-rawData <- read_csv("./Data/MoJwrittenPQs.csv")
-data <- data.frame(rawData)
-drops <- c("X1","Document_Number", "Corrected_Date")
-tables_data <- data[ , !(names(data) %in% drops)]
+answering_bodies_lookup <- read_csv("./Data/answering_body_lookup.csv")
 
 
-topic_data <- read.csv("./Data/topDozenWordsPerTopic.csv")
-
-member_data <- read.csv("./Data/topDozenWordsPerMember.csv")
-
-merged_clusters <- ddply(
-  data,
-  .(Date, Answer_Date, Topic),
-  summarize,
-  Question_Text = paste0(Question_Text, collapse = " "))
-
-#Search space for query vector
-vocab <- search.space$dimnames[[1]]
-
-# server functions for plotting
-maxCount <- function(hist) {
-  ggplot_build(hist)$data[[1]]$count %>% max()
+for(code in answering_bodies_lookup$Code){
+  load(file = file.path("./Data", code, paste0(code, "_SearchSpace.rda")))
+  assign(paste0(code, ".search.space"), search.space)
+  # load(file = file.path("./Data", i, paste0(i, "_allTopics.rda")))
+  # assign(paste0(i, "_allTopics"), allTopics)
 }
-
-yBreaks <- function(hist) {
-  if(maxCount(hist) < 11) {
-      1
-    } else if(maxCount(hist) < 21) {
-      2
-    } else {
-      5
-    }
-}
-
-yMax <- function(hist) {
-  ( floor(maxCount(hist) / yBreaks(hist)) + 1) * yBreaks(hist)
-}
-
+  # load(file = "./Data/allMPs.rda")

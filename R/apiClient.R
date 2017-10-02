@@ -1,34 +1,51 @@
 source('./R/Functions.R')
+source(".Rprofile")
+
 library(tidyverse)
 library(jsonlite)
 library(stringr)
+library(data.table)
+library(readr)
 
-number_in_archive <- function() {
-  if(file.exists(ARCHIVE_FILEPATH)) {
-    nrow(read_csv(ARCHIVE_FILEPATH))
+
+api_answering_body <- function(answering){
+  answering_bodies_lookup <- data.table(read_csv("./Data/answering_body_lookup.csv"))
+  body <- answering_bodies_lookup$Name[answering_bodies_lookup$Code == answering]
+  body <- gsub(" ","+",body)
+  body <- paste0("AnsweringBody=", body)
+  return(body)
+}
+
+archive_filepath  <- function(answering){
+  return(file.path(SHINY_ROOT, 'Data', answering, 'archived_pqs.csv'))
+}
+
+number_in_archive <- function(filepath) {
+  if(file.exists(filepath)) {
+    nrow(read_csv(filepath))
   } else {
     0
   }
 }
 
-last_answer_date <- function() {
-  archive <- read_csv(ARCHIVE_FILEPATH)
+last_answer_date <- function(filepath) {
+  archive <- read_csv(filepath)
   max(archive$Answer_Date)
 }
 
-number_held_remotely <- function() {
-  response <- fromJSON(str_interp("${API_ENDPOINT}?${MOJ_ONLY}&${MIN_DOWNLOAD}"))
+number_held_remotely <- function(api_answering) {
+  response <- fromJSON(str_interp("${API_ENDPOINT}?${api_answering}&${MIN_DOWNLOAD}"))
   response$result$totalResults
 }
 
-number_to_fetch <- function() {
-  if( file.exists(ARCHIVE_FILEPATH)) {
-    date        <- last_answer_date()
+number_to_fetch <- function(filepath, api_answering) {
+  if( file.exists(filepath)) {
+    date        <- last_answer_date(filepath)
     date_filter <- str_interp("min-answer.dateOfAnswer=${date}")
-    response    <- fromJSON(str_interp("${API_ENDPOINT}?${date_filter}&${MOJ_ONLY}&${MIN_DOWNLOAD}&_sort=dateOfAnswer"))
+    response    <- fromJSON(str_interp("${API_ENDPOINT}?${date_filter}&${api_answering}&${MIN_DOWNLOAD}&_sort=dateOfAnswer"))
     response$result$totalResults
   } else {
-    number_held_remotely()
+    number_held_remotely(api_answering = api_answering)
   }
 }
 
@@ -56,17 +73,17 @@ parse_response <- function(raw_response) {
   )
 }
 
-update_archive <- function(questions_tibble) {
-  archive    <- read_csv(ARCHIVE_FILEPATH)
+update_archive <- function(filepath, questions_tibble) {
+  archive    <- read_csv(filepath)
   if(nrow(archive) > 0) {
-      updated_archive <- rbind(archive, questions_tibble)
-    } else {
-      updated_archive <- questions_tibble
-    }
+    updated_archive <- rbind(archive, questions_tibble)
+  } else {
+    updated_archive <- questions_tibble
+  }
 
   duplicates_filter <- duplicated(updated_archive)
   updated_archive   <- updated_archive[!duplicates_filter,]
-  write_csv(updated_archive, ARCHIVE_FILEPATH)
+  write_csv(updated_archive, filepath )
 }
 
 total_members <- function() {
@@ -99,17 +116,20 @@ get_party <- function(name, constituency, members) {
   }
 }
 
-fetch_questions <- function(show_progress = FALSE) {
+fetch_questions <- function(answering_body, show_progress = FALSE) {
 
-  number_to_fetch      <- number_to_fetch()
-  number_in_archive    <- number_in_archive()
-  number_held_remotely <- number_held_remotely()
+  archive_filepath     <- archive_filepath(answering = answering_body)
+  api_answering_body   <- api_answering_body(answering = answering_body)
+  
+  number_to_fetch      <- number_to_fetch(filepath = archive_filepath, api_answering = api_answering_body)
+  number_in_archive    <- number_in_archive(filepath = archive_filepath)
+  number_held_remotely <- number_held_remotely(api_answering = api_answering_body)
 
   if(show_progress == TRUE) {
     print(str_interp("Fetching ${number_to_fetch} questions"))
   }
 
-  iterations <- ceiling(number_to_fetch / 1000)
+  iterations <- ceiling(number_to_fetch / MAX_DOWNLOAD)
 
   if(iterations == 0) {
     stop("There are no new questions to fetch")
@@ -117,13 +137,14 @@ fetch_questions <- function(show_progress = FALSE) {
 
   questions <- tibble()
 
-  if(file.exists(ARCHIVE_FILEPATH)) {
-    date        <- last_answer_date()
+  if(file.exists(archive_filepath)) {
+    
+    date        <- last_answer_date(archive_filepath())
     date_param  <- str_interp("min-answer.dateOfAnswer=${date}")
-    base_params <- str_interp("${date_param}&${MOJ_ONLY}&${MAX_DOWNLOAD}")
+    base_params <- str_interp("${date_param}&${api_answering_body}&${MAX_DOWNLOAD}")
   } else {
-    file.create(ARCHIVE_FILEPATH)
-    base_params <- str_interp("${MOJ_ONLY}&${MAX_DOWNLOAD}")
+    file.create(archive_filepath)
+    base_params <- str_interp("${api_answering_body}&${MAX_DOWNLOAD}")
   }
 
   if( (number_to_fetch + number_in_archive) < number_held_remotely ) {
@@ -139,7 +160,7 @@ fetch_questions <- function(show_progress = FALSE) {
     parsed_response$Question_MP <- sapply(parsed_response$Question_MP, nameCleaner)
     parsed_response$Answer_MP   <- sapply(parsed_response$Answer_MP, nameCleaner)
     parsed_response$Party       <- get_parties(parsed_response$Question_MP, parsed_response$MP_Constituency)
-    update_archive(parsed_response)
+    update_archive(archive_filepath, parsed_response)
   }
 
 
