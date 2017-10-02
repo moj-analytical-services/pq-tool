@@ -374,9 +374,6 @@ function(input, output, session) {
   
 =======
 
-  minDate <- min(dates$Date)
-  maxDate <- max(dates$Date)
-
   wordcloud_df <- reactive({
     df <- subset(topic_data(),
                  (topic_data()$topic == input$topic_choice))
