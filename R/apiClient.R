@@ -2,6 +2,7 @@ source('./R/Functions.R')
 library(tidyverse)
 library(jsonlite)
 library(stringr)
+library(gtools)
 
 number_in_archive <- function() {
   if(file.exists(ARCHIVE_FILEPATH)) {
@@ -24,7 +25,9 @@ number_held_remotely <- function() {
 number_to_fetch <- function() {
   if( file.exists(ARCHIVE_FILEPATH)) {
     date        <- last_answer_date()
-    date_filter <- str_interp("min-answer.dateOfAnswer=${date}")
+    date_filter <- str_interp(
+      "_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%22${date}%22)"
+    )
     response    <- fromJSON(str_interp("${API_ENDPOINT}?${date_filter}&${MOJ_ONLY}&${MIN_DOWNLOAD}&_sort=dateOfAnswer"))
     response$result$totalResults
   } else {
@@ -36,7 +39,7 @@ get_constituencies <- function(raw_response)
   map_chr(1:nrow(raw_response), function(n) {
     constituency <- raw_response$tablingMemberConstituency$'_value'[n]
 
-    if(length(constituency) == 0 | is.na(constituency)) {
+    if(length(constituency) == 0 | invalid(constituency)) {
       'NA'
     } else {
       constituency
@@ -119,7 +122,7 @@ fetch_questions <- function(show_progress = FALSE) {
 
   if(file.exists(ARCHIVE_FILEPATH)) {
     date        <- last_answer_date()
-    date_param  <- str_interp("min-answer.dateOfAnswer=${date}")
+    date_param  <- str_interp("_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%22${date}%22)")
     base_params <- str_interp("${date_param}&${MOJ_ONLY}&${MAX_DOWNLOAD}")
   } else {
     file.create(ARCHIVE_FILEPATH)

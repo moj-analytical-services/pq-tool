@@ -8,7 +8,7 @@ library(stringr)
 
 expected_endpoint   <- "http://lda.data.parliament.uk/answeredquestions"
 answering_body      <- "AnsweringBody=Ministry+of+Justice"
-date_filter         <- "min-answer.dateOfAnswer=2017-03-23"
+date_filter         <- "_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%222017-03-23%22)"
 
 dummy_pqs_api_response <- readRDS(file.path(SHINY_ROOT, 'tests/testthat/examples/api-responses', 'response-full.rds'))
 
