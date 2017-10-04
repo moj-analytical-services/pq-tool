@@ -10,12 +10,18 @@ sysDetails  <- remDr$getStatus()
 browser     <- remDr$sessionInfo$browserName
 appURL      <- "http://127.0.0.1:8888"
 
+if(TRAVIS == TRUE) {
+  wait_for_page <- 5
+} else {
+  wait_for_page <- 2
+}
+
 test_that('The whole tour works as expected', {
   # Tour starts successfully
   remDr$navigate(appURL)
   start_tour_button <- remDr$findElement("css selector", "#tutorial_button")
   start_tour_button$clickElement()
-  Sys.sleep(2)
+  Sys.sleep(wait_for_page)
   tour_guide <- remDr$findElement("css selector", ".introjs-tooltip")
   expect_equal(length(tour_guide), 1)
 
@@ -26,7 +32,7 @@ test_that('The whole tour works as expected', {
   
   # Can continue to step 2 without user input
   next_button$clickElement()
-  Sys.sleep(2)
+  Sys.sleep(wait_for_page)
   actual_step_number  = step_number$getElementText()[[1]]
   expeced_step_number = '1'
   expect_equal(actual_step_number, expeced_step_number)
@@ -36,7 +42,7 @@ test_that('The whole tour works as expected', {
 
   # Proceeds to date range
   next_button$clickElement()
-  Sys.sleep(2)
+  Sys.sleep(wait_for_page)
   actual_step_number  = step_number$getElementText()[[1]]
   expeced_step_number = '2'
   expect_equal(actual_step_number, expeced_step_number)
@@ -46,7 +52,7 @@ test_that('The whole tour works as expected', {
 
   # Proceeds to table
   next_button$clickElement()
-  Sys.sleep(2)
+  Sys.sleep(wait_for_page)
   actual_step_number  = step_number$getElementText()[[1]]
   expeced_step_number = '3'
   expect_equal(actual_step_number, expeced_step_number)
@@ -56,7 +62,7 @@ test_that('The whole tour works as expected', {
 
   # Forces row selection then proceeds to plot
   next_button$clickElement()
-  Sys.sleep(2)
+  Sys.sleep(wait_for_page)
   actual_step_number  = step_number$getElementText()[[1]]
   expeced_step_number = '3'
   expect_equal(actual_step_number, expeced_step_number)
@@ -66,7 +72,7 @@ test_that('The whole tour works as expected', {
   row = remDr$findElement("css selector", ".odd")
   row$clickElement()
   next_button$clickElement()
-  Sys.sleep(2)
+  Sys.sleep(wait_for_page)
   actual_step_number  = step_number$getElementText()[[1]]
   expeced_step_number = '4'
   expect_equal(actual_step_number, expeced_step_number)
@@ -76,7 +82,7 @@ test_that('The whole tour works as expected', {
 
   # Proceeds to plot explanation
   next_button$clickElement()
-  Sys.sleep(2)
+  Sys.sleep(wait_for_page)
   actual_step_number  = step_number$getElementText()[[1]]
   expeced_step_number = '5'
   expect_equal(actual_step_number, expeced_step_number)
@@ -88,7 +94,7 @@ test_that('The whole tour works as expected', {
     # These tests pass locally but not on Travis
     # Forces point selection by checking selected rows then proceeds back to table
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '5'
     expect_equal(actual_step_number, expeced_step_number)
@@ -99,7 +105,7 @@ test_that('The whole tour works as expected', {
     row$setElementAttribute("class", "selected")
 
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '6'
     expect_equal(actual_step_number, expeced_step_number)
@@ -109,7 +115,7 @@ test_that('The whole tour works as expected', {
 
     # Encourages interaction with application
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '7'
     expect_equal(actual_step_number, expeced_step_number)
@@ -123,7 +129,7 @@ test_that('The whole tour works as expected', {
     # Proceed to wordcloud by clicking on 'See all questions by...'
     all_questions_button = remDr$findElement("css selector", ".btn-info")
     all_questions_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '8'
     expect_equal(actual_step_number, expeced_step_number)
@@ -133,7 +139,7 @@ test_that('The whole tour works as expected', {
 
     # Proceed to member plot
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '9'
     expect_equal(actual_step_number, expeced_step_number)
@@ -143,7 +149,7 @@ test_that('The whole tour works as expected', {
 
     # Proceed to member table
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '10'
     expect_equal(actual_step_number, expeced_step_number)
@@ -153,7 +159,7 @@ test_that('The whole tour works as expected', {
 
     # Force row selection
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '10'
     expect_equal(actual_step_number, expeced_step_number)
@@ -166,7 +172,7 @@ test_that('The whole tour works as expected', {
     row  = rows[[length(rows)]]
     row$clickElement()
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '11'
     expect_equal(actual_step_number, expeced_step_number)
@@ -178,7 +184,7 @@ test_that('The whole tour works as expected', {
     controls = remDr$findElements("css selector", ".btn-info")
     back_to_search_button = controls[[3]]
     back_to_search_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '12'
     expect_equal(actual_step_number, expeced_step_number)
@@ -190,7 +196,7 @@ test_that('The whole tour works as expected', {
     controls = remDr$findElements("css selector", ".btn-info")
     back_to_search_button = controls[[2]]
     back_to_search_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '13'
     expect_equal(actual_step_number, expeced_step_number)
@@ -200,7 +206,7 @@ test_that('The whole tour works as expected', {
 
     # Proceed to topic plot
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '14'
     expect_equal(actual_step_number, expeced_step_number)
@@ -210,7 +216,7 @@ test_that('The whole tour works as expected', {
 
     # Proceed to topic table
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '15'
     expect_equal(actual_step_number, expeced_step_number)
@@ -220,7 +226,7 @@ test_that('The whole tour works as expected', {
 
     # Forced to click on a row
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '15'
     expect_equal(actual_step_number, expeced_step_number)
@@ -233,7 +239,7 @@ test_that('The whole tour works as expected', {
     row  = rows[[5]]
     row$clickElement()
     next_button$clickElement()
-    Sys.sleep(2)
+    Sys.sleep(wait_for_page)
     actual_step_number  = step_number$getElementText()[[1]]
     expeced_step_number = '16'
     expect_equal(actual_step_number, expeced_step_number)
