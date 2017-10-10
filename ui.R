@@ -19,6 +19,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                     introjsUI(),
                     tags$head(
                       includeScript("google-analytics.js"),
+                      includeScript("ie.txt"),
                       tags$link(rel = "stylesheet", type = "text/css", href = "pq.css")
                     ),
                     tags$body(onload = 'set_path()', onmousemove = "get_point_locations(event)"),
