@@ -2,17 +2,6 @@ source(file = "global.R")
 ############### Server
 
 function(input, output, session) {
-
-  #reactive({
-   # if (input$isIE == 1) {
-    #  showModal(
-     #   modalDialog(title = "Internet Explorer",
-      #              "Please use Mozilla Firefox or Google Chrome.
-       #             The tool does not work in Internet Explorer.",
-        #            easyClose = FALSE)
-    #  )
-   # }
-  #})
   
   ### Similarity Pane
   returnNearestMatches <- reactive({

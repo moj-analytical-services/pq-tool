@@ -1,5 +1,3 @@
-window.onload = CheckIE
-
 function CheckIE()
 {
 	var Browser;
@@ -8,5 +6,10 @@ function CheckIE()
     {
         
     }
-    else alert("Welcome! Just a quick reminder that I cannot be run in Internet Explorer, try Mozille Firefox or Google Chrome instead.")
+    else
+    {
+    	window.alert("Welcome! Just a quick reminder that I cannot be run in Internet Explorer, try Mozilla Firefox or Google Chrome instead.")
+    }
 }
+
+window.onload = CheckIE()
