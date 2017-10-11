@@ -2,8 +2,7 @@ source(file = "global.R")
 ############### Server
 
 function(input, output, session) {
-
-
+  
   ### Similarity Pane
   returnNearestMatches <- reactive({
     space <- search.space
