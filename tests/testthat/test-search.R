@@ -13,10 +13,10 @@ appURL      <- "http://127.0.0.1:8888"
 test_that("entering search terms returns 10 questions per page", {
   remDr$setImplicitWaitTimeout(10000)
   remDr$navigate(appURL)
-  searchBox  <- remDr$findElement("css selector", "#question")
-  query      <- "prison joint enterprise cost"
-  searchBox$sendKeysToElement(list(query))
-  Sys.sleep(2)
+  remDr$executeScript(
+    "question = $('#question');question.val('Prison officers');Shiny.onInputChange('question', 'Prison officers')"
+  )
+  Sys.sleep(5)
   oddResultsRows  <- length(remDr$findElements("css selector", "#similarity_table .odd"))
   evenResultsRows <- length(remDr$findElements("css selector", "#similarity_table .even"))
   totalRowCount   <- oddResultsRows + evenResultsRows

@@ -198,12 +198,12 @@ Hash: 2c7c47ccb40d01c7b214c8eff818108d
 Package: debugme
 Source: github
 Version: 1.0.2
-Hash: d4fca15ddbb37d360d48ee3eef6c0636
+Hash: 70ee2cb4dad7adaa0fbea7c85f437184
 Requires: crayon
 GithubRepo: debugme
 GithubUsername: gaborcsardi
 GithubRef: master
-GithubSha1: df8295a75f8e26bec90386beb1c82b529427029f
+GithubSha1: e65ce04de7505f4244095db1b9944a3fa2d38532
 
 Package: desc
 Source: CRAN
@@ -278,6 +278,11 @@ Package: gtable
 Source: CRAN
 Version: 0.2.0
 Hash: cd78381a9d3fea966ac39bd0daaf5554
+
+Package: gtools
+Source: CRAN
+Version: 3.5.0
+Hash: 471b2e2452dfb30fdc1dd6f1b567925a
 
 Package: haven
 Source: CRAN
@@ -610,8 +615,8 @@ Requires: Rcpp, assertthat
 
 Package: shiny
 Source: CRAN
-Version: 1.0.3
-Hash: f133585c72ea31592f663e68c6ff0b3e
+Version: 1.0.5
+Hash: 4d47532a807122bfd6bc3818310f9d2e
 Requires: R6, digest, htmltools, httpuv, jsonlite, mime, sourcetools,
     xtable
 
