@@ -18,7 +18,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
            tabPanel("Search",
                     introjsUI(),
                     tags$head(
-                      tags$meta("http-equiv"="X-UA-compatible", content="IE=edge"),
+                      tags$meta("http-equiv" = "X-UA-compatible", content = "IE = edge"),
                       includeScript("google-analytics.js"),
                       tags$link(rel = "stylesheet", type = "text/css", href = "pq.css")
                     ),
