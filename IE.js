@@ -8,7 +8,7 @@ function CheckIE()
     }
     else
     {
-    	window.alert("Welcome! Just a quick reminder that I cannot be run in Internet Explorer, try Mozilla Firefox or Google Chrome instead.")
+    	window.alert("It looks like you're using Internet Explorer! The tool will only work in Mozilla Firefox or Google Chrome.")
     }
 }
 
