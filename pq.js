@@ -292,7 +292,7 @@ function mp_finder(mp){
     setTimeout(function(){ //timeout to give radio button click enough time to execute
         $("#person_choice").append("<option value='" + mp + "'>" + mp + "</option>"); //append option to person dropdown (the mp you want)
         $("#person_choice").val(mp).change(); //change to new option
-        document.getElementsByClassName("item")[1].innerHTML = mp; //change text in person dropdown
+        document.getElementsByClassName("item")[2].innerHTML = mp; //change text in person dropdown
         return; }, 500);
 }
 
@@ -301,7 +301,7 @@ function topic_finder(topic){
     topic_tab.click(); //click on link (takes us to topic tab)
     $("#topic_choice").append("<option value='" + topic + "'>" + topic + "</option>"); //append option to topic dropdown (the topic you want)
     $("#topic_choice").val(""+topic).change(); //change to new option
-    document.getElementsByClassName("item")[0].innerHTML = topic; //change text in topic dropdown
+    document.getElementsByClassName("item")[1].innerHTML = topic; //change text in topic dropdown
 }
 
 function back_to_search(){
