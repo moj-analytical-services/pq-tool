@@ -167,4 +167,15 @@ git remote add staging git@github.com:moj-analytical-services/pq-tool-staging.gi
 ```
 git push staging branch-to-test
 ```
+## Deploying for External access
 
+A seperate repo (pq-tool-external) has been created to allow access outside of the MoJ to selected people - usually from other government departments.
+
+### To add this as a remote repo
+```
+git remote add staging git@github.com:moj-analytical-services/pq-tool-external.git
+```
+
+### Then you can push to that repo (and deploy from the Jenkins console using the pq-tool-external job)
+```
+git push external branch-to-deploy
