@@ -167,7 +167,7 @@ git remote add staging git@github.com:moj-analytical-services/pq-tool-staging.gi
 ```
 git push staging branch-to-test
 ```
-## Deploying for External access
+## Deploying for external access
 
 A seperate repo (pq-tool-external) has been created to allow access outside of the MoJ to selected people - usually from other government departments.
 
