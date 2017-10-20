@@ -176,6 +176,6 @@ A seperate repo (pq-tool-external) has been created to allow access outside of t
 git remote add staging git@github.com:moj-analytical-services/pq-tool-external.git
 ```
 
-### Then you can push to that repo (and deploy from the Jenkins console using the pq-tool-external job)
+### Then you can push to that repo (and deploy from the Jenkins console using the pq-tool-external job - here you can also give a list of email addresses for the people you wish to give access)
 ```
 git push external branch-to-deploy
