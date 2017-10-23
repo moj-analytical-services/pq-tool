@@ -29,7 +29,9 @@ JUSTICE_STOP_WORDS <- c(
   "discussions",
   "taken", "recent",
   "cooperation",
-  "matters"
+  "matters",
+  "provision",
+  "provisions"
 )
 source("packrat/init.R")
 #### -- End Packrat Autoloader -- ####
