@@ -9,7 +9,7 @@ library(readr)
 
 
 api_answering_body <- function(answering){
-  answering_bodies_lookup <- data.table(read_csv("./Data/answering_body_lookup.csv"))
+  answering_bodies_lookup <- data.table(read_tsv("./Data/answering_body_lookup.tsv"))
   body <- answering_bodies_lookup$Name[answering_bodies_lookup$Code == answering]
   body <- gsub(" ","+",body)
   body <- paste0("AnsweringBody=", body)
@@ -129,7 +129,7 @@ fetch_questions <- function(answering_body, show_progress = FALSE) {
     print(str_interp("Fetching ${number_to_fetch} questions"))
   }
 
-  iterations <- ceiling(number_to_fetch / MAX_DOWNLOAD)
+  iterations <- ceiling(number_to_fetch / 500)
 
   if(iterations == 0) {
     stop("There are no new questions to fetch")

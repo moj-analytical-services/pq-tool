@@ -18,7 +18,7 @@ library(scales)
 library(readr)
 library(rintrojs)
 
-answering_bodies_lookup <- read_csv("./Data/answering_body_lookup.csv")
+answering_bodies_lookup <- read_tsv("./Data/answering_body_lookup.tsv")
 
 
 for(code in answering_bodies_lookup$Code){
