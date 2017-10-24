@@ -169,7 +169,8 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                       fluidRow(
                         column(4, 
                                introBox(
-                               plotOutput("wordcloud"),
+                               plotOutput("wordcloud",
+                                          width = "auto"),
                                data.step = 13,
                                data.position = "right",
                                data.intro = "This wordcloud shows the words that are most important
@@ -229,7 +230,8 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                     fluidRow(
                       column(4, 
                              introBox(
-                             plotOutput("member_wordcloud"),
+                             plotOutput("member_wordcloud",
+                                        width = "auto"),
                              data.step = 8,
                              data.position = "right",
                              data.intro = "This wordcloud shows the words that are most important in the questions
