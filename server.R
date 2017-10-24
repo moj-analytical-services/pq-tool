@@ -378,7 +378,7 @@ function(input, output, session) {
 
   output$wordcloud <- renderPlot(
     wordcloud(words = wordcloud_df()$word, freq = wordcloud_df()$freq,
-              scale = c(4, 1), random.order = TRUE,
+              scale = c(4, 1), random.order = FALSE, rot.per = 0,
               min.freq = 0.1)
   )
 
@@ -541,7 +541,7 @@ function(input, output, session) {
 
   output$member_wordcloud <- renderPlot(
     wordcloud(words = member_wordcloud_df()$word, freq = member_wordcloud_df()$freq,
-              scale = c(4, 1), random.order = TRUE,
+              scale = c(4, 1), random.order = FALSE, rot.per = 0,
               min.freq = 0.1)
   )
 
