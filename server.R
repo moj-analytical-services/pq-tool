@@ -2,8 +2,6 @@ source(file = "global.R")
 ############### Server
 
 function(input, output, session) {
-<<<<<<< HEAD
-=======
   
   output$test <- renderDataTable(dfClus())
   
@@ -49,7 +47,6 @@ function(input, output, session) {
   # ------------------------------------------------------------------------- #
   #                            SIMILARITY TAB                                 #
   # ------------------------------------------------------------------------- #
->>>>>>> Feeding multiple datasets into shiny app (#153)
   
   output$date_input_ui <- renderUI({
     dateRangeInput(
@@ -306,10 +303,7 @@ function(input, output, session) {
                              "showBullets" = FALSE,
                              "keyboardNavigation" = TRUE))
   })
-<<<<<<< HEAD
 
-  ### Cluster Pane
-=======
   
   observeEvent(input$startButton, {
     introjs(
@@ -336,7 +330,6 @@ function(input, output, session) {
   # ------------------------------------------------------------------------- #
   #                              TOPIC TAB                                    #
   # ------------------------------------------------------------------------- #
->>>>>>> Feeding multiple datasets into shiny app (#153)
   
   observe({
     updateSelectInput(session, "topic_choice",
@@ -362,24 +355,12 @@ function(input, output, session) {
   keyword <- reactive({
     subset(data(), (data()$Topic == input$topic_choice))$Topic_Keywords[1]
     })
-<<<<<<< HEAD
-  
-  minDate <- min(tables_data$Date)
-  maxDate <- max(tables_data$Date + 14)
-  
-  wordcloud_df <- function(){
-    df <- subset(topic_data,
-                 (topic_data$topic == input$topic_choice))
-  }
-  
-=======
 
   wordcloud_df <- reactive({
     df <- subset(topic_data(),
                  (topic_data()$topic == input$topic_choice))
   })
 
->>>>>>> Feeding multiple datasets into shiny app (#153)
   observeEvent(input$explanation_button, {
     showModal(modalDialog(
       title = "What do the topics mean?",
@@ -399,7 +380,7 @@ function(input, output, session) {
 
   output$wordcloud <- renderPlot(
     wordcloud(words = wordcloud_df()$word, freq = wordcloud_df()$freq,
-              scale = c(4, 1), random.order = FALSE, rot.per = 0,,
+              scale = c(4, 1), random.order = FALSE, rot.per = 0,
               min.freq = 0.1)
   )
 
@@ -409,20 +390,6 @@ function(input, output, session) {
 
 
   output$topic_plot <- renderPlot({
-<<<<<<< HEAD
-    # Plot is generated first so that it can be used to grab values for other layers
-    plot <- ggplot(data = NULL, aes(x = dfClus()$Date)) +
-              geom_histogram(binwidth = 14, fill = "#67a9cf")
-    # Now add the other layers
-    plot + 
-      xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_x_date(
-        limits = c(minDate, maxDate),
-        labels = date_format("%b %y"),
-        date_breaks = "6 months",
-        date_minor_breaks = "1 month"
-      ) +
-=======
     p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
       geom_histogram(binwidth = 14, fill = "#67a9cf")
     maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #this is a hack from stackoverflow to get us the max value of the histogram
@@ -437,30 +404,9 @@ function(input, output, session) {
                    labels = date_format("%b %y"),
                    date_breaks = "6 months",
                    date_minor_breaks = "1 month") +
->>>>>>> Feeding multiple datasets into shiny app (#153)
       scale_y_continuous(
         breaks = seq(0, yMax, yBreaks),
         expand = c(0,0),
-<<<<<<< HEAD
-        limits = c(0, yMax(plot))
-      ) +
-      labs(
-        title = paste0("Topic ", input$topic_choice, ": ", keyword()),
-        subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
-        x = "Question Date",
-        y = "Count"
-      ) + 
-      theme(
-        panel.background = element_rect(fill = "white", colour = "grey"),
-        panel.grid.minor = element_line(colour = "#efefef"),
-        panel.grid.major = element_line(colour = "#efefef"),
-        axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
-        axis.text = element_text(family = "Arial", size = 14),
-        axis.line = element_line(colour = "grey"),
-        plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
-        plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
-        #axis.ticks.x = element_line(size = 0)
-=======
         limits = c(0, yMax)) +
       labs(title = paste0("Topic ", input$topic_choice, ": ", keyword()),
            subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
@@ -476,7 +422,6 @@ function(input, output, session) {
             plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
             plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
             #axis.ticks.x = element_line(size = 0)
->>>>>>> Feeding multiple datasets into shiny app (#153)
       )
   })
 
@@ -586,31 +531,6 @@ function(input, output, session) {
                    'Topic_Keywords'
                  ))
     df <- df[order(-as.numeric(df$Date)),]
-<<<<<<< HEAD
-    cols <- c(
-      'Question_Text',
-      'Answer_Text',
-      'Question_MP',
-      'MP_Constituency',
-      'MP_Party',
-      'Date',
-      'Answer_MP',
-      'Answer_Date',
-      'Topic',
-      'Topic_Keywords'
-    )
-    df[cols]
-  }
-  
-  minDate <- min(tables_data$Date)
-  maxDate <- max(tables_data$Date + 14)
-  
-  member_wordcloud_df <- function(){
-    df <- subset(member_data,
-                 (member_data$member == input$person_choice))
-  }
-  
-=======
   })
 
   minDate <- reactive(min(data()$Date))
@@ -620,8 +540,6 @@ function(input, output, session) {
     df <- subset(member_data(),
                  (member_data()$member == input$person_choice))
   })
-
->>>>>>> Feeding multiple datasets into shiny app (#153)
   output$member_wordcloud <- renderPlot(
     wordcloud(words = member_wordcloud_df()$word, freq = member_wordcloud_df()$freq,
               scale = c(4, 1), random.order = FALSE, rot.per = 0,
