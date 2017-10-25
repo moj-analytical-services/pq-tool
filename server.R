@@ -291,9 +291,7 @@ function(input, output, session) {
       the topic is about. <br><br>
       Each of these topics have also been assigned a number as a unique identifier. To find  
       out about your chosen topic, go to the 'Search' tab and, once you have entered your search 
-      terms, take one of the topic numbers listed in the table and put it into the dropdown box on this 
-      tab. Or if that sounds like too much work, just click the question you are focusing on followed by
-      the 'View Topic' button."),
+      terms, just click the question you are focusing on followed by the 'View Topic' button."),
       easyClose = TRUE,
       footer = NULL
     ))
