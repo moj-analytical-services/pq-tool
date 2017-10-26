@@ -17,7 +17,7 @@ api_answering_body <- function(answering){
 }
 
 archive_filepath  <- function(answering){
-  return(file.path(SHINY_ROOT, 'Data', answering, 'archived_pqs.csv'))
+  return(file.path(SHINY_ROOT, 'Data', answering, paste0(answering, '_archived_pqs.csv')))
 }
 
 number_in_archive <- function(filepath) {
