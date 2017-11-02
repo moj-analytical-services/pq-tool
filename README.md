@@ -10,6 +10,8 @@ The tool is written in R and is based on a technique called Latent Semantic Anal
 
 To access the deployed tool within the Ministry of Justice go to https://pq-tool.apps.alpha.mojanalytics.xyz/. If you are not from the MoJ, you can fork and run locally.
 
+If you have been given access to our external tool, the corresponding code is on the GTrebase branch of this repo.
+
 ## Some variables are defined in .Rprofile
 
 Variables in block capitals are defined in .Rprofile because they're used in serveral different R files.  This should load automatically whenever you start a new R session from the comand line.  If you make changes to .Rprofile, remember that you will either need to open a new R session to load the changes or do `source('./Rprofile')`
