@@ -127,14 +127,14 @@ test_that("returns expected first name", {
 context("testConstituencies")
 
 test_that("reports true in cases where constituencies match", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   expected <- rep(TRUE, nrow(data))
   actual <- sapply(1:nrow(data), function(x) testConstituencies(data[x,]))
   expect_equal(actual, expected)
 })
 
 test_that("reports false in cases where constituencies don't match", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   data[1,]$MP_Constituency.remote = "Zenda"
   data[2,]$MP_Constituency.local = "Zembla"
   expected <- rep(FALSE, 2)
@@ -145,7 +145,7 @@ test_that("reports false in cases where constituencies don't match", {
 context("areRemoteAndLocalEqual")
 
 test_that("reports all equal when all are equal", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   expected <- sapply(1:nrow(data), function(x) rep(TRUE, 7))
   actual <- sapply(1:nrow(data), function(x) areRemoteAndLocalEqual(data[x,]))
   row.names(expected) <- row.names(actual)
@@ -153,7 +153,7 @@ test_that("reports all equal when all are equal", {
 })
 
 test_that("reports unequal when MP doesn't match", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   data[1,]$Question_MP.remote <- "Feargal Sharkey"
   data[2,]$Question_MP.local <- "Madonna"
   expected <- sapply(1:2, function(x) c(FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE))
@@ -163,7 +163,7 @@ test_that("reports unequal when MP doesn't match", {
 })
 
 test_that("reports unequal when Question date doesn't match", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   data[1,]$Question_Date.remote <- "25/12/45"
   data[2,]$Question_Date.local <- "11/11/18"
   expected <- sapply(1:2, function(x) c(TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE))
@@ -173,7 +173,7 @@ test_that("reports unequal when Question date doesn't match", {
 })
 
 test_that("reports unequal when Question text doesn't match", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   data[1,]$Question_Text.remote <- "Where are the Snowdens of yesteryear?"
   data[2,]$Question_Text.local <- "What is the sound of one hand clapping?"
   expected <- sapply(1:2, function(x) c(TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, TRUE))
@@ -183,7 +183,7 @@ test_that("reports unequal when Question text doesn't match", {
 })
 
 test_that("reports unequal when Answer MP doesn't match", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   data[1,]$Answer_MP.remote <- "Pablo Escobar"
   data[2,]$Answer_MP.local <- "Shakira"
   expected <- sapply(1:2, function(x) c(TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, TRUE))
@@ -193,7 +193,7 @@ test_that("reports unequal when Answer MP doesn't match", {
 })
 
 test_that("reports unequal when Answer test doesn't match", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   data[1,]$Answer_Text.remote <- "How many fingers am I holding up?"
   data[2,]$Answer_Text.local <- "What's that got to do with the price of fish?"
   expected <- sapply(1:2, function(x) c(TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE))
@@ -203,7 +203,7 @@ test_that("reports unequal when Answer test doesn't match", {
 })
 
 test_that("reports unequal when Constituency doesn't match", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   data[1,]$MP_Constituency.remote <- "Holby"
   data[2,]$MP_Constituency.remote <- "Denton"
   expected <- sapply(1:2, function(x) c(TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE))
@@ -213,7 +213,7 @@ test_that("reports unequal when Constituency doesn't match", {
 })
 
 test_that("reports unequal when Party doesn't match", {
-  data <- read.csv("./tests/testthat/examples/data/TestQsData.csv", stringsAsFactors = FALSE)
+  data <- read.csv("./examples/data/TestQsData.csv", stringsAsFactors = FALSE)
   data[1,]$Party.remote <- "Adder"
   data[2,]$Party.local <- "Keep Royalty White, Rat Catching And Safe Sewage Residents"
   expected <- sapply(1:2, function(x) c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE))
