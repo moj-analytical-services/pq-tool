@@ -14,11 +14,11 @@ To access the deployed tool within the Ministry of Justice go to https://pq-tool
 
 Variables in block capitals are defined in .Rprofile because they're used in serveral different R files.  This should load automatically whenever you start a new R session from the comand line.  If you make changes to .Rprofile, remember that you will either need to open a new R session to load the changes or do `source('./Rprofile')`
 
-##Updating the data
+## Updating the data
 
-###I just want to run the thing
+### I just want to run the thing
 
-####From the command line
+#### From the command line
 ```
 Rscript data_generators/getTheData.R
 Rscript data_generators/DataCreator.R -e prod
@@ -29,13 +29,13 @@ These two lines will create or update the following files:
 
 ### Generating and updating the archive of PQs
 
-####In the command line
+#### In the command line
 ```
 Rscript data_generators/getTheData.R
 ```
 This runs the file `data_generators/getTheData.R` which contains code to run the following with `show_progress = TRUE`.
 
-####In an R console
+#### In an R console
 ```
 source('./R/apiClient.R')
 # Without feedback
@@ -44,7 +44,7 @@ fetch_questions()
 fetch_questions(show_progress = TRUE)
 ```
 
-####What this code does
+#### What this code does
 
 - When the `fetch_questions()` function is called for the first time, and no archive exists, it will create `archived_pqs.csv` in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
 
@@ -52,7 +52,7 @@ fetch_questions(show_progress = TRUE)
 
 - Variables in BLOCK_CAPITALS are defined in `.Rprofile`
 
-####Checking you haven't missed any questions
+#### Checking you haven't missed any questions
 From the command line you can run 
 ```
 Rscript tests/TestQs.R
