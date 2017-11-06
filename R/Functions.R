@@ -11,8 +11,6 @@ library(stringr)
 
 #a function to clean a corpus of text, making sure of the encoding, removing punctuation, putting it
 #all in lower case, stripping white space, and removing stopwords.
-#If you update this you also need to update queryVec in global.R to be in line with any changes, so
-#that we are consistent in how we are treating search text and PQ text.
 
 cleanPQ <- function(PQ){
   PQ <- PQ %>% iconv(to = "utf-8", sub = "") %>%
@@ -323,4 +321,40 @@ urlName <- function(name){
   urlName
 }
 
+#Functions for TestQs
 
+#Functions - these are only used here and hence have not been put into the main functions.R file
+#firstly to make up for the fact that the NA constituencies for the Lords tend to be judged as not matching
+testConstituencies <- function(line) {
+  if (is.na(line$MP_Constituency.local)) {
+    if (line$MP_Constituency.remote == "NA" || is.na(line$MP_Constituency.remote)) {
+      return(TRUE)
+    }
+    else {
+      return(FALSE)
+    }
+  }
+  else return(identical(line$MP_Constituency.remote, line$MP_Constituency.local))
+}
+#this compares the remote and local versions of the same question
+areRemoteAndLocalEqual <- function(line){
+  equality <- rep(FALSE, 7)
+  equality[1] <- identical(line$Question_MP.remote, line$Question_MP.local)
+  equality[2] <- identical(line$Question_Date.remote, line$Question_Date.local)
+  equality[3] <- identical(line$Question_Text.remote, line$Question_Text.local)
+  equality[4] <- identical(line$Answer_MP.remote, line$Answer_MP.local)
+  #equality[5] <- identical(line$Answer_Date.remote, line$Answer_Date.local)
+  equality[5] <- identical(line$Answer_Text.remote, line$Answer_Text.local)
+  equality[6] <- testConstituencies(line)
+  identical(line$MP_Constituency.remote, line$MP_Constituency.local)
+  equality[7] <- identical(line$Party.remote, line$Party.local)
+  names(equality) <- c("MP",
+                       "Qdate",
+                       "Qtext",
+                       "AnswerMP",
+                       #           "Adate",
+                       "Atext",
+                       "Constituency",
+                       "Party")
+  return(equality)
+}

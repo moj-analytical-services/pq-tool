@@ -8,7 +8,7 @@ The tool allows the user to input a new question, or a key phrase, and produces 
 
 The tool is written in R and is based on a technique called Latent Semantic Analysis. For more information, or to provide any feedback/ideas please send an email to samuel.tazzyman@justice.gsi.gov.uk
 
-To access the deployed tool within the Ministry of Justice go to https://pq-tool.apps.alpha.mojanalytics.xyz/. If you are not from the MoJ, you can fork and run locally.
+To access the deployed tool within the Ministry of Justice go to https://pq-tool.apps.alpha.mojanalytics.xyz/. If you are not from the MoJ, you can fork and run locally. There is also an external-facing tool that contains questions from the MoJ and selected other departments. This is located at https://pq-tool-external.apps.alpha.mojanalytics.xyz/. Access to it is via approved email addresses: if you wish to have a look please email the above address. Alternatively use the `GTrebase` branch of this repo.
 
 If you have been given access to our external tool, the corresponding code is on the GTrebase branch of this repo.
 
@@ -16,32 +16,65 @@ If you have been given access to our external tool, the corresponding code is on
 
 Variables in block capitals are defined in .Rprofile because they're used in serveral different R files.  This should load automatically whenever you start a new R session from the comand line.  If you make changes to .Rprofile, remember that you will either need to open a new R session to load the changes or do `source('./Rprofile')`
 
-## Generating and updating the archive of PQs
-### In an R console
+## Updating the data
+
+### I just want to run the thing
+
+#### From the command line
+```
+Rscript data_generators/getTheData.R
+Rscript data_generators/DataCreator.R -e prod
+```
+These two lines will create or update the following files:
+`getTheData.R`: creates (or updates) `Data/archived_pqs.csv` (or updates it if it already exists)
+`DataCreator.R`: creates (or updates) `searchSpace.rda`, `MoJwrittenPQs.csv`, `topDozenWordsPerTopic.csv`, and `topDozenWordsPerMember.csv`.
+
+### Generating and updating the archive of PQs
+
+#### In the command line
+```
+Rscript data_generators/getTheData.R
+```
+This runs the file `data_generators/getTheData.R` which contains code to run the following with `show_progress = TRUE`.
+
+#### In an R console
 ```
 source('./R/apiClient.R')
 # Without feedback
 fetch_questions()
 # With feedback
-fetch_questions(show_progress=TRUE)
+fetch_questions(show_progress = TRUE)
 ```
 
-- When this function is called for the first time, and no archive exists, it will create archived_pqs.csv in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
+#### What this code does
 
-- When an archive already exists, the function will update archived_pqs.csv by appending newly answered questions (downloaded from the same endpoint).
+- When the `fetch_questions()` function is called for the first time, and no archive exists, it will create `archived_pqs.csv` in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
 
-- Variables in BLOCK_CAPITALS are defined in .Rprofile
+- When an archive already exists, the function will update `archived_pqs.csv` by appending newly answered questions (downloaded from the same endpoint).
+
+- Variables in BLOCK_CAPITALS are defined in `.Rprofile`
+
+#### Checking you haven't missed any questions
+From the command line you can run 
+```
+Rscript tests/TestQs.R
+```
+This will download the most recent 2000 questions and check that they are all in your `archived_pqs.csv` file. If you want a different number from 2000 you can define it using the argument `-n`, so for example to get 7000 instead, do
+```
+Rscript tests/TestQs.R -n 7000
+```
+If any the questions remotely downloaded fail to match up in every particular to a question in the archive (e.g. if any are missing from the archive or the archive has the data wrong) those questions will be put in the `Data/nonMatchingQuestions.csv` which will be generated for you.
 
 ## Generating the data
 There are three files that create the data, within the data_generators folder.
-1. MoJScraper.R
+1. `MoJScraper.R`
 Previously we scraped the parliament website to get our data, but now we use the API, so this file is no longer used, but is included for completeness.
-2. DataCreator.R
+2. `DataCreator.R`
 This does the work of getting and manipulating the data. See below for details of how to run it.
-3. MPClustering.R
+3. `MPClustering.R`
 This is a work in progress and is not yet used in the tool.
 
-## Running DataCreator.R
+## Running `DataCreator.R`
 ### This script will create four data files
 1. The search space.
 2. A new csv of questions with cluster assignments.
@@ -49,7 +82,6 @@ This is a work in progress and is not yet used in the tool.
 4. A new csv of the 12 most significant terms for each MP/Peer.
 
 ### Arguments
-
 Four arguments can be passed to the DataCreator.R script.  The environment flag `-e` can be used as a shortcut to set sensible values for input (`-i`), output (`-o`) and K (`-k`), for the two most common use cases:
 1. Quickly generating a small data set for testing purposes and avoid overwriting production data.
 2. Generating the full data set for use in production, overwriting previously generated production data
@@ -90,6 +122,7 @@ Input, output and K can also be set individually, but if environment is also set
 
 ### Examples
 1. Defaulting to `-e test`
+
     ```
     # From the command line
     Rscript ./data_generators/DataCreator.R
@@ -98,16 +131,18 @@ Input, output and K can also be set individually, but if environment is also set
     system("Rscript ./data_generators/DataCreator.R")    
     ```
 2. For production
+    
     ```
     # From the command line
     Rscript ./data_generators/DataCreator.R -e prod
-    
     # From an R console
     system("Rscript ./data_generators/DataCreator.R -e prod")
-
-    This takes about 11 minutes on a 2016 Macbook Pro.
     ```
+
+This takes about 11 minutes on a 2016 Macbook Pro.
+
 3. With specific args
+    
     ```
     # From the command line
     Rscript ./data_generators/DataCreator.R -i  Data/archived_pqs.csv -o Data -k 1000 -x 2000
