@@ -260,6 +260,9 @@ write.csv(topDozenWordsPerTopic, "topDozenWordsPerTopic.csv")
 #The information about the members
 write.csv(topDozenWordsPerMember, "topDozenWordsPerMember.csv")
 
+
+print(str_interp("${nrow(aPQ)} questions incorporated"))
+
 ##### APPENDIX #####
 
 #Here we see how many clusters is a good number for our data. We calculate the
