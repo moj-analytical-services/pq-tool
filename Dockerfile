@@ -2,6 +2,8 @@ FROM rocker/shiny:latest
 
 WORKDIR /srv/shiny-server
 
+RUN sed -i 's%deb.debian.org%mirror.bytemark.co.uk%' /etc/apt/sources.list
+
 # Cleanup shiny-server dir
 RUN rm -rf ./*
 
@@ -13,7 +15,7 @@ RUN apt-get update
 RUN apt-get install libxml2-dev --yes
 RUN apt-get install libssl-dev --yes
 RUN apt-get install libpng-dev --yes 
-RUN apt-get install libglu1-mesa-dev --yes --fix-missing
+RUN apt-get install libglu1-mesa-dev --yes
 
 # Add Packrat files individually so that next install command
 # can be cached as an image layer separate from application code
