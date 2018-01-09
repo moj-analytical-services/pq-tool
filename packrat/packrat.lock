@@ -175,6 +175,13 @@ Version: 1.1.0
 Hash: 3375b0f6df680aa0708ec0dfe0334c4d
 Requires: DBI, R6, assertthat, dplyr, glue, purrr, rlang, tibble
 
+Package: devtools
+Source: CRAN
+Version: 1.13.4
+Hash: 80a77b22f641002c7ce0343baeaee300
+Requires: digest, git2r, httr, jsonlite, memoise, rstudioapi, whisker,
+    withr
+
 Package: dichromat
 Source: CRAN
 Version: 2.0-0
@@ -215,6 +222,11 @@ Version: 2.2.1
 Hash: 46e5cb78836848aa44655e577433f54b
 Requires: MASS, digest, gtable, lazyeval, plyr, reshape2, scales,
     tibble
+
+Package: git2r
+Source: CRAN
+Version: 0.20.0
+Hash: 11747e2b4c91ecd101150d7f44027670
 
 Package: glue
 Source: CRAN
@@ -326,6 +338,12 @@ Source: CRAN
 Version: 0.8
 Hash: 045d7c594d503b41f1c28946d076c8aa
 Requires: mime
+
+Package: memoise
+Source: CRAN
+Version: 1.1.0
+Hash: 410fcd334bc626db100237cc1370f2e9
+Requires: digest
 
 Package: mime
 Source: CRAN
