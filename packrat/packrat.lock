@@ -150,8 +150,8 @@ Hash: b9aea3450a31bce297fb0a45321002ab
 
 Package: crayon
 Source: CRAN
-Version: 1.3.2
-Hash: 576a9d297a567d6a5ebd164ca5221590
+Version: 1.3.4
+Hash: ff2840dd9b0d563fc80377a5a45510cd
 
 Package: crosstalk
 Source: CRAN
@@ -182,8 +182,8 @@ Hash: 08eed0c80510af29bb15f840ccfe37ce
 
 Package: digest
 Source: CRAN
-Version: 0.6.12
-Hash: e53fb8c58673df868183697e39a6a4d6
+Version: 0.6.13
+Hash: cfce0bc7ed5ba0cdc47182698fae1d24
 
 Package: dplyr
 Source: CRAN
@@ -269,7 +269,7 @@ Package: httptest
 Source: CRAN
 Version: 2.3.4
 Hash: 92dc1a36355e3a53f3f1f966ce968ab2
-Requires: digest, jsonlite, httr, testthat
+Requires: digest, httr, jsonlite, testthat
 
 Package: httpuv
 Source: CRAN
@@ -351,8 +351,8 @@ Requires: colorspace
 
 Package: openssl
 Source: CRAN
-Version: 0.9.6
-Hash: 5f4711e142a44655dfea4d64fcf2f641
+Version: 0.9.9
+Hash: 3858537ac10388a5db1687450908f257
 
 Package: optparse
 Source: CRAN
@@ -527,7 +527,7 @@ Package: testthat
 Source: CRAN
 Version: 2.0.0
 Hash: 537114b476376c5773bf3c557f5bbd19
-Requires: R6, crayon, digest, magrittr, praise, rlang, withr, cli
+Requires: R6, cli, crayon, digest, magrittr, praise, rlang, withr
 
 Package: tibble
 Source: CRAN
