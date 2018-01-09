@@ -18,3 +18,4 @@ Data/medianpercluster.rda
 Data/silhouettewidths.rda
 Data/archived_pqs.csv
 *.pem
+.Rproj.user
