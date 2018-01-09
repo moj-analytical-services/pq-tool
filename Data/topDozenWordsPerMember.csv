@@ -2396,7 +2396,7 @@
 "2395","Evans, Chris","reoffending",0.742218421537836
 "2396","Evans, Chris","proposals",0.682259716287211
 "2397","Evans, Chris","rate",0.666546328163673
-"2398","Evans, Chris","made",0.655570989645139
+"2398","Evans, Chris","made",0.665029851930788
 "2399","Evans, Chris","adequacy",0.653646623956378
 "2400","Evans, Chris","sourcing",0.558839858863501
 "2401","Evans, Graham","complex",0.398265165970896
@@ -3791,7 +3791,7 @@
 "3790","Kinnock, Stephen","proposed",0.817332114041104
 "3791","Kinnock, Stephen","parc",0.792725751226282
 "3792","Kinnock, Stephen","new",0.678251775885301
-"3793","Kirby, Simon","will",2.57879611335246
+"3793","Kirby, Simon","will",2.62227250219421
 "3794","Kirby, Simon","energy",1.77922738204164
 "3795","Kirby, Simon","departmental",1.37708191283205
 "3796","Kirby, Simon","replies",1.24029480147842
@@ -3800,9 +3800,9 @@
 "3799","Kirby, Simon","member",0.931867965424836
 "3800","Kirby, Simon","online",0.875152777725279
 "3801","Kirby, Simon","cost",0.839512192901281
-"3802","Kirby, Simon","email",0.806083970511795
-"3803","Kirby, Simon","initiative",0.804863768067958
-"3804","Kirby, Simon","disability",0.744965467662866
+"3802","Kirby, Simon","water",0.83852953976505
+"3803","Kirby, Simon","email",0.806083970511795
+"3804","Kirby, Simon","initiative",0.804863768067958
 "3805","Knight, Julian","landowner",0.800290957096146
 "3806","Knight, Julian","evict",0.680341551899758
 "3807","Knight, Julian","potential",0.573718882783911
@@ -3816,17 +3816,17 @@
 "3815","Knight, Julian","proposals",0.331379180929036
 "3816","Knight, Julian","order",0.328170550017149
 "3817","Knight, Sir Greg","illiteracy",1.44112221395301
-"3818","Knight, Sir Greg","made",0.870787167856682
-"3819","Knight, Sir Greg","usage",0.849143912871177
-"3820","Knight, Sir Greg","whiplash",0.775364977397688
+"3818","Knight, Sir Greg","made",0.904299941926528
+"3819","Knight, Sir Greg","whiplash",0.775364977397688
+"3820","Knight, Sir Greg","illegal",0.747425231148443
 "3821","Knight, Sir Greg","levels",0.681325384544446
 "3822","Knight, Sir Greg","progress",0.660335915784258
-"3823","Knight, Sir Greg","illegal",0.653442637248892
+"3823","Knight, Sir Greg","prosecuted",0.595348914609577
 "3824","Knight, Sir Greg","pedal",0.559265320329642
-"3825","Knight, Sir Greg","prosecuted",0.538759323091339
-"3826","Knight, Sir Greg","bailiffs",0.506306481149996
-"3827","Knight, Sir Greg","ago",0.499565231355366
-"3828","Knight, Sir Greg","methods",0.483180445870341
+"3825","Knight, Sir Greg","drones",0.54239288052332
+"3826","Knight, Sir Greg","12",0.519421771265017
+"3827","Knight, Sir Greg","bailiffs",0.506306481149996
+"3828","Knight, Sir Greg","ago",0.499565231355366
 "3829","Kwarteng, Kwasi","prenuptial",0.587539057058067
 "3830","Kwarteng, Kwasi","binding",0.566285737487772
 "3831","Kwarteng, Kwasi","intimidating",0.413494879722055
@@ -6551,7 +6551,7 @@
 "6550","Rees-Mogg, Jacob","european",0.303036444574487
 "6551","Rees-Mogg, Jacob","16",0.295141157681759
 "6552","Rees-Mogg, Jacob","effectiveness",0.291853214141769
-"6553","Rees, Christina","court",5.5295558210849
+"6553","Rees, Christina","court",5.55881115156519
 "6554","Rees, Christina","claim",4.51740794719377
 "6555","Rees, Christina","injuries",3.45777825980647
 "6556","Rees, Christina","time",3.20635515977055
@@ -6562,7 +6562,7 @@
 "6561","Rees, Christina","banning",2.74651956240953
 "6562","Rees, Christina","whiplash",2.6684905465514
 "6563","Rees, Christina","proposal",2.65776658672726
-"6564","Rees, Christina","will",2.59094373751869
+"6564","Rees, Christina","will",2.61839101111636
 "6565","Reevell, Simon","jeffrey",0.606928726839487
 "6566","Reevell, Simon","advocacy",0.513973369573356
 "6567","Reevell, Simon","future",0.323018690215131
@@ -6863,16 +6863,16 @@
 "6862","Shah, Naz","issued",0.35853584148594
 "6863","Shah, Naz","orders",0.338442963137237
 "6864","Shah, Naz","belief",0.321144468933544
-"6865","Shannon, Jim","five",2.9281509577058
+"6865","Shannon, Jim","five",2.98991264523321
 "6866","Shannon, Jim","will",2.16322544410253
 "6867","Shannon, Jim","convicted",2.15063908890774
-"6868","Shannon, Jim","years",2.03899879460111
+"6868","Shannon, Jim","years",2.06987266039597
 "6869","Shannon, Jim","people",1.84335362868926
 "6870","Shannon, Jim","sentence",1.66345450270881
 "6871","Shannon, Jim","offence",1.60109292185286
 "6872","Shannon, Jim","insolvency",1.5647996964321
 "6873","Shannon, Jim","assaults",1.5322053909879
-"6874","Shannon, Jim","prison",1.41288580093666
+"6874","Shannon, Jim","prison",1.44172554151321
 "6875","Shannon, Jim","drug",1.32402838731832
 "6876","Shannon, Jim","litigation",1.29725410728311
 "6877","Shapps, Grant","television",0.9439701408321
@@ -7611,7 +7611,7 @@
 "7610","Tyrie, Andrew","combined",2.15140381015557
 "7611","Tyrie, Andrew","freehold",1.6182078817023
 "7612","Tyrie, Andrew","centre",1.28978393516235
-"7613","Tyrie, Andrew","court",1.15651435418971
+"7613","Tyrie, Andrew","court",1.15928342802535
 "7614","Tyrie, Andrew","value",0.70277601165081
 "7615","Tyrie, Andrew","moved",0.702474972407202
 "7616","Tyrie, Andrew","property",0.691438646374412
