@@ -1,7 +1,7 @@
 dist: trusty
 language: r
 r:
-  - '3.4.0'
+  - '3.3.3'
 latex: false
 warnings_are_errors: false
 sudo: false
