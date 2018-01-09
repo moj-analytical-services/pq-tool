@@ -175,6 +175,12 @@ Version: 1.1.0
 Hash: 3375b0f6df680aa0708ec0dfe0334c4d
 Requires: DBI, R6, assertthat, dplyr, glue, purrr, rlang, tibble
 
+Package: desc
+Source: CRAN
+Version: 1.1.1
+Hash: 2f99e95211c4ba6efcf5538d096587fc
+Requires: R6, assertthat, crayon, rprojroot
+
 Package: devtools
 Source: CRAN
 Version: 1.13.4
@@ -470,6 +476,13 @@ Version: 1.8
 Hash: 2a7842e3cee62a79dd737d17e9e9d86b
 Requires: base64enc, evaluate, htmltools, jsonlite, knitr, mime,
     rprojroot, stringr, yaml
+
+Package: roxygen2
+Source: CRAN
+Version: 6.0.1
+Hash: 5ec390c33d6b969ceea50bf7456456f8
+Requires: R6, Rcpp, brew, commonmark, desc, digest, stringi, stringr,
+    xml2
 
 Package: rprojroot
 Source: CRAN
