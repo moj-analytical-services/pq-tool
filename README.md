@@ -48,9 +48,9 @@ Notes:
 
 - See answering_body_lookup.tsv for the correct acronym
 
-- When this function is called for the first time, and no archive exists, it will create archived_pqs.csv in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
+- When this function is called for the first time, and no archive exists, it will create ACRONYM_archived_pqs.csv in the Data directory and download all answered PQs, that were posed to the specific department, from http://lda.data.parliament.uk/answeredquestions. The MoJ questions take about 8.5 minutes on a 2016 MacBook Pro.
 
-- When an archive already exists, the function will update archived_pqs.csv by appending newly answered questions (downloaded from the same endpoint).
+- When an archive already exists, the function will update ACRONYM_archived_pqs.csv by appending newly answered questions (downloaded from the same endpoint).
 
 ## Generating the data
 There are three files that create the data, within the data_generators folder.
