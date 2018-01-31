@@ -3,39 +3,97 @@ source(file = "global.R")
 
 function(input, output, session) {
   
-  ### Similarity Pane
+  output$test <- renderDataTable(dfClus())
+  
+  # ------------------------------------------------------------------------- #
+  #                                   DATA                                    #
+  # ------------------------------------------------------------------------- #
+  
+  
+  answering_body_code <- reactive({
+    answering_bodies_lookup$Code[answering_bodies_lookup$Name == input$answering_body_choice]
+  })
+  
+  data_folder <- reactive({
+    file.path("./Data", answering_body_code())
+  })
+  
+  data_filepath <- reactive({
+    file.path(data_folder(), paste0(answering_body_code(), "_WrittenPQs.csv"))
+  })
+  
+  data <- reactive({
+    data.table(read_csv(file.path(data_folder(), paste0(answering_body_code(), "_WrittenPQs.csv"))))
+  })
+  
+  topic_data <- reactive({
+    data.table(read.csv(file.path(data_folder(), paste0(answering_body_code(), "_TopDozenWordsPerTopic.csv"))))
+  })
+  
+  member_data <- reactive({
+    data.table(read.csv(file.path(data_folder(), paste0(answering_body_code(), "_TopDozenWordsPerMember.csv"))))
+  })
+  
+  #Search space for query vector
+  
+  search.space <- reactive({
+    eval(parse(text = paste0(answering_body_code(), ".search.space")))
+  })
+  
+  vocab <- reactive({
+    search.space()$dimnames[[1]]
+  })
+  
+  # ------------------------------------------------------------------------- #
+  #                            SIMILARITY TAB                                 #
+  # ------------------------------------------------------------------------- #
+  
+  output$date_input_ui <- renderUI({
+    dateRangeInput(
+      "q_date_range",
+      label = "Question Date Range",
+      format = "dd-mm-yyyy",
+      min = min(data()$Date),
+      max = max(data()$Date),
+      start = min(data()$Date),
+      end = max(data()$Date)
+    )
+  })
+  
+  
+  
   returnNearestMatches <- reactive({
-    space <- search.space
-    foundWords <- which(space$i %in% queryVec(input$question, vocab))
+    
+    foundWords <- which(search.space()$i %in% queryVec(input$question, vocab()))
     if(length(foundWords)==0){
       return("Unable to determine similarity to query")
     }
-    Document <- space$j[foundWords]
-    vees <- space$v[foundWords]
+    Document <- search.space()$j[foundWords]
+    vees <- search.space()$v[foundWords]
     JayVees <- data.table(Document = Document, vees = vees)
     
     outGroup <- JayVees[,
                         .("Similarity_score" = sum(vees)),
                         by = Document ][order(-Similarity_score)]
-    table_output <- outGroup #[1:30]
+    table_output <- outGroup
     data <- merge.data.frame(table_output,
-                             data,
+                             data(),
                              by.x = "Document",
                              by.y = "Document_Number")
-
+    
     data["Similarity_score"] <- round(data["Similarity_score"], digits = 2)
     data <- data[with(data, order(-data["Similarity_score"])), ]
     rownames(data) <- 1:nrow(data)
     data["Rank"] <- as.numeric(rownames(data))
     return(data)
   })
-
+  
   df <- reactive({
     subset(returnNearestMatches(),
            returnNearestMatches()$Date >= input$q_date_range[1] &
              returnNearestMatches()$Date <= input$q_date_range[2])
   })
-
+  
   plot_points <- reactive({
     cols <- c(
       'Question_Text',
@@ -49,17 +107,10 @@ function(input, output, session) {
       'Topic',
       'Topic_Keywords'
     )
-    tryCatch({
-      df()[1:100, cols]
-    }, warning = function(war){
-      print("warning")
-    }, error = function(err){
-      print("Unable to complete query.  Try resolving typos or including more search terms.")
-    }, finally = {
-      
-    })
+    df()[1:100, cols]
+    
   })
-
+  
   #using LOESS smoothing we plot a non-parametric curve of best fit for the plotted scatter points, which should
   #give an indication of how interest has risen and fallen over time.
   line_points <- reactive({
@@ -78,7 +129,7 @@ function(input, output, session) {
                         Scores = Scores))
     })
   })
-
+  
   output$similarity_table <- renderDataTable({
     datatable(
       cbind(' ' = '&oplus;', plot_points()), escape = -2,
@@ -87,6 +138,7 @@ function(input, output, session) {
           list(visible = FALSE, targets = c(0, 2, 3, 4, 9, 10)),
           list(orderable = FALSE, className = 'details-control', targets = 1)
         ),
+        searchDelay = 500,
         deferRender = TRUE,
         #scrollY = 400,
         scroller = TRUE,
@@ -97,14 +149,14 @@ function(input, output, session) {
         server = FALSE
       ),
       callback = JS("
-                search_table = table;
-                table.column(1).nodes().to$().css({cursor: 'pointer'});
-                table.on('click', 'tr', rowActivate);"
+                    search_table = table;
+                    table.column(1).nodes().to$().css({cursor: 'pointer'});
+                    table.on('click', 'tr', rowActivate);"
       ),
       caption = "Questions ranked by similarity to search text. Select a row to see the corresponding question text:"
-    )
+      )
   })
-
+  
   addPopover(session, "similarity_table", "What does this table show?",
              content = paste0("<p> This table shows the past written PQs that are most similar to your search (the most",
                               " similar questions are at the top). </p><p> You can click any row to see the question text,",
@@ -112,7 +164,7 @@ function(input, output, session) {
                               " our database have been grouped into topics by an algorithm and given Topic numbers. Try",
                               " clicking on the 'View Topic' button to see all the questions . ",
                               "Analysis\' page.</p>"), trigger = 'hover', placement = 'right', options = list(container = "body"))
-
+  
   y_axis <- list(
     title = "Similarity",
     autotick = TRUE,
@@ -120,7 +172,7 @@ function(input, output, session) {
     showticklabels = FALSE,
     rangemode = "tozero"
   )
-
+  
   output$similarity_plot <- renderPlotly({
     gg=plot_ly(x = plot_points()$Date) %>%
       #add trend line first so it's the bottom layer
@@ -148,205 +200,232 @@ function(input, output, session) {
                size=14,
                color='#696969')
       ) %>%
-      add_trace(x = plot_points()$Date[input$similarity_table_rows_current], 
+      add_trace(x = plot_points()$Date[input$similarity_table_rows_current],
                 y = plot_points()$Similarity_score[input$similarity_table_rows_current],
                 name = "Current Table Page",
                 type = "scatter", mode = 'markers',  marker = list(color = "#ef8a62"),
                 text = ~paste("Rank:", plot_points()$Rank[input$similarity_table_rows_current],
                               "<br> Member HoC/HoL:", plot_points()$Question_MP[input$similarity_table_rows_current],
                               "<br> Date:", plot_points()$Date[input$similarity_table_rows_current] ),
-                hoverinfo = "text" 
+                hoverinfo = "text"
       ) %>%
-      add_trace(x = plot_points()$Date[input$similarity_table_rows_selected], 
-                y = plot_points()$Similarity_score[input$similarity_table_rows_selected], 
+      add_trace(x = plot_points()$Date[input$similarity_table_rows_selected],
+                y = plot_points()$Similarity_score[input$similarity_table_rows_selected],
                 name = 'Qs selected',
                 type = "scatter", mode = 'markers', marker = list(size = 12, color = "red"),
                 text = NULL,
                 hoverinfo = "text"
       ) %>%
-
+      
       config(displayModeBar = F) %>%
       layout(legend = list(orientation = 'h'))
   })
-
+  
   addPopover(session, "similarity_plot", "What does this plot show?",
              content = paste0("<p>This graph plots Similarity on the y axis against Time on the x axis.</p><p>",
                               "Each point represents a past PQ from our database with the height showing ",
                               "how similar the PQ is to the search terms (higher = more similar). ",
                               " </p>"), trigger = 'hover', placement = 'left')
-
+  
   observeEvent(
     input$tutorial_button, {
       introjs(session,
               events = list(
                 "onchange" = I("$('.introjs-nextbutton').css('visibility', 'visible');
-                                step = this._currentStep
-                                prev_selection = $('.selected')
-                                buttonIndices = {6 : 0, 10 : 2, 11 : 1}
-                                if ([6, 10, 11].includes(step)) {
-                                  next_button_disabled = true;
-                                  $('.introjs-nextbutton').css('visibility', 'hidden');
-                                  $('.btn-info')[buttonIndices[step]].addEventListener('mouseup', function(){
-                                    setTimeout(function(){
-                                      next_button_disabled = false;
-                                      $('.introjs-nextbutton').click()
-                                    }, 1000)
-                                  })
-                                }"),
+                               step = this._currentStep
+                               prev_selection = $('.selected')
+                               buttonIndices = {7 : 0, 11 : 2, 12 : 1}
+                               if ([7, 11, 12].includes(step)) {
+                               next_button_disabled = true;
+                               $('.introjs-nextbutton').css('visibility', 'hidden');
+                               $('.btn-info')[buttonIndices[step]].addEventListener('mouseup', function(){
+                               setTimeout(function(){
+                               next_button_disabled = false;
+                               $('.introjs-nextbutton').click()
+                               }, 1000)
+                               })
+                               }"),
 
-              "onbeforechange" = I("new_selection = $('.selected');
-                                   if (this._currentStep == 1) {
+                "onbeforechange" = I("new_selection = $('.selected');
+                                     if (this._currentStep == 2) {
                                      question = $('#question');
                                      if(question.val() == '') {
-                                       question.val('Prison officers');
-                                       Shiny.onInputChange('question', 'Prison officers');
-                                       this._currentStep = this._currentStep - 1;
-                                       $('.introjs-tooltiptext').text(\"We've added some search terms for you, but you can change them if you like.\");
-                                       introJs().previousStep();
+                                     question.val('Prison officers');
+                                     Shiny.onInputChange('question', 'Prison officers');
+                                     this._currentStep = this._currentStep - 1;
+                                     $('.introjs-tooltiptext').text(\"We've added some search terms for you, but you can change them if you like.\");
+                                     introJs().previousStep();
                                      }
-
-                                   } else if ([3, 10, 15].includes(this._currentStep)) {
+                                     
+                                     } else if ([4, 11, 16].includes(this._currentStep)) {
                                      if(noChange(new_selection, prev_selection)) {
-                                       this._currentStep = this._currentStep - 1;
-                                       $('.introjs-tooltiptext').text('Please select a row before continuing.');
-                                       introJs().previousStep();
+                                     this._currentStep = this._currentStep - 1;
+                                     $('.introjs-tooltiptext').text('Please select a row before continuing.');
+                                     introJs().previousStep();
                                      }
-
-                                   } else if (this._currentStep == 5) {
+                                     
+                                     } else if (this._currentStep == 6) {
                                      if(noChange(new_selection, prev_selection)) {
-                                       this._currentStep = this._currentStep - 1;
-                                       $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
-                                       introJs().previousStep();
+                                     this._currentStep = this._currentStep - 1;
+                                     $('.introjs-tooltiptext').text('Please select another point on the graph before continuing.');
+                                     introJs().previousStep();
                                      }
-
-                                   } else if (this._currentStep == 7) {
+                                     
+                                     } else if (this._currentStep == 8) {
                                      if (next_button_disabled == true) {
-                                       this._currentStep = this._currentStep - 1;
-                                       $('.introjs-tooltiptext').text(\"Please click 'See all questions asked by...' to continue.\");
-                                       introJs().previousStep();
+                                     this._currentStep = this._currentStep - 1;
+                                     $('.introjs-tooltiptext').text(\"Please click 'See all questions asked by...' to continue.\");
+                                     introJs().previousStep();
                                      }
-
-                                   } else if (this._currentStep == 11) {
+                                     
+                                     } else if (this._currentStep == 12) {
                                      if (next_button_disabled == true) {
-                                      this._currentStep = this._currentStep - 1;
-                                      $('.introjs-tooltiptext').text(\"Please click 'Back to search' to continue.\");
-                                      introJs().previousStep();
+                                     this._currentStep = this._currentStep - 1;
+                                     $('.introjs-tooltiptext').text(\"Please click 'Back to search' to continue.\");
+                                     introJs().previousStep();
                                      }
-
-                                   } else if (this._currentStep == 12) {
+                                     
+                                     } else if (this._currentStep == 13) {
                                      if (next_button_disabled == true) {
-                                      this._currentStep = this._currentStep - 1;
-                                      $('.introjs-tooltiptext').text(\"Please click 'View topic...' to continue.\");
-                                      introJs().previousStep();
+                                     this._currentStep = this._currentStep - 1;
+                                     $('.introjs-tooltiptext').text(\"Please click 'View topic...' to continue.\");
+                                     introJs().previousStep();
                                      }
-                                   }"),
+                                     }"),
                   "onexit" = I("question.val('Prison officers');
-                                Shiny.onInputChange('question', 'Prison officers');
-                                location.reload(true);"
-                              )
-                ),
+                               Shiny.onInputChange('question', 'Prison officers');
+                               location.reload(true);"
+                                     )
+                                     ),
               options = list("nextLabel" = "Next",
                              "scrollToElement" = FALSE,
                              "showProgress" = TRUE,
                              "showBullets" = FALSE,
                              "keyboardNavigation" = TRUE))
-  })
-
-  ### Cluster Pane
+                                     })
   
-  dfClus <- function(){
-    cols <- c(
-      'Question_Text',
-      'Answer_Text',
-      'Question_MP',
-      'MP_Constituency',
-      'MP_Party',
-      'Date',
-      'Answer_MP',
-      'Answer_Date'
-    )
-    df <- subset(tables_data, (tables_data$Topic == input$topic_choice))
+  
+  observeEvent(input$startButton, {
+    introjs(
+      session,
+      events = list(
+        "onchange" = I("debugger;
+                       if (this._currentStep==7) {
+                       $('a[data-value=\"Second tab\"]').removeClass('active');
+                       $('a[data-value=\"First tab\"]').addClass('active');
+                       $('a[data-value=\"First tab\"]').trigger('click');
+                       }
+                       if (this._currentStep==1) {
+                       $('a[data-value=\"First tab\"]').removeClass('active');
+                       $('a[data-value=\"Second tab\"]').addClass('active');
+                       $('a[data-value=\"Second tab\"]').trigger('click');
+                       }")
+      )
+        )
+    
+                                     })
+  
+  
+  
+  # ------------------------------------------------------------------------- #
+  #                              TOPIC TAB                                    #
+  # ------------------------------------------------------------------------- #
+  
+  observe({
+    updateSelectInput(session, "topic_choice",
+                      choices = unique(data()$Topic))
+  })
+  
+  dfClus <- reactive({
+    df <- subset(data(), 
+                 (data()$Topic == input$topic_choice), 
+                 select = c(
+                   'Question_Text',
+                   'Answer_Text',
+                   'Question_MP',
+                   'MP_Constituency',
+                   'MP_Party',
+                   'Date',
+                   'Answer_MP',
+                   'Answer_Date'
+                 ))
     df <- df[order(-as.numeric(df$Date)),]
-    df[cols]
-  }
+  })
   
   keyword <- reactive({
-    subset(tables_data, (tables_data$Topic == input$topic_choice))$Topic_Keywords[1]
-    })
+    subset(data(), (data()$Topic == input$topic_choice))$Topic_Keywords[1]
+  })
   
-  minDate <- min(tables_data$Date)
-  maxDate <- max(tables_data$Date + 14)
-  
-  wordcloud_df <- function(){
-    df <- subset(topic_data,
-                 (topic_data$topic == input$topic_choice))
-  }
+  wordcloud_df <- reactive({
+    df <- subset(topic_data(),
+                 (topic_data()$topic == input$topic_choice))
+  })
   
   observeEvent(input$explanation_button, {
     showModal(modalDialog(
-      title = "What do the topics mean?", 
+      title = "What do the topics mean?",
       HTML("We have taken all of the questions in our database and fed them into an algorithm which has
-      split them into different groups, or 'topics', with each group containing questions related to  
-      similar issues. For each topic there is a set of three 'Topic Keywords' to give an idea of what 
-      the topic is about. <br><br>
-      Each of these topics have also been assigned a number as a unique identifier. To find  
-      out about your chosen topic, go to the 'Search' tab and, once you have entered your search 
-      terms, just click the question you are focusing on followed by the 'View Topic' button."),
+           split them into different groups, or 'topics', with each group containing questions related to
+           similar issues. For each topic there is a set of three 'Topic Keywords' to give an idea of what
+           the topic is about. <br><br>
+           Each of these topics have also been assigned a number as a unique identifier. To find
+           out about your chosen topic, go to the 'Search' tab and, once you have entered your search
+           terms, take one of the topic numbers listed in the table and put it into the dropdown box on this
+           tab. Or if that sounds like too much work, just click the question you are focusing on followed by
+           the 'View Topic' button."),
       easyClose = TRUE,
       footer = NULL
-    ))
+      ))
   })
   
   output$wordcloud <- renderPlot(
     wordcloud(words = wordcloud_df()$word, freq = wordcloud_df()$freq,
-              scale = c(4, 1), random.order = FALSE, rot.per = 0,,
-              min.freq = 0.1),
-    width = "auto"
+              scale = c(4, 1), random.order = FALSE, rot.per = 0,
+              min.freq = 0.1)
   )
   
   addPopover(session, "wordcloud", "Wordcloud",
              content = paste0("This wordcloud shows the words that are most important to the topic.<br><br> The bigger the word, the more important it is."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
-
-
+  
+  # Plot is generated first so that it can be used to grab for other layers
   output$topic_plot <- renderPlot({
-    # Plot is generated first so that it can be used to grab values for other layers
-    plot <- ggplot(data = NULL, aes(x = dfClus()$Date)) +
-              geom_histogram(binwidth = 14, fill = "#67a9cf")
-    # Now add the other layers
-    plot + 
-      xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_x_date(
-        limits = c(minDate, maxDate),
-        labels = date_format("%b %y"),
-        date_breaks = "6 months",
-        date_minor_breaks = "1 month"
-      ) +
+    p <- ggplot(data = NULL, aes(x = dfClus()$Date, y = )) +
+      geom_histogram(binwidth = 14, fill = "#67a9cf")
+    maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #this is a hack from stackoverflow to get us the max value of the histogram
+    yBreaks <- if(maxCount < 11){
+      1} else if(maxCount < 21){
+        2} else{
+          5}
+    yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
+    p +
+      xlim(min(data()$Date), max(data()$Date)) +
+      scale_x_date(limits = c(min(data()$Date), max(data()$Date)),
+                   labels = date_format("%b %y"),
+                   date_breaks = "6 months",
+                   date_minor_breaks = "1 month") +
       scale_y_continuous(
-        breaks = seq(0, yMax(plot), yBreaks(plot)),
+        breaks = seq(0, yMax, yBreaks),
         expand = c(0,0),
-        limits = c(0, yMax(plot))
+        limits = c(0, yMax)) +
+      labs(title = paste0("Topic ", input$topic_choice, ": ", keyword()),
+           subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
+           x = "Question Date",
+           y = "Count"
       ) +
-      labs(
-        title = paste0("Topic ", input$topic_choice, ": ", keyword()),
-        subtitle = paste0("Each bar shows the number of questions for topic ", input$topic_choice, " in a particular fortnight"),
-        x = "Question Date",
-        y = "Count"
-      ) + 
-      theme(
-        panel.background = element_rect(fill = "white", colour = "grey"),
-        panel.grid.minor = element_line(colour = "#efefef"),
-        panel.grid.major = element_line(colour = "#efefef"),
-        axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
-        axis.text = element_text(family = "Arial", size = 14),
-        axis.line = element_line(colour = "grey"),
-        plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
-        plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
-        #axis.ticks.x = element_line(size = 0)
+      theme(panel.background = element_rect(fill = "white", colour = "grey"),
+            panel.grid.minor = element_line(colour = "#efefef"),
+            panel.grid.major = element_line(colour = "#efefef"),
+            axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
+            axis.text = element_text(family = "Arial", size = 14),
+            axis.line = element_line(colour = "grey"),
+            plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
+            plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
+            #axis.ticks.x = element_line(size = 0)
       )
   })
   
-
+  
   
   addPopover(session, "topic_plot", "Questions plotted over time",
              content = paste0("This plot shows when questions in the topic were asked. <br><br> Each bar shows the number of questions asked in a particular fortnight - the higher the bar, the more questions from that topic."),
@@ -370,23 +449,12 @@ function(input, output, session) {
         server = FALSE
       ),
       callback = JS("
-                topic_table = table;
-                table.column(1).nodes().to$().css({cursor: 'pointer'});
-                table.on('click', 'tr', rowActivate);"
+                    topic_table = table;
+                    table.column(1).nodes().to$().css({cursor: 'pointer'});
+                    table.on('click', 'tr', rowActivate);"
       )
-    )
-    # datatable(data = dfClus(), #[, c("Question_Text", "Answer_Text")],
-    #           #colnames = c("Question Text", "Answer Text"),
-    #           caption = "Documents contained within the topic:",
-    #           extensions = 'Buttons',
-    #           rownames = FALSE,
-    #           options = list(dom = 'Bfrtip', 
-    #                          buttons = I('colvis'),
-    #                          scroller = TRUE,
-    #                          searching = FALSE,
-    #                          paging = TRUE,
-    #                          lengthChange = FALSE,
-    #                          pageLength = 5))
+      )
+    
   })
   
   addPopover(session, "topic_documents", "Questions in the topic",
@@ -394,8 +462,11 @@ function(input, output, session) {
                               "Click on a row to see the corresponding question and answer text."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
-  ### Q&A Analysis Pane
-
+  
+  # ------------------------------------------------------------------------- #
+  #                               MEMBER TAB                                  #
+  # ------------------------------------------------------------------------- #
+  
   # Each item in hoc_members must be a list to achieve the desired effect in the hoc members dropdown
   list_if_one <- function(members) {
     if(length(members) == 1) {
@@ -404,78 +475,76 @@ function(input, output, session) {
       return(members)
     }
   }
-
-  # Merge labur and labour (co-op) members for the sake of the drop down list (only)
+  
+  # Merge Labour and Labour Co-op for the sake of the dropdown list (only)
   merge_labour_and_co_op <- function(members) {
     members$Labour <- append(members$Labour, members$'Labour (Co-op)') %>% sort()
     members$'Labour (Co-op)' <- NULL
     members
   }
-
-  hoc_members <- function(data) {
-    parties <- data$MP_Party[ data$MP_Party != 'Not found' ] %>%
-                 unique() %>%
-                 sort()
-
+  
+  hoc_members <- reactive({
+    parties <- data()$MP_Party[ data()$MP_Party != 'Not found' ] %>%
+      unique() %>%
+      sort()
+    
     members <- lapply(parties, function(party) {
-                 data$Question_MP[ data$MP_Party == party ] %>%
-                 unique() %>%
-                 sort() %>%
-                 list_if_one()
-               })
+      data()$Question_MP[ data()$MP_Party == party ] %>%
+        unique() %>%
+        sort() %>%
+        list_if_one()
+    })
     
     names(members) <- parties
     merge_labour_and_co_op(members)
-  }
-
+  })
+  
   output$member_ui <- renderUI({
     switch(input$member_analysis,
-           "Lords" = selectInput(inputId = "person_choice",
-                                 label = "Choose a Peer:",
-                                 choices = sort(unique(data$Question_MP[ grepl("HL", data$Question_ID) ]))
-           ),
+           "Lords" =
+             selectInput(inputId = "person_choice",
+                         label = "Choose a Peer:",
+                         choices = sort(unique(data()$Question_MP[ grepl("HL", data()$Question_ID) ]))
+             ),
            "Commons" = selectInput(inputId = "person_choice",
                                    label = "Choose an MP:",
-                                   choices = hoc_members(data)
-           )
+                                   choices = hoc_members())
     )
   })
-
+  
   grouped_hoc_members <- function(hoc_data) {
-
+    
   }
-
-  dfMP <- function(){
-    df <- subset(tables_data, (tables_data$Question_MP == input$person_choice))
+  
+  dfMP <- reactive({
+    df <- subset(data(), 
+                 (data()$Question_MP == input$person_choice),
+                 select = cols <- c(
+                   'Question_Text',
+                   'Answer_Text',
+                   'Question_MP',
+                   'MP_Constituency',
+                   'MP_Party',
+                   'Date',
+                   'Answer_MP',
+                   'Answer_Date',
+                   'Topic',
+                   'Topic_Keywords'
+                 ))
     df <- df[order(-as.numeric(df$Date)),]
-    cols <- c(
-      'Question_Text',
-      'Answer_Text',
-      'Question_MP',
-      'MP_Constituency',
-      'MP_Party',
-      'Date',
-      'Answer_MP',
-      'Answer_Date',
-      'Topic',
-      'Topic_Keywords'
-    )
-    df[cols]
-  }
+  })
   
-  minDate <- min(tables_data$Date)
-  maxDate <- max(tables_data$Date + 14)
+  minDate <- reactive(min(data()$Date))
+  maxDate <- reactive(max(data()$Date))
   
-  member_wordcloud_df <- function(){
-    df <- subset(member_data,
-                 (member_data$member == input$person_choice))
-  }
-  
+  member_wordcloud_df <- reactive({
+    df <- subset(member_data(),
+                 (member_data()$member == input$person_choice))
+  })
   output$member_wordcloud <- renderPlot(
     wordcloud(words = member_wordcloud_df()$word, freq = member_wordcloud_df()$freq,
               scale = c(4, 1), random.order = FALSE, rot.per = 0,
-              min.freq = 0.1),
-    width = "auto"
+              min.freq = 0.1)
   )
   
   
@@ -493,7 +562,7 @@ function(input, output, session) {
              "peer/"
            },
            urlName(input$person_choice)
-           )
+    )
   })
   
   output$memberlink <- renderUI({
@@ -509,7 +578,7 @@ function(input, output, session) {
     p <- ggplot(data = NULL, aes(x = dfMP()$Date, y = )) + geom_histogram(binwidth = 14, fill = "#67a9cf")
     maxCount <- ggplot_build(p)$data[[1]]$count %>% max() #max value of the histogram
     yBreaks <- if(maxCount < 11) {
-      1 
+      1
     } else if(maxCount < 21){
       2
     } else {
@@ -517,8 +586,8 @@ function(input, output, session) {
     }
     yMax <- (floor(maxCount / yBreaks) + 1) * yBreaks
     p +
-      xlim(min(data$Date) - 1, max(data$Date) + 1) +
-      scale_x_date(limits = c(minDate, maxDate),
+      xlim(min(data()$Date), max(data()$Date) + 14) +
+      scale_x_date(limits = c(min(data()$Date), max(data()$Date)),
                    labels = date_format("%b %y"),
                    date_breaks = "6 months",
                    date_minor_breaks = "1 month") +
@@ -526,26 +595,26 @@ function(input, output, session) {
         breaks = seq(0, yMax, yBreaks),
         expand = c(0,0),
         limits = c(0, yMax)) +
-      labs(title = member_plot_title(input$person_choice, data),
+      labs(title = member_plot_title(input$person_choice, data()),
            subtitle = paste0("Each bar shows the number of questions from ", input$person_choice,  " in a particular fortnight"),
            x = "Question Date",
            y = "Count"
-      ) + 
+      ) +
       theme(panel.background = element_rect(fill = "white", colour = "grey"),
-                panel.grid.minor = element_line(colour = "#efefef"),
-                panel.grid.major = element_line(colour = "#efefef"),
-                axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
-                axis.text = element_text(family = "Arial", size = 14),
-                axis.line = element_line(colour = "grey"),
-                plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
-                plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
-                #axis.ticks.x = element_line(size = 0)
+            panel.grid.minor = element_line(colour = "#efefef"),
+            panel.grid.major = element_line(colour = "#efefef"),
+            axis.title = element_text(family = "Arial", size = 14, colour = "#4f4f4f"),
+            axis.text = element_text(family = "Arial", size = 14),
+            axis.line = element_line(colour = "grey"),
+            plot.title = element_text(size = 17, face = "bold", family = "Arial", colour = "#4f4f4f"),
+            plot.subtitle = element_text(size = 12, family = "Arial", colour = "#4f4f4f")
+            #axis.ticks.x = element_line(size = 0)
       )
   })
-
+  
   member_plot_title <- function(selected_member, data) {
-    party        = data$MP_Party[ data$Question_MP == selected_member ]
-    constituency = data$MP_Constituency[ data$Question_MP == selected_member ]
+    party        = data()$MP_Party[ data()$Question_MP == selected_member ]
+    constituency = data()$MP_Constituency[ data()$Question_MP == selected_member ]
     if(party == 'Not found') {
       selected_member
     } else {
@@ -588,5 +657,5 @@ function(input, output, session) {
                               "Click on a row to see the corresponding question and answer text."),
              trigger = 'hover', placement = 'top', options = list(container = "body"))
   
-  
-}
+                                     }
+

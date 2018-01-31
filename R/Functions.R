@@ -11,6 +11,8 @@ library(stringr)
 
 #a function to clean a corpus of text, making sure of the encoding, removing punctuation, putting it
 #all in lower case, stripping white space, and removing stopwords.
+#If you update this you also need to update queryVec in global.R to be in line with any changes, so
+#that we are consistent in how we are treating search text and PQ text.
 
 cleanPQ <- function(PQ){
   PQ <- PQ %>% iconv(to = "utf-8", sub = "") %>%
@@ -89,7 +91,7 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
                       numTerms, #how many terms to return
                       listOfVectors, #the questions themselves
                       totalClusters = NULL #the number of clusters if type is cluster 
-                      ){
+){
   if (type == "cluster"){
     set <- cutree(data, totalClusters)
   } else if (type == "MP"){
@@ -98,8 +100,8 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
   relevantQs <- matr[, which(set == ID)]
   clusterDict <- cleanCorpus(Corpus(VectorSource(listOfVectors[which(set == ID)])))
   termsAndSums <- if (is.null(dim(relevantQs))){
-                    relevantQs
-                  } else rowSums(relevantQs)
+    relevantQs
+  } else rowSums(relevantQs)
   termsAndSumsN <- termsAndSums[order(termsAndSums, decreasing = T)[1:numTerms]]
   
   #we now complete the word stems, using the fromItoY function to deal with occasions
@@ -129,8 +131,8 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
 
 #This gets the length of a vector
 normVec <- function(vec){
-             return(sqrt(sum(vec^2)))
-  }
+  return(sqrt(sum(vec^2)))
+}
 
 #This normalises the lengths of a matrix to length 1
 normalize <- function(mat){
@@ -358,3 +360,4 @@ areRemoteAndLocalEqual <- function(line){
                        "Party")
   return(equality)
 }
+

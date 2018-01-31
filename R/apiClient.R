@@ -1,50 +1,63 @@
 source('./R/Functions.R')
+source(".Rprofile")
+
 library(tidyverse)
 library(jsonlite)
 library(stringr)
 library(gtools)
+library(data.table)
+library(readr)
 
-number_in_archive <- function() {
-  if(file.exists(ARCHIVE_FILEPATH)) {
-    nrow(read_csv(ARCHIVE_FILEPATH))
+api_answering_body <- function(answering){
+  body <- ANSWERING_BODIES_LOOKUP$Name[ANSWERING_BODIES_LOOKUP$Code == answering]
+  body <- gsub(" ","+",body)
+  body <- paste0("AnsweringBody=", body)
+  return(body)
+}
+
+archive_filepath  <- function(body){
+  return(file.path(SHINY_ROOT, 'Data', body, paste0(body, '_archived_pqs.csv')))
+}
+
+number_in_archive <- function(filepath) {
+  if(file.exists(filepath)) {
+    nrow(read_csv(filepath))
   } else {
     0
   }
 }
 
-last_answer_date <- function() {
-  archive <- read_csv(ARCHIVE_FILEPATH)
+last_answer_date <- function(filepath) {
+  archive <- read_csv(filepath)
   max(archive$Answer_Date)
 }
 
-number_held_remotely <- function() {
-  response <- fromJSON(str_interp("${API_ENDPOINT}?${MOJ_ONLY}&${MIN_DOWNLOAD}"))
+number_held_remotely <- function(api_answering) {
+  response <- fromJSON(str_interp("${API_ENDPOINT}?${api_answering}&${MIN_DOWNLOAD}"))
   response$result$totalResults
 }
 
-number_to_fetch <- function() {
-  if( file.exists(ARCHIVE_FILEPATH)) {
-    date        <- last_answer_date()
-    date_filter <- str_interp(
-      "_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%22${date}%22)"
-    )
-    response    <- fromJSON(str_interp("${API_ENDPOINT}?${date_filter}&${MOJ_ONLY}&${MIN_DOWNLOAD}&_sort=dateOfAnswer"))
+number_to_fetch <- function(filepath, api_answering) {
+  if( file.exists(filepath)) {
+    date        <- last_answer_date(filepath)
+    date_filter <- str_interp("min-answer.dateOfAnswer=${date}")
+    response    <- fromJSON(str_interp("${API_ENDPOINT}?${date_filter}&${api_answering}&${MIN_DOWNLOAD}&_sort=dateOfAnswer"))
     response$result$totalResults
   } else {
-    number_held_remotely()
+    number_held_remotely(api_answering = api_answering)
   }
 }
 
 get_constituencies <- function(raw_response) 
   map_chr(1:nrow(raw_response), function(n) {
     constituency <- raw_response$tablingMemberConstituency$'_value'[n]
-
+    
     if(length(constituency) == 0 | invalid(constituency)) {
       'NA'
     } else {
       constituency
     }
-})
+  })
 
 parse_response <- function(raw_response) {
   tibble(
@@ -59,17 +72,17 @@ parse_response <- function(raw_response) {
   )
 }
 
-update_archive <- function(questions_tibble) {
-  archive    <- read_csv(ARCHIVE_FILEPATH)
+update_archive <- function(filepath, questions_tibble) {
+  archive    <- read_csv(filepath)
   if(nrow(archive) > 0) {
-      updated_archive <- rbind(archive, questions_tibble)
-    } else {
-      updated_archive <- questions_tibble
-    }
-
+    updated_archive <- rbind(archive, questions_tibble)
+  } else {
+    updated_archive <- questions_tibble
+  }
+  
   duplicates_filter <- duplicated(updated_archive)
   updated_archive   <- updated_archive[!duplicates_filter,]
-  write_csv(updated_archive, ARCHIVE_FILEPATH)
+  write_csv(updated_archive, filepath )
 }
 
 total_members <- function() {
@@ -77,13 +90,13 @@ total_members <- function() {
 }
 
 get_all_members <- function(page_size) {
-members <- fromJSON(
+  members <- fromJSON(
     str_interp(
       "http://lda.data.parliament.uk/members.json?exists-party=true&_pageSize=${page_size}"
     )
   )$result$items
-members$fullName <- sapply(members$fullName[[1]], nameCleaner)
-members
+  members$fullName <- sapply(members$fullName[[1]], nameCleaner)
+  members
 }
 
 get_parties <- function(names, constituencies) {
@@ -102,48 +115,57 @@ get_party <- function(name, constituency, members) {
   }
 }
 
-fetch_questions <- function(show_progress = FALSE) {
-
-  number_to_fetch      <- number_to_fetch()
-  number_in_archive    <- number_in_archive()
-  number_held_remotely <- number_held_remotely()
-
+fetch_questions <- function(answering_body, show_progress = TRUE) {
+  
+  archive_filepath     <- archive_filepath(answering_body)
+  api_answering_body   <- api_answering_body(answering = answering_body)
+  
+  number_to_fetch      <- number_to_fetch(filepath = archive_filepath, api_answering = api_answering_body)
+  number_in_archive    <- number_in_archive(filepath = archive_filepath)
+  number_held_remotely <- number_held_remotely(api_answering = api_answering_body)
+  
   if(show_progress == TRUE) {
-    print(str_interp("Fetching ${number_to_fetch} questions"))
+    print(str_interp("Fetching ${number_to_fetch} questions for ${answering_body}"))
   }
-
-  iterations <- ceiling(number_to_fetch / 1000)
-
+  
+  iterations <- ceiling(number_to_fetch / 500)
+  
   if(iterations == 0) {
     stop("There are no new questions to fetch")
   }
-
+  
   questions <- tibble()
-
-  if(file.exists(ARCHIVE_FILEPATH)) {
-    date        <- last_answer_date()
-    date_param  <- str_interp("_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%22${date}%22)")
-    base_params <- str_interp("${date_param}&${MOJ_ONLY}&${MAX_DOWNLOAD}")
+  
+  if(file.exists(archive_filepath)) {
+    date        <- last_answer_date(archive_filepath(answering_body))
+    date_param  <- str_interp("min-answer.dateOfAnswer=${date}")
+    base_params <- str_interp("${date_param}&${api_answering_body}&${MAX_DOWNLOAD}")
   } else {
-    file.create(ARCHIVE_FILEPATH)
-    base_params <- str_interp("${MOJ_ONLY}&${MAX_DOWNLOAD}")
+    file.create(archive_filepath)
+    base_params <- str_interp("${api_answering_body}&${MAX_DOWNLOAD}")
   }
-
+  
   if( (number_to_fetch + number_in_archive) < number_held_remotely ) {
     stop("An error has occurred. Please delete archived_pqs.csv and re-run `fetch_questions()`")
   }
-
+  
   for(iteration in c(1:iterations)) {
     page       <- iteration - 1
     page_param <- str_interp("_page=${page}")
-    if(show_progress == TRUE) { print(str_interp("Fetching page ${iteration} of ${iterations}")) }
+    if(show_progress == TRUE) { print(str_interp("Fetching page ${iteration} of ${iterations} for ${answering_body}")) }
     response   <- fromJSON(str_interp("${API_ENDPOINT}?${base_params}&_sort=dateOfAnswer&${page_param}"))
     parsed_response <- parse_response(response$result$items)
     parsed_response$Question_MP <- sapply(parsed_response$Question_MP, nameCleaner)
     parsed_response$Answer_MP   <- sapply(parsed_response$Answer_MP, nameCleaner)
     parsed_response$Party       <- get_parties(parsed_response$Question_MP, parsed_response$MP_Constituency)
-    update_archive(parsed_response)
+    update_archive(archive_filepath, parsed_response)
   }
+  
+  
+}
 
-
+fetch_all_questions <- function(){
+  for (bodies in ANSWERING_BODIES_LOOKUP$Code){
+    fetch_questions(bodies, show_progress = TRUE)
+  }
 }
