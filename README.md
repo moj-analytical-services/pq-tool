@@ -23,14 +23,30 @@ To access the deployed tool within the Ministry of Justice go to https://pq-tool
 Variables in block capitals are defined in .Rprofile because they're used in serveral different R files.  This should load automatically whenever you start a new R session from the comand line.  If you make changes to .Rprofile, remember that you will either need to open a new R session to load the changes or do `source('./Rprofile')`
 
 ## Generating and updating the archive of PQs
-### In an R console
+
+### Adding data for a new department
+
+Add the department name and acronym to answering_body_lookup.tsv and create a folder with the same name as the acronym (if they do not already exist) 
+
+### Pull new questions from the API
+
+In an R console
 ```
 source('./R/apiClient.R')
-# Without feedback
-fetch_questions()
-# With feedback
-fetch_questions(show_progress=TRUE)
+
+For a specific department:
+fetch_questions("ACRONYM")
+
+E.g. 
+fetch_questions("moj")
+
+For all departments:
+fetch_all_questions() # Note that this functionality is in development and currently has a couple of bugs
+
 ```
+Notes: 
+
+- See answering_body_lookup.tsv for the correct acronym
 
 - When this function is called for the first time, and no archive exists, it will create archived_pqs.csv in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
 
