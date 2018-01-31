@@ -52,8 +52,6 @@ Notes:
 
 - When an archive already exists, the function will update archived_pqs.csv by appending newly answered questions (downloaded from the same endpoint).
 
-- Variables in BLOCK_CAPITALS are defined in .Rprofile
-
 ## Generating the data
 There are three files that create the data, within the data_generators folder.
 1. MoJScraper.R
