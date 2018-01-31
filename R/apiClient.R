@@ -16,8 +16,8 @@ api_answering_body <- function(answering){
   return(body)
 }
 
-archive_filepath  <- function(answering){
-  return(file.path(SHINY_ROOT, 'Data', answering, paste0(answering, '_archived_pqs.csv')))
+archive_filepath  <- function(body){
+  return(file.path(SHINY_ROOT, 'Data', body, paste0(body, '_archived_pqs.csv')))
 }
 
 number_in_archive <- function(filepath) {
@@ -116,9 +116,9 @@ get_party <- function(name, constituency, members) {
   }
 }
 
-fetch_questions <- function(answering_body, show_progress = FALSE) {
-
-  archive_filepath     <- archive_filepath(answering = answering_body)
+fetch_questions <- function(answering_body, show_progress = TRUE) {
+  
+  archive_filepath     <- archive_filepath(answering_body)
   api_answering_body   <- api_answering_body(answering = answering_body)
   
   number_to_fetch      <- number_to_fetch(filepath = archive_filepath, api_answering = api_answering_body)
@@ -138,7 +138,7 @@ fetch_questions <- function(answering_body, show_progress = FALSE) {
   questions <- tibble()
 
   if(file.exists(archive_filepath)) {
-    date        <- last_answer_date(archive_filepath())
+    date        <- last_answer_date(archive_filepath(answering_body))
     date_param  <- str_interp("min-answer.dateOfAnswer=${date}")
     base_params <- str_interp("${date_param}&${api_answering_body}&${MAX_DOWNLOAD}")
   } else {
@@ -164,3 +164,9 @@ fetch_questions <- function(answering_body, show_progress = FALSE) {
 
 
 }
+
+fetch_all_questions <- function(){
+  for (bodies %in% answering_bodies_lookup$Code)
+    fetch_questions(bodies, show_progress = TRUE)
+}
+
