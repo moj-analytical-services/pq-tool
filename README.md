@@ -1,6 +1,14 @@
 [![Build Status](https://travis-ci.org/moj-analytical-services/PQTool.svg?branch=master)](https://travis-ci.org/moj-analytical-services/pq-tool)
 
 # PQ Tool
+## Contents
+* [Introduction](#introduction)  
+* [Generating and updating the archive of PQs](#generating-and-updating-the-archive-of-pqs)  
+* [Generating the data](#generating-the-data)  
+* [Running the tool](#running-the-tool)
+* [Testing](#testing)
+* [Deploying within MoJ](#deploying-within-moj)
+
 ## Introduction
 This is a prototype tool for analysing and comparing written Parliamentary Questions for answer by the Ministry of Justice. Questions have been taken from the API provided by Parliament (accessed via http://www.data.parliament.uk/).
 
