@@ -1,11 +1,15 @@
 #### -- Packrat Autoloader (version 0.4.8-1) -- ####
 source("packrat/init.R")
+library(data.table)
+library(readr)
 
 SHINY_ROOT <- getwd()
 TRAVIS <- FALSE
 API_ENDPOINT      <- "http://lda.data.parliament.uk/answeredquestions.json"
 MIN_DOWNLOAD      <- "_pageSize=1"
 MAX_DOWNLOAD      <- "_pageSize=500"
+ANSWERING_BODIES_LOOKUP <- data.table(read_tsv("./Data/answering_body_lookup.tsv"))
+
 
 
 JUSTICE_STOP_WORDS <- c(

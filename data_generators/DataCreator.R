@@ -49,11 +49,11 @@ library(optparse)
 #GRAB COMMAND LINE ARGS
 
 option_list = list(
-  make_option(c("-i", "--input_file"),
-    type    = "character",
-    default = NULL, 
-    help    = "dataset file name",
-    metavar = "character"
+  make_option(c("-a", "--answering_body"),
+              type    = "character",
+              default = NULL, 
+              help    = "answering_body",
+              metavar = "character"
   ),
   make_option(c("-x", "--x_dims"),
               type    = "numeric",
@@ -62,25 +62,19 @@ option_list = list(
               metavar = "character"
   ),
   make_option(c("-k", "--k_clusters"),
-    type    = "numeric",
-    default = NULL, 
-    help    = "number of clusters [default= %default]",
-    metavar = "character"
-  ),
-  make_option(c("-o", "--output_dir"),
-    type    = "character",
-    default = NULL, 
-    help    = "directory to which outputs are saved [default= %default]",
-    metavar = "character"
+              type    = "numeric",
+              default = NULL, 
+              help    = "number of clusters [default= %default]",
+              metavar = "character"
   ),
   make_option(c("-e", "--environment"),
-    type    = "character",
-    default = NULL, 
-    help    = "Sets K, input and output to sensible values for 'test' and 'prod' environments.  Values can be either 'test' or 'prod'",
-    metavar = "character"
+              type    = "character",
+              default = NULL, 
+              help    = "Sets K, input and output to sensible values for 'test' and 'prod' environments.  Values can be either 'test' or 'prod'",
+              metavar = "character"
   )
 )
- 
+
 opt_parser = OptionParser(option_list=option_list);
 opt = parse_args(opt_parser);
 
@@ -100,8 +94,7 @@ opt = parse_args(opt_parser);
 
 print(str_interp('X has been set to ${opt$x_dims}'))
 print(str_interp('K has been set to ${opt$k_clusters}'))
-print(str_interp('Reading from file ${opt$input_file}'))
-print(str_interp('Saving to ${opt$output_dir} directory'))
+print(str_interp('Answering body has been set to  ${opt$answering_body}'))
 
 #PARAMETERS
 #Number of clusters, and also rank of LSA space
@@ -112,7 +105,8 @@ print(str_interp('Saving to ${opt$output_dir} directory'))
 
 #read in questions
 print('Reading questions')
-aPQ <- read_csv(opt$input_file)
+
+aPQ <- read_csv(paste0("./Data/", opt$answering_body, "/", opt$answering_body, "_archived_pqs.csv"))
 aPQ <- aPQ[order(aPQ$Question_Date, decreasing = TRUE),] #reorder to have most recent first
 questionsVec <- aPQ$Question_Text
 
@@ -128,10 +122,10 @@ PQCorp.stems <- tm_map(cleanCorpus(PQCorp), stemDocument)
 #document length (in some sense), and zero if the term is absent from the document entirely.
 #Details can be seen by inspecting the help documentation for the weightSMART function.
 tdm <- TermDocumentMatrix(
-         PQCorp.stems,
-         control = list(
-           weighting = function(x) weightSMART(x, spec = "btn"),
-           wordLengths = c(2, Inf)))
+  PQCorp.stems,
+  control = list(
+    weighting = function(x) weightSMART(x, spec = "btn"),
+    wordLengths = c(2, Inf)))
 
 tdm <- as.matrix(tdm) %>% normalize() %>% as.simple_triplet_matrix() #normalize doc lengths
 
@@ -173,19 +167,19 @@ print("summarising topics")
 topDozenWordsPerTopic <- data.frame(
   topic = unlist(lapply(seq(1, opt$k_clusters), function(x)rep(x, 12))),
   word = unlist(lapply(seq(1, opt$k_clusters),
-           function(x) names(summarise("cluster", x, m, hier, 12, questionsVec, opt$k_clusters)))),
+                       function(x) names(summarise("cluster", x, m, hier, 12, questionsVec, opt$k_clusters)))),
   
   freq = unlist(lapply(seq(1, opt$k_clusters),
-           function(x) summarise("cluster", x, m, hier, 12, questionsVec, opt$k_clusters))),
+                       function(x) summarise("cluster", x, m, hier, 12, questionsVec, opt$k_clusters))),
   row.names = NULL, stringsAsFactors = F)
 
 #keywords to describe clusters
 clusterKeywords <- sapply(seq(opt$k_clusters),
-                     function(x)
-                       names(summarise("cluster", x, m, hier, 3, questionsVec, opt$k_clusters)))
+                          function(x)
+                            names(summarise("cluster", x, m, hier, 3, questionsVec, opt$k_clusters)))
 clusterKeywordsVec <- sapply(seq_along(clusterKeywords[1, ]),
-                        function(x)
-                          paste0(clusterKeywords[, x], collapse = ", "))
+                             function(x)
+                               paste0(clusterKeywords[, x], collapse = ", "))
 
 #Member summaries
 print("summarising members")
@@ -215,7 +209,7 @@ search.space[which(search.space > quant95s[1] & search.space < quant95s[2])] <- 
 
 ##This is just a check to see that this sparsification doesn't lead to wildly varying document lengths
 collengths <- sapply(seq_along(aPQ$Question_ID),
-                function(x) normVec(search.space[, x]))
+                     function(x) normVec(search.space[, x]))
 summary(collengths)
 
 #save disk space by saving as simple triplet matrix
@@ -229,10 +223,10 @@ print('Saving the output')
 #save(lsaOut,file = "lsaOut.rda")
 #save(klusters,file = "klusters.rda")
 
-save_location = opt$output_dir
+save_location = paste0("./Data/", opt$answering_body, "/")
 setwd(save_location)
 
-save(search.space, file = "searchSpace.rda")
+save(search.space, file = paste0(opt$answering_body, "_searchSpace.rda"))
 
 #Save data to be directly loaded in to Tableau
 
@@ -252,13 +246,13 @@ savedf <- data.frame(
   Topic = klusters,
   Topic_Keywords = clusterKeywordsVec[klusters],
   stringsAsFactors = FALSE)
-write.csv(savedf, "writtenPQs.csv")
+write.csv(savedf, paste0(opt$answering_body, "_writtenPQs.csv"))
 
 #The information about the clusters
-write.csv(topDozenWordsPerTopic, "topDozenWordsPerTopic.csv")
+write.csv(topDozenWordsPerTopic, paste0(opt$answering_body, "_topDozenWordsPerTopic.csv"))
 
 #The information about the members
-write.csv(topDozenWordsPerMember, "topDozenWordsPerMember.csv")
+write.csv(topDozenWordsPerMember, paste0(opt$answering_body, "_topDozenWordsPerMember.csv"))
 
 ##### APPENDIX #####
 

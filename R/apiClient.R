@@ -9,8 +9,7 @@ library(data.table)
 library(readr)
 
 api_answering_body <- function(answering){
-  answering_bodies_lookup <- data.table(read_tsv("./Data/answering_body_lookup.tsv"))
-  body <- answering_bodies_lookup$Name[answering_bodies_lookup$Code == answering]
+  body <- ANSWERING_BODIES_LOOKUP$Name[ANSWERING_BODIES_LOOKUP$Code == answering]
   body <- gsub(" ","+",body)
   body <- paste0("AnsweringBody=", body)
   return(body)
@@ -126,7 +125,7 @@ fetch_questions <- function(answering_body, show_progress = TRUE) {
   number_held_remotely <- number_held_remotely(api_answering = api_answering_body)
 
   if(show_progress == TRUE) {
-    print(str_interp("Fetching ${number_to_fetch} questions"))
+    print(str_interp("Fetching ${number_to_fetch} questions for ${answering_body}"))
   }
 
   iterations <- ceiling(number_to_fetch / 500)
@@ -153,7 +152,7 @@ fetch_questions <- function(answering_body, show_progress = TRUE) {
   for(iteration in c(1:iterations)) {
     page       <- iteration - 1
     page_param <- str_interp("_page=${page}")
-    if(show_progress == TRUE) { print(str_interp("Fetching page ${iteration} of ${iterations}")) }
+    if(show_progress == TRUE) { print(str_interp("Fetching page ${iteration} of ${iterations} for ${answering_body}")) }
     response   <- fromJSON(str_interp("${API_ENDPOINT}?${base_params}&_sort=dateOfAnswer&${page_param}"))
     parsed_response <- parse_response(response$result$items)
     parsed_response$Question_MP <- sapply(parsed_response$Question_MP, nameCleaner)
@@ -166,7 +165,7 @@ fetch_questions <- function(answering_body, show_progress = TRUE) {
 }
 
 fetch_all_questions <- function(){
-  for (bodies %in% answering_bodies_lookup$Code)
+  for (bodies in ANSWERING_BODIES_LOOKUP$Code){
     fetch_questions(bodies, show_progress = TRUE)
+    }
 }
-
