@@ -1,6 +1,14 @@
 [![Build Status](https://travis-ci.org/moj-analytical-services/PQTool.svg?branch=master)](https://travis-ci.org/moj-analytical-services/pq-tool)
 
 # PQ Tool
+## Contents
+* [Introduction](#introduction)  
+* [Generating and updating the archive of PQs](#generating-and-updating-the-archive-of-pqs)  
+* [Generating the data](#generating-the-data)  
+* [Running the tool](#running-the-tool)
+* [Testing](#testing)
+* [Deploying within MoJ](#deploying-within-moj)
+
 ## Introduction
 This is a prototype tool for analysing and comparing written Parliamentary Questions for answer by the Ministry of Justice. Questions have been taken from the API provided by Parliament (accessed via http://www.data.parliament.uk/).
 
@@ -40,17 +48,21 @@ This runs the file `data_generators/getTheData.R` which contains code to run the
 #### In an R console
 ```
 source('./R/apiClient.R')
-# Without feedback
-fetch_questions()
-# With feedback
-fetch_questions(show_progress = TRUE)
+
+#For a specific department/answering body:
+fetch_questions("ACRONYM")
+
+For all departments:
+fetch_all_questions() # Note that this functionality is in development and currently has a couple of bugs
 ```
 
 #### What this code does
 
-- When the `fetch_questions()` function is called for the first time, and no archive exists, it will create `archived_pqs.csv` in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
+- See answering_body_lookup.tsv for the correct acronym
 
-- When an archive already exists, the function will update `archived_pqs.csv` by appending newly answered questions (downloaded from the same endpoint).
+- When the `fetch_questions("ACRONYM")` function is called for the first time, and no archive exists, it will create `ACRONYM_archived_pqs.csv` in the Data directory and download all answered PQs, that were posed to the specific department, from http://lda.data.parliament.uk/answeredquestions. The MoJ questions take about 8.5 minutes on a 2016 MacBook Pro.
+
+- When an archive already exists, the function will update `ACRONYM_archived_pqs.csv` by appending newly answered questions (downloaded from the same endpoint).
 
 - Variables in BLOCK_CAPITALS are defined in `.Rprofile`
 
