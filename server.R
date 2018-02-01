@@ -11,7 +11,7 @@ function(input, output, session) {
   
   
   answering_body_code <- reactive({
-    answering_bodies_lookup$Code[answering_bodies_lookup$Name == input$answering_body_choice]
+    ANSWERING_BODIES_LOOKUP$Code[ANSWERING_BODIES_LOOKUP$Name == input$answering_body_choice]
   })
   
   data_folder <- reactive({
@@ -191,7 +191,8 @@ function(input, output, session) {
                   text = ~paste("Rank:", plot_points()$Rank,
                                 "<br> Member HoC/HoL:", plot_points()$Question_MP,
                                 "<br> Date:", plot_points()$Date ),
-                  hoverinfo = "text",  marker = list(color = "#67a9cf")
+                  hoverinfo = "text",  
+                  marker = list(color = "#67a9cf")
       )%>%
       layout(yaxis = y_axis,
              title = "Top 100 questions most similar to your search",
@@ -213,7 +214,7 @@ function(input, output, session) {
                 y = plot_points()$Similarity_score[input$similarity_table_rows_selected],
                 name = 'Qs selected',
                 type = "scatter", mode = 'markers', marker = list(size = 12, color = "red"),
-                text = NULL,
+                text = NULL, 
                 hoverinfo = "text"
       ) %>%
       

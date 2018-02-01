@@ -71,7 +71,7 @@ navbarPage("MoJ Parliamentary Analysis Tool",
                              introBox(
                                selectizeInput(inputId = "answering_body_choice",
                                               label = "Choose Answering Body:",
-                                              choices = answering_bodies_lookup$Name
+                                              choices = ANSWERING_BODIES_LOOKUP$Name
                                ),
                                data.step = 1,
                                data.intro = "Choose an answering body",
