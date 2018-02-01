@@ -1,6 +1,14 @@
 [![Build Status](https://travis-ci.org/moj-analytical-services/PQTool.svg?branch=master)](https://travis-ci.org/moj-analytical-services/pq-tool)
 
 # PQ Tool
+## Contents
+* [Introduction](#introduction)  
+* [Generating and updating the archive of PQs](#generating-and-updating-the-archive-of-pqs)  
+* [Generating the data](#generating-the-data)  
+* [Running the tool](#running-the-tool)
+* [Testing](#testing)
+* [Deploying within MoJ](#deploying-within-moj)
+
 ## Introduction
 This is a prototype tool for analysing and comparing written Parliamentary Questions for answer by the Ministry of Justice. Questions have been taken from the API provided by Parliament (accessed via http://www.data.parliament.uk/).
 
@@ -15,20 +23,34 @@ To access the deployed tool within the Ministry of Justice go to https://pq-tool
 Variables in block capitals are defined in .Rprofile because they're used in serveral different R files.  This should load automatically whenever you start a new R session from the comand line.  If you make changes to .Rprofile, remember that you will either need to open a new R session to load the changes or do `source('./Rprofile')`
 
 ## Generating and updating the archive of PQs
-### In an R console
+
+### Adding data for a new department
+
+Add the department name and acronym to answering_body_lookup.tsv and create a folder with the same name as the acronym (if they do not already exist) 
+
+### Pull new questions from the API
+
+In an R console
 ```
 source('./R/apiClient.R')
-# Without feedback
-fetch_questions()
-# With feedback
-fetch_questions(show_progress=TRUE)
+
+For a specific department:
+fetch_questions("ACRONYM")
+
+E.g. 
+fetch_questions("moj")
+
+For all departments:
+fetch_all_questions() # Note that this functionality is in development and currently has a couple of bugs
+
 ```
+Notes: 
 
-- When this function is called for the first time, and no archive exists, it will create archived_pqs.csv in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
+- See answering_body_lookup.tsv for the correct acronym
 
-- When an archive already exists, the function will update archived_pqs.csv by appending newly answered questions (downloaded from the same endpoint).
+- When this function is called for the first time, and no archive exists, it will create ACRONYM_archived_pqs.csv in the Data directory and download all answered PQs, that were posed to the specific department, from http://lda.data.parliament.uk/answeredquestions. The MoJ questions take about 8.5 minutes on a 2016 MacBook Pro.
 
-- Variables in BLOCK_CAPITALS are defined in .Rprofile
+- When an archive already exists, the function will update ACRONYM_archived_pqs.csv by appending newly answered questions (downloaded from the same endpoint).
 
 ## Generating the data
 There are three files that create the data, within the data_generators folder.
