@@ -1,11 +1,13 @@
 #### -- Packrat Autoloader (version 0.4.8-1) -- ####
+source("packrat/init.R")
+
+ANSWERING_BODIES_LOOKUP <- read_tsv("./Data/answering_body_lookup.tsv")
 SHINY_ROOT <- getwd()
-TRAVIS <- FALSE
-ARCHIVE_FILEPATH  <- file.path(SHINY_ROOT, 'Data', 'archived_pqs.csv')
 API_ENDPOINT      <- "http://lda.data.parliament.uk/answeredquestions.json"
-MOJ_ONLY          <- "AnsweringBody=Ministry+of+Justice"
 MIN_DOWNLOAD      <- "_pageSize=1"
-MAX_DOWNLOAD      <- "_pageSize=1000"
+MAX_DOWNLOAD      <- "_pageSize=500"
+
+
 JUSTICE_STOP_WORDS <- c(
   "a", "b", "c", "d", "i", "ii", "iii", "iv",
   "secretary", "state", "ministry", "majesty","majestys",
@@ -29,10 +31,10 @@ JUSTICE_STOP_WORDS <- c(
   "discussions",
   "taken", "recent",
   "cooperation",
-  "matters",
+  "matters", 
   "provision",
   "provisions",
   "usage"
 )
-source("packrat/init.R")
+
 #### -- End Packrat Autoloader -- ####

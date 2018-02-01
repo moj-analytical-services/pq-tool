@@ -18,7 +18,6 @@ library(scales)
 library(readr)
 library(rintrojs)
 
-ANSWERING_BODIES_LOOKUP <- read_tsv("./Data/answering_body_lookup.tsv")
 
 for(code in ANSWERING_BODIES_LOOKUP$Code){
   load(file = file.path("./Data", code, paste0(code, "_SearchSpace.rda")))
