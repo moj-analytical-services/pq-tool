@@ -19,8 +19,6 @@ library(readr)
 library(rintrojs)
 
 load(file = "./Data/searchSpace.rda")
-load(file = "./Data/allMPs.rda")
-load(file = "./Data/allTopics.rda")
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))

@@ -122,7 +122,7 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
   #replace "networkrail" with "network rail"
   names(termsAndSumsN) <- gsub("networkrail", "network rail", names(termsAndSumsN))
   #replace "disabl" with "disability" (for clusters where the word disabled isn't present)
-  names(termsAndSumsN) <- gsub("disabl", "disability", names(termsAndSumsN))
+  names(termsAndSumsN) <- gsub("disabl\\b", "disability", names(termsAndSumsN))
   
   termsAndSumsN
 }
