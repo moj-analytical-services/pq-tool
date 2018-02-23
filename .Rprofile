@@ -32,7 +32,14 @@ JUSTICE_STOP_WORDS <- c(
   "matters",
   "provision",
   "provisions",
-  "usage"
+  "usage",
+  "dr",
+  "mr",
+  "mrs",
+  "ms",
+  "miss",
+  "lord",
+  "sir"
 )
 source("packrat/init.R")
 #### -- End Packrat Autoloader -- ####
