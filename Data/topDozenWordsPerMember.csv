@@ -215,18 +215,18 @@
 "214","Ashworth, Jonathan","resigned",0.685823569348893
 "215","Ashworth, Jonathan","officials",0.671042007111551
 "216","Ashworth, Jonathan","year",0.653904499484497
-"217","Attlee, Earl","exceeded",0.324366481239151
-"218","Attlee, Earl","reply",0.317281304790429
-"219","Attlee, Earl","certified",0.314085888199123
-"220","Attlee, Earl","normal",0.314085888199123
-"221","Attlee, Earl","keen",0.2900475355624
-"222","Attlee, Earl","elie",0.288178945020317
-"223","Attlee, Earl","capacity",0.251183035371545
-"224","Attlee, Earl","20",0.250321939358905
-"225","Attlee, Earl","population",0.250321939358905
-"226","Attlee, Earl","accommodation",0.241723551908853
-"227","Attlee, Earl","lord",0.21190878024005
-"228","Attlee, Earl","february",0.205297404275251
+"217","Attlee, Earl","exceeded",0.331904208397225
+"218","Attlee, Earl","reply",0.324654384458623
+"219","Attlee, Earl","certified",0.321384711802604
+"220","Attlee, Earl","normal",0.321384711802604
+"221","Attlee, Earl","keen",0.29678774860041
+"222","Attlee, Earl","elie",0.294875735181762
+"223","Attlee, Earl","capacity",0.257020103308203
+"224","Attlee, Earl","20",0.256138996883959
+"225","Attlee, Earl","population",0.256138996883959
+"226","Attlee, Earl","accommodation",0.247340797485551
+"227","Attlee, Earl","february",0.210068167930534
+"228","Attlee, Earl","system",0.197375096717163
 "229","Austin, Ian","companies",4.0973977695974
 "230","Austin, Ian","probation",3.84498835652884
 "231","Austin, Ian","rehabilitation",3.43687375507544
@@ -480,16 +480,16 @@
 "479","Baroness Hamwee","persons",0.172861038817829
 "480","Baroness Hamwee","will",0.104184222839215
 "481","Baroness Hayter of Kentish Town","secondary",1.33779709783911
-"482","Baroness Hayter of Kentish Town","eu",1.30486341363432
+"482","Baroness Hayter of Kentish Town","eu",1.30230558464266
 "483","Baroness Hayter of Kentish Town","legislation",1.05512698089591
-"484","Baroness Hayter of Kentish Town","brussels",1.05289816127318
-"485","Baroness Hayter of Kentish Town","become",1.05200426505747
+"484","Baroness Hayter of Kentish Town","become",1.05200426505747
+"485","Baroness Hayter of Kentish Town","brussels",1.0484026988235
 "486","Baroness Hayter of Kentish Town","banking",1.03287710706168
 "487","Baroness Hayter of Kentish Town","withdraw",0.950651628132029
 "488","Baroness Hayter of Kentish Town","ombudsman",0.905793112640701
 "489","Baroness Hayter of Kentish Town","intend",0.901739173373911
 "490","Baroness Hayter of Kentish Town","complaints",0.878867242669081
-"491","Baroness Hayter of Kentish Town","will",0.870711630211918
+"491","Baroness Hayter of Kentish Town","will",0.872047988540309
 "492","Baroness Hayter of Kentish Town","choice",0.858328974681709
 "493","Baroness Healy of Primrose Hill","strategy",1.16033974988725
 "494","Baroness Healy of Primrose Hill","wales",0.941570296304534
@@ -515,18 +515,18 @@
 "514","Baroness Hodgson of Abinger","data",0.213813765608049
 "515","Baroness Hodgson of Abinger","attend",0
 "516","Baroness Hodgson of Abinger","breastfeed",0
-"517","Baroness Howe of Idlicote","visiting",1.63813481505287
+"517","Baroness Howe of Idlicote","visiting",1.64485151638992
 "518","Baroness Howe of Idlicote","barnardos",1.63323073085359
 "519","Baroness Howe of Idlicote","locked",1.44493324675082
 "520","Baroness Howe of Idlicote","experiences",1.37239715071803
-"521","Baroness Howe of Idlicote","fathers",1.23317786459755
+"521","Baroness Howe of Idlicote","fathers",1.24039715524795
 "522","Baroness Howe of Idlicote","parent",1.18999922922448
-"523","Baroness Howe of Idlicote","incentive",1.04267695294917
-"524","Baroness Howe of Idlicote","privileges",1.04267695294917
-"525","Baroness Howe of Idlicote","children",1.03453359276243
-"526","Baroness Howe of Idlicote","earned",0.883618224092296
+"523","Baroness Howe of Idlicote","incentive",1.05185385839714
+"524","Baroness Howe of Idlicote","privileges",1.05185385839714
+"525","Baroness Howe of Idlicote","children",1.0380277370335
+"526","Baroness Howe of Idlicote","earned",0.891395207051071
 "527","Baroness Howe of Idlicote","report",0.681406752831294
-"528","Baroness Howe of Idlicote","scheme",0.671716287590466
+"528","Baroness Howe of Idlicote","scheme",0.677628259502419
 "529","Baroness Hussein-Ece","pursue",0.409980218192272
 "530","Baroness Hussein-Ece","sex",0.304961291748109
 "531","Baroness Hussein-Ece","child",0.265340011198002
@@ -614,27 +614,27 @@
 "613","Baroness Lister of Burtersett","upper",0.70669040135615
 "614","Baroness Lister of Burtersett","pursuing",0.692887523462797
 "615","Baroness Lister of Burtersett","chamber",0.650357014839732
-"616","Baroness Lister of Burtersett","appeals",0.599128032979675
+"616","Baroness Lister of Burtersett","appeals",0.605301785898927
 "617","Baroness Lister of Burtersett","representation",0.595802361934655
 "618","Baroness Lister of Burtersett","asylum",0.561419587752366
-"619","Baroness Lister of Burtersett","tier",0.526300799093256
-"620","Baroness Lister of Burtersett","litigants",0.51787049292444
-"621","Baroness Lister of Burtersett","hl2645",0.514034592632669
+"619","Baroness Lister of Burtersett","hl2645",0.529690999446284
+"620","Baroness Lister of Burtersett","tier",0.526300799093256
+"621","Baroness Lister of Burtersett","litigants",0.525979795627378
 "622","Baroness Lister of Burtersett","immigration",0.509096792052958
 "623","Baroness Lister of Burtersett","individuals",0.491051887595343
 "624","Baroness Lister of Burtersett","first",0.449147373613015
 "625","Baroness Ludford","rental",1.53144797071999
-"626","Baroness Ludford","buildings",1.48425555244764
+"626","Baroness Ludford","buildings",1.49249292400475
 "627","Baroness Ludford","raised",1.46135686956531
 "628","Baroness Ludford","disposed",1.35366954158112
 "629","Baroness Ludford","money",1.18635411773157
 "630","Baroness Ludford","sale",1.15274873513776
-"631","Baroness Ludford","estate",1.0866690817904
-"632","Baroness Ludford","may",1.04957215265808
+"631","Baroness Ludford","estate",1.0944671040499
+"632","Baroness Ludford","may",1.05647324454252
 "633","Baroness Ludford","third",0.85678320230294
 "634","Baroness Ludford","amp",0.761570538150216
 "635","Baroness Ludford","parties",0.748434430706441
-"636","Baroness Ludford","court",0.687734853631534
+"636","Baroness Ludford","court",0.691551667732581
 "637","Baroness Masham of Ilton","training",1.38776228448785
 "638","Baroness Masham of Ilton","officer",1.22521405778401
 "639","Baroness Masham of Ilton","role",0.901548228838628
@@ -767,18 +767,18 @@
 "766","Baroness Stern","finding",1.57679857552479
 "767","Baroness Stern","published",1.56002140091384
 "768","Baroness Stern","prison",1.54121567875604
-"769","Baroness Stowell of Beeston","832",0.289312084415162
-"770","Baroness Stowell of Beeston","gagging",0.289312084415162
-"771","Baroness Stowell of Beeston","payers",0.289312084415162
-"772","Baroness Stowell of Beeston","exposed",0.267314457348737
-"773","Baroness Stowell of Beeston","taxpayers",0.267314457348737
-"774","Baroness Stowell of Beeston","satisfy",0.238235176108775
-"775","Baroness Stowell of Beeston","nondisclosure",0.232449043343604
-"776","Baroness Stowell of Beeston","wrong",0.210451416277179
-"777","Baroness Stowell of Beeston","settlement",0.205559310730221
-"778","Baroness Stowell of Beeston","hl",0.194239921975925
-"779","Baroness Stowell of Beeston","keen",0.185913564447282
-"780","Baroness Stowell of Beeston","elie",0.184715842399765
+"769","Baroness Stowell of Beeston","832",0.292018403772166
+"770","Baroness Stowell of Beeston","gagging",0.292018403772166
+"771","Baroness Stowell of Beeston","payers",0.292018403772166
+"772","Baroness Stowell of Beeston","exposed",0.269815003745865
+"773","Baroness Stowell of Beeston","taxpayers",0.269815003745865
+"774","Baroness Stowell of Beeston","satisfy",0.240463705449075
+"775","Baroness Stowell of Beeston","nondisclosure",0.234623447315667
+"776","Baroness Stowell of Beeston","wrong",0.212420047289366
+"777","Baroness Stowell of Beeston","settlement",0.207482179395615
+"778","Baroness Stowell of Beeston","hl",0.196056905396473
+"779","Baroness Stowell of Beeston","keen",0.187652660410766
+"780","Baroness Stowell of Beeston","elie",0.186443734481571
 "781","Baroness Taylor of Bolton","category",0.594110217156578
 "782","Baroness Taylor of Bolton","held",0.566656029912645
 "783","Baroness Taylor of Bolton","currently",0.545153512540494
@@ -791,17 +791,17 @@
 "790","Baroness Taylor of Bolton","nurs",0
 "791","Baroness Taylor of Bolton","provid",0
 "792","Baroness Taylor of Bolton","room",0
-"793","Baroness Thomas of Winchester","relevance",0.551439586534419
-"794","Baroness Thomas of Winchester","disability",0.507319106667997
-"795","Baroness Thomas of Winchester","transforming",0.491807257619047
+"793","Baroness Thomas of Winchester","relevance",0.556609416603033
+"794","Baroness Thomas of Winchester","disability",0.511777090397968
+"795","Baroness Thomas of Winchester","transforming",0.496418025526336
 "796","Baroness Thomas of Winchester","independence",0.427990421044469
-"797","Baroness Thomas of Winchester","referenced",0.423123196365908
-"798","Baroness Thomas of Winchester","hl2078",0.416488065146646
+"797","Baroness Thomas of Winchester","hl2078",0.424685984914138
+"798","Baroness Thomas of Winchester","referenced",0.423123196365908
 "799","Baroness Thomas of Winchester","payment",0.412996168647348
 "800","Baroness Thomas of Winchester","appeals",0.384224405740186
-"801","Baroness Thomas of Winchester","cross",0.377094565710051
-"802","Baroness Thomas of Winchester","system",0.373694086168472
-"803","Baroness Thomas of Winchester","consultation",0.368644499660597
+"801","Baroness Thomas of Winchester","system",0.377197525113213
+"802","Baroness Thomas of Winchester","cross",0.377094565710051
+"803","Baroness Thomas of Winchester","consultation",0.372100597963136
 "804","Baroness Thomas of Winchester","panel",0.349633536741746
 "805","Baroness Thornton","conducted",0.597803015726757
 "806","Baroness Thornton","celebrant",0.48270395716174
@@ -851,10 +851,10 @@
 "850","Baroness Wheatcroft","age",0.443183523532977
 "851","Baroness Wheatcroft","18",0.442515780083154
 "852","Baroness Wheatcroft","combined",0.436033071448695
-"853","Baroness Whitaker","gypsies",1.41530443404292
-"854","Baroness Whitaker","traveller",1.18357949324156
+"853","Baroness Whitaker","gypsies",1.41947010212634
+"854","Baroness Whitaker","traveller",1.18706312489041
 "855","Baroness Whitaker","romany",0.851595185396445
-"856","Baroness Whitaker","ethnicity",0.57806636456338
+"856","Baroness Whitaker","ethnicity",0.581356984533129
 "857","Baroness Whitaker","recommendations",0.530186977479843
 "858","Baroness Whitaker","inspectorate",0.521209402800032
 "859","Baroness Whitaker","culture",0.509680358960476
@@ -1351,9 +1351,9 @@
 "1350","Burgon, Richard","staff",12.6030941216292
 "1351","Burgon, Richard","companies",11.5403937710342
 "1352","Burgon, Richard","service",11.2826442162393
-"1353","Burgon, Richard","will",10.7462756771209
+"1353","Burgon, Richard","will",10.755019340713
 "1354","Burgon, Richard","maintenance",10.5821444268687
-"1355","Burgon, Richard","made",9.50852868222324
+"1355","Burgon, Richard","made",9.51728925109738
 "1356","Burgon, Richard","communities",8.80392956224143
 "1357","Burley, Aidan","growth",0.635042906461762
 "1358","Burley, Aidan","culture",0.507566181175085
@@ -1383,14 +1383,14 @@
 "1382","Burns, Sir Simon","wildlife",0.545296933422167
 "1383","Burns, Sir Simon","trade",0.427322944658526
 "1384","Burns, Sir Simon","inspectorate",0.422133380828488
-"1385","Burns, Sir Simon","hm",0.392105105647875
-"1386","Burns, Sir Simon","00156",0.386645308395699
-"1387","Burns, Sir Simon","ms",0.386645308395699
-"1388","Burns, Sir Simon","sc133/14/00156",0.386645308395699
+"1385","Burns, Sir Simon","00156",0.419251095101265
+"1386","Burns, Sir Simon","sc133/14/00156",0.419251095101265
+"1387","Burns, Sir Simon","hm",0.402548276389113
+"1388","Burns, Sir Simon","ref",0.387373652940938
 "1389","Burns, Sir Simon","illegal",0.376293030034599
 "1390","Burns, Sir Simon","hmp",0.359452024886786
-"1391","Burns, Sir Simon","ref",0.35724702274073
-"1392","Burns, Sir Simon","response",0.348967435436526
+"1391","Burns, Sir Simon","response",0.348967435436526
+"1392","Burns, Sir Simon","concerning",0.348716466559432
 "1393","Burrowes, David","141a",2.18161581052266
 "1394","Burrowes, David","sentence",1.73395073449738
 "1395","Burrowes, David","custodial",1.53252713210887
@@ -1599,7 +1599,7 @@
 "1598","Chapman, Jenny","england",3.92974861192724
 "1599","Chapman, Jenny","officer",3.54628104790193
 "1600","Chapman, Jenny","month",3.04779719474691
-"1601","Chapman, Jenny","prison",2.90274701189251
+"1601","Chapman, Jenny","prison",2.90479275620227
 "1602","Chapman, Jenny","2013",2.81738849615059
 "1603","Chapman, Jenny","institution",2.32459702988529
 "1604","Chapman, Jenny","young",2.14680328490208
@@ -1679,12 +1679,12 @@
 "1678","Clegg, Nick","prosecuted",0.183160476528811
 "1679","Clegg, Nick","cost",0.149986441242875
 "1680","Clegg, Nick","public",0.142807392403261
-"1681","Clwyd, Ann","macur",4.76375840648744
-"1682","Clwyd, Ann","lady",2.22205845129541
+"1681","Clwyd, Ann","macur",4.77407306162186
+"1682","Clwyd, Ann","lady",2.23408282723654
 "1683","Clwyd, Ann","review",1.8018891837517
 "1684","Clwyd, Ann","19906",1.49730198043774
 "1685","Clwyd, Ann","updated",1.29421462984828
-"1686","Clwyd, Ann","report",1.24567820731198
+"1686","Clwyd, Ann","report",1.25058936358794
 "1687","Clwyd, Ann","gordon",1.12650159985413
 "1688","Clwyd, Ann","redactions",1.09398245003908
 "1689","Clwyd, Ann","reinstated",1.09398245003908
@@ -2639,11 +2639,11 @@
 "2638","Flint, Caroline","run",0.911456329308958
 "2639","Flint, Caroline","increases",0.761688100987546
 "2640","Flint, Caroline","access",0.702283720464137
-"2641","Flynn, Paul","rainsbrook",4.35213257924892
-"2642","Flynn, Paul","centre",3.21599171805684
-"2643","Flynn, Paul","secure",2.92422391845018
+"2641","Flynn, Paul","rainsbrook",4.40638943583957
+"2642","Flynn, Paul","centre",3.25311299017462
+"2643","Flynn, Paul","secure",2.95593110452705
 "2644","Flynn, Paul","drug",2.85239768226074
-"2645","Flynn, Paul","training",2.81879913140819
+"2645","Flynn, Paul","training",2.85133572315837
 "2646","Flynn, Paul","prison",2.27201266550772
 "2647","Flynn, Paul","contract",2.00083327118118
 "2648","Flynn, Paul","run",1.97177388396588
@@ -3366,10 +3366,10 @@
 "3365","Hoey, Kate","britain",1.44527177729912
 "3366","Hoey, Kate","royal",1.39369218137418
 "3367","Hoey, Kate","survivors",1.36466663897984
-"3368","Hoey, Kate","terrorism",1.28659735978836
-"3369","Hoey, Kate","brixton",1.28072475210503
-"3370","Hoey, Kate","patent",1.26750847242169
-"3371","Hoey, Kate","will",1.2171017957391
+"3368","Hoey, Kate","patent",1.288779556712
+"3369","Hoey, Kate","terrorism",1.28659735978836
+"3370","Hoey, Kate","brixton",1.28072475210503
+"3371","Hoey, Kate","will",1.2221103599326
 "3372","Hoey, Kate","northern",1.17299796722713
 "3373","Hollern, Kate","blackburn",1.71742516986173
 "3374","Hollern, Kate","overturned",1.50257597622932
@@ -3803,17 +3803,17 @@
 "3802","Kane, Mike","online",0.467836347744611
 "3803","Kane, Mike","assisted",0.43513161800145
 "3804","Kane, Mike","visits",0.410407891314771
-"3805","Kaufman, Sir Gerald","gorton",1.09415864350573
-"3806","Kaufman, Sir Gerald","reply",0.87452031765566
-"3807","Kaufman, Sir Gerald","manchester",0.779927239457551
-"3808","Kaufman, Sir Gerald","dated",0.747667507620336
-"3809","Kaufman, Sir Gerald","regard",0.702263497806468
-"3810","Kaufman, Sir Gerald","intends",0.662361615103611
-"3811","Kaufman, Sir Gerald","letter",0.644379198190366
-"3812","Kaufman, Sir Gerald","right",0.509268657986564
-"3813","Kaufman, Sir Gerald","member",0.494452716418579
-"3814","Kaufman, Sir Gerald","sherratt",0.436537808071968
-"3815","Kaufman, Sir Gerald","lawson",0.42438799183064
+"3805","Kaufman, Sir Gerald","gorton",1.14269489392975
+"3806","Kaufman, Sir Gerald","reply",0.91331353780757
+"3807","Kaufman, Sir Gerald","manchester",0.814524364866662
+"3808","Kaufman, Sir Gerald","dated",0.780833609811419
+"3809","Kaufman, Sir Gerald","regard",0.733415504140738
+"3810","Kaufman, Sir Gerald","intends",0.691743596786747
+"3811","Kaufman, Sir Gerald","letter",0.672963490163961
+"3812","Kaufman, Sir Gerald","right",0.531859523821107
+"3813","Kaufman, Sir Gerald","member",0.516386355575363
+"3814","Kaufman, Sir Gerald","sherratt",0.458666471242041
+"3815","Kaufman, Sir Gerald","lawson",0.457446231901402
 "3816","Kaufman, Sir Gerald","hussain",0.383159325374906
 "3817","Kawczynski, Daniel","crematorium",2.65338096696004
 "3818","Kawczynski, Daniel","cremation",2.07656975310227
@@ -4219,7 +4219,7 @@
 "4218","Lord Alton of Liverpool","activities",1.66840927571748
 "4219","Lord Alton of Liverpool","income",1.4933211157583
 "4220","Lord Alton of Liverpool","protection",1.31598610599459
-"4221","Lord Alton of Liverpool","financial",1.27239112598927
+"4221","Lord Alton of Liverpool","financial",1.27707596746212
 "4222","Lord Alton of Liverpool","controller",1.26651935599107
 "4223","Lord Alton of Liverpool","fee",1.01132093110515
 "4224","Lord Alton of Liverpool","spend",0.92311613160133
@@ -4259,18 +4259,18 @@
 "4258","Lord Bassam of Brighton","sole",0.451155458829834
 "4259","Lord Bassam of Brighton","failure",0.402740296557349
 "4260","Lord Bassam of Brighton","relating",0.395953626303749
-"4261","Lord Beecham","magistracy",5.64129983230133
-"4262","Lord Beecham","lay",4.99649690328528
-"4263","Lord Beecham","light",4.59587532761577
-"4264","Lord Beecham","plan",4.18461967094569
-"4265","Lord Beecham","secure",3.72871831678056
+"4261","Lord Beecham","magistracy",5.65550340408048
+"4262","Lord Beecham","lay",5.00517519503607
+"4263","Lord Beecham","light",4.59684371242573
+"4264","Lord Beecham","plan",4.19543460360739
+"4265","Lord Beecham","secure",3.73220357320657
 "4266","Lord Beecham","report",3.67321460514696
-"4267","Lord Beecham","court",3.50738265057068
-"4268","Lord Beecham","will",3.32045551607595
+"4267","Lord Beecham","court",3.51313048907057
+"4268","Lord Beecham","will",3.3292602883795
 "4269","Lord Beecham","estimate",3.15969443470924
-"4270","Lord Beecham","service",3.12243873549338
-"4271","Lord Beecham","case",3.07827846470864
-"4272","Lord Beecham","prison",2.92363699264585
+"4270","Lord Beecham","service",3.1174062583285
+"4271","Lord Beecham","case",3.08155330850988
+"4272","Lord Beecham","prison",2.92740597808708
 "4273","Lord Beith","guardianship",0.489686280575324
 "4274","Lord Beith","draft",0.465362118551233
 "4275","Lord Beith","following",0.464657403760091
@@ -4343,18 +4343,18 @@
 "4342","Lord Blencathra","psychologists",1.07505421164785
 "4343","Lord Blencathra","solicitor",0.996971364056988
 "4344","Lord Blencathra","study",0.937545507773944
-"4345","Lord Boateng","inquest",1.46399237209439
-"4346","Lord Boateng","deceased",1.07475873896487
-"4347","Lord Boateng","families",0.9203133796972
-"4348","Lord Boateng","representation",0.793486566237577
-"4349","Lord Boateng","cherry",0.759199655172414
-"4350","Lord Boateng","groce",0.759199655172414
-"4351","Lord Boateng","legal",0.749216512485788
-"4352","Lord Boateng","aid",0.674854169929111
+"4345","Lord Boateng","inquest",1.46908695010385
+"4346","Lord Boateng","deceased",1.08077038396112
+"4347","Lord Boateng","families",0.923515997685781
+"4348","Lord Boateng","representation",0.798384364381121
+"4349","Lord Boateng","cherry",0.766207247334783
+"4350","Lord Boateng","groce",0.766207247334783
+"4351","Lord Boateng","legal",0.751823726868587
+"4352","Lord Boateng","aid",0.677831613392363
 "4353","Lord Boateng","absence",0.662088469625382
-"4354","Lord Boateng","victims",0.645130885169329
-"4355","Lord Boateng","agency",0.640089193521382
-"4356","Lord Boateng","funded",0.538306376894847
+"4354","Lord Boateng","victims",0.647941274386392
+"4355","Lord Boateng","agency",0.643880182860295
+"4356","Lord Boateng","funded",0.541629074575684
 "4357","Lord Boswell of Aynho","competences",0.342055826583973
 "4358","Lord Boswell of Aynho","printing",0.342055826583973
 "4359","Lord Boswell of Aynho","balance",0.304845951444199
@@ -4398,10 +4398,10 @@
 "4397","Lord Bradshaw","decided",0.417576577556576
 "4398","Lord Bradshaw","availability",0.379857350831571
 "4399","Lord Bradshaw","escalation",0.373038960359737
-"4400","Lord Bradshaw","compliant",0.363978782990141
-"4401","Lord Bradshaw","concentrated",0.361680187281779
-"4402","Lord Bradshaw","equitable",0.361680187281779
-"4403","Lord Bradshaw","march",0.351613882236263
+"4400","Lord Bradshaw","concentrated",0.3670099863693
+"4401","Lord Bradshaw","equitable",0.3670099863693
+"4402","Lord Bradshaw","compliant",0.363978782990141
+"4403","Lord Bradshaw","march",0.353914160752427
 "4404","Lord Bradshaw","united",0.342408388992986
 "4405","Lord Brooke of Alverthorpe","alcohol",0.704593409033998
 "4406","Lord Brooke of Alverthorpe","powdered",0.57111556199728
@@ -4463,12 +4463,12 @@
 "4462","Lord Clinton-Davis","nurs",0
 "4463","Lord Clinton-Davis","provid",0
 "4464","Lord Clinton-Davis","room",0
-"4465","Lord Colwyn","recoverable",0.545709943801392
-"4466","Lord Colwyn","jackson",0.498531791260278
+"4465","Lord Colwyn","recoverable",0.570451214571939
+"4466","Lord Colwyn","jackson",0.52113410990116
 "4467","Lord Colwyn","dental",0.409917388730335
 "4468","Lord Colwyn","discount",0.367639910740849
-"4469","Lord Colwyn","timescales",0.36045927154306
-"4470","Lord Colwyn","fixed",0.348980585998344
+"4469","Lord Colwyn","fixed",0.364802586806509
+"4470","Lord Colwyn","timescales",0.36045927154306
 "4471","Lord Colwyn","clinical",0.348950620382573
 "4472","Lord Colwyn","threshold",0.342452202337002
 "4473","Lord Colwyn","negligence",0.336720191389405
@@ -4511,18 +4511,18 @@
 "4510","Lord Craig of Radley","light",0.202756441502568
 "4511","Lord Craig of Radley","including",0.184621413132545
 "4512","Lord Craig of Radley","forces",0.18205932206471
-"4513","Lord Donoughue","374",0.334897633917183
-"4514","Lord Donoughue","mauley",0.334897633917183
-"4515","Lord Donoughue","de",0.294538639997294
-"4516","Lord Donoughue","owner",0.27577277650173
-"4517","Lord Donoughue","rspca",0.27577277650173
-"4518","Lord Donoughue","wa",0.243611259820759
-"4519","Lord Donoughue","permission",0.233042873564113
-"4520","Lord Donoughue","entry",0.230815746880275
-"4521","Lord Donoughue","attempting",0.215207093655855
-"4522","Lord Donoughue","property",0.201266034109164
-"4523","Lord Donoughue","without",0.18154592632867
-"4524","Lord Donoughue","make",0.180985055290494
+"4513","Lord Donoughue","374",0.33911556772798
+"4514","Lord Donoughue","mauley",0.33911556772798
+"4515","Lord Donoughue","de",0.298248264558386
+"4516","Lord Donoughue","owner",0.279246050721374
+"4517","Lord Donoughue","rspca",0.279246050721374
+"4518","Lord Donoughue","wa",0.246679469522543
+"4519","Lord Donoughue","permission",0.235977977656293
+"4520","Lord Donoughue","entry",0.233722800989447
+"4521","Lord Donoughue","attempting",0.217917561526402
+"4522","Lord Donoughue","property",0.203800918576112
+"4523","Lord Donoughue","without",0.183832442037717
+"4524","Lord Donoughue","make",0.183264506999453
 "4525","Lord Eames","disaster",0.472697887292912
 "4526","Lord Eames","advocate",0.377028762553972
 "4527","Lord Eames","remit",0.363494937233412
@@ -4547,18 +4547,18 @@
 "4546","Lord Empey","paid",0.379969945706857
 "4547","Lord Empey","injuries",0.374815548085912
 "4548","Lord Empey","pardons",0.363427494064393
-"4549","Lord Falconer of Thoroton","written",4.69656983465156
-"4550","Lord Falconer of Thoroton","faulks",3.96914704882849
-"4551","Lord Falconer of Thoroton","lord",3.45299612858308
-"4552","Lord Falconer of Thoroton","offender",2.66867968133798
-"4553","Lord Falconer of Thoroton","july",2.53365128319899
-"4554","Lord Falconer of Thoroton","year",2.50636458532917
-"4555","Lord Falconer of Thoroton","prison",2.4646913881231
-"4556","Lord Falconer of Thoroton","court",2.33919401470252
-"4557","Lord Falconer of Thoroton","hlws108",2.32577577035593
-"4558","Lord Falconer of Thoroton","2015",2.26924492892693
-"4559","Lord Falconer of Thoroton","criminal",2.18181198635112
-"4560","Lord Falconer of Thoroton","five",2.14992444682069
+"4549","Lord Falconer of Thoroton","written",4.78855745014764
+"4550","Lord Falconer of Thoroton","faulks",4.08421334162735
+"4551","Lord Falconer of Thoroton","offender",2.66867968133798
+"4552","Lord Falconer of Thoroton","july",2.58266626946458
+"4553","Lord Falconer of Thoroton","year",2.50636458532917
+"4554","Lord Falconer of Thoroton","prison",2.46947547462912
+"4555","Lord Falconer of Thoroton","hlws108",2.3993856286404
+"4556","Lord Falconer of Thoroton","court",2.36570712343134
+"4557","Lord Falconer of Thoroton","2015",2.28140690752799
+"4558","Lord Falconer of Thoroton","criminal",2.19095520654007
+"4559","Lord Falconer of Thoroton","five",2.14992444682069
+"4560","Lord Falconer of Thoroton","total",2.12322941534513
 "4561","Lord Fearn","inspected",0.614838534832346
 "4562","Lord Fearn","liverpool",0.557483887083279
 "4563","Lord Fearn","2017",0.335903741959719
@@ -4571,30 +4571,30 @@
 "4570","Lord Fearn","guidanc",0
 "4571","Lord Fearn","mother",0
 "4572","Lord Fearn","nurs",0
-"4573","Lord Fellowes","encouraged",0.404322587855168
-"4574","Lord Fellowes","behaviour",0.363618833559701
-"4575","Lord Fellowes","chancellor",0.344605278140231
-"4576","Lord Fellowes","books",0.332375693581635
-"4577","Lord Fellowes","considers",0.323166944425566
-"4578","Lord Fellowes","preventing",0.312334320040971
-"4579","Lord Fellowes","post",0.303854773776182
-"4580","Lord Fellowes","lord",0.275422188187169
-"4581","Lord Fellowes","rehabilitation",0.214446388775469
-"4582","Lord Fellowes","receiving",0.195391403890056
-"4583","Lord Fellowes","will",0.121486623842559
-"4584","Lord Fellowes","prisoners",0.0773267647194515
-"4585","Lord Foulkes of Cumnock","writs",1.20141524991926
-"4586","Lord Foulkes of Cumnock","summons",0.828217896015249
-"4587","Lord Foulkes of Cumnock","hl5044",0.825252148381088
-"4588","Lord Foulkes of Cumnock","sent",0.735808607008317
-"4589","Lord Foulkes of Cumnock","peers",0.735267627382508
+"4573","Lord Fellowes","encouraged",0.420589576024499
+"4574","Lord Fellowes","behaviour",0.378248199915508
+"4575","Lord Fellowes","chancellor",0.358469677881865
+"4576","Lord Fellowes","books",0.34574806415323
+"4577","Lord Fellowes","considers",0.336168822182572
+"4578","Lord Fellowes","preventing",0.324900372103346
+"4579","Lord Fellowes","post",0.316079670822948
+"4580","Lord Fellowes","rehabilitation",0.223074145358823
+"4581","Lord Fellowes","receiving",0.203252527040087
+"4582","Lord Fellowes","will",0.12637435836974
+"4583","Lord Fellowes","prisoners",0.0804378290147624
+"4584","Lord Fellowes","attend",0
+"4585","Lord Foulkes of Cumnock","writs",1.21898406668404
+"4586","Lord Foulkes of Cumnock","hl5044",0.84439636573598
+"4587","Lord Foulkes of Cumnock","summons",0.838792881794622
+"4588","Lord Foulkes of Cumnock","sent",0.746568655702013
+"4589","Lord Foulkes of Cumnock","peers",0.74146354567864
 "4590","Lord Foulkes of Cumnock","undelivered",0.523714579343274
-"4591","Lord Foulkes of Cumnock","faulks",0.509883284829356
-"4592","Lord Foulkes of Cumnock","lord",0.419329161197413
-"4593","Lord Foulkes of Cumnock","written",0.407616743460675
-"4594","Lord Foulkes of Cumnock","corrected",0.317321081497919
-"4595","Lord Foulkes of Cumnock","22",0.279610733681605
-"4596","Lord Foulkes of Cumnock","returned",0.27269648720732
+"4591","Lord Foulkes of Cumnock","faulks",0.521711568402501
+"4592","Lord Foulkes of Cumnock","written",0.417072645574487
+"4593","Lord Foulkes of Cumnock","corrected",0.323401614794248
+"4594","Lord Foulkes of Cumnock","22",0.287059486016535
+"4595","Lord Foulkes of Cumnock","returned",0.27269648720732
+"4596","Lord Foulkes of Cumnock","answer",0.272605469781165
 "4597","Lord German","rehabilitation",1.00879186785251
 "4598","Lord German","community",0.997815918084543
 "4599","Lord German","companies",0.975317787985719
@@ -4631,18 +4631,18 @@
 "4630","Lord Hamilton of Epsom","de",0.316597014825085
 "4631","Lord Hamilton of Epsom","affect",0.312435824474724
 "4632","Lord Hamilton of Epsom","concerning",0.271636408915722
-"4633","Lord Hardie","646",0.611022556466657
-"4634","Lord Hardie","remarks",0.581609601591942
-"4635","Lord Hardie","forum",0.544553660845818
-"4636","Lord Hardie","chair",0.46986375818815
-"4637","Lord Hardie","hl",0.443990103905147
-"4638","Lord Hardie","faulks",0.377521208284308
-"4639","Lord Hardie","capacity",0.368016251402929
-"4640","Lord Hardie","appointment",0.349081976384558
-"4641","Lord Hardie","mental",0.314620635569008
-"4642","Lord Hardie","lord",0.31047429149805
-"4643","Lord Hardie","process",0.309331885644644
-"4644","Lord Hardie","first",0.295447859468392
+"4633","Lord Hardie","646",0.61852565435813
+"4634","Lord Hardie","remarks",0.588751520870012
+"4635","Lord Hardie","forum",0.551240548884965
+"4636","Lord Hardie","chair",0.475633485894649
+"4637","Lord Hardie","hl",0.449442114108681
+"4638","Lord Hardie","faulks",0.382157008635516
+"4639","Lord Hardie","capacity",0.372535334914177
+"4640","Lord Hardie","appointment",0.353368555027593
+"4641","Lord Hardie","mental",0.318484043560037
+"4642","Lord Hardie","process",0.313130350029276
+"4643","Lord Hardie","first",0.299075833899052
+"4644","Lord Hardie","soon",0.298740525355471
 "4645","Lord Harries of Pentregarth","figure",0.576842406212795
 "4646","Lord Harries of Pentregarth","inflicted",0.512487712757295
 "4647","Lord Harries of Pentregarth","self",0.407461637582853
@@ -4680,17 +4680,17 @@
 "4679","Lord Hennessy of Nympsfield","attend",0
 "4680","Lord Hennessy of Nympsfield","breastfeed",0
 "4681","Lord Hodgson of Astley Abbotts","funders",1.08453239308995
-"4682","Lord Hodgson of Astley Abbotts","rate",0.72528955003093
+"4682","Lord Hodgson of Astley Abbotts","rate",0.732935785640304
 "4683","Lord Hodgson of Astley Abbotts","litigation",0.662480611401012
 "4684","Lord Hodgson of Astley Abbotts","ogden",0.625132337278621
-"4685","Lord Hodgson of Astley Abbotts","set",0.614753048019854
-"4686","Lord Hodgson of Astley Abbotts","discount",0.590617805104069
+"4685","Lord Hodgson of Astley Abbotts","set",0.618357753681573
+"4686","Lord Hodgson of Astley Abbotts","discount",0.602610184329591
 "4687","Lord Hodgson of Astley Abbotts","third",0.575531063613744
 "4688","Lord Hodgson of Astley Abbotts","statutory",0.560101210300793
 "4689","Lord Hodgson of Astley Abbotts","party",0.502749426916661
 "4690","Lord Hodgson of Astley Abbotts","firms",0.489914604572982
 "4691","Lord Hodgson of Astley Abbotts","regulation",0.458012971585009
-"4692","Lord Hodgson of Astley Abbotts","authorised",0.454912195933065
+"4692","Lord Hodgson of Astley Abbotts","238",0.457372941932505
 "4693","Lord Hoyle","three",0.882870823233668
 "4694","Lord Hoyle","occurred",0.688548830188775
 "4695","Lord Hoyle","assaults",0.684111299103122
@@ -4727,18 +4727,18 @@
 "4726","Lord Hylton","parole",0.679136383796212
 "4727","Lord Hylton","know",0.652996045887836
 "4728","Lord Hylton","plan",0.652649225316094
-"4729","Lord Inglewood","baker",0.338629118948248
-"4730","Lord Inglewood","extradition",0.312881708197972
-"4731","Lord Inglewood","sir",0.27207302766812
-"4732","Lord Inglewood","scott",0.27207302766812
-"4733","Lord Inglewood","analysis",0.235639475947145
-"4734","Lord Inglewood","prepared",0.220578206167569
-"4735","Lord Inglewood","means",0.216203077358692
-"4736","Lord Inglewood","kingdom",0.214852177147671
-"4737","Lord Inglewood","removing",0.20160325030575
-"4738","Lord Inglewood","high",0.191149998259703
-"4739","Lord Inglewood","testing",0.187166292059074
-"4740","Lord Inglewood","benefit",0.186541980526174
+"4729","Lord Inglewood","baker",0.351904137152045
+"4730","Lord Inglewood","extradition",0.325147370362122
+"4731","Lord Inglewood","scott",0.282738898359555
+"4732","Lord Inglewood","analysis",0.244877069992356
+"4733","Lord Inglewood","prepared",0.22922536477971
+"4734","Lord Inglewood","means",0.224678721144341
+"4735","Lord Inglewood","kingdom",0.223274862626165
+"4736","Lord Inglewood","removing",0.209506548244409
+"4737","Lord Inglewood","high",0.198643505358072
+"4738","Lord Inglewood","testing",0.194503628971913
+"4739","Lord Inglewood","benefit",0.193854843031763
+"4740","Lord Inglewood","considered",0.193854843031763
 "4741","Lord Jones","clerks",1.51660081234891
 "4742","Lord Jones","magistrates",1.51475386477891
 "4743","Lord Jones","wales",1.2751120929079
@@ -4763,18 +4763,18 @@
 "4762","Lord Jones of Cheltenham","integrated",0.342750678854942
 "4763","Lord Jones of Cheltenham","address",0.338927381721857
 "4764","Lord Jones of Cheltenham","solutions",0.277723609691248
-"4765","Lord Jopling","365",0.498170615641093
-"4766","Lord Jopling","newby",0.498170615641093
-"4767","Lord Jopling","wa",0.36237930337848
-"4768","Lord Jopling","now",0.314159872392731
-"4769","Lord Jopling","put",0.30709891073492
-"4770","Lord Jopling","lord",0.233885006894825
-"4771","Lord Jopling","written",0.227352289505722
-"4772","Lord Jopling","may",0.200525786483634
-"4773","Lord Jopling","answer",0.148601157002664
-"4774","Lord Jopling","will",0.103164890389066
-"4775","Lord Jopling","attend",0
-"4776","Lord Jopling","breastfeed",0
+"4765","Lord Jopling","365",0.512381903667069
+"4766","Lord Jopling","newby",0.512381903667069
+"4767","Lord Jopling","wa",0.372716879488498
+"4768","Lord Jopling","now",0.32312189522708
+"4769","Lord Jopling","put",0.315859505872192
+"4770","Lord Jopling","written",0.2338379568014
+"4771","Lord Jopling","may",0.206246175480659
+"4772","Lord Jopling","answer",0.152840294713427
+"4773","Lord Jopling","will",0.106107870013828
+"4774","Lord Jopling","attend",0
+"4775","Lord Jopling","breastfeed",0
+"4776","Lord Jopling","domest",0
 "4777","Lord Judd","evaluate",0.588435792235133
 "4778","Lord Judd","immediate",0.515600112743697
 "4779","Lord Judd","respond",0.501525479757495
@@ -4799,18 +4799,18 @@
 "4798","Lord Kennedy of Southwark","freedom",0.926147807279856
 "4799","Lord Kennedy of Southwark","court",0.899326734751643
 "4800","Lord Kennedy of Southwark","percentage",0.897001539483566
-"4801","Lord Kinnock","oath",0.419754063557517
-"4802","Lord Kinnock","constitutional",0.351731614870648
-"4803","Lord Kinnock","contained",0.299204900481865
-"4804","Lord Kinnock","judiciary",0.297488227464769
-"4805","Lord Kinnock","2005",0.284143640348005
-"4806","Lord Kinnock","chancellor",0.280357376268981
-"4807","Lord Kinnock","amend",0.279153786794727
-"4808","Lord Kinnock","defend",0.234624788653851
-"4809","Lord Kinnock","lord",0.224072720136904
-"4810","Lord Kinnock","independence",0.209638459548863
-"4811","Lord Kinnock","plan",0.208084819240617
-"4812","Lord Kinnock","reform",0.205691084082506
+"4801","Lord Kinnock","oath",0.430705868328575
+"4802","Lord Kinnock","constitutional",0.360908645690135
+"4803","Lord Kinnock","contained",0.307011456608682
+"4804","Lord Kinnock","judiciary",0.305249993869767
+"4805","Lord Kinnock","2005",0.291557233082892
+"4806","Lord Kinnock","chancellor",0.287672181574262
+"4807","Lord Kinnock","amend",0.286437189242738
+"4808","Lord Kinnock","defend",0.240746384852373
+"4809","Lord Kinnock","independence",0.21510813734549
+"4810","Lord Kinnock","plan",0.213513961002414
+"4811","Lord Kinnock","reform",0.211057770891745
+"4812","Lord Kinnock","office",0.167728689456977
 "4813","Lord Knight of Weymouth","kingdom",1.36538705600965
 "4814","Lord Knight of Weymouth","percentage",1.31271158065612
 "4815","Lord Knight of Weymouth","united",1.08202069400656
@@ -4823,18 +4823,18 @@
 "4822","Lord Knight of Weymouth","died",0.474683854616505
 "4823","Lord Knight of Weymouth","kept",0.427910043813041
 "4824","Lord Knight of Weymouth","hmp",0.427755399718056
-"4825","Lord Laird","death",1.11694917050436
-"4826","Lord Laird","instigated",1.1025912595858
-"4827","Lord Laird","inquiries",1.07433507441851
+"4825","Lord Laird","death",1.14051873584571
+"4826","Lord Laird","instigated",1.10835254769807
+"4827","Lord Laird","inquiries",1.10389960086896
 "4828","Lord Laird","define",1.0358520463126
-"4829","Lord Laird","1988",1.01625787608444
-"4830","Lord Laird","single",0.825420786977672
-"4831","Lord Laird","coroners",0.713493585440586
-"4832","Lord Laird","individual",0.654023316528953
+"4829","Lord Laird","1988",1.02156805278826
+"4830","Lord Laird","single",0.82973379683177
+"4831","Lord Laird","coroners",0.717251710958896
+"4832","Lord Laird","individual",0.657440735927037
 "4833","Lord Laird","someone",0.611698496128111
 "4834","Lord Laird","opposed",0.59885722659317
-"4835","Lord Laird","dates",0.567046569600737
-"4836","Lord Laird","2003",0.566570922315234
+"4835","Lord Laird","2003",0.590165651797758
+"4836","Lord Laird","dates",0.567046569600737
 "4837","Lord Laming","action",1.48170583485793
 "4838","Lord Laming","inspector",1.10452405480964
 "4839","Lord Laming","critical",0.97859815579331
@@ -4847,42 +4847,42 @@
 "4846","Lord Laming","reliable",0.582158355221738
 "4847","Lord Laming","robust",0.582158355221738
 "4848","Lord Laming","custody",0.570803070673107
-"4849","Lord Lamont of Lerwick","political",0.370806787017947
-"4850","Lord Lamont of Lerwick","guide",0.354186389878422
-"4851","Lord Lamont of Lerwick","supreme",0.319947661795732
-"4852","Lord Lamont of Lerwick","chancellor",0.264518248245424
-"4853","Lord Lamont of Lerwick","concerns",0.253266623353308
-"4854","Lord Lamont of Lerwick","judicial",0.248892435911728
-"4855","Lord Lamont of Lerwick","enforcing",0.242611473368925
-"4856","Lord Lamont of Lerwick","activity",0.23144183362959
-"4857","Lord Lamont of Lerwick","conduct",0.230279520162734
-"4858","Lord Lamont of Lerwick","close",0.221851294750542
-"4859","Lord Lamont of Lerwick","lord",0.211413461628828
-"4860","Lord Lamont of Lerwick","justices",0.194625335828276
-"4861","Lord Lee of Trafford","ministerial",1.80039664720328
-"4862","Lord Lee of Trafford","visit",1.42771437995804
-"4863","Lord Lee of Trafford","hm",1.12893567830951
-"4864","Lord Lee of Trafford","liverpool",1.04347431106709
-"4865","Lord Lee of Trafford","hl4312",0.873970048170234
-"4866","Lord Lee of Trafford","keen",0.607834265632394
-"4867","Lord Lee of Trafford","elie",0.603918378680579
+"4849","Lord Lamont of Lerwick","political",0.379382066089529
+"4850","Lord Lamont of Lerwick","guide",0.362377305586814
+"4851","Lord Lamont of Lerwick","supreme",0.327346772557062
+"4852","Lord Lamont of Lerwick","chancellor",0.270635498192419
+"4853","Lord Lamont of Lerwick","concerns",0.259123668183145
+"4854","Lord Lamont of Lerwick","judicial",0.254648323267278
+"4855","Lord Lamont of Lerwick","enforcing",0.248222107162437
+"4856","Lord Lamont of Lerwick","activity",0.236794158294879
+"4857","Lord Lamont of Lerwick","conduct",0.235604965162666
+"4858","Lord Lamont of Lerwick","close",0.226981828579703
+"4859","Lord Lamont of Lerwick","justices",0.199126242034847
+"4860","Lord Lamont of Lerwick","responsibility",0.19195129554995
+"4861","Lord Lee of Trafford","ministerial",1.81743601882069
+"4862","Lord Lee of Trafford","visit",1.44122660012432
+"4863","Lord Lee of Trafford","hm",1.13706434562448
+"4864","Lord Lee of Trafford","liverpool",1.05880102076094
+"4865","Lord Lee of Trafford","hl4312",0.897419760933383
+"4866","Lord Lee of Trafford","keen",0.62414322149023
+"4867","Lord Lee of Trafford","elie",0.620122266379128
 "4868","Lord Lee of Trafford","across",0.541820475499783
 "4869","Lord Lee of Trafford","carillion",0.495288433089491
-"4870","Lord Lee of Trafford","prison",0.464608011121734
-"4871","Lord Lee of Trafford","lord",0.44408382084169
-"4872","Lord Lee of Trafford","written",0.431679972740662
-"4873","Lord Lester of Herne Hill","lord",3.37874706860932
-"4874","Lord Lester of Herne Hill","right",2.88669998571688
-"4875","Lord Lester of Herne Hill","fees",2.72115213953697
-"4876","Lord Lester of Herne Hill","human",2.54643007826221
-"4877","Lord Lester of Herne Hill","act",2.26656006389265
-"4878","Lord Lester of Herne Hill","tribunal",2.24949348482254
-"4879","Lord Lester of Herne Hill","european",2.17440426445149
-"4880","Lord Lester of Herne Hill","marriage",2.1259886340279
-"4881","Lord Lester of Herne Hill","1998",2.02848643159568
-"4882","Lord Lester of Herne Hill","impact",2.00346063206845
-"4883","Lord Lester of Herne Hill","protect",1.93525005222303
-"4884","Lord Lester of Herne Hill","defamation",1.93475162673003
+"4870","Lord Lee of Trafford","prison",0.467953324789145
+"4871","Lord Lee of Trafford","written",0.443262487939627
+"4872","Lord Lee of Trafford","hl4477",0.423887002205152
+"4873","Lord Lester of Herne Hill","right",2.89710986147276
+"4874","Lord Lester of Herne Hill","fees",2.73538246691174
+"4875","Lord Lester of Herne Hill","human",2.55830357694737
+"4876","Lord Lester of Herne Hill","act",2.27779519536906
+"4877","Lord Lester of Herne Hill","tribunal",2.26353382604695
+"4878","Lord Lester of Herne Hill","european",2.18392464688701
+"4879","Lord Lester of Herne Hill","marriage",2.12774057212023
+"4880","Lord Lester of Herne Hill","1998",2.0423624395397
+"4881","Lord Lester of Herne Hill","impact",2.00346063206845
+"4882","Lord Lester of Herne Hill","protect",1.94139994385801
+"4883","Lord Lester of Herne Hill","defamation",1.93714048723666
+"4884","Lord Lester of Herne Hill","chancellor",1.86767587135613
 "4885","Lord Lexden","relax",0.30877074087809
 "4886","Lord Lexden","wishing",0.257952512232874
 "4887","Lord Lexden","must",0.246278761711499
@@ -5039,28 +5039,28 @@
 "5038","Lord Myners","system",0.447199009832722
 "5039","Lord Myners","current",0.443535275187205
 "5040","Lord Myners","latter",0.421180910424495
-"5041","Lord Norton of Louth","hl",0.844483914159543
-"5042","Lord Norton of Louth","session",0.819327931827633
-"5043","Lord Norton of Louth","paper",0.771269999451598
+"5041","Lord Norton of Louth","hl",0.850326694094854
+"5042","Lord Norton of Louth","session",0.824996663606008
+"5043","Lord Norton of Louth","paper",0.776606230020286
 "5044","Lord Norton of Louth","103",0.706433638883725
-"5045","Lord Norton of Louth","committee",0.677676512804229
+"5045","Lord Norton of Louth","committee",0.682365192677528
 "5046","Lord Norton of Louth","vote",0.591944758614676
 "5047","Lord Norton of Louth","draft",0.568977359184044
-"5048","Lord Norton of Louth","response",0.524050359911816
+"5048","Lord Norton of Louth","response",0.52767613759289
 "5049","Lord Norton of Louth","joint",0.519296832746003
 "5050","Lord Norton of Louth","eligibility",0.498316231129212
-"5051","Lord Norton of Louth","bill",0.424990509075398
-"5052","Lord Norton of Louth","6th",0.42469696153297
-"5053","Lord Ouseley","made",1.20729729327127
-"5054","Lord Ouseley","black",1.12296728759276
-"5055","Lord Ouseley","minority",1.03370008999151
-"5056","Lord Ouseley","ethnic",0.89366780856906
+"5051","Lord Norton of Louth","6th",0.433399533201392
+"5052","Lord Norton of Louth","bill",0.424990509075398
+"5053","Lord Ouseley","made",1.20888016046276
+"5054","Lord Ouseley","black",1.12918256908843
+"5055","Lord Ouseley","minority",1.03942130476988
+"5056","Lord Ouseley","ethnic",0.898613987371641
 "5057","Lord Ouseley","diverse",0.873625163300829
-"5058","Lord Ouseley","decision",0.855369525642689
+"5058","Lord Ouseley","decision",0.86033769502613
 "5059","Lord Ouseley","judiciary",0.823899873456992
 "5060","Lord Ouseley","impact",0.821664983957034
-"5061","Lord Ouseley","preappointment",0.755351631936465
-"5062","Lord Ouseley","appointed",0.748955830979824
+"5061","Lord Ouseley","preappointment",0.758017746200951
+"5062","Lord Ouseley","appointed",0.750556032273211
 "5063","Lord Ouseley","facilitate",0.73492556091252
 "5064","Lord Ouseley","annual",0.731058538597849
 "5065","Lord Paddick","67",0.524128532265228
@@ -5099,30 +5099,30 @@
 "5098","Lord Patel of Bradford","substance",0.305044448427963
 "5099","Lord Patel of Bradford","assessments",0.276283883129344
 "5100","Lord Patel of Bradford","collect",0.26930318995326
-"5101","Lord Patten","suicide",0.647490705552785
+"5101","Lord Patten","suicide",0.651219551413268
 "5102","Lord Patten","natural",0.494819052603509
-"5103","Lord Patten","died",0.482731791489266
-"5104","Lord Patten","faulks",0.482694680070852
-"5105","Lord Patten","hl2986",0.456097743334136
+"5103","Lord Patten","faulks",0.492689413996178
+"5104","Lord Patten","died",0.482731791489266
+"5105","Lord Patten","hl2986",0.466928301472349
 "5106","Lord Patten","privacy",0.440402932289073
-"5107","Lord Patten","self",0.429213493875789
-"5108","Lord Patten","annum",0.421418693947091
+"5107","Lord Patten","self",0.438100839946846
+"5108","Lord Patten","annum",0.431425758730966
 "5109","Lord Patten","causes",0.421414262611424
-"5110","Lord Patten","lord",0.396969191442126
-"5111","Lord Patten","hl4088",0.389439083146581
-"5112","Lord Patten","written",0.385881317215805
+"5110","Lord Patten","hl4088",0.396116311925551
+"5111","Lord Patten","written",0.393871422040992
+"5112","Lord Patten","particular",0.359073049593398
 "5113","Lord Pearson of Rannoch","drawing",0.485654803367465
-"5114","Lord Pearson of Rannoch","compliant",0.422311593460573
-"5115","Lord Pearson of Rannoch","note",0.422311593460573
-"5116","Lord Pearson of Rannoch","lennonif",0.421796750492417
-"5117","Lord Pearson of Rannoch","yaxley",0.421796750492417
-"5118","Lord Pearson of Rannoch","141",0.392733026567616
+"5114","Lord Pearson of Rannoch","lennonif",0.441656633779389
+"5115","Lord Pearson of Rannoch","yaxley",0.441656633779389
+"5116","Lord Pearson of Rannoch","compliant",0.422311593460573
+"5117","Lord Pearson of Rannoch","note",0.422311593460573
+"5118","Lord Pearson of Rannoch","141",0.403501917896622
 "5119","Lord Pearson of Rannoch","sharia",0.373458538768063
-"5120","Lord Pearson of Rannoch","wa",0.355567054486877
-"5121","Lord Pearson of Rannoch","stephen",0.347330196520487
-"5122","Lord Pearson of Rannoch","society",0.340027668722698
-"5123","Lord Pearson of Rannoch","winchester",0.338894420312936
-"5124","Lord Pearson of Rannoch","guarantee",0.320134088445889
+"5120","Lord Pearson of Rannoch","wa",0.365316840501588
+"5121","Lord Pearson of Rannoch","stephen",0.363683895682192
+"5122","Lord Pearson of Rannoch","winchester",0.354850929285951
+"5123","Lord Pearson of Rannoch","society",0.340027668722698
+"5124","Lord Pearson of Rannoch","guarantee",0.33520728572703
 "5125","Lord Pendry","fault",0.656567818049848
 "5126","Lord Pendry","divorce",0.499509238243363
 "5127","Lord Pendry","mentions",0.452294359206819
@@ -5159,18 +5159,18 @@
 "5158","Lord Porter of Spalding","review",0.334540673808756
 "5159","Lord Porter of Spalding","offence",0.325979603403103
 "5160","Lord Porter of Spalding","cinavas",0.309928092286212
-"5161","Lord Quirk","week",0.982043769283471
-"5162","Lord Quirk","hours",0.964719919609805
-"5163","Lord Quirk","education",0.806600880371848
-"5164","Lord Quirk","provide",0.735009061631327
-"5165","Lord Quirk","institutions",0.695401535449883
-"5166","Lord Quirk","hl2982",0.67333506179631
-"5167","Lord Quirk","written",0.657701771927985
-"5168","Lord Quirk","young",0.642214664063056
-"5169","Lord Quirk","contract",0.585992244612533
-"5170","Lord Quirk","per",0.544369582640337
+"5161","Lord Quirk","week",0.987781568897417
+"5162","Lord Quirk","hours",0.970356500947053
+"5163","Lord Quirk","education",0.812530423601403
+"5164","Lord Quirk","provide",0.73941661675594
+"5165","Lord Quirk","institutions",0.700710833709573
+"5166","Lord Quirk","hl2982",0.684668924069514
+"5167","Lord Quirk","written",0.664250483640257
+"5168","Lord Quirk","young",0.647117887631655
+"5169","Lord Quirk","contract",0.590342369883775
+"5170","Lord Quirk","per",0.545598825781419
 "5171","Lord Quirk","target",0.517816679707538
-"5172","Lord Quirk","offender",0.502428371669526
+"5172","Lord Quirk","offender",0.506279679968082
 "5173","Lord Ramsbotham","college",2.45220863169513
 "5174","Lord Ramsbotham","secure",1.85421401565161
 "5175","Lord Ramsbotham","libraries",1.85148745348867
@@ -5183,18 +5183,18 @@
 "5182","Lord Ramsbotham","establishment",1.15505240820946
 "5183","Lord Ramsbotham","education",1.12755313318014
 "5184","Lord Ramsbotham","justice",1.10313722825627
-"5185","Lord Roberts of Llandudno","verne",1.66025845407843
-"5186","Lord Roberts of Llandudno","immigration",1.22235214431407
+"5185","Lord Roberts of Llandudno","verne",1.66795328965571
+"5186","Lord Roberts of Llandudno","immigration",1.22748621243886
 "5187","Lord Roberts of Llandudno","past",0.890272185661641
 "5188","Lord Roberts of Llandudno","surgeries",0.831253036548191
 "5189","Lord Roberts of Llandudno","sufficiency",0.746369379691332
-"5190","Lord Roberts of Llandudno","prison",0.724499717655909
+"5190","Lord Roberts of Llandudno","prison",0.725836084966657
 "5191","Lord Roberts of Llandudno","migrants",0.713149378321364
 "5192","Lord Roberts of Llandudno","representation",0.707649185400543
 "5193","Lord Roberts of Llandudno","occupancy",0.665419600471165
 "5194","Lord Roberts of Llandudno","legal",0.660520490700894
 "5195","Lord Roberts of Llandudno","certain",0.621426409033292
-"5196","Lord Roberts of Llandudno","hm",0.612250124634752
+"5196","Lord Roberts of Llandudno","hm",0.615497319474952
 "5197","Lord Rogan","westminster",0.851833309422876
 "5198","Lord Rogan","cyclists",0.821977260468187
 "5199","Lord Rogan","traffic",0.7271148801741
@@ -5221,9 +5221,9 @@
 "5220","Lord Rooker","attend",0
 "5221","Lord Scriven","duration",0.714021883817701
 "5222","Lord Scriven","instance",0.659296503706654
-"5223","Lord Scriven","literature",0.650703772831636
-"5224","Lord Scriven","homophobic",0.603595594268397
-"5225","Lord Scriven","chaplains",0.573570874969309
+"5223","Lord Scriven","literature",0.654832332406945
+"5224","Lord Scriven","homophobic",0.607425263734561
+"5225","Lord Scriven","chaplains",0.577210044783352
 "5226","Lord Scriven","asylum",0.561201882021705
 "5227","Lord Scriven","procedure",0.536603356002271
 "5228","Lord Scriven","identity",0.457644261779539
@@ -5291,18 +5291,18 @@
 "5290","Lord Steel of Aikwood","frankland",0.313332122047325
 "5291","Lord Steel of Aikwood","taylor",0.302089403969856
 "5292","Lord Steel of Aikwood","via",0.239191995874607
-"5293","Lord Stoddart of Swindon","extant",1.19963375861976
-"5294","Lord Stoddart of Swindon","freedom",0.972400528099083
-"5295","Lord Stoddart of Swindon","speech",0.801283212916643
-"5296","Lord Stoddart of Swindon","conscience",0.725457983807137
-"5297","Lord Stoddart of Swindon","thought",0.665759176872311
-"5298","Lord Stoddart of Swindon","detrimental",0.646540453688734
-"5299","Lord Stoddart of Swindon","lord",0.606185740677512
-"5300","Lord Stoddart of Swindon","expression",0.594778232850605
-"5301","Lord Stoddart of Swindon","individual",0.585945229360185
-"5302","Lord Stoddart of Swindon","introduce",0.56703769250826
-"5303","Lord Stoddart of Swindon","review",0.559549449818133
-"5304","Lord Stoddart of Swindon","annual",0.491979500998241
+"5293","Lord Stoddart of Swindon","extant",1.20868220279098
+"5294","Lord Stoddart of Swindon","freedom",0.982021273280171
+"5295","Lord Stoddart of Swindon","speech",0.805260737278893
+"5296","Lord Stoddart of Swindon","conscience",0.731018472351903
+"5297","Lord Stoddart of Swindon","thought",0.67086208615059
+"5298","Lord Stoddart of Swindon","detrimental",0.651496055345493
+"5299","Lord Stoddart of Swindon","expression",0.601869062765158
+"5300","Lord Stoddart of Swindon","individual",0.588884740264859
+"5301","Lord Stoddart of Swindon","introduce",0.56703769250826
+"5302","Lord Stoddart of Swindon","review",0.565043029562159
+"5303","Lord Stoddart of Swindon","annual",0.491979500998241
+"5304","Lord Stoddart of Swindon","1534",0.488281753980641
 "5305","Lord Storey","gcses",0.727210050950061
 "5306","Lord Storey","teams",0.6945746272282
 "5307","Lord Storey","dyslexic",0.688931755138172
@@ -5333,9 +5333,9 @@
 "5332","Lord Tebbit","convicted",0.5274641577112
 "5333","Lord Tebbit","1984",0.483644959862354
 "5334","Lord Tebbit","killed",0.443621077351018
-"5335","Lord Tebbit","ahmad",0.389425089655836
-"5336","Lord Tebbit","hl7756",0.389425089655836
-"5337","Lord Tebbit","wimbledon",0.389425089655836
+"5335","Lord Tebbit","ahmad",0.396101586263355
+"5336","Lord Tebbit","hl7756",0.396101586263355
+"5337","Lord Tebbit","wimbledon",0.396101586263355
 "5338","Lord Tebbit","kingdom",0.381927504845054
 "5339","Lord Tebbit","nonuk",0.362224438117915
 "5340","Lord Tebbit","detained",0.334015458329674
@@ -5363,18 +5363,18 @@
 "5362","Lord Touhig","adults",0.920424347484345
 "5363","Lord Touhig","parent",0.863091322704843
 "5364","Lord Touhig","college",0.820118858250125
-"5365","Lord Trefgarne","served",1.99903803465197
-"5366","Lord Trefgarne","currently",1.58049691467765
-"5367","Lord Trefgarne","sentence",1.5030189160717
-"5368","Lord Trefgarne","80",1.43660343288247
-"5369","Lord Trefgarne","wales",1.22444266082369
-"5370","Lord Trefgarne","england",1.21977327781819
-"5371","Lord Trefgarne","prison",0.942810362462932
+"5365","Lord Trefgarne","served",2.0088449170276
+"5366","Lord Trefgarne","currently",1.59081136592022
+"5367","Lord Trefgarne","sentence",1.5095333605701
+"5368","Lord Trefgarne","80",1.44639816902855
+"5369","Lord Trefgarne","wales",1.22793407773826
+"5370","Lord Trefgarne","england",1.22325138029728
+"5371","Lord Trefgarne","prison",0.946017983815426
 "5372","Lord Trefgarne","blackman",0.881506694800757
 "5373","Lord Trefgarne","alexander",0.849877217464407
-"5374","Lord Trefgarne","age",0.832663065119021
+"5374","Lord Trefgarne","age",0.838340146792886
 "5375","Lord Trefgarne","held",0.797486210338188
-"5376","Lord Trefgarne","young",0.744081018923962
+"5376","Lord Trefgarne","young",0.748649709148188
 "5377","Lord Verjee","clink",0.451146569487644
 "5378","Lord Verjee","restaurants",0.416843978885708
 "5379","Lord Verjee","qualifications",0.332479102958135
@@ -5387,16 +5387,16 @@
 "5386","Lord Verjee","members",0.179304970579348
 "5387","Lord Verjee","support",0.170384141471977
 "5388","Lord Verjee","provide",0.162103859303571
-"5389","Lord Vinson","beyond",0.349687359707868
-"5390","Lord Vinson","144",0.343177588315548
-"5391","Lord Vinson","claims",0.343173169001142
-"5392","Lord Vinson","false",0.334842668508752
-"5393","Lord Vinson","detained",0.322454730917119
-"5394","Lord Vinson","aid",0.31870503828161
-"5395","Lord Vinson","unlawfully",0.316746466370501
-"5396","Lord Vinson","falling",0.316306631300847
-"5397","Lord Vinson","wa",0.303155103604928
-"5398","Lord Vinson","cost",0.299881466423861
+"5389","Lord Vinson","144",0.349941385674843
+"5390","Lord Vinson","beyond",0.349687359707868
+"5391","Lord Vinson","claims",0.346359648636231
+"5392","Lord Vinson","false",0.341442190255364
+"5393","Lord Vinson","falling",0.322540820334056
+"5394","Lord Vinson","detained",0.322454730917119
+"5395","Lord Vinson","aid",0.321664322997954
+"5396","Lord Vinson","unlawfully",0.316746466370501
+"5397","Lord Vinson","wa",0.309130084952877
+"5398","Lord Vinson","cost",0.302665967870992
 "5399","Lord Vinson","statutory",0.298712205678663
 "5400","Lord Vinson","lawyers",0.296845764244915
 "5401","Lord Wallace of Saltaire","states",0.377862388586483
@@ -5423,18 +5423,18 @@
 "5422","Lord Wallace of Tankerness","response",0.228086732725765
 "5423","Lord Wallace of Tankerness","case",0.165544943556844
 "5424","Lord Wallace of Tankerness","made",0.117473289182391
-"5425","Lord Warner","butler",0.874768024169723
-"5426","Lord Warner","ellie",0.874768024169723
+"5425","Lord Warner","butler",0.911762598063042
+"5426","Lord Warner","ellie",0.911762598063042
 "5427","Lord Warner","impact",0.712641821706724
 "5428","Lord Warner","humanist",0.681739893914471
 "5429","Lord Warner","recognition",0.598371638592735
-"5430","Lord Warner","scotland",0.574672490571686
-"5431","Lord Warner","case",0.567899275440001
+"5430","Lord Warner","case",0.580006695627443
+"5431","Lord Warner","scotland",0.574672490571686
 "5432","Lord Warner","marriage",0.565979508397025
-"5433","Lord Warner","judicial",0.523287501972128
-"5434","Lord Warner","hogg",0.450101297133203
+"5433","Lord Warner","judicial",0.545417709780687
+"5434","Lord Warner","hogg",0.490140198849484
 "5435","Lord Warner","republic",0.429260483067947
-"5436","Lord Warner","mrs",0.395858944621315
+"5436","Lord Warner","charedim",0.385518772921782
 "5437","Lord Wasserman","crime",0.568060381265734
 "5438","Lord Wasserman","area",0.495687298800928
 "5439","Lord Wasserman","chaired",0.491432444347124
@@ -5447,18 +5447,18 @@
 "5446","Lord Wasserman","regulate",0.361616383018332
 "5447","Lord Wasserman","activities",0.355985869703703
 "5448","Lord Wasserman","individuals",0.338311888177486
-"5449","Lord Watts","exprisoners",0.942587992810993
-"5450","Lord Watts","enterprise",0.768518827360135
-"5451","Lord Watts","courses",0.653465367228592
-"5452","Lord Watts","undertaken",0.653465367228592
-"5453","Lord Watts","hl5604",0.481954159407264
+"5449","Lord Watts","exprisoners",0.953155101388648
+"5450","Lord Watts","enterprise",0.777134491844114
+"5451","Lord Watts","courses",0.660791197326055
+"5452","Lord Watts","undertaken",0.660791197326055
+"5453","Lord Watts","hl5604",0.494786824418274
 "5454","Lord Watts","reoffending",0.330908512177184
-"5455","Lord Watts","keen",0.309706439870032
-"5456","Lord Watts","elie",0.307711199595912
+"5455","Lord Watts","keen",0.317952782218219
+"5456","Lord Watts","elie",0.315904416040826
 "5457","Lord Watts","rates",0.29702529495459
-"5458","Lord Watts","lord",0.226271579167503
-"5459","Lord Watts","written",0.219951514878167
-"5460","Lord Watts","march",0.208005739138734
+"5458","Lord Watts","written",0.225808013995359
+"5459","Lord Watts","march",0.213544166224866
+"5460","Lord Watts","answer",0.147591793393132
 "5461","Lord Wigley","offered",0.610533617905784
 "5462","Lord Wigley","speaking",0.570394917311807
 "5463","Lord Wigley","assembly",0.568134673838659
@@ -5471,18 +5471,18 @@
 "5470","Lord Wigley","concerning",0.397703767097732
 "5471","Lord Wigley","berwyn",0.395150151180949
 "5472","Lord Wigley","protection",0.394809686256918
-"5473","Lord Wills","negligence",0.713562492501162
-"5474","Lord Wills","manslaughter",0.702696609871298
-"5475","Lord Wills","gross",0.683893696610594
+"5473","Lord Wills","negligence",0.733656229131562
+"5474","Lord Wills","manslaughter",0.722484366035915
+"5475","Lord Wills","gross",0.703151967564153
 "5476","Lord Wills","quashed",0.445758756600836
-"5477","Lord Wills","sellu",0.414461986028677
-"5478","Lord Wills","appeal",0.370732337536932
-"5479","Lord Wills","david",0.351435374331493
-"5480","Lord Wills","dr",0.341290355816053
-"5481","Lord Wills","conviction",0.297407882759358
-"5482","Lord Wills","safe",0.28059574707488
-"5483","Lord Wills","offence",0.268145112982666
-"5484","Lord Wills","respect",0.263705877069397
+"5477","Lord Wills","sellu",0.440936744955782
+"5478","Lord Wills","appeal",0.381172065001766
+"5479","Lord Wills","david",0.373884156433404
+"5480","Lord Wills","conviction",0.305782812398701
+"5481","Lord Wills","safe",0.298519477139872
+"5482","Lord Wills","offence",0.275696010536314
+"5483","Lord Wills","respect",0.263705877069397
+"5484","Lord Wills","need",0.240540699359027
 "5485","Lord, Jonathan","divorce",0.814409394852507
 "5486","Lord, Jonathan","modernise",0.658875413643087
 "5487","Lord, Jonathan","blame",0.57823758008183
@@ -5519,9 +5519,9 @@
 "5518","Lucas, Caroline","serious",0.718868476698219
 "5519","Lucas, Caroline","chamber",0.718370558483132
 "5520","Lucas, Caroline","report",0.704007203677652
-"5521","Lucas, Ian","north",6.89801175111445
+"5521","Lucas, Ian","north",6.9042427032824
 "5522","Lucas, Ian","wrexham",5.31444407766373
-"5523","Lucas, Ian","wales",4.15051439243763
+"5523","Lucas, Ian","wales",4.15442760093155
 "5524","Lucas, Ian","construct",2.90420449835665
 "5525","Lucas, Ian","court",2.6927823247712
 "5526","Lucas, Ian","probate",2.50511476668581
@@ -5603,9 +5603,9 @@
 "5602","Mactaggart, Fiona","53a",0.422766467775741
 "5603","Mactaggart, Fiona","range",0.419889148124597
 "5604","Mactaggart, Fiona","march",0.415391678959145
-"5605","Madders, Justin","fee",5.1543902493034
+"5605","Madders, Justin","fee",5.15743870622645
 "5606","Madders, Justin","employed",4.57187922386294
-"5607","Madders, Justin","tribunal",4.44966878157611
+"5607","Madders, Justin","tribunal",4.45205036686992
 "5608","Madders, Justin","review",2.33361354343247
 "5609","Madders, Justin","remission",1.92587914254222
 "5610","Madders, Justin","five",1.78393078333994
@@ -6064,13 +6064,13 @@
 "6063","Mitchell, Andrew","clarify",0.300940596442189
 "6064","Mitchell, Andrew","resolution",0.270792399286982
 "6065","Mitchell, Andrew","enterprise",0.2662097800576
-"6066","Mitchell, Andrew","bajinya",0.257809804101856
-"6067","Mitchell, Andrew","celestin",0.257809804101856
-"6068","Mitchell, Andrew","emmanuel",0.257809804101856
-"6069","Mitchell, Andrew","munyaneza",0.257809804101856
-"6070","Mitchell, Andrew","mutabaruka",0.257809804101856
-"6071","Mitchell, Andrew","nteziryayo",0.257809804101856
-"6072","Mitchell, Andrew","rwandan",0.257809804101856
+"6066","Mitchell, Andrew","bajinya",0.263823466504915
+"6067","Mitchell, Andrew","celestin",0.263823466504915
+"6068","Mitchell, Andrew","emmanuel",0.263823466504915
+"6069","Mitchell, Andrew","munyaneza",0.263823466504915
+"6070","Mitchell, Andrew","mutabaruka",0.263823466504915
+"6071","Mitchell, Andrew","nteziryayo",0.263823466504915
+"6072","Mitchell, Andrew","rwandan",0.263823466504915
 "6073","Mitchell, Austin","mackeys",0.494177072016545
 "6074","Mitchell, Austin","abrogated",0.489419266726383
 "6075","Mitchell, Austin","clause",0.371458031951156
@@ -6360,7 +6360,7 @@
 "6359","O'Mara, Jared","prison",0.514512777798813
 "6360","O'Mara, Jared","supervision",0.510889487274961
 "6361","Offord, Dr Matthew","estate",2.7737201594346
-"6362","Offord, Dr Matthew","coroner",2.19410587189973
+"6362","Offord, Dr Matthew","coroner",2.21509674266596
 "6363","Offord, Dr Matthew","cigarette",1.88285326782916
 "6364","Offord, Dr Matthew","made",1.7085613369753
 "6365","Offord, Dr Matthew","smoke",1.66577644789838
@@ -6623,15 +6623,15 @@
 "6622","Prisk, Mark","spending",0.203694023869816
 "6623","Prisk, Mark","governments",0.19411774803841
 "6624","Prisk, Mark","progress",0.179820397007552
-"6625","Pritchard, Mark","judge",0.9787893414608
-"6626","Pritchard, Mark","circuit",0.791192166476676
-"6627","Pritchard, Mark","veto",0.791192166476676
-"6628","Pritchard, Mark","removal",0.770280428389212
-"6629","Pritchard, Mark","will",0.581709971807667
+"6625","Pritchard, Mark","judge",0.988286145805338
+"6626","Pritchard, Mark","circuit",0.809002816033376
+"6627","Pritchard, Mark","veto",0.809002816033376
+"6628","Pritchard, Mark","removal",0.781756602120709
+"6629","Pritchard, Mark","will",0.585701853843465
 "6630","Pritchard, Mark","reoffending",0.56135605382517
-"6631","Pritchard, Mark","research",0.545775985494535
-"6632","Pritchard, Mark","education",0.543451711105644
-"6633","Pritchard, Mark","district",0.54000615494572
+"6631","Pritchard, Mark","district",0.552162317243217
+"6632","Pritchard, Mark","research",0.548981444604542
+"6633","Pritchard, Mark","education",0.543451711105644
 "6634","Pritchard, Mark","tele",0.534251212406912
 "6635","Pritchard, Mark","process",0.530978276895838
 "6636","Pritchard, Mark","chancellors",0.518894642931225
@@ -6743,16 +6743,16 @@
 "6742","Reed, Jamie","reassuring",0.578368467807145
 "6743","Reed, Jamie","police",0.570698205297469
 "6744","Reed, Jamie","omit",0.483175923332742
-"6745","Reed, Steve","77",1.00905512452979
+"6745","Reed, Steve","77",1.02743332083763
 "6746","Reed, Steve","antisocial",0.973527009311916
 "6747","Reed, Steve","injunctions",0.969241386610989
-"6748","Reed, Steve","introduction",0.806938122000178
-"6749","Reed, Steve","act",0.793000269194284
+"6748","Reed, Steve","introduction",0.816962683158154
+"6749","Reed, Steve","act",0.799357642631298
 "6750","Reed, Steve","behaviour",0.78173621137294
-"6751","Reed, Steve","arising",0.641358536348577
-"6752","Reed, Steve","2008",0.636068013831863
+"6751","Reed, Steve","2008",0.647652894121517
+"6752","Reed, Steve","arising",0.641358536348577
 "6753","Reed, Steve","focus",0.633770138368731
-"6754","Reed, Steve","immigration",0.553031658301292
+"6754","Reed, Steve","immigration",0.563104174790862
 "6755","Reed, Steve","surveys",0.543696178775796
 "6756","Reed, Steve","annoyance",0.509021123881301
 "6757","Rees-Mogg, Jacob","ratify",0.504044110185406
@@ -6767,14 +6767,14 @@
 "6766","Rees-Mogg, Jacob","european",0.30494114658394
 "6767","Rees-Mogg, Jacob","16",0.295286522896014
 "6768","Rees-Mogg, Jacob","effectiveness",0.290030013128989
-"6769","Rees, Christina","court",5.61117655728929
+"6769","Rees, Christina","court",5.61642020659415
 "6770","Rees, Christina","claim",4.5740405129301
-"6771","Rees, Christina","injuries",3.47017600003403
+"6771","Rees, Christina","injuries",3.47461197188347
 "6772","Rees, Christina","restorative",3.19466451523254
 "6773","Rees, Christina","time",3.19095461274898
-"6774","Rees, Christina","2015",3.07066281582051
+"6774","Rees, Christina","2015",3.0777060052546
 "6775","Rees, Christina","justice",2.9858966302869
-"6776","Rees, Christina","publish",2.92287085588943
+"6776","Rees, Christina","publish",2.93088056495634
 "6777","Rees, Christina","banning",2.75285184405202
 "6778","Rees, Christina","whiplash",2.68735769689529
 "6779","Rees, Christina","proposal",2.66394356700645
@@ -7213,15 +7213,15 @@
 "7212","Simpson, David","alcohol",0.497941574046329
 "7213","Slaughter, Andy","2010",20.9218515351798
 "7214","Slaughter, Andy","year",17.4014884687018
-"7215","Slaughter, Andy","2015",17.2031270169027
+"7215","Slaughter, Andy","2015",17.2040934576375
 "7216","Slaughter, Andy","prison",13.8134304917508
-"7217","Slaughter, Andy","legal",12.3517145315521
+"7217","Slaughter, Andy","legal",12.3567253719367
 "7218","Slaughter, Andy","may",12.3317772511802
 "7219","Slaughter, Andy","month",12.2684544068969
-"7220","Slaughter, Andy","public",12.2512050751095
-"7221","Slaughter, Andy","court",11.4708446283042
-"7222","Slaughter, Andy","made",11.2340227851625
-"7223","Slaughter, Andy","2014",11.0102763904447
+"7220","Slaughter, Andy","public",12.2574946900687
+"7221","Slaughter, Andy","court",11.472460908367
+"7222","Slaughter, Andy","made",11.2324116681304
+"7223","Slaughter, Andy","2014",11.0148775144302
 "7224","Slaughter, Andy","answer",9.99317434691884
 "7225","Smith, Andrew","speeding",0.751919679383381
 "7226","Smith, Andrew","overseas",0.737958752683777
@@ -7381,11 +7381,11 @@
 "7380","Solloway, Amanda","made",0.105912728776711
 "7381","Spellar, John","deported",0.659979190926397
 "7382","Spellar, John","agriculture",0.601008562231455
-"7383","Spellar, John","europe",0.573787952384218
-"7384","Spellar, John","votes",0.567297292361621
-"7385","Spellar, John","packages",0.560711742475336
-"7386","Spellar, John","maxwell",0.539713700682675
-"7387","Spellar, John","warley",0.539713700682675
+"7383","Spellar, John","maxwell",0.583324314507179
+"7384","Spellar, John","warley",0.583324314507179
+"7385","Spellar, John","europe",0.573787952384218
+"7386","Spellar, John","votes",0.567297292361621
+"7387","Spellar, John","packages",0.560711742475336
 "7388","Spellar, John","coroner",0.532980374137581
 "7389","Spellar, John","handler",0.520882032917609
 "7390","Spellar, John","redundancy",0.519124431856871
@@ -7679,15 +7679,15 @@
 "7678","The Lord Bishop of Southwark","hours",0.500825841449538
 "7679","The Lord Bishop of Southwark","prison",0.482966456349282
 "7680","The Lord Bishop of Southwark","unlocked",0.449017596266863
-"7681","The Lord Bishop of St Albans","support",0.644698442223235
+"7681","The Lord Bishop of St Albans","support",0.648445894224546
 "7682","The Lord Bishop of St Albans","deaths",0.632190449829612
-"7683","The Lord Bishop of St Albans","self",0.594337328955153
-"7684","The Lord Bishop of St Albans","increases",0.592154164508893
-"7685","The Lord Bishop of St Albans","suicide",0.59182018791632
-"7686","The Lord Bishop of St Albans","risk",0.587740799079066
+"7683","The Lord Bishop of St Albans","self",0.5993742530656
+"7684","The Lord Bishop of St Albans","suicide",0.597361374100947
+"7685","The Lord Bishop of St Albans","risk",0.593243790126845
+"7686","The Lord Bishop of St Albans","increases",0.592154164508893
 "7687","The Lord Bishop of St Albans","nonnatural",0.569622956323563
 "7688","The Lord Bishop of St Albans","inflicted",0.464517923455931
-"7689","The Lord Bishop of St Albans","hl6247",0.443272037813585
+"7689","The Lord Bishop of St Albans","hl6247",0.453194616875845
 "7690","The Lord Bishop of St Albans","motabl",0.432638064712506
 "7691","The Lord Bishop of St Albans","number",0.421454115469894
 "7692","The Lord Bishop of St Albans","intermediaries",0.39483735116385
@@ -7756,7 +7756,7 @@
 "7755","Timms, Stephen","adjourned",1.38125903476806
 "7756","Timms, Stephen","first",1.30771483125522
 "7757","Timms, Stephen","appeal",1.15422564147969
-"7758","Timms, Stephen","will",1.14947431906744
+"7758","Timms, Stephen","will",1.1520116964178
 "7759","Timms, Stephen","respond",1.06919104680946
 "7760","Timms, Stephen","minimum",1.06841443544231
 "7761","Timms, Stephen","estimate",1.04506741629026
@@ -7801,12 +7801,12 @@
 "7800","Tracey, Craig","proposals",0.336258110935393
 "7801","Trickett, Jon","procured",3.92851112465126
 "7802","Trickett, Jon","contract",3.19675664171085
-"7803","Trickett, Jon","servants",2.91663290707631
+"7803","Trickett, Jon","servants",2.90566851700702
 "7804","Trickett, Jon","bodies",2.73491972341165
 "7805","Trickett, Jon","pass",2.55435024827662
 "7806","Trickett, Jon","arms",2.4814574670031
 "7807","Trickett, Jon","2010",2.47008156221051
-"7808","Trickett, Jon","civil",2.37496100261124
+"7808","Trickett, Jon","civil",2.3673972312032
 "7809","Trickett, Jon","year",2.2397207843235
 "7810","Trickett, Jon","departments",2.14243020676797
 "7811","Trickett, Jon","gov",2.12663759483193
