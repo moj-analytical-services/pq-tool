@@ -1,6 +1,14 @@
 [![Build Status](https://travis-ci.org/moj-analytical-services/PQTool.svg?branch=master)](https://travis-ci.org/moj-analytical-services/pq-tool)
 
 # PQ Tool
+## Contents
+* [Introduction](#introduction)  
+* [Generating and updating the archive of PQs](#generating-and-updating-the-archive-of-pqs)  
+* [Generating the data](#generating-the-data)  
+* [Running the tool](#running-the-tool)
+* [Testing](#testing)
+* [Deploying within MoJ](#deploying-within-moj)
+
 ## Introduction
 This is a prototype tool for analysing and comparing written Parliamentary Questions for answer by the Ministry of Justice. Questions have been taken from the API provided by Parliament (accessed via http://www.data.parliament.uk/).
 
@@ -8,49 +16,48 @@ The tool allows the user to input a new question, or a key phrase, and produces 
 
 The tool is written in R and is based on a technique called Latent Semantic Analysis. For more information, or to provide any feedback/ideas please send an email to samuel.tazzyman@justice.gsi.gov.uk
 
-To access the deployed tool within the Ministry of Justice go to https://pq-tool.apps.alpha.mojanalytics.xyz/. If you are not from the MoJ, you can fork and run locally. There is also an external-facing tool that contains questions from the MoJ and selected other departments. This is located at https://pq-tool-external.apps.alpha.mojanalytics.xyz/. Access to it is via approved email addresses: if you wish to have a look please email the above address. Alternatively use the `GTrebase` branch of this repo.
+To access the deployed tool within the Ministry of Justice go to https://pq-tool.apps.alpha.mojanalytics.xyz/. If you are not from the MoJ, you can fork and run locally. There is also an external-facing tool that contains questions from the MoJ and selected other departments. This is located at https://pq-tool-external.apps.alpha.mojanalytics.xyz/. Access to it is via approved email addresses: if you wish to have a look please email the above address. Alternatively use the `GT` branch of this repo.
 
-If you have been given access to our external tool, the corresponding code is on the GTrebase branch of this repo.
+If you have been given access to our external tool, the corresponding code is on the GT branch of this repo.
 
 ## Some variables are defined in .Rprofile
 
 Variables in block capitals are defined in .Rprofile because they're used in serveral different R files.  This should load automatically whenever you start a new R session from the comand line.  If you make changes to .Rprofile, remember that you will either need to open a new R session to load the changes or do `source('./Rprofile')`
 
-## Updating the data
+## Generating and updating the archive of PQs
 
-### I just want to run the thing
+### Adding a new department
 
-#### From the command line
-```
-Rscript data_generators/getTheData.R
-Rscript data_generators/DataCreator.R -e prod
-```
-These two lines will create or update the following files:
-`getTheData.R`: creates (or updates) `Data/archived_pqs.csv` (or updates it if it already exists)
-`DataCreator.R`: creates (or updates) `searchSpace.rda`, `MoJwrittenPQs.csv`, `topDozenWordsPerTopic.csv`, and `topDozenWordsPerMember.csv`.
+* Add the correct row from `answering_body_all.tsv` to `answering_body.tsv`
+* Add a new folder within Data/ called the acronym specified in `answering_body.tsv` (e.g. Data/ACRONYM or Data/moj)
+* Follow the instructions below
 
-### Generating and updating the archive of PQs
-
-#### In the command line
-```
-Rscript data_generators/getTheData.R
-```
-This runs the file `data_generators/getTheData.R` which contains code to run the following with `show_progress = TRUE`.
-
+### Updating a department archive
 #### In an R console
 ```
 source('./R/apiClient.R')
-# Without feedback
-fetch_questions()
-# With feedback
-fetch_questions(show_progress = TRUE)
-```
 
+#For a specific department/answering body:
+fetch_questions("ACRONYM")
+
+For all departments:
+fetch_all_questions() # Note that this functionality is in development and currently has a couple of bugs
+```
+### Generating the search space
+#### In an R console
+
+`system("Rscript ./data_generators/DataCreator.R -i  Data/ACRONYM/ACRONYM_archived_pqs.csv -o Data/ACRONYM -k 1000 -x 2000")`
+
+* k is the number of clusters you want to generate - replace 1000 with your chosen value
+* x is the number of dimension you wish to have in your search space - replace 2000 with your chosen value
+    
 #### What this code does
 
-- When the `fetch_questions()` function is called for the first time, and no archive exists, it will create `archived_pqs.csv` in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
+- See answering_body_lookup.tsv for the correct acronym
 
-- When an archive already exists, the function will update `archived_pqs.csv` by appending newly answered questions (downloaded from the same endpoint).
+- When the `fetch_questions("ACRONYM")` function is called for the first time, and no archive exists, it will create `ACRONYM_archived_pqs.csv` in the Data directory and download all answered PQs, that were posed to the specific department, from http://lda.data.parliament.uk/answeredquestions. The MoJ questions take about 8.5 minutes on a 2016 MacBook Pro.
+
+- When an archive already exists, the function will update `ACRONYM_archived_pqs.csv` by appending newly answered questions (downloaded from the same endpoint).
 
 - Variables in BLOCK_CAPITALS are defined in `.Rprofile`
 
