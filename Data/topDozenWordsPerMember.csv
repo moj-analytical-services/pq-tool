@@ -455,7 +455,7 @@
 "454","Baroness Golding","liverpool",0.212466551538486
 "455","Baroness Golding","basis",0.208787986359791
 "456","Baroness Golding","28",0.207072338500765
-"457","Baroness Gould of Potternewton","sentence",0.728623106969539
+"457","Baroness Gould of Potternewton","sentence",0.729465969409627
 "458","Baroness Gould of Potternewton","conviction",0.547581211332785
 "459","Baroness Gould of Potternewton","disparities",0.535017080753075
 "460","Baroness Gould of Potternewton","individual",0.524143703995133
@@ -464,7 +464,7 @@
 "463","Baroness Gould of Potternewton","following",0.480432691661365
 "464","Baroness Gould of Potternewton","analyse",0.477347281860947
 "465","Baroness Gould of Potternewton","final",0.472839039229037
-"466","Baroness Gould of Potternewton","tougher",0.392142670002492
+"466","Baroness Gould of Potternewton","tougher",0.395064603795002
 "467","Baroness Gould of Potternewton","similar",0.390096244357215
 "468","Baroness Gould of Potternewton","courts",0.383369239586441
 "469","Baroness Hamwee","timetabling",0.505165313955922
@@ -566,15 +566,15 @@
 "565","Baroness Kennedy of The Shaws","unaccompanied",1.45843821270385
 "566","Baroness Kennedy of The Shaws","migrant",1.45843821270385
 "567","Baroness Kennedy of The Shaws","appeared",1.1077138576174
-"568","Baroness Kennedy of The Shaws","deradicalisation",0.705342698464582
-"569","Baroness Kennedy of The Shaws","children",0.68928377308927
-"570","Baroness Kennedy of The Shaws","2014",0.68802827487372
-"571","Baroness Kennedy of The Shaws","undergone",0.656665998023101
+"568","Baroness Kennedy of The Shaws","deradicalisation",0.710793620296642
+"569","Baroness Kennedy of The Shaws","2014",0.690013277833465
+"570","Baroness Kennedy of The Shaws","children",0.68928377308927
+"571","Baroness Kennedy of The Shaws","undergone",0.661740744005143
 "572","Baroness Kennedy of The Shaws","proceedings",0.584925671126696
-"573","Baroness Kennedy of The Shaws","programme",0.387250581438981
+"573","Baroness Kennedy of The Shaws","programme",0.390243272301789
 "574","Baroness Kennedy of The Shaws","sub",0.380373166527271
-"575","Baroness Kennedy of The Shaws","either",0.375150549679995
-"576","Baroness Kennedy of The Shaws","currently",0.373614466540384
+"575","Baroness Kennedy of The Shaws","currently",0.37650177686042
+"576","Baroness Kennedy of The Shaws","either",0.375150549679995
 "577","Baroness King of Bow","explanatory",0.443229478619549
 "578","Baroness King of Bow","pupils",0.341490825676789
 "579","Baroness King of Bow","academy",0.341490825676789
@@ -974,12 +974,12 @@
 "973","Berger, Luciana","2010",7.08316021416206
 "974","Berger, Luciana","mental",6.49698385865869
 "975","Berger, Luciana","health",6.42578022463053
-"976","Berger, Luciana","year",5.18568188052228
+"976","Berger, Luciana","year",5.18571679081235
 "977","Berger, Luciana","self",4.88655030957523
 "978","Berger, Luciana","prison",4.85491213758653
 "979","Berger, Luciana","suicide",4.1639784038871
 "980","Berger, Luciana","death",3.62470038809358
-"981","Berger, Luciana","harm",3.58058523873001
+"981","Berger, Luciana","harm",3.58071664985257
 "982","Berger, Luciana","bill",2.97455058863345
 "983","Berger, Luciana","include",2.80845031708753
 "984","Berger, Luciana","inflicted",2.80169749962986
@@ -1200,7 +1200,7 @@
 "1199","Brady, Graham","indeterminate",0.360743475322131
 "1200","Brady, Graham","answer",0.324411197229378
 "1201","Brake, Tom","eu",1.75664038615843
-"1202","Brake, Tom","uk",1.1581972213237
+"1202","Brake, Tom","uk",1.15946818950975
 "1203","Brake, Tom","referendum",1.02530841015078
 "1204","Brake, Tom","legislation",0.793975464329558
 "1205","Brake, Tom","outcome",0.71225475879015
@@ -1458,8 +1458,8 @@
 "1457","Byrne, Liam","hodge",1.23720705229051
 "1458","Byrne, Liam","european",1.14711512579536
 "1459","Byrne, Liam","hill",1.06930357921414
-"1460","Byrne, Liam","uk",1.06093701843865
-"1461","Byrne, Liam","months",1.03266393525876
+"1460","Byrne, Liam","uk",1.06794720301982
+"1461","Byrne, Liam","months",1.03845405588248
 "1462","Byrne, Liam","convention",0.985648849140024
 "1463","Byrne, Liam","signatory",0.957300791174358
 "1464","Byrne, Liam","city",0.849169766163243
@@ -2075,18 +2075,18 @@
 "2074","Davies, Mims","adequacy",0.336001299548783
 "2075","Davies, Mims","arrangements",0.329079932437538
 "2076","Davies, Mims","special",0.32507263198218
-"2077","Davies, Philip","offence",42.8070241597805
-"2078","Davies, Philip","sentence",35.8571439399565
-"2079","Davies, Philip","year",27.7530771373658
-"2080","Davies, Philip","prison",25.964060319712
-"2081","Davies, Philip","offender",23.9462525442646
+"2077","Davies, Philip","offence",42.8978801054096
+"2078","Davies, Philip","sentence",35.8887330547081
+"2079","Davies, Philip","year",27.7852509308844
+"2080","Davies, Philip","prison",25.9963742067293
+"2081","Davies, Philip","offender",23.9531499910281
 "2082","Davies, Philip","proportion",23.6589413166689
-"2083","Davies, Philip","release",22.3163273750887
-"2084","Davies, Philip","convicted",22.0447706384985
-"2085","Davies, Philip","commit",20.8855201464133
-"2086","Davies, Philip","court",18.1918815342092
-"2087","Davies, Philip","five",17.0219417472498
-"2088","Davies, Philip","licence",16.5647827420424
+"2083","Davies, Philip","release",22.3778272462224
+"2084","Davies, Philip","convicted",22.1292040099143
+"2085","Davies, Philip","commit",20.8986135313887
+"2086","Davies, Philip","court",18.2010462027785
+"2087","Davies, Philip","five",17.0616772618148
+"2088","Davies, Philip","licence",16.5924758878571
 "2089","Day, Martyn","appeals",1.15216559150241
 "2090","Day, Martyn","visa",1.07817317098671
 "2091","Day, Martyn","scottish",1.0520142877214
@@ -2209,10 +2209,10 @@
 "2208","Dodds, Anneliese","affected",0.351813684299747
 "2209","Dodds, Nigel","topics",0.5218175166363
 "2210","Dodds, Nigel","nonuk",0.505054013313062
-"2211","Dodds, Nigel","eta",0.467377367118194
+"2211","Dodds, Nigel","eta",0.473004603691322
 "2212","Dodds, Nigel","message",0.460511237100735
-"2213","Dodds, Nigel","equitable",0.432140452119442
-"2214","Dodds, Nigel","uk",0.414422245565969
+"2213","Dodds, Nigel","equitable",0.437343435250372
+"2214","Dodds, Nigel","uk",0.416465778003847
 "2215","Dodds, Nigel","europe",0.406915911032419
 "2216","Dodds, Nigel","content",0.406465558491588
 "2217","Dodds, Nigel","origin",0.401643484390358
@@ -2531,15 +2531,15 @@
 "2530","Evans, Jonathan","citizen",0
 "2531","Evans, Jonathan","equit",0
 "2532","Evans, Jonathan","eta",0
-"2533","Evans, Nigel","wrongfully",1.04695562888505
-"2534","Evans, Nigel","english",0.982192797844284
-"2535","Evans, Nigel","terrorism",0.791298227576763
-"2536","Evans, Nigel","recalled",0.785388901642658
-"2537","Evans, Nigel","people",0.607278446843225
+"2533","Evans, Nigel","wrongfully",1.05618224855457
+"2534","Evans, Nigel","english",0.990848675073295
+"2535","Evans, Nigel","recalled",0.792310383784012
+"2536","Evans, Nigel","terrorism",0.722934058707311
+"2537","Evans, Nigel","people",0.610750172359364
 "2538","Evans, Nigel","capacity",0.60305209638312
 "2539","Evans, Nigel","population",0.597046658363269
-"2540","Evans, Nigel","released",0.558511432368901
-"2541","Evans, Nigel","limb",0.534698675994176
+"2540","Evans, Nigel","released",0.56343348677634
+"2541","Evans, Nigel","limb",0.541073376773959
 "2542","Evans, Nigel","operational",0.510180357580944
 "2543","Evans, Nigel","repetitive",0.509540910906579
 "2544","Evans, Nigel","strain",0.509540910906579
@@ -2736,17 +2736,17 @@
 "2735","Fovargue, Yvonne","appeals",0.47044183331153
 "2736","Fovargue, Yvonne","went",0.460414321721899
 "2737","Fox, Dr Liam","spread",0.606283004193874
-"2738","Fox, Dr Liam","population",0.588583921960758
+"2738","Fox, Dr Liam","population",0.59145852419961
 "2739","Fox, Dr Liam","islamic",0.477960473138884
 "2740","Fox, Dr Liam","extremism",0.427701348613263
-"2741","Fox, Dr Liam","extremists",0.375244880833025
-"2742","Fox, Dr Liam","radicalising",0.324303326786688
+"2741","Fox, Dr Liam","extremists",0.379520242846714
+"2742","Fox, Dr Liam","radicalising",0.327998284919571
 "2743","Fox, Dr Liam","prevent",0.318980990798324
-"2744","Fox, Dr Liam","overseas",0.309194233518069
-"2745","Fox, Dr Liam","terrorist",0.30665644131577
-"2746","Fox, Dr Liam","muslim",0.291808436256078
-"2747","Fox, Dr Liam","risks",0.249108274631058
-"2748","Fox, Dr Liam","recruiting",0.246108804732505
+"2744","Fox, Dr Liam","overseas",0.312717045815735
+"2745","Fox, Dr Liam","muslim",0.295133163034158
+"2746","Fox, Dr Liam","terrorism",0.270696084301757
+"2747","Fox, Dr Liam","risks",0.251946496040738
+"2748","Fox, Dr Liam","recruiting",0.248912851606247
 "2749","Foxcroft, Vicky","exoffenders",1.72533158593098
 "2750","Foxcroft, Vicky","immigration",1.26459711036377
 "2751","Foxcroft, Vicky","tagging",1.18733839208854
@@ -3083,7 +3083,7 @@
 "3082","Griffiths, Andrew","prosecuted",0.937965613847874
 "3083","Griffiths, Andrew","five",0.918827119996668
 "3084","Griffiths, Andrew","four",0.907553819625252
-"3085","Gwynne, Andrew","manchester",1.88648135575505
+"3085","Gwynne, Andrew","manchester",1.89516146357088
 "3086","Gwynne, Andrew","tactical",1.57722771903995
 "3087","Gwynne, Andrew","response",1.31184627410344
 "3088","Gwynne, Andrew","freedom",1.30495345073972
@@ -3432,17 +3432,17 @@
 "3431","Hodgson, Sharon","hatred",1.13869806135124
 "3432","Hodgson, Sharon","formal",1.12051808495567
 "3433","Hoey, Kate","paralegal",2.09374784271309
-"3434","Hoey, Kate","mercy",1.52394195250054
-"3435","Hoey, Kate","prerogative",1.52394195250054
-"3436","Hoey, Kate","great",1.51010044002975
-"3437","Hoey, Kate","britain",1.4480088417057
-"3438","Hoey, Kate","survivors",1.33775525803888
+"3434","Hoey, Kate","great",1.52597091729774
+"3435","Hoey, Kate","mercy",1.52394195250054
+"3436","Hoey, Kate","prerogative",1.52394195250054
+"3437","Hoey, Kate","britain",1.46322676416766
+"3438","Hoey, Kate","survivors",1.35181446486384
 "3439","Hoey, Kate","royal",1.33737761863888
-"3440","Hoey, Kate","terrorism",1.29840405073637
-"3441","Hoey, Kate","patent",1.29815296770759
-"3442","Hoey, Kate","brixton",1.25422689914608
-"3443","Hoey, Kate","will",1.23632011421215
-"3444","Hoey, Kate","northern",1.18282095950077
+"3440","Hoey, Kate","patent",1.29815296770759
+"3441","Hoey, Kate","brixton",1.25422689914608
+"3442","Hoey, Kate","will",1.24064563583769
+"3443","Hoey, Kate","northern",1.19525187644659
+"3444","Hoey, Kate","terrorism",1.17985001489441
 "3445","Hollern, Kate","blackburn",1.73795477031188
 "3446","Hollern, Kate","overturned",1.46731268818845
 "3447","Hollern, Kate","dismissed",1.37626771880792
@@ -3745,7 +3745,7 @@
 "3744","Johnson, Alan","medlam",1.08545702629497
 "3745","Johnson, Diana","contrary",11.9440597554007
 "3746","Johnson, Diana","section",11.6624055690339
-"3747","Johnson, Diana","four",10.3938352266248
+"3747","Johnson, Diana","four",10.3954970012655
 "3748","Johnson, Diana","convict",9.67286447600067
 "3749","Johnson, Diana","act",9.64924662580025
 "3750","Johnson, Diana","offence",8.79185234750879
@@ -3754,7 +3754,7 @@
 "3753","Johnson, Diana","ashes",7.62701316028194
 "3754","Johnson, Diana","people",7.04362092825205
 "3755","Johnson, Diana","sexual",7.01574048516649
-"3756","Johnson, Diana","year",6.31487978922896
+"3756","Johnson, Diana","year",6.3154322019413
 "3757","Johnson, Dr Caroline","modernise",0.85236414288125
 "3758","Johnson, Dr Caroline","system",0.464768371363337
 "3759","Johnson, Dr Caroline","courts",0.23972010535327
@@ -4511,14 +4511,14 @@
 "4510","Lord Brooke of Alverthorpe","planning",0.246946557408431
 "4511","Lord Brooke of Alverthorpe","introduced",0.242861394141484
 "4512","Lord Brooke of Alverthorpe","fine",0.241717439352323
-"4513","Lord Browne of Belmont","northern",2.00183964914395
-"4514","Lord Browne of Belmont","ireland",1.97604420156228
+"4513","Lord Browne of Belmont","northern",2.0105166240229
+"4514","Lord Browne of Belmont","ireland",1.98460936606183
 "4515","Lord Browne of Belmont","year",1.4897296239891
 "4516","Lord Browne of Belmont","prison",1.42440503076012
 "4517","Lord Browne of Belmont","five",1.42007284338894
 "4518","Lord Browne of Belmont","open",1.26225629927782
-"4519","Lord Browne of Belmont","great",1.23150480699204
-"4520","Lord Browne of Belmont","britain",1.18086837263118
+"4519","Lord Browne of Belmont","great",1.2425826488899
+"4520","Lord Browne of Belmont","britain",1.19149072104583
 "4521","Lord Browne of Belmont","transfer",1.03019708166138
 "4522","Lord Browne of Belmont","annual",1.00514416502523
 "4523","Lord Browne of Belmont","three",0.854387893569959
@@ -4631,17 +4631,17 @@
 "4630","Lord Eames","public",0.161934615959818
 "4631","Lord Eames","cases",0.154063733228512
 "4632","Lord Eames","attack",0
-"4633","Lord Empey","1970",0.784536416479411
-"4634","Lord Empey","lodged",0.62855955583403
-"4635","Lord Empey","damage",0.549253933474001
-"4636","Lord Empey","1998",0.509958739682833
-"4637","Lord Empey","respect",0.446660234099135
+"4633","Lord Empey","1970",0.788595859143029
+"4634","Lord Empey","lodged",0.631811924269682
+"4635","Lord Empey","damage",0.552095949222243
+"4636","Lord Empey","1998",0.512597429514266
+"4637","Lord Empey","respect",0.448971397191577
 "4638","Lord Empey","1987",0.429917458569665
 "4639","Lord Empey","troubles",0.399174515031181
-"4640","Lord Empey","compensation",0.39327707282862
-"4641","Lord Empey","financial",0.378991455183889
-"4642","Lord Empey","injuries",0.374192758533358
-"4643","Lord Empey","paid",0.373260887194913
+"4640","Lord Empey","compensation",0.395312014348897
+"4641","Lord Empey","financial",0.380952478343558
+"4642","Lord Empey","injuries",0.376128951699794
+"4643","Lord Empey","paid",0.375192258560615
 "4644","Lord Empey","pardons",0.366559454889354
 "4645","Lord Falconer of Thoroton","written",4.79502022674137
 "4646","Lord Falconer of Thoroton","faulks",4.12017584555722
@@ -5063,17 +5063,17 @@
 "5062","Lord Marks of Henley-on-Thames","punishment",0.701957098397987
 "5063","Lord Marks of Henley-on-Thames","licences",0.690104928252639
 "5064","Lord Marks of Henley-on-Thames","prison",0.660597666625748
-"5065","Lord Marlesford","custodial",1.346729001835
+"5065","Lord Marlesford","custodial",1.34715906347546
 "5066","Lord Marlesford","citizens",0.991668550856911
-"5067","Lord Marlesford","serving",0.915250364316684
+"5067","Lord Marlesford","serving",0.915740988638569
 "5068","Lord Marlesford","escape",0.865692682911612
-"5069","Lord Marlesford","sentence",0.784163644122248
+"5069","Lord Marlesford","sentence",0.784490887509344
 "5070","Lord Marlesford","breakdown",0.650907126646828
 "5071","Lord Marlesford","someone",0.610773119494752
 "5072","Lord Marlesford","10",0.579952113208389
 "5073","Lord Marlesford","uncaptured",0.537113877462438
 "5074","Lord Marlesford","absconded",0.5088790832619
-"5075","Lord Marlesford","prison",0.50135274610668
+"5075","Lord Marlesford","prison",0.501512241556817
 "5076","Lord Marlesford","recaptured",0.496619327712433
 "5077","Lord Mawson","journalists",0.416039477791983
 "5078","Lord Mawson","enacted",0.389786410200259
@@ -7007,7 +7007,7 @@
 "7006","Reid, Alan","equit",0
 "7007","Reid, Alan","eta",0
 "7008","Reid, Alan","fair",0
-"7009","Reynolds, Emma","wolverhampton",0.672682582068467
+"7009","Reynolds, Emma","wolverhampton",0.672896748085589
 "7010","Reynolds, Emma","forfeited",0.442656525972026
 "7011","Reynolds, Emma","forfeiture",0.421542655425977
 "7012","Reynolds, Emma","leasehold",0.406562125869422
@@ -7069,16 +7069,16 @@
 "7068","Robertson, Laurence","restricted",0.864991428526106
 "7069","Robinson, Gavin","maximum",0.96329304104631
 "7070","Robinson, Gavin","increased",0.7519940590522
-"7071","Robinson, Gavin","hyde",0.740544500353346
-"7072","Robinson, Gavin","park",0.615472944843562
+"7071","Robinson, Gavin","hyde",0.743066620194223
+"7072","Robinson, Gavin","park",0.617569100476305
 "7073","Robinson, Gavin","northern",0.614706413587878
 "7074","Robinson, Gavin","ireland",0.606785386008768
 "7075","Robinson, Gavin","behaviour",0.59804478710378
 "7076","Robinson, Gavin","attributable",0.573533253789306
 "7077","Robinson, Gavin","sentences",0.531061808904889
-"7078","Robinson, Gavin","officials",0.422251614558699
-"7079","Robinson, Gavin","30414",0.419499551374854
-"7080","Robinson, Gavin","outwith",0.419499551374854
+"7078","Robinson, Gavin","30414",0.422556876799016
+"7079","Robinson, Gavin","outwith",0.422556876799016
+"7080","Robinson, Gavin","officials",0.422251614558699
 "7081","Rodda, Matt","contact",0.466540865611839
 "7082","Rodda, Matt","operation",0.397352666212844
 "7083","Rodda, Matt","scheme",0.384545179540213
@@ -7391,8 +7391,8 @@
 "7390","Simpson, David","aid",0.705113197596043
 "7391","Simpson, David","mental",0.651577170918437
 "7392","Simpson, David","legal",0.620704625524291
-"7393","Slaughter, Andy","2010",20.5517645387819
-"7394","Slaughter, Andy","year",17.4576813062898
+"7393","Slaughter, Andy","2010",20.5586057067575
+"7394","Slaughter, Andy","year",17.4615040046522
 "7395","Slaughter, Andy","2015",17.419128515193
 "7396","Slaughter, Andy","prison",13.7151464907126
 "7397","Slaughter, Andy","may",12.5238213366027
@@ -7860,16 +7860,16 @@
 "7859","The Lord Bishop of Derby","relating",0.215045415394778
 "7860","The Lord Bishop of Derby","2010",0.159841534656326
 "7861","The Lord Bishop of Rochester","radicalisation",0.849812287805846
-"7862","The Lord Bishop of Rochester","chaplains",0.651102026804434
-"7863","The Lord Bishop of Rochester","extremism",0.612792528615702
+"7862","The Lord Bishop of Rochester","chaplains",0.652696064070363
+"7863","The Lord Bishop of Rochester","extremism",0.614292776021919
 "7864","The Lord Bishop of Rochester","beginning",0.46504319461039
 "7865","The Lord Bishop of Rochester","whilst",0.44603738787832
-"7866","The Lord Bishop of Rochester","including",0.41171113579044
+"7866","The Lord Bishop of Rochester","including",0.412719092863571
 "7867","The Lord Bishop of Rochester","christian",0.409728433106251
 "7868","The Lord Bishop of Rochester","identified",0.376184217992963
 "7869","The Lord Bishop of Rochester","faith",0.358109064810189
-"7870","The Lord Bishop of Rochester","vetting",0.343937314377571
-"7871","The Lord Bishop of Rochester","islamist",0.327532161610925
+"7870","The Lord Bishop of Rochester","vetting",0.345903637576377
+"7871","The Lord Bishop of Rochester","islamist",0.32940469495002
 "7872","The Lord Bishop of Rochester","muslim",0.318624502188986
 "7873","The Lord Bishop of Southwark","wandsworth",2.51199008923614
 "7874","The Lord Bishop of Southwark","two",1.23974750728987
@@ -7967,15 +7967,15 @@
 "7966","Timms, Stephen","aid",1.16031745284069
 "7967","Timms, Stephen","will",1.15933582921102
 "7968","Timms, Stephen","appeal",1.14457654233615
-"7969","Tomlinson, Justin","support",2.74684274883274
-"7970","Tomlinson, Justin","within",2.60563644188805
-"7971","Tomlinson, Justin","victim",2.28766884567215
+"7969","Tomlinson, Justin","support",2.75422040190286
+"7970","Tomlinson, Justin","within",2.61132066952853
+"7971","Tomlinson, Justin","victim",2.29051587637867
 "7972","Tomlinson, Justin","commission",1.19559209392906
-"7973","Tomlinson, Justin","provide",1.19085775463995
+"7973","Tomlinson, Justin","provide",1.19379824359192
 "7974","Tomlinson, Justin","crime",1.16607913654541
 "7975","Tomlinson, Justin","made",1.08360670090535
 "7976","Tomlinson, Justin","progress",1.00074635489504
-"7977","Tomlinson, Justin","work",0.80179842273831
+"7977","Tomlinson, Justin","work",0.80465793775956
 "7978","Tomlinson, Justin","evidence",0.775888181109682
 "7979","Tomlinson, Justin","streetgames",0.769400158686041
 "7980","Tomlinson, Justin","commission",0.749245699042868
