@@ -63,6 +63,8 @@ cleanPQ <- function(PQ){
     gsub("probation", "probatn", .) %>%
     #make sure Network Rail is seen as distinct from other mentions of network
     gsub("network rail", "networkrail", .) %>%
+    #change "terrorist" and "terrorists" to "terrorism" so that they are stemmed to the same thing
+    gsub("terrorist|terrorists", "terrorism", .) %>%
     removeWords(c(stopwords(), JUSTICE_STOP_WORDS)) %>%
     stripWhitespace()
 }
