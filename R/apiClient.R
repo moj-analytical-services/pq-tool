@@ -13,8 +13,9 @@ number_in_archive <- function() {
 }
 
 last_answer_date <- function() {
-  archive <- read_csv(ARCHIVE_FILEPATH)
-  max(archive$Answer_Date)
+  archive_not_NA <- read_csv(ARCHIVE_FILEPATH) %>%
+    filter(!(is.na(Answer_Date)))
+  max(archive_not_NA$Answer_Date)
 }
 
 number_held_remotely <- function() {
@@ -109,7 +110,9 @@ fetch_questions <- function(show_progress = FALSE) {
   number_held_remotely <- number_held_remotely()
 
   if(show_progress == TRUE) {
+    missing_number <- number_held_remotely - number_in_archive
     print(str_interp("Fetching ${number_to_fetch} questions"))
+    print(str_interp("(there are ${missing_number} relevant new questions)"))
   }
 
   iterations <- ceiling(number_to_fetch / 1000)
