@@ -12,6 +12,22 @@ library(stringr)
 #a function to clean a corpus of text, making sure of the encoding, removing punctuation, putting it
 #all in lower case, stripping white space, and removing stopwords.
 
+swap_words <- function(text_object, swaplist, direction = "swapout"){
+  if (direction == "swapout"){
+    for(swap in swaplist){
+      text_object <- gsub(swap[1], swap[2], text_object)
+    }
+  } else if (direction == "swapin"){
+    for(swap in swaplist){
+      text_object <- gsub(swap[2], swap[3], text_object)
+    }
+  }
+  else {
+    print("error: direction must be either swapout or swapin")
+  }
+  return(text_object)
+}
+
 cleanPQ <- function(PQ){
   PQ <- PQ %>% iconv(to = "utf-8", sub = "") %>%
     #inelegant special cleaning steps 1
@@ -29,42 +45,7 @@ cleanPQ <- function(PQ){
     tolower() %>%
     #inelegant special cleaning steps 2
     #put "re-offending" and "reoffending" together
-    gsub("re off", "reoff", .) %>%
-    #put "post-morterm" and "postmortem" together
-    sub("post mortem", "postmortem", .) %>%
-    #anti- always part of the word that follows it,
-    #eg antisemitism not anti-semitism
-    gsub("anti ", "anti", .) %>%
-    #ditto for cross-examination
-    gsub("cross exam", "crossexam", .) %>%
-    #ditto for co-operation
-    gsub("co oper", "cooper", .) %>%
-    #ditto for socio-economic
-    gsub("socio eco", "socioeco", .) %>%
-    #ditto for inter-library and inter-parliamentary
-    gsub("inter ", "inter", .) %>%
-    #ditto for non-profit, non-molestation, non-payroll, etc
-    gsub("non ", "non", .) %>%
-    #ditto for pre-nuptial, pre-recorded, etc
-    gsub("pre ", "pre", .) %>%
-    #ditto for ex-offenders, etc, while not accidentally doing
-    #is for Essex probation
-    gsub(" ex ", " ex", .) %>%
-    #correct one-off spelling mistakes in data
-    gsub("rehabilitaiton", "rehabilitation", .) %>%
-    gsub("organisaiton", "organisation", .) %>%
-    #issue with "directive" and "direction" being stemmed to the same thing.
-    gsub("directive|directives", "drctv", .) %>%
-    gsub("direction|directions", "drctn", .) %>%
-    #issue with "internal" and "international" being stemmed to the same thing (!).
-    gsub("internal", "intrnl", .) %>%
-    #replace instances of the word "probation" with "probatn" to avoid the
-    #issue with "probate" and "probation" being stemmed to the same thing.
-    gsub("probation", "probatn", .) %>%
-    #make sure Network Rail is seen as distinct from other mentions of network
-    gsub("network rail", "networkrail", .) %>%
-    #change "terrorist" and "terrorists" to "terrorism" so that they are stemmed to the same thing
-    gsub("terrorist|terrorists", "terrorism", .) %>%
+    swap_words(JUSTICE_SWAP_TOKENS, "swapout") %>%
     removeWords(c(stopwords(), JUSTICE_STOP_WORDS)) %>%
     stripWhitespace()
 }
@@ -85,6 +66,41 @@ fromItoY <- function(word){
 
 #a function to summarise the top terms of a given cluster or for a given MP
 summarise <- function(type = "cluster", #type can be either cluster or MP
+                      ID, #this is the cluster number if type == cluster, or the MPs name in "Surname, Forename" format if type == MP
+                      matr, #the tdm as a matrix
+                      data, #a hierarchy if type is cluster, or a list of answer MPs if type is MP
+                      numTerms, #how many terms to return
+                      listOfVectors, #the questions themselves
+                      totalClusters = NULL #the number of clusters if type is cluster 
+){
+  if (type == "cluster"){
+    set <- cutree(data, totalClusters)
+  } else if (type == "MP"){
+    set <- data
+  }
+  relevantQs <- matr[, which(set == ID)]
+  clusterDict <- cleanCorpus(Corpus(VectorSource(listOfVectors[which(set == ID)])))
+  termsAndSums <- if (is.null(dim(relevantQs))){
+    relevantQs
+  } else rowSums(relevantQs)
+  termsAndSumsN <- termsAndSums[order(termsAndSums, decreasing = T)[1:numTerms]]
+  
+  #we now complete the word stems, using the fromItoY function to deal with occasions
+  #where the unstemming produces blanks
+  partialCompletion <- stemCompletion(names(termsAndSumsN), clusterDict)
+  toFix <- which(partialCompletion == "")
+  fixed <- sapply(names(partialCompletion[toFix]), fromItoY)
+  partialCompletion[toFix] <- fixed
+  names(termsAndSumsN) <- partialCompletion # update names
+  #replace "drctv" with "directive"
+  names(termsAndSumsN) <- swap_words(names(termsAndSumsN), JUSTICE_SWAP_TOKENS, "swapin")
+  #replace "disabl" with "disability" (for clusters where the word disabled isn't present)
+  names(termsAndSumsN) <- gsub("disabl\\b", "disability", names(termsAndSumsN))
+  
+  termsAndSumsN
+}
+
+summarise_old <- function(type = "cluster", #type can be either cluster or MP
                       ID, #this is the cluster number if type == cluster, or the MPs name in "Surname, Forename" format if type == MP
                       matr, #the tdm as a matrix
                       data, #a hierarchy if type is cluster, or a list of answer MPs if type is MP
@@ -121,8 +137,18 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
   names(termsAndSumsN) <- gsub("probatn", "probation", names(termsAndSumsN))
   #replace "probabl" with "probability"
   names(termsAndSumsN) <- gsub("probabl", "probability", names(termsAndSumsN))
-  #replace "networkrail" with "network rail"
-  names(termsAndSumsN) <- gsub("networkrail", "network rail", names(termsAndSumsN))
+  #replace "networkrail" with "Network Rail"
+  names(termsAndSumsN) <- gsub("networkrail", "Network Rail", names(termsAndSumsN))
+  #replace "shrdsrvcs" with "Shared Services"
+  names(termsAndSumsN) <- gsub("shrdsrvcs", "Shared Services", names(termsAndSumsN))
+  #untokenize young offender's institutions, secure training centres, and secure children's homes
+  names(termsAndSumsN) <- gsub("yngoi", "young offenders institution", names(termsAndSumsN))
+  names(termsAndSumsN) <- gsub("sectc", "secure training centre", names(termsAndSumsN))
+  names(termsAndSumsN) <- gsub("secch", "secure childrens home", names(termsAndSumsN))
+  #replace "prsntc" with "presentence"
+  names(termsAndSumsN) <- gsub("prsntc", "presentence", names(termsAndSumsN))
+  #replace "scrty" with "security"
+  names(termsAndSumsN) <- gsub("scrty", "security", names(termsAndSumsN))
   #replace "disabl" with "disability" (for clusters where the word disabled isn't present)
   names(termsAndSumsN) <- gsub("disabl\\b", "disability", names(termsAndSumsN))
   
