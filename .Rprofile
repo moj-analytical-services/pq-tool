@@ -41,7 +41,8 @@ JUSTICE_STOP_WORDS <- c(
   "lord",
   "sir",
   "held",
-  "extent"
+  "extent",
+  "comprehensive"
 )
 
 #The following list of tokens to be swapped out so that they are represented by one clear marker in the data,
