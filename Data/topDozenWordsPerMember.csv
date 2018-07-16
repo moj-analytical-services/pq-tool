@@ -91,10 +91,10 @@
 "90","Ali, Rushanara","offending",0.2393856119319
 "91","Ali, Rushanara","service",0.204166850833942
 "92","Ali, Rushanara","aid",0
-"93","Ali, Rushanara","comprehens",0
-"94","Ali, Rushanara","legal",0
-"95","Ali, Rushanara","review",0
-"96","Ali, Rushanara","undertak",0
+"93","Ali, Rushanara","legal",0
+"94","Ali, Rushanara","review",0
+"95","Ali, Rushanara","undertak",0
+"96","Ali, Rushanara","will",0
 "97","Allen, Graham","intervention",0.552513146456015
 "98","Allen, Graham","promote",0.453441937850496
 "99","Allen, Graham","olds",0.402574807809999
@@ -127,10 +127,10 @@
 "126","Amesbury, Mike","police",0.316801368232351
 "127","Amesbury, Mike","crime",0.305806338010467
 "128","Amesbury, Mike","aid",0
-"129","Amesbury, Mike","comprehens",0
-"130","Amesbury, Mike","legal",0
-"131","Amesbury, Mike","review",0
-"132","Amesbury, Mike","undertak",0
+"129","Amesbury, Mike","legal",0
+"130","Amesbury, Mike","review",0
+"131","Amesbury, Mike","undertak",0
+"132","Amesbury, Mike","will",0
 "133","Amess, Sir David","essex",10.5507926858713
 "134","Amess, Sir David","probation",4.8472841527638
 "135","Amess, Sir David","companies",3.83707706010618
@@ -308,9 +308,9 @@
 "307","Bardell, Hannah","number",0.317820645897299
 "308","Bardell, Hannah","made",0.219387625700991
 "309","Bardell, Hannah","aid",0
-"310","Bardell, Hannah","comprehens",0
-"311","Bardell, Hannah","legal",0
-"312","Bardell, Hannah","review",0
+"310","Bardell, Hannah","legal",0
+"311","Bardell, Hannah","review",0
+"312","Bardell, Hannah","undertak",0
 "313","Baroness Afshar","nonpayment",0.733853721723768
 "314","Baroness Afshar","tax",0.722781930577957
 "315","Baroness Afshar","council",0.623608733778753
@@ -344,9 +344,9 @@
 "343","Baroness Armstrong of Hill Top","public",0.222120672936581
 "344","Baroness Armstrong of Hill Top","will",0.146951799537337
 "345","Baroness Armstrong of Hill Top","aid",0
-"346","Baroness Armstrong of Hill Top","comprehens",0
-"347","Baroness Armstrong of Hill Top","legal",0
-"348","Baroness Armstrong of Hill Top","review",0
+"346","Baroness Armstrong of Hill Top","legal",0
+"347","Baroness Armstrong of Hill Top","review",0
+"348","Baroness Armstrong of Hill Top","undertak",0
 "349","Baroness Barker","trans",0.681114596642443
 "350","Baroness Barker","identify",0.445021418203437
 "351","Baroness Barker","women",0.318283468468924
@@ -356,9 +356,9 @@
 "355","Baroness Barker","people",0.218734092591787
 "356","Baroness Barker","years",0.117025216896764
 "357","Baroness Barker","aid",0
-"358","Baroness Barker","comprehens",0
-"359","Baroness Barker","legal",0
-"360","Baroness Barker","review",0
+"358","Baroness Barker","legal",0
+"359","Baroness Barker","review",0
+"360","Baroness Barker","undertak",0
 "361","Baroness Burt of Solihull","funeral",1.82858822339345
 "362","Baroness Burt of Solihull","cover",1.02391836840227
 "363","Baroness Burt of Solihull","england",1.01734357567638
@@ -403,10 +403,10 @@
 "402","Baroness Cox","claims",0.295053482012662
 "403","Baroness Cox","2017",0.255971730792694
 "404","Baroness Cox","aid",0
-"405","Baroness Cox","comprehens",0
-"406","Baroness Cox","legal",0
-"407","Baroness Cox","review",0
-"408","Baroness Cox","undertak",0
+"405","Baroness Cox","legal",0
+"406","Baroness Cox","review",0
+"407","Baroness Cox","undertak",0
+"408","Baroness Cox","will",0
 "409","Baroness Deech","divorce",0.624073179059635
 "410","Baroness Deech","plan",0.614646520129851
 "411","Baroness Deech","nuptial",0.54342185088452
@@ -438,11 +438,11 @@
 "437","Baroness Drake","employment",0.290049030883747
 "438","Baroness Drake","tribunals",0.277302138381969
 "439","Baroness Drake","aid",0
-"440","Baroness Drake","comprehens",0
-"441","Baroness Drake","legal",0
-"442","Baroness Drake","review",0
-"443","Baroness Drake","undertak",0
-"444","Baroness Drake","will",0
+"440","Baroness Drake","legal",0
+"441","Baroness Drake","review",0
+"442","Baroness Drake","undertak",0
+"443","Baroness Drake","will",0
+"444","Baroness Drake","137525",0
 "445","Baroness Eaton","recruited",0.549927531402039
 "446","Baroness Eaton","october",0.487390376074895
 "447","Baroness Eaton","2016",0.349793687662626
@@ -451,10 +451,10 @@
 "450","Baroness Eaton","england",0.315974317815251
 "451","Baroness Eaton","prison",0.136153787215846
 "452","Baroness Eaton","aid",0
-"453","Baroness Eaton","comprehens",0
-"454","Baroness Eaton","legal",0
-"455","Baroness Eaton","review",0
-"456","Baroness Eaton","undertak",0
+"453","Baroness Eaton","legal",0
+"454","Baroness Eaton","review",0
+"455","Baroness Eaton","undertak",0
+"456","Baroness Eaton","will",0
 "457","Baroness Fall","mothers",2.89831654396283
 "458","Baroness Fall","percentage",2.43482674212401
 "459","Baroness Fall","nonviolent",2.29703611005588
@@ -475,10 +475,10 @@
 "474","Baroness Finlay of Llandaff","requirement",0.265463544245383
 "475","Baroness Finlay of Llandaff","plan",0.256421432904491
 "476","Baroness Finlay of Llandaff","aid",0
-"477","Baroness Finlay of Llandaff","comprehens",0
-"478","Baroness Finlay of Llandaff","legal",0
-"479","Baroness Finlay of Llandaff","review",0
-"480","Baroness Finlay of Llandaff","undertak",0
+"477","Baroness Finlay of Llandaff","legal",0
+"478","Baroness Finlay of Llandaff","review",0
+"479","Baroness Finlay of Llandaff","undertak",0
+"480","Baroness Finlay of Llandaff","will",0
 "481","Baroness Gale","allegations",0.565754997650088
 "482","Baroness Gale","53a",0.515238098944804
 "483","Baroness Gale","proceedings",0.471474200925047
@@ -562,7 +562,7 @@
 "561","Baroness Hodgson of Abinger","system",0.215775872709139
 "562","Baroness Hodgson of Abinger","data",0.211826650161463
 "563","Baroness Hodgson of Abinger","aid",0
-"564","Baroness Hodgson of Abinger","comprehens",0
+"564","Baroness Hodgson of Abinger","legal",0
 "565","Baroness Howe of Idlicote","visiting",1.65948504327824
 "566","Baroness Howe of Idlicote","barnardos",1.65361727101648
 "567","Baroness Howe of Idlicote","locked",1.44020046048831
@@ -810,11 +810,11 @@
 "809","Baroness Sharples","holding",0.37759517971958
 "810","Baroness Sharples","months",0.230530878489633
 "811","Baroness Sharples","aid",0
-"812","Baroness Sharples","comprehens",0
-"813","Baroness Sharples","legal",0
-"814","Baroness Sharples","review",0
-"815","Baroness Sharples","undertak",0
-"816","Baroness Sharples","will",0
+"812","Baroness Sharples","legal",0
+"813","Baroness Sharples","review",0
+"814","Baroness Sharples","undertak",0
+"815","Baroness Sharples","will",0
+"816","Baroness Sharples","137525",0
 "817","Baroness Smith of Basildon","genital",2.66148370880135
 "818","Baroness Smith of Basildon","mutilation",2.66148370880135
 "819","Baroness Smith of Basildon","female",1.71920811286914
@@ -867,14 +867,14 @@
 "866","Baroness Taylor of Bolton","currently",0.665796068943692
 "867","Baroness Taylor of Bolton","prisoners",0.203411106245892
 "868","Baroness Taylor of Bolton","aid",0
-"869","Baroness Taylor of Bolton","comprehens",0
-"870","Baroness Taylor of Bolton","legal",0
-"871","Baroness Taylor of Bolton","review",0
-"872","Baroness Taylor of Bolton","undertak",0
-"873","Baroness Taylor of Bolton","will",0
-"874","Baroness Taylor of Bolton","137525",0
-"875","Baroness Taylor of Bolton","2018",0
-"876","Baroness Taylor of Bolton","answer",0
+"869","Baroness Taylor of Bolton","legal",0
+"870","Baroness Taylor of Bolton","review",0
+"871","Baroness Taylor of Bolton","undertak",0
+"872","Baroness Taylor of Bolton","will",0
+"873","Baroness Taylor of Bolton","137525",0
+"874","Baroness Taylor of Bolton","2018",0
+"875","Baroness Taylor of Bolton","answer",0
+"876","Baroness Taylor of Bolton","law",0
 "877","Baroness Thomas of Winchester","relevance",0.569432137270667
 "878","Baroness Thomas of Winchester","disability",0.535862441707754
 "879","Baroness Thomas of Winchester","transforming",0.513430839325094
@@ -1111,10 +1111,10 @@
 "1110","Blackford, Ian","eu",0.325307396996825
 "1111","Blackford, Ian","uk",0.257550352414449
 "1112","Blackford, Ian","aid",0
-"1113","Blackford, Ian","comprehens",0
-"1114","Blackford, Ian","legal",0
-"1115","Blackford, Ian","review",0
-"1116","Blackford, Ian","undertak",0
+"1113","Blackford, Ian","legal",0
+"1114","Blackford, Ian","review",0
+"1115","Blackford, Ian","undertak",0
+"1116","Blackford, Ian","will",0
 "1117","Blackman-Woods, Dr Roberta","durham",0.857621994233605
 "1118","Blackman-Woods, Dr Roberta","organ",0.747092014857244
 "1119","Blackman-Woods, Dr Roberta","staffing",0.733061310718448
@@ -1135,10 +1135,10 @@
 "1134","Blackman, Bob","cases",0.275775717880536
 "1135","Blackman, Bob","2014",0.274732971979652
 "1136","Blackman, Bob","aid",0
-"1137","Blackman, Bob","comprehens",0
-"1138","Blackman, Bob","legal",0
-"1139","Blackman, Bob","review",0
-"1140","Blackman, Bob","undertak",0
+"1137","Blackman, Bob","legal",0
+"1138","Blackman, Bob","review",0
+"1139","Blackman, Bob","undertak",0
+"1140","Blackman, Bob","will",0
 "1141","Blackman, Kirsty","scotland",2.49139603059758
 "1142","Blackman, Kirsty","visa",2.13169100986482
 "1143","Blackman, Kirsty","nondevolved",2.03681440311141
@@ -1339,22 +1339,22 @@
 "1338","Brooke, Annette","sentencing",0.259810660630721
 "1339","Brooke, Annette","will",0.199816134257685
 "1340","Brooke, Annette","aid",0
-"1341","Brooke, Annette","comprehens",0
-"1342","Brooke, Annette","legal",0
-"1343","Brooke, Annette","undertak",0
-"1344","Brooke, Annette","137525",0
+"1341","Brooke, Annette","legal",0
+"1342","Brooke, Annette","undertak",0
+"1343","Brooke, Annette","137525",0
+"1344","Brooke, Annette","2018",0
 "1345","Brown, Alan","borderland",0.6194731913509
 "1346","Brown, Alan","growth",0.511850519497986
 "1347","Brown, Alan","deal",0.372798833845161
 "1348","Brown, Alan","dates",0.371147645612628
 "1349","Brown, Alan","meetings",0.278446521844078
 "1350","Brown, Alan","aid",0
-"1351","Brown, Alan","comprehens",0
-"1352","Brown, Alan","legal",0
-"1353","Brown, Alan","review",0
-"1354","Brown, Alan","undertak",0
-"1355","Brown, Alan","will",0
-"1356","Brown, Alan","137525",0
+"1351","Brown, Alan","legal",0
+"1352","Brown, Alan","review",0
+"1353","Brown, Alan","undertak",0
+"1354","Brown, Alan","will",0
+"1355","Brown, Alan","137525",0
+"1356","Brown, Alan","2018",0
 "1357","Brown, Lyn","gateway",0.535023413738627
 "1358","Brown, Lyn","red",0.529724328060703
 "1359","Brown, Lyn","ict",0.50197837650091
@@ -1457,12 +1457,12 @@
 "1456","Burley, Aidan","compensation",0.324750157184046
 "1457","Burley, Aidan","uk",0.270634685227595
 "1458","Burley, Aidan","aid",0
-"1459","Burley, Aidan","comprehens",0
-"1460","Burley, Aidan","legal",0
-"1461","Burley, Aidan","review",0
-"1462","Burley, Aidan","undertak",0
-"1463","Burley, Aidan","will",0
-"1464","Burley, Aidan","137525",0
+"1459","Burley, Aidan","legal",0
+"1460","Burley, Aidan","review",0
+"1461","Burley, Aidan","undertak",0
+"1462","Burley, Aidan","will",0
+"1463","Burley, Aidan","137525",0
+"1464","Burley, Aidan","2018",0
 "1465","Burnham, Andy","tenants",0.58314726777264
 "1466","Burnham, Andy","evicted",0.513098392526024
 "1467","Burnham, Andy","manchester",0.416359434283962
@@ -1471,10 +1471,10 @@
 "1470","Burnham, Andy","courts",0.145474570814174
 "1471","Burnham, Andy","year",0.0939248758399957
 "1472","Burnham, Andy","aid",0
-"1473","Burnham, Andy","comprehens",0
-"1474","Burnham, Andy","legal",0
-"1475","Burnham, Andy","review",0
-"1476","Burnham, Andy","undertak",0
+"1473","Burnham, Andy","legal",0
+"1474","Burnham, Andy","review",0
+"1475","Burnham, Andy","undertak",0
+"1476","Burnham, Andy","will",0
 "1477","Burns, Sir Simon","chelmsford",0.602989021937508
 "1478","Burns, Sir Simon","wildlife",0.554205375088148
 "1479","Burns, Sir Simon","inspectorate",0.433214474465285
@@ -1508,9 +1508,9 @@
 "1507","Burstow, Paul","result",0.225879724773016
 "1508","Burstow, Paul","time",0.182710739319415
 "1509","Burstow, Paul","aid",0
-"1510","Burstow, Paul","comprehens",0
-"1511","Burstow, Paul","legal",0
-"1512","Burstow, Paul","review",0
+"1510","Burstow, Paul","legal",0
+"1511","Burstow, Paul","review",0
+"1512","Burstow, Paul","undertak",0
 "1513","Butler, Dawn","equal",1.82513924352751
 "1514","Butler, Dawn","tribunal",1.6331539835857
 "1515","Butler, Dawn","fees",1.58105325325503
@@ -1605,8 +1605,8 @@
 "1604","Campbell, Ronnie","years",0.107094963395589
 "1605","Campbell, Ronnie","prison",0.0976827440947061
 "1606","Campbell, Ronnie","aid",0
-"1607","Campbell, Ronnie","comprehens",0
-"1608","Campbell, Ronnie","legal",0
+"1607","Campbell, Ronnie","legal",0
+"1608","Campbell, Ronnie","review",0
 "1609","Carden, Dan","liverpool",8.23927971872011
 "1610","Carden, Dan","hm",2.75044420868438
 "1611","Carden, Dan","hmp",2.16730861506114
@@ -1640,9 +1640,9 @@
 "1639","Carmichael, Neil","prisoners",0.333848452652382
 "1640","Carmichael, Neil","receive",0.291550013443212
 "1641","Carmichael, Neil","aid",0
-"1642","Carmichael, Neil","comprehens",0
-"1643","Carmichael, Neil","legal",0
-"1644","Carmichael, Neil","review",0
+"1642","Carmichael, Neil","legal",0
+"1643","Carmichael, Neil","review",0
+"1644","Carmichael, Neil","undertak",0
 "1645","Carswell, Douglas","2014",1.34114175769473
 "1646","Carswell, Douglas","emergency",1.28686056232043
 "1647","Carswell, Douglas","2015",1.25568913708575
@@ -1660,13 +1660,13 @@
 "1659","Caulfield, Maria","will",0.222434015168215
 "1660","Caulfield, Maria","prison",0.139030864830306
 "1661","Caulfield, Maria","aid",0
-"1662","Caulfield, Maria","comprehens",0
-"1663","Caulfield, Maria","legal",0
-"1664","Caulfield, Maria","review",0
-"1665","Caulfield, Maria","undertak",0
-"1666","Caulfield, Maria","137525",0
-"1667","Caulfield, Maria","2018",0
-"1668","Caulfield, Maria","answer",0
+"1662","Caulfield, Maria","legal",0
+"1663","Caulfield, Maria","review",0
+"1664","Caulfield, Maria","undertak",0
+"1665","Caulfield, Maria","137525",0
+"1666","Caulfield, Maria","2018",0
+"1667","Caulfield, Maria","answer",0
+"1668","Caulfield, Maria","law",0
 "1669","Chalk, Alex","tariff",1.02736387518581
 "1670","Chalk, Alex","imprisoned",1.00847804222916
 "1671","Chalk, Alex","subject",0.840382666786481
@@ -1786,7 +1786,7 @@
 "1785","Clarke, Kenneth","2013",0.239203328988291
 "1786","Clarke, Kenneth","act",0.234082492269759
 "1787","Clarke, Kenneth","aid",0
-"1788","Clarke, Kenneth","comprehens",0
+"1788","Clarke, Kenneth","legal",0
 "1789","Clegg, Nick","cultivation",0.448795725572719
 "1790","Clegg, Nick","mitigation",0.395572622661207
 "1791","Clegg, Nick","cannabis",0.381635647164182
@@ -1843,10 +1843,10 @@
 "1842","Coffey, Dr Thérèse","court",0.139783786930694
 "1843","Coffey, Dr Thérèse","will",0.131701017004659
 "1844","Coffey, Dr Thérèse","aid",0
-"1845","Coffey, Dr Thérèse","comprehens",0
-"1846","Coffey, Dr Thérèse","legal",0
-"1847","Coffey, Dr Thérèse","review",0
-"1848","Coffey, Dr Thérèse","undertak",0
+"1845","Coffey, Dr Thérèse","legal",0
+"1846","Coffey, Dr Thérèse","review",0
+"1847","Coffey, Dr Thérèse","undertak",0
+"1848","Coffey, Dr Thérèse","137525",0
 "1849","Colvile, Oliver","drugs",1.11087647277164
 "1850","Colvile, Oliver","combat",0.725653075367826
 "1851","Colvile, Oliver","level",0.660637533760394
@@ -2073,8 +2073,8 @@
 "2072","Curran, Margaret","courts",0.209391953782621
 "2073","Curran, Margaret","year",0.135192791089579
 "2074","Curran, Margaret","aid",0
-"2075","Curran, Margaret","comprehens",0
-"2076","Curran, Margaret","legal",0
+"2075","Curran, Margaret","legal",0
+"2076","Curran, Margaret","review",0
 "2077","Dakin, Nic","acquitted",0.916881933039287
 "2078","Dakin, Nic","nothing",0.862946196453999
 "2079","Dakin, Nic","component",0.808959605544949
@@ -2131,10 +2131,10 @@
 "2130","Davidson, Ian","national",0.295602177930097
 "2131","Davidson, Ian","offenders",0.243684714290665
 "2132","Davidson, Ian","aid",0
-"2133","Davidson, Ian","comprehens",0
-"2134","Davidson, Ian","legal",0
-"2135","Davidson, Ian","review",0
-"2136","Davidson, Ian","undertak",0
+"2133","Davidson, Ian","legal",0
+"2134","Davidson, Ian","review",0
+"2135","Davidson, Ian","undertak",0
+"2136","Davidson, Ian","will",0
 "2137","Davies, Byron","anticorruption",0.471542183275478
 "2138","Davies, Byron","36",0.421129962534176
 "2139","Davies, Byron","corporate",0.357136064811983
@@ -2237,12 +2237,12 @@
 "2236","Dhesi, Tanmanjeet Singh","childrens",0.354867164859966
 "2237","Dhesi, Tanmanjeet Singh","england",0.286613902158049
 "2238","Dhesi, Tanmanjeet Singh","aid",0
-"2239","Dhesi, Tanmanjeet Singh","comprehens",0
-"2240","Dhesi, Tanmanjeet Singh","legal",0
-"2241","Dhesi, Tanmanjeet Singh","review",0
-"2242","Dhesi, Tanmanjeet Singh","undertak",0
-"2243","Dhesi, Tanmanjeet Singh","will",0
-"2244","Dhesi, Tanmanjeet Singh","137525",0
+"2239","Dhesi, Tanmanjeet Singh","legal",0
+"2240","Dhesi, Tanmanjeet Singh","review",0
+"2241","Dhesi, Tanmanjeet Singh","undertak",0
+"2242","Dhesi, Tanmanjeet Singh","will",0
+"2243","Dhesi, Tanmanjeet Singh","137525",0
+"2244","Dhesi, Tanmanjeet Singh","2018",0
 "2245","Djanogly, Jonathan","merger",0.773853950205241
 "2246","Djanogly, Jonathan","marital",0.749505940787376
 "2247","Djanogly, Jonathan","peterborough",0.746589213152081
@@ -2275,10 +2275,10 @@
 "2274","Dobson, Frank","system",0.363506845852223
 "2275","Dobson, Frank","made",0.178096308861498
 "2276","Dobson, Frank","aid",0
-"2277","Dobson, Frank","comprehens",0
-"2278","Dobson, Frank","legal",0
-"2279","Dobson, Frank","review",0
-"2280","Dobson, Frank","undertak",0
+"2277","Dobson, Frank","legal",0
+"2278","Dobson, Frank","review",0
+"2279","Dobson, Frank","undertak",0
+"2280","Dobson, Frank","will",0
 "2281","Docherty-Hughes, Martin","charter",0.48753878657129
 "2282","Docherty-Hughes, Martin","fundamental",0.470795685022802
 "2283","Docherty-Hughes, Martin","remaining",0.347822786366225
@@ -2288,9 +2288,9 @@
 "2287","Docherty-Hughes, Martin","rights",0.25488305220648
 "2288","Docherty-Hughes, Martin","uk",0.225405847482574
 "2289","Docherty-Hughes, Martin","aid",0
-"2290","Docherty-Hughes, Martin","comprehens",0
-"2291","Docherty-Hughes, Martin","legal",0
-"2292","Docherty-Hughes, Martin","review",0
+"2290","Docherty-Hughes, Martin","legal",0
+"2291","Docherty-Hughes, Martin","review",0
+"2292","Docherty-Hughes, Martin","undertak",0
 "2293","Dodds, Anneliese","trends",0.891966025846636
 "2294","Dodds, Anneliese","county",0.822932879506651
 "2295","Dodds, Anneliese","level",0.62051725865039
@@ -2395,10 +2395,10 @@
 "2394","Dowden, Oliver","train",0.250467062273922
 "2395","Dowden, Oliver","protected",0.232442353187171
 "2396","Dowden, Oliver","aid",0
-"2397","Dowden, Oliver","comprehens",0
-"2398","Dowden, Oliver","legal",0
-"2399","Dowden, Oliver","review",0
-"2400","Dowden, Oliver","undertak",0
+"2397","Dowden, Oliver","legal",0
+"2398","Dowden, Oliver","review",0
+"2399","Dowden, Oliver","undertak",0
+"2400","Dowden, Oliver","will",0
 "2401","Drax, Richard","marine",0.454254371849772
 "2402","Drax, Richard","sergeant",0.420265902828683
 "2403","Drax, Richard","blackman",0.400383922994423
@@ -2409,8 +2409,8 @@
 "2408","Drax, Richard","case",0.135390089883417
 "2409","Drax, Richard","will",0.0941061045814749
 "2410","Drax, Richard","aid",0
-"2411","Drax, Richard","comprehens",0
-"2412","Drax, Richard","legal",0
+"2411","Drax, Richard","legal",0
+"2412","Drax, Richard","review",0
 "2413","Drew, Dr David","eastwood",1.18856617550255
 "2414","Drew, Dr David","park",1.06188838066784
 "2415","Drew, Dr David","baby",1.04635593128089
@@ -2440,13 +2440,13 @@
 "2439","Drummond, Flick","progress",0.5205123731568
 "2440","Drummond, Flick","made",0.228696030227649
 "2441","Drummond, Flick","aid",0
-"2442","Drummond, Flick","comprehens",0
-"2443","Drummond, Flick","legal",0
-"2444","Drummond, Flick","review",0
-"2445","Drummond, Flick","undertak",0
-"2446","Drummond, Flick","will",0
-"2447","Drummond, Flick","137525",0
-"2448","Drummond, Flick","2018",0
+"2442","Drummond, Flick","legal",0
+"2443","Drummond, Flick","review",0
+"2444","Drummond, Flick","undertak",0
+"2445","Drummond, Flick","will",0
+"2446","Drummond, Flick","137525",0
+"2447","Drummond, Flick","2018",0
+"2448","Drummond, Flick","answer",0
 "2449","Duddridge, James","rwanda",0.472243669867352
 "2450","Duddridge, James","entrustment",0.472243669867352
 "2451","Duddridge, James","jersey",0.421756453721247
@@ -2455,10 +2455,10 @@
 "2454","Duddridge, James","agreement",0.262498241663347
 "2455","Duddridge, James","decision",0.218226007613126
 "2456","Duddridge, James","aid",0
-"2457","Duddridge, James","comprehens",0
-"2458","Duddridge, James","legal",0
-"2459","Duddridge, James","review",0
-"2460","Duddridge, James","undertak",0
+"2457","Duddridge, James","legal",0
+"2458","Duddridge, James","review",0
+"2459","Duddridge, James","undertak",0
+"2460","Duddridge, James","will",0
 "2461","Duffield, Rosie","inheritance",0.429099823129187
 "2462","Duffield, Rosie","injuries/condition",0.374617579420486
 "2463","Duffield, Rosie","pursuit",0.374617579420486
@@ -2575,10 +2575,10 @@
 "2574","Elphicke, Charlie","received",0.305431406256624
 "2575","Elphicke, Charlie","will",0.192233482078834
 "2576","Elphicke, Charlie","aid",0
-"2577","Elphicke, Charlie","comprehens",0
-"2578","Elphicke, Charlie","legal",0
-"2579","Elphicke, Charlie","review",0
-"2580","Elphicke, Charlie","undertak",0
+"2577","Elphicke, Charlie","legal",0
+"2578","Elphicke, Charlie","review",0
+"2579","Elphicke, Charlie","undertak",0
+"2580","Elphicke, Charlie","137525",0
 "2581","Esterson, Bill","unemployed",1.58569887828965
 "2582","Esterson, Bill","Criminal Cases Review Commission",1.56618178524232
 "2583","Esterson, Bill","james",1.49821847350191
@@ -2624,9 +2624,9 @@
 "2623","Evans, Jonathan","services",0.170335717897826
 "2624","Evans, Jonathan","will",0.138215147650371
 "2625","Evans, Jonathan","aid",0
-"2626","Evans, Jonathan","comprehens",0
-"2627","Evans, Jonathan","legal",0
-"2628","Evans, Jonathan","review",0
+"2626","Evans, Jonathan","legal",0
+"2627","Evans, Jonathan","review",0
+"2628","Evans, Jonathan","undertak",0
 "2629","Evans, Nigel","wrongfully",1.05982476726601
 "2630","Evans, Nigel","english",0.97724398491246
 "2631","Evans, Nigel","recalled",0.801810775199559
@@ -2659,10 +2659,10 @@
 "2658","Fallon, Sir Michael","report",0.208979977450577
 "2659","Fallon, Sir Michael","made",0.133933399736842
 "2660","Fallon, Sir Michael","aid",0
-"2661","Fallon, Sir Michael","comprehens",0
-"2662","Fallon, Sir Michael","legal",0
-"2663","Fallon, Sir Michael","review",0
-"2664","Fallon, Sir Michael","undertak",0
+"2661","Fallon, Sir Michael","legal",0
+"2662","Fallon, Sir Michael","review",0
+"2663","Fallon, Sir Michael","undertak",0
+"2664","Fallon, Sir Michael","will",0
 "2665","Farrelly, Paul","yet",0.598853854484052
 "2666","Farrelly, Paul","implemented",0.402725177577607
 "2667","Farrelly, Paul","war",0.402533449915013
@@ -2692,13 +2692,13 @@
 "2691","Fernandes, Suella","progress",0.526546759667133
 "2692","Fernandes, Suella","made",0.231347341341355
 "2693","Fernandes, Suella","aid",0
-"2694","Fernandes, Suella","comprehens",0
-"2695","Fernandes, Suella","legal",0
-"2696","Fernandes, Suella","review",0
-"2697","Fernandes, Suella","undertak",0
-"2698","Fernandes, Suella","will",0
-"2699","Fernandes, Suella","137525",0
-"2700","Fernandes, Suella","2018",0
+"2694","Fernandes, Suella","legal",0
+"2695","Fernandes, Suella","review",0
+"2696","Fernandes, Suella","undertak",0
+"2697","Fernandes, Suella","will",0
+"2698","Fernandes, Suella","137525",0
+"2699","Fernandes, Suella","2018",0
+"2700","Fernandes, Suella","answer",0
 "2701","Ferrier, Margaret","129",1.09967577224221
 "2702","Ferrier, Margaret","parliamentary",1.03689274926191
 "2703","Ferrier, Margaret","oral",1.00739326606867
@@ -2912,9 +2912,9 @@
 "2911","Gale, Sir Roger","appeal",0.237289695362792
 "2912","Gale, Sir Roger","time",0.202089401303956
 "2913","Gale, Sir Roger","aid",0
-"2914","Gale, Sir Roger","comprehens",0
-"2915","Gale, Sir Roger","legal",0
-"2916","Gale, Sir Roger","review",0
+"2914","Gale, Sir Roger","legal",0
+"2915","Gale, Sir Roger","review",0
+"2916","Gale, Sir Roger","undertak",0
 "2917","Garnier, Sir Edward","trafficking",0.792303291208638
 "2918","Garnier, Sir Edward","continuance",0.735831090837387
 "2919","Garnier, Sir Edward","human",0.587656011866645
@@ -3149,12 +3149,12 @@
 "3148","Greatrex, Tom","data",0.343447444965762
 "3149","Greatrex, Tom","personal",0.29761856185547
 "3150","Greatrex, Tom","aid",0
-"3151","Greatrex, Tom","comprehens",0
-"3152","Greatrex, Tom","legal",0
-"3153","Greatrex, Tom","review",0
-"3154","Greatrex, Tom","undertak",0
-"3155","Greatrex, Tom","will",0
-"3156","Greatrex, Tom","137525",0
+"3151","Greatrex, Tom","legal",0
+"3152","Greatrex, Tom","review",0
+"3153","Greatrex, Tom","undertak",0
+"3154","Greatrex, Tom","will",0
+"3155","Greatrex, Tom","137525",0
+"3156","Greatrex, Tom","2018",0
 "3157","Green, Damian","submission",0.520929024570573
 "3158","Green, Damian","final",0.438086320376335
 "3159","Green, Damian","papers",0.372055610192056
@@ -3190,7 +3190,7 @@
 "3189","Griffith, Nia","public",0.261443926351521
 "3190","Griffith, Nia","proportion",0.249952990762521
 "3191","Griffith, Nia","aid",0
-"3192","Griffith, Nia","comprehens",0
+"3192","Griffith, Nia","legal",0
 "3193","Griffiths, Andrew","deradicalisation",1.89523996494773
 "3194","Griffiths, Andrew","programme",1.25710815560047
 "3195","Griffiths, Andrew","year",1.23990686083296
@@ -3233,24 +3233,24 @@
 "3232","Halfon, Robert","makes",0.425797943190474
 "3233","Halfon, Robert","families",0.302262260514466
 "3234","Halfon, Robert","aid",0
-"3235","Halfon, Robert","comprehens",0
-"3236","Halfon, Robert","legal",0
-"3237","Halfon, Robert","review",0
-"3238","Halfon, Robert","undertak",0
-"3239","Halfon, Robert","will",0
-"3240","Halfon, Robert","137525",0
+"3235","Halfon, Robert","legal",0
+"3236","Halfon, Robert","review",0
+"3237","Halfon, Robert","undertak",0
+"3238","Halfon, Robert","will",0
+"3239","Halfon, Robert","137525",0
+"3240","Halfon, Robert","2018",0
 "3241","Hames, Duncan","75",0.68276530671935
 "3242","Hames, Duncan","type",0.500973151451363
 "3243","Hames, Duncan","aged",0.444495898688891
 "3244","Hames, Duncan","2010",0.260651106051844
 "3245","Hames, Duncan","prison",0.131688398988016
 "3246","Hames, Duncan","aid",0
-"3247","Hames, Duncan","comprehens",0
-"3248","Hames, Duncan","legal",0
-"3249","Hames, Duncan","review",0
-"3250","Hames, Duncan","undertak",0
-"3251","Hames, Duncan","will",0
-"3252","Hames, Duncan","137525",0
+"3247","Hames, Duncan","legal",0
+"3248","Hames, Duncan","review",0
+"3249","Hames, Duncan","undertak",0
+"3250","Hames, Duncan","will",0
+"3251","Hames, Duncan","137525",0
+"3252","Hames, Duncan","2018",0
 "3253","Hamilton, Fabian","afforded",0.443844508266055
 "3254","Hamilton, Fabian","disordered",0.393573342222882
 "3255","Hamilton, Fabian","comparable",0.375959733593438
@@ -3355,10 +3355,10 @@
 "3354","Harris, Rebecca","aid",0.276514290020902
 "3355","Harris, Rebecca","2013",0.255671041594525
 "3356","Harris, Rebecca","legal",0.23936717442631
-"3357","Harris, Rebecca","comprehens",0
-"3358","Harris, Rebecca","review",0
-"3359","Harris, Rebecca","undertak",0
-"3360","Harris, Rebecca","will",0
+"3357","Harris, Rebecca","review",0
+"3358","Harris, Rebecca","undertak",0
+"3359","Harris, Rebecca","will",0
+"3360","Harris, Rebecca","137525",0
 "3361","Hayes, Helen","beneficial",1.2919126870421
 "3362","Hayes, Helen","ownership",1.18711319777778
 "3363","Hayes, Helen","dependencies",1.07531284506899
@@ -3389,12 +3389,12 @@
 "3388","Heald, Sir Oliver","courts",0.183497438163887
 "3389","Heald, Sir Oliver","made",0.17524536847039
 "3390","Heald, Sir Oliver","aid",0
-"3391","Heald, Sir Oliver","comprehens",0
-"3392","Heald, Sir Oliver","legal",0
-"3393","Heald, Sir Oliver","review",0
-"3394","Heald, Sir Oliver","undertak",0
-"3395","Heald, Sir Oliver","will",0
-"3396","Heald, Sir Oliver","137525",0
+"3391","Heald, Sir Oliver","legal",0
+"3392","Heald, Sir Oliver","review",0
+"3393","Heald, Sir Oliver","undertak",0
+"3394","Heald, Sir Oliver","will",0
+"3395","Heald, Sir Oliver","137525",0
+"3396","Heald, Sir Oliver","2018",0
 "3397","Healey, John","mark",1.04074801856454
 "3398","Healey, John","must",1.04074801856454
 "3399","Healey, John","exceeded",1.01542591464577
@@ -3511,10 +3511,10 @@
 "3510","Hilling, Julie","custody",0.279181145644187
 "3511","Hilling, Julie","made",0.171064788477609
 "3512","Hilling, Julie","aid",0
-"3513","Hilling, Julie","comprehens",0
-"3514","Hilling, Julie","legal",0
-"3515","Hilling, Julie","review",0
-"3516","Hilling, Julie","undertak",0
+"3513","Hilling, Julie","legal",0
+"3514","Hilling, Julie","review",0
+"3515","Hilling, Julie","undertak",0
+"3516","Hilling, Julie","will",0
 "3517","Hobhouse, Wera","skirting",1.13897727027098
 "3518","Hobhouse, Wera","criminalise",0.621989837225393
 "3519","Hobhouse, Wera","low",0.540912546208514
@@ -3581,12 +3581,12 @@
 "3580","Hollingbery, George","made",0.333722156050234
 "3581","Hollingbery, George","years",0.225611920409583
 "3582","Hollingbery, George","aid",0
-"3583","Hollingbery, George","comprehens",0
-"3584","Hollingbery, George","legal",0
-"3585","Hollingbery, George","review",0
-"3586","Hollingbery, George","undertak",0
-"3587","Hollingbery, George","will",0
-"3588","Hollingbery, George","137525",0
+"3583","Hollingbery, George","legal",0
+"3584","Hollingbery, George","review",0
+"3585","Hollingbery, George","undertak",0
+"3586","Hollingbery, George","will",0
+"3587","Hollingbery, George","137525",0
+"3588","Hollingbery, George","2018",0
 "3589","Hollinrake, Kevin","guardianship",0.868446485000179
 "3590","Hollinrake, Kevin","legislation",0.792134067236238
 "3591","Hollinrake, Kevin","missing",0.774838596714092
@@ -3668,9 +3668,9 @@
 "3667","Howell, John","programmes",0.321555391691688
 "3668","Howell, John","service",0.18883763123427
 "3669","Howell, John","aid",0
-"3670","Howell, John","comprehens",0
-"3671","Howell, John","legal",0
-"3672","Howell, John","review",0
+"3670","Howell, John","legal",0
+"3671","Howell, John","review",0
+"3672","Howell, John","undertak",0
 "3673","Howlett, Ben","charge",0.751558224503442
 "3674","Howlett, Ben","intersex",0.659822215199966
 "3675","Howlett, Ben","bias",0.623178739698688
@@ -3688,13 +3688,13 @@
 "3687","Huddleston, Nigel","international",0.503185784349193
 "3688","Huddleston, Nigel","future",0.421670148137705
 "3689","Huddleston, Nigel","aid",0
-"3690","Huddleston, Nigel","comprehens",0
-"3691","Huddleston, Nigel","legal",0
-"3692","Huddleston, Nigel","review",0
-"3693","Huddleston, Nigel","undertak",0
-"3694","Huddleston, Nigel","will",0
-"3695","Huddleston, Nigel","137525",0
-"3696","Huddleston, Nigel","2018",0
+"3690","Huddleston, Nigel","legal",0
+"3691","Huddleston, Nigel","review",0
+"3692","Huddleston, Nigel","undertak",0
+"3693","Huddleston, Nigel","will",0
+"3694","Huddleston, Nigel","137525",0
+"3695","Huddleston, Nigel","2018",0
+"3696","Huddleston, Nigel","answer",0
 "3697","Hughes, Eddie","dangerous",0.422332290266236
 "3698","Hughes, Eddie","life",0.372692625704558
 "3699","Hughes, Eddie","cause",0.369388553839965
@@ -3790,7 +3790,7 @@
 "3789","James, Margot","tribunal",0.188813905991454
 "3790","James, Margot","years",0.0865633185538972
 "3791","James, Margot","aid",0
-"3792","James, Margot","comprehens",0
+"3792","James, Margot","legal",0
 "3793","James, Siân C.","english",2.12617811084277
 "3794","James, Siân C.","postcode",1.44347597488042
 "3795","James, Siân C.","welsh",1.27532108165164
@@ -3817,12 +3817,12 @@
 "3816","Jamieson, Cathy","years",0.489736334470307
 "3817","Jarvis, Dan","youth",10.0438734670061
 "3818","Jarvis, Dan","college",9.76688425264182
-"3819","Jarvis, Dan","2010",9.19124160873513
+"3819","Jarvis, Dan","2010",9.23054877989158
 "3820","Jarvis, Dan","2014",8.93138706019711
 "3821","Jarvis, Dan","secure",8.82300232553174
 "3822","Jarvis, Dan","estimate",8.27596599753074
 "3823","Jarvis, Dan","offender",7.99203454074013
-"3824","Jarvis, Dan","may",7.71879306051615
+"3824","Jarvis, Dan","may",7.77917220074275
 "3825","Jarvis, Dan","victim",7.38696031887495
 "3826","Jarvis, Dan","made",7.30396141598322
 "3827","Jarvis, Dan","number",6.7710281940606
@@ -3891,14 +3891,14 @@
 "3890","Johnson, Dr Caroline","system",0.469469112861579
 "3891","Johnson, Dr Caroline","courts",0.240842321859414
 "3892","Johnson, Dr Caroline","aid",0
-"3893","Johnson, Dr Caroline","comprehens",0
-"3894","Johnson, Dr Caroline","legal",0
-"3895","Johnson, Dr Caroline","review",0
-"3896","Johnson, Dr Caroline","undertak",0
-"3897","Johnson, Dr Caroline","will",0
-"3898","Johnson, Dr Caroline","137525",0
-"3899","Johnson, Dr Caroline","2018",0
-"3900","Johnson, Dr Caroline","answer",0
+"3893","Johnson, Dr Caroline","legal",0
+"3894","Johnson, Dr Caroline","review",0
+"3895","Johnson, Dr Caroline","undertak",0
+"3896","Johnson, Dr Caroline","will",0
+"3897","Johnson, Dr Caroline","137525",0
+"3898","Johnson, Dr Caroline","2018",0
+"3899","Johnson, Dr Caroline","answer",0
+"3900","Johnson, Dr Caroline","law",0
 "3901","Johnson, Gareth","people",0.82886347390244
 "3902","Johnson, Gareth","video",0.694404280158413
 "3903","Johnson, Gareth","link",0.683220679481516
@@ -3921,8 +3921,8 @@
 "3920","Jones, Darren","offence",0.15276738140031
 "3921","Jones, Darren","people",0.14467514186812
 "3922","Jones, Darren","aid",0
-"3923","Jones, Darren","comprehens",0
-"3924","Jones, Darren","legal",0
+"3923","Jones, Darren","legal",0
+"3924","Jones, Darren","review",0
 "3925","Jones, David","pacts",0.763143996773808
 "3926","Jones, David","suicide",0.424496656215497
 "3927","Jones, David","fitting",0.39002060456936
@@ -3942,11 +3942,11 @@
 "3941","Jones, Gerald","tribunal",0.350505542673711
 "3942","Jones, Gerald","made",0.237693775738237
 "3943","Jones, Gerald","aid",0
-"3944","Jones, Gerald","comprehens",0
-"3945","Jones, Gerald","legal",0
-"3946","Jones, Gerald","review",0
-"3947","Jones, Gerald","undertak",0
-"3948","Jones, Gerald","will",0
+"3944","Jones, Gerald","legal",0
+"3945","Jones, Gerald","review",0
+"3946","Jones, Gerald","undertak",0
+"3947","Jones, Gerald","will",0
+"3948","Jones, Gerald","137525",0
 "3949","Jones, Graham","coroners",1.05868719111459
 "3950","Jones, Graham","mergers",0.713584237914948
 "3951","Jones, Graham","offices",0.652757712250293
@@ -3990,11 +3990,11 @@
 "3989","Jones, Sarah","health",0.343095127524141
 "3990","Jones, Sarah","prisoners",0.0998401711989768
 "3991","Jones, Sarah","aid",0
-"3992","Jones, Sarah","comprehens",0
-"3993","Jones, Sarah","legal",0
-"3994","Jones, Sarah","review",0
-"3995","Jones, Sarah","undertak",0
-"3996","Jones, Sarah","will",0
+"3992","Jones, Sarah","legal",0
+"3993","Jones, Sarah","review",0
+"3994","Jones, Sarah","undertak",0
+"3995","Jones, Sarah","will",0
+"3996","Jones, Sarah","137525",0
 "3997","Jones, Susan Elan","motoring",1.99227043281449
 "3998","Jones, Susan Elan","penalties",1.72409902857804
 "3999","Jones, Susan Elan","review",1.14532875398762
@@ -4089,8 +4089,8 @@
 "4088","Kennedy, Seema","court",0.183404951476406
 "4089","Kennedy, Seema","made",0.175157041004958
 "4090","Kennedy, Seema","aid",0
-"4091","Kennedy, Seema","comprehens",0
-"4092","Kennedy, Seema","legal",0
+"4091","Kennedy, Seema","legal",0
+"4092","Kennedy, Seema","review",0
 "4093","Kerr, Stephen","counterparts",0.453511849087641
 "4094","Kerr, Stephen","devolved",0.410800855072475
 "4095","Kerr, Stephen","dates",0.366608813275772
@@ -4100,9 +4100,9 @@
 "4099","Kerr, Stephen","meetings",0.275041348478786
 "4100","Kerr, Stephen","planned",0.262264362511502
 "4101","Kerr, Stephen","aid",0
-"4102","Kerr, Stephen","comprehens",0
-"4103","Kerr, Stephen","legal",0
-"4104","Kerr, Stephen","review",0
+"4102","Kerr, Stephen","legal",0
+"4103","Kerr, Stephen","review",0
+"4104","Kerr, Stephen","undertak",0
 "4105","Khan, Afzal","identity",0.523862635248468
 "4106","Khan, Afzal","race",0.446277854665601
 "4107","Khan, Afzal","religion",0.441340836659536
@@ -4365,8 +4365,8 @@
 "4364","Lewer, Andrew","court",0.138995370045365
 "4365","Lewer, Andrew","will",0.130958189042264
 "4366","Lewer, Andrew","aid",0
-"4367","Lewer, Andrew","comprehens",0
-"4368","Lewer, Andrew","legal",0
+"4367","Lewer, Andrew","legal",0
+"4368","Lewer, Andrew","review",0
 "4369","Lewis, Dr Julian","killings",0.409341161540443
 "4370","Lewis, Dr Julian","indeterminate",0.354011920650644
 "4371","Lewis, Dr Julian","murder",0.316323026811818
@@ -4543,10 +4543,10 @@
 "4542","Lord Berkeley","section",0.285655814636078
 "4543","Lord Berkeley","act",0.231910101265989
 "4544","Lord Berkeley","aid",0
-"4545","Lord Berkeley","comprehens",0
-"4546","Lord Berkeley","legal",0
-"4547","Lord Berkeley","review",0
-"4548","Lord Berkeley","undertak",0
+"4545","Lord Berkeley","legal",0
+"4546","Lord Berkeley","review",0
+"4547","Lord Berkeley","undertak",0
+"4548","Lord Berkeley","will",0
 "4549","Lord Bird","exchange",0.506203310848684
 "4550","Lord Bird","juvenile",0.465804264722424
 "4551","Lord Bird","dwelling",0.455653404283606
@@ -4582,7 +4582,7 @@
 "4581","Lord Black of Brentwood","used",0.166289083380574
 "4582","Lord Black of Brentwood","will",0.0975229451936653
 "4583","Lord Black of Brentwood","aid",0
-"4584","Lord Black of Brentwood","comprehens",0
+"4584","Lord Black of Brentwood","legal",0
 "4585","Lord Blencathra","firm",1.88646815578014
 "4586","Lord Blencathra","lawyers",1.75127340090534
 "4587","Lord Blencathra","legal",1.44363889882323
@@ -4627,10 +4627,10 @@
 "4626","Lord Bourne of Aberystwyth","release",0.473867742610384
 "4627","Lord Bourne of Aberystwyth","prisoners",0.162470065634563
 "4628","Lord Bourne of Aberystwyth","aid",0
-"4629","Lord Bourne of Aberystwyth","comprehens",0
-"4630","Lord Bourne of Aberystwyth","legal",0
-"4631","Lord Bourne of Aberystwyth","review",0
-"4632","Lord Bourne of Aberystwyth","undertak",0
+"4629","Lord Bourne of Aberystwyth","legal",0
+"4630","Lord Bourne of Aberystwyth","review",0
+"4631","Lord Bourne of Aberystwyth","undertak",0
+"4632","Lord Bourne of Aberystwyth","will",0
 "4633","Lord Bradley","england",3.13304975039623
 "4634","Lord Bradley","prison",3.08002918711411
 "4635","Lord Bradley","wales",2.88059733307736
@@ -4708,13 +4708,13 @@
 "4707","Lord Clinton-Davis","number",0.420452809248002
 "4708","Lord Clinton-Davis","prisons",0.178967053004866
 "4709","Lord Clinton-Davis","aid",0
-"4710","Lord Clinton-Davis","comprehens",0
-"4711","Lord Clinton-Davis","legal",0
-"4712","Lord Clinton-Davis","review",0
-"4713","Lord Clinton-Davis","undertak",0
-"4714","Lord Clinton-Davis","will",0
-"4715","Lord Clinton-Davis","137525",0
-"4716","Lord Clinton-Davis","2018",0
+"4710","Lord Clinton-Davis","legal",0
+"4711","Lord Clinton-Davis","review",0
+"4712","Lord Clinton-Davis","undertak",0
+"4713","Lord Clinton-Davis","will",0
+"4714","Lord Clinton-Davis","137525",0
+"4715","Lord Clinton-Davis","2018",0
+"4716","Lord Clinton-Davis","answer",0
 "4717","Lord Colwyn","recoverable",0.574415540066977
 "4718","Lord Colwyn","jackson",0.514809289862756
 "4719","Lord Colwyn","dental",0.428303116709515
@@ -4734,11 +4734,11 @@
 "4733","Lord Condon","people",0.254885501437601
 "4734","Lord Condon","prison",0.124381821576546
 "4735","Lord Condon","aid",0
-"4736","Lord Condon","comprehens",0
-"4737","Lord Condon","legal",0
-"4738","Lord Condon","review",0
-"4739","Lord Condon","undertak",0
-"4740","Lord Condon","will",0
+"4736","Lord Condon","legal",0
+"4737","Lord Condon","review",0
+"4738","Lord Condon","undertak",0
+"4739","Lord Condon","will",0
+"4740","Lord Condon","137525",0
 "4741","Lord Cormack","taylor",0.673634356135417
 "4742","Lord Cormack","intend",0.413288774432731
 "4743","Lord Cormack","youth",0.342152967070933
@@ -4746,11 +4746,11 @@
 "4745","Lord Cormack","review",0.269382274972511
 "4746","Lord Cormack","publish",0.26549886518745
 "4747","Lord Cormack","aid",0
-"4748","Lord Cormack","comprehens",0
-"4749","Lord Cormack","legal",0
-"4750","Lord Cormack","undertak",0
-"4751","Lord Cormack","will",0
-"4752","Lord Cormack","137525",0
+"4748","Lord Cormack","legal",0
+"4749","Lord Cormack","undertak",0
+"4750","Lord Cormack","will",0
+"4751","Lord Cormack","137525",0
+"4752","Lord Cormack","2018",0
 "4753","Lord Craig of Radley","tripartite",0.384885373307029
 "4754","Lord Craig of Radley","war",0.339241458569395
 "4755","Lord Craig of Radley","preserve",0.327289165552125
@@ -4830,11 +4830,11 @@
 "4829","Lord Fearn","hm",0.30254489543177
 "4830","Lord Fearn","prison",0.121030792910765
 "4831","Lord Fearn","aid",0
-"4832","Lord Fearn","comprehens",0
-"4833","Lord Fearn","legal",0
-"4834","Lord Fearn","review",0
-"4835","Lord Fearn","undertak",0
-"4836","Lord Fearn","will",0
+"4832","Lord Fearn","legal",0
+"4833","Lord Fearn","review",0
+"4834","Lord Fearn","undertak",0
+"4835","Lord Fearn","will",0
+"4836","Lord Fearn","137525",0
 "4837","Lord Fellowes","encouraged",0.411926913680812
 "4838","Lord Fellowes","behaviour",0.37545486676291
 "4839","Lord Fellowes","chancellor",0.365671698963604
@@ -4926,11 +4926,11 @@
 "4925","Lord Harries of Pentregarth","uk",0.292838425756106
 "4926","Lord Harries of Pentregarth","prisons",0.103825265816925
 "4927","Lord Harries of Pentregarth","aid",0
-"4928","Lord Harries of Pentregarth","comprehens",0
-"4929","Lord Harries of Pentregarth","legal",0
-"4930","Lord Harries of Pentregarth","review",0
-"4931","Lord Harries of Pentregarth","undertak",0
-"4932","Lord Harries of Pentregarth","will",0
+"4928","Lord Harries of Pentregarth","legal",0
+"4929","Lord Harries of Pentregarth","review",0
+"4930","Lord Harries of Pentregarth","undertak",0
+"4931","Lord Harries of Pentregarth","will",0
+"4932","Lord Harries of Pentregarth","137525",0
 "4933","Lord Harris of Haringey","defaulting",1.43823607938995
 "4934","Lord Harris of Haringey","three",1.26088289179555
 "4935","Lord Harris of Haringey","instance",1.24078826144752
@@ -4954,7 +4954,7 @@
 "4953","Lord Hennessy of Nympsfield","uk",0.189129381591357
 "4954","Lord Hennessy of Nympsfield","will",0.107281285254261
 "4955","Lord Hennessy of Nympsfield","aid",0
-"4956","Lord Hennessy of Nympsfield","comprehens",0
+"4956","Lord Hennessy of Nympsfield","legal",0
 "4957","Lord Hodgson of Astley Abbotts","funders",1.09905298255181
 "4958","Lord Hodgson of Astley Abbotts","rate",0.707316350692591
 "4959","Lord Hodgson of Astley Abbotts","litigation",0.664666363484841
@@ -5061,8 +5061,8 @@
 "5060","Lord Jopling","answer",0.146164090197668
 "5061","Lord Jopling","will",0.106742603811909
 "5062","Lord Jopling","aid",0
-"5063","Lord Jopling","comprehens",0
-"5064","Lord Jopling","legal",0
+"5063","Lord Jopling","legal",0
+"5064","Lord Jopling","review",0
 "5065","Lord Judd","evaluate",0.580229075287126
 "5066","Lord Judd","respond",0.501181238099043
 "5067","Lord Judd","immediate",0.476265872966744
@@ -5384,21 +5384,21 @@
 "5383","Lord Paddick","act",0.251255113304851
 "5384","Lord Paddick","2015",0.230003623712978
 "5385","Lord Paddick","aid",0
-"5386","Lord Paddick","comprehens",0
-"5387","Lord Paddick","legal",0
-"5388","Lord Paddick","review",0
-"5389","Lord Patel","gathering",0.34503277522555
-"5390","Lord Patel","comprehensive",0.308145580305191
-"5391","Lord Patel","misuse",0.244997674180551
-"5392","Lord Patel","physical",0.240256072368556
-"5393","Lord Patel","relevant",0.234694542292362
-"5394","Lord Patel","problems",0.224433323043189
-"5395","Lord Patel","centrally",0.222469173201541
-"5396","Lord Patel","substance",0.213871302249031
-"5397","Lord Patel","development",0.208110479260191
-"5398","Lord Patel","outcomes",0.203668188017601
-"5399","Lord Patel","monitor",0.188359430251528
-"5400","Lord Patel","performance",0.179872307886438
+"5386","Lord Paddick","legal",0
+"5387","Lord Paddick","review",0
+"5388","Lord Paddick","undertak",0
+"5389","Lord Patel","gathering",0.362681123526543
+"5390","Lord Patel","misuse",0.257529249721584
+"5391","Lord Patel","physical",0.252545116050904
+"5392","Lord Patel","relevant",0.24669911497103
+"5393","Lord Patel","problems",0.235913036681484
+"5394","Lord Patel","centrally",0.233848421020326
+"5395","Lord Patel","substance",0.224810770916059
+"5396","Lord Patel","development",0.218755283136198
+"5397","Lord Patel","outcomes",0.214085769702753
+"5398","Lord Patel","monitor",0.197993972444462
+"5399","Lord Patel","performance",0.189072735692777
+"5400","Lord Patel","include",0.182599650178737
 "5401","Lord Patel of Bradford","mental",0.519457752128571
 "5402","Lord Patel of Bradford","health",0.496235854292765
 "5403","Lord Patel of Bradford","format",0.436879719058604
@@ -5489,7 +5489,7 @@
 "5488","Lord Ramsbotham","proposals",1.63160664728409
 "5489","Lord Ramsbotham","bidders",1.37031209234648
 "5490","Lord Ramsbotham","winning",1.36717398882341
-"5491","Lord Ramsbotham","system",1.30758490685095
+"5491","Lord Ramsbotham","system",1.31696639929124
 "5492","Lord Ramsbotham","youth",1.25206012052439
 "5493","Lord Ramsbotham","past",1.23001865026889
 "5494","Lord Ramsbotham","establishment",1.16186457974159
@@ -5565,8 +5565,8 @@
 "5564","Lord Shipley","work",0.220650267146019
 "5565","Lord Shipley","court",0.143074474675899
 "5566","Lord Shipley","aid",0
-"5567","Lord Shipley","comprehens",0
-"5568","Lord Shipley","legal",0
+"5567","Lord Shipley","legal",0
+"5568","Lord Shipley","review",0
 "5569","Lord Smith of Finsbury","brexit",0.462071344989022
 "5570","Lord Smith of Finsbury","charter",0.452538763065494
 "5571","Lord Smith of Finsbury","fundamental",0.436997635521737
@@ -5577,8 +5577,8 @@
 "5576","Lord Smith of Finsbury","order",0.214073250796681
 "5577","Lord Smith of Finsbury","uk",0.209224140144545
 "5578","Lord Smith of Finsbury","aid",0
-"5579","Lord Smith of Finsbury","comprehens",0
-"5580","Lord Smith of Finsbury","legal",0
+"5579","Lord Smith of Finsbury","legal",0
+"5580","Lord Smith of Finsbury","review",0
 "5581","Lord Snape","inconsiderate",0.357430953503839
 "5582","Lord Snape","lane",0.357430953503839
 "5583","Lord Snape","middle",0.357430953503839
@@ -5650,7 +5650,7 @@
 "5649","Lord Swinfen","sentences",0.13552838507893
 "5650","Lord Swinfen","service",0.128455863258542
 "5651","Lord Swinfen","aid",0
-"5652","Lord Swinfen","comprehens",0
+"5652","Lord Swinfen","legal",0
 "5653","Lord Taylor of Warwick","brexit",1.06083135097874
 "5654","Lord Taylor of Warwick","windrush",0.59733446989735
 "5655","Lord Taylor of Warwick","legal",0.536649135776695
@@ -5683,10 +5683,10 @@
 "5682","Lord Temple-Morris","aid",0.261495130217674
 "5683","Lord Temple-Morris","legal",0.226365698646941
 "5684","Lord Temple-Morris","years",0.101645882105458
-"5685","Lord Temple-Morris","comprehens",0
-"5686","Lord Temple-Morris","review",0
-"5687","Lord Temple-Morris","undertak",0
-"5688","Lord Temple-Morris","will",0
+"5685","Lord Temple-Morris","review",0
+"5686","Lord Temple-Morris","undertak",0
+"5687","Lord Temple-Morris","will",0
+"5688","Lord Temple-Morris","137525",0
 "5689","Lord Touhig","children",1.81644037200668
 "5690","Lord Touhig","dependants",1.56806849873989
 "5691","Lord Touhig","Secure Children's Home",1.49657606098056
@@ -5982,11 +5982,11 @@
 "5981","Mak, Alan","made",0.207522870698367
 "5982","Mak, Alan","will",0.20473012407804
 "5983","Mak, Alan","aid",0
-"5984","Mak, Alan","comprehens",0
-"5985","Mak, Alan","legal",0
-"5986","Mak, Alan","review",0
-"5987","Mak, Alan","undertak",0
-"5988","Mak, Alan","137525",0
+"5984","Mak, Alan","legal",0
+"5985","Mak, Alan","review",0
+"5986","Mak, Alan","undertak",0
+"5987","Mak, Alan","137525",0
+"5988","Mak, Alan","2018",0
 "5989","Malhotra, Seema","feltham",6.53713871439825
 "5990","Malhotra, Seema","Young Offenders Institute",6.28519757026157
 "5991","Malhotra, Seema","confined",3.06952546417731
@@ -6032,9 +6032,9 @@
 "6031","Mann, Scott","people",0.188415544677394
 "6032","Mann, Scott","year",0.100804450377764
 "6033","Mann, Scott","aid",0
-"6034","Mann, Scott","comprehens",0
-"6035","Mann, Scott","legal",0
-"6036","Mann, Scott","review",0
+"6034","Mann, Scott","legal",0
+"6035","Mann, Scott","review",0
+"6036","Mann, Scott","undertak",0
 "6037","Marris, Rob","tissue",1.10170048677847
 "6038","Marris, Rob","soft",1.09141129148749
 "6039","Marris, Rob","whiplash",0.90165946260894
@@ -6165,8 +6165,8 @@
 "6164","McCartney, Jason","claims",0.230038843946946
 "6165","McCartney, Jason","companies",0.208785828969982
 "6166","McCartney, Jason","aid",0
-"6167","McCartney, Jason","comprehens",0
-"6168","McCartney, Jason","legal",0
+"6167","McCartney, Jason","legal",0
+"6168","McCartney, Jason","review",0
 "6169","McCartney, Karl","insurance",1.91474903175073
 "6170","McCartney, Karl","drivers",1.43751590531632
 "6171","McCartney, Karl","without",1.12190106916127
@@ -6189,8 +6189,8 @@
 "6188","McCrea, Dr William","will",0.159418116455055
 "6189","McCrea, Dr William","prison",0.0996432069241
 "6190","McCrea, Dr William","aid",0
-"6191","McCrea, Dr William","comprehens",0
-"6192","McCrea, Dr William","legal",0
+"6191","McCrea, Dr William","legal",0
+"6192","McCrea, Dr William","review",0
 "6193","McDonald, Andy","forecasts",0.64896677043374
 "6194","McDonald, Andy","uphold",0.539189057135824
 "6195","McDonald, Andy","importance",0.528065528453172
@@ -6257,12 +6257,12 @@
 "6256","McGovern, Jim","data",0.343447444965762
 "6257","McGovern, Jim","personal",0.29761856185547
 "6258","McGovern, Jim","aid",0
-"6259","McGovern, Jim","comprehens",0
-"6260","McGovern, Jim","legal",0
-"6261","McGovern, Jim","review",0
-"6262","McGovern, Jim","undertak",0
-"6263","McGovern, Jim","will",0
-"6264","McGovern, Jim","137525",0
+"6259","McGovern, Jim","legal",0
+"6260","McGovern, Jim","review",0
+"6261","McGovern, Jim","undertak",0
+"6262","McGovern, Jim","will",0
+"6263","McGovern, Jim","137525",0
+"6264","McGovern, Jim","2018",0
 "6265","McInnes, Liz","causing",0.677092600674263
 "6266","McInnes, Liz","penalties",0.63651825693079
 "6267","McInnes, Liz","serious",0.620061678883028
@@ -6328,13 +6328,13 @@
 "6327","McLoughlin, Sir Patrick","mobile",0.550824468812118
 "6328","McLoughlin, Sir Patrick","prisons",0.122050068125328
 "6329","McLoughlin, Sir Patrick","aid",0
-"6330","McLoughlin, Sir Patrick","comprehens",0
-"6331","McLoughlin, Sir Patrick","legal",0
-"6332","McLoughlin, Sir Patrick","review",0
-"6333","McLoughlin, Sir Patrick","undertak",0
-"6334","McLoughlin, Sir Patrick","will",0
-"6335","McLoughlin, Sir Patrick","137525",0
-"6336","McLoughlin, Sir Patrick","2018",0
+"6330","McLoughlin, Sir Patrick","legal",0
+"6331","McLoughlin, Sir Patrick","review",0
+"6332","McLoughlin, Sir Patrick","undertak",0
+"6333","McLoughlin, Sir Patrick","will",0
+"6334","McLoughlin, Sir Patrick","137525",0
+"6335","McLoughlin, Sir Patrick","2018",0
+"6336","McLoughlin, Sir Patrick","answer",0
 "6337","McMahon, Jim","oldham",1.74485871671922
 "6338","McMahon, Jim","county",1.11039030379017
 "6339","McMahon, Jim","lease",1.03043577245882
@@ -6490,7 +6490,7 @@
 "6489","Moore, Damien","offence",0.269890785583563
 "6490","Moore, Damien","sentences",0.259465435648616
 "6491","Moore, Damien","aid",0
-"6492","Moore, Damien","comprehens",0
+"6492","Moore, Damien","legal",0
 "6493","Moran, Layla","reunion",0.885016410454393
 "6494","Moran, Layla","refugee",0.868867470543664
 "6495","Moran, Layla","reintroduce",0.542461471511348
@@ -6526,7 +6526,7 @@
 "6525","Morgan, Nicky","review",0.172964973726041
 "6526","Morgan, Nicky","received",0.167423530444525
 "6527","Morgan, Nicky","aid",0
-"6528","Morgan, Nicky","comprehens",0
+"6528","Morgan, Nicky","legal",0
 "6529","Morrice, Graeme","reoffending",1
 "6530","Morrice, Graeme","check",0.412804344029627
 "6531","Morrice, Graeme","membership",0.399807150512808
@@ -6537,8 +6537,8 @@
 "6536","Morrice, Graeme","dues",0.304382954450953
 "6537","Morrice, Graeme","system",0.25716933212316
 "6538","Morrice, Graeme","aid",0
-"6539","Morrice, Graeme","comprehens",0
-"6540","Morrice, Graeme","legal",0
+"6539","Morrice, Graeme","legal",0
+"6540","Morrice, Graeme","review",0
 "6541","Morris, Anne Marie","free",0.776063392233337
 "6542","Morris, Anne Marie","slavery",0.667411755328153
 "6543","Morris, Anne Marie","modern",0.663777134405392
@@ -6631,10 +6631,10 @@
 "6630","Murrison, Dr Andrew","people",0.220858681335214
 "6631","Murrison, Dr Andrew","year",0.118161895937374
 "6632","Murrison, Dr Andrew","aid",0
-"6633","Murrison, Dr Andrew","comprehens",0
-"6634","Murrison, Dr Andrew","legal",0
-"6635","Murrison, Dr Andrew","review",0
-"6636","Murrison, Dr Andrew","undertak",0
+"6633","Murrison, Dr Andrew","legal",0
+"6634","Murrison, Dr Andrew","review",0
+"6635","Murrison, Dr Andrew","undertak",0
+"6636","Murrison, Dr Andrew","will",0
 "6637","Nandy, Lisa","business",0.437014620540869
 "6638","Nandy, Lisa","governments",0.392730254577826
 "6639","Nandy, Lisa","action",0.372631861215287
@@ -6693,8 +6693,8 @@
 "6692","Norman, Jesse","provide",0.210561991256797
 "6693","Norman, Jesse","made",0.128557528912001
 "6694","Norman, Jesse","aid",0
-"6695","Norman, Jesse","comprehens",0
-"6696","Norman, Jesse","legal",0
+"6695","Norman, Jesse","legal",0
+"6696","Norman, Jesse","review",0
 "6697","Norris, Alex","small claims",1.32185509308793
 "6698","Norris, Alex","limit",1.17832666365597
 "6699","Norris, Alex","review",0.975273160765846
@@ -6776,9 +6776,9 @@
 "6775","Onasanya, Fiona","prisoners",0.235051863010991
 "6776","Onasanya, Fiona","made",0.229356602359158
 "6777","Onasanya, Fiona","aid",0
-"6778","Onasanya, Fiona","comprehens",0
-"6779","Onasanya, Fiona","legal",0
-"6780","Onasanya, Fiona","review",0
+"6778","Onasanya, Fiona","legal",0
+"6779","Onasanya, Fiona","review",0
+"6780","Onasanya, Fiona","undertak",0
 "6781","Onn, Melanie","inhouse",1.07301972785275
 "6782","Onn, Melanie","ltd",0.829399987849922
 "6783","Onn, Melanie","commercial",0.738227600365015
@@ -6861,8 +6861,8 @@
 "6860","Pawsey, Mark","offenders",0.230881201096805
 "6861","Pawsey, Mark","made",0.161960792350032
 "6862","Pawsey, Mark","aid",0
-"6863","Pawsey, Mark","comprehens",0
-"6864","Pawsey, Mark","legal",0
+"6863","Pawsey, Mark","legal",0
+"6864","Pawsey, Mark","review",0
 "6865","Peacock, Stephanie","barnsley",4.16750931982079
 "6866","Peacock, Stephanie","appeal",2.19039276019897
 "6867","Peacock, Stephanie","data",1.82504381809815
@@ -6898,7 +6898,7 @@
 "6897","Pennycook, Matthew","review",0.191206124879898
 "6898","Pennycook, Matthew","report",0.184236414489944
 "6899","Pennycook, Matthew","aid",0
-"6900","Pennycook, Matthew","comprehens",0
+"6900","Pennycook, Matthew","legal",0
 "6901","Percy, Andrew","cellular",1.2286055486232
 "6902","Percy, Andrew","goole",1.10151980601912
 "6903","Percy, Andrew","devices",1.04902331661323
@@ -7005,8 +7005,8 @@
 "7004","Pound, Stephen","act",0.22263396498305
 "7005","Pound, Stephen","2015",0.203803289947616
 "7006","Pound, Stephen","aid",0
-"7007","Pound, Stephen","comprehens",0
-"7008","Pound, Stephen","legal",0
+"7007","Pound, Stephen","legal",0
+"7008","Pound, Stephen","review",0
 "7009","Powell, Lucy","reoffending",1.35838562066601
 "7010","Powell, Lucy","force",1.32085138344467
 "7011","Powell, Lucy","five",1.29596856209969
@@ -7132,13 +7132,13 @@
 "7131","Reckless, Mark","implementation",0.363469750539642
 "7132","Reckless, Mark","law",0.335550163745644
 "7133","Reckless, Mark","aid",0
-"7134","Reckless, Mark","comprehens",0
-"7135","Reckless, Mark","legal",0
-"7136","Reckless, Mark","review",0
-"7137","Reckless, Mark","undertak",0
-"7138","Reckless, Mark","will",0
-"7139","Reckless, Mark","137525",0
-"7140","Reckless, Mark","2018",0
+"7134","Reckless, Mark","legal",0
+"7135","Reckless, Mark","review",0
+"7136","Reckless, Mark","undertak",0
+"7137","Reckless, Mark","will",0
+"7138","Reckless, Mark","137525",0
+"7139","Reckless, Mark","2018",0
+"7140","Reckless, Mark","answer",0
 "7141","Redwood, John","eu",1.17260533221214
 "7142","Redwood, John","directive",0.831786801948452
 "7143","Redwood, John","uk",0.66061734011723
@@ -7207,10 +7207,10 @@
 "7206","Reevell, Simon","criminal",0.212680949784347
 "7207","Reevell, Simon","report",0.202172380082082
 "7208","Reevell, Simon","aid",0
-"7209","Reevell, Simon","comprehens",0
-"7210","Reevell, Simon","legal",0
-"7211","Reevell, Simon","review",0
-"7212","Reevell, Simon","undertak",0
+"7209","Reevell, Simon","legal",0
+"7210","Reevell, Simon","review",0
+"7211","Reevell, Simon","undertak",0
+"7212","Reevell, Simon","will",0
 "7213","Reeves, Ellie","educate",2.92476091313194
 "7214","Reeves, Ellie","racism",2.03710614095057
 "7215","Reeves, Ellie","person",1.86529876119057
@@ -7243,10 +7243,10 @@
 "7242","Reid, Alan","sentence",0.226142694207101
 "7243","Reid, Alan","prison",0.108709167584468
 "7244","Reid, Alan","aid",0
-"7245","Reid, Alan","comprehens",0
-"7246","Reid, Alan","legal",0
-"7247","Reid, Alan","review",0
-"7248","Reid, Alan","undertak",0
+"7245","Reid, Alan","legal",0
+"7246","Reid, Alan","review",0
+"7247","Reid, Alan","undertak",0
+"7248","Reid, Alan","will",0
 "7249","Reynolds, Emma","wolverhampton",0.703057553361104
 "7250","Reynolds, Emma","forfeited",0.441150659163953
 "7251","Reynolds, Emma","forfeiture",0.42028066126421
@@ -7329,8 +7329,8 @@
 "7328","Rodda, Matt","service",0.215001502222841
 "7329","Rodda, Matt","made",0.176838013630829
 "7330","Rodda, Matt","aid",0
-"7331","Rodda, Matt","comprehens",0
-"7332","Rodda, Matt","legal",0
+"7331","Rodda, Matt","legal",0
+"7332","Rodda, Matt","review",0
 "7333","Rosindell, Andrew","uk",2.08074208260813
 "7334","Rosindell, Andrew","people",1.60296224264561
 "7335","Rosindell, Andrew","convicted",1.24158676146024
@@ -7360,13 +7360,13 @@
 "7359","Rowley, Danielle","employment",0.337840021583468
 "7360","Rowley, Danielle","tribunal",0.322992840660981
 "7361","Rowley, Danielle","aid",0
-"7362","Rowley, Danielle","comprehens",0
-"7363","Rowley, Danielle","legal",0
-"7364","Rowley, Danielle","review",0
-"7365","Rowley, Danielle","undertak",0
-"7366","Rowley, Danielle","will",0
-"7367","Rowley, Danielle","137525",0
-"7368","Rowley, Danielle","2018",0
+"7362","Rowley, Danielle","legal",0
+"7363","Rowley, Danielle","review",0
+"7364","Rowley, Danielle","undertak",0
+"7365","Rowley, Danielle","will",0
+"7366","Rowley, Danielle","137525",0
+"7367","Rowley, Danielle","2018",0
+"7368","Rowley, Danielle","answer",0
 "7369","Roy, Frank","motherwell",0.475479544872072
 "7370","Roy, Frank","wishaw",0.475479544872072
 "7371","Roy, Frank","disability living allowance",0.321720078766
@@ -7593,20 +7593,20 @@
 "7592","Sheppard, Tommy","made",0.16465820829821
 "7593","Sheppard, Tommy","year",0.111316716351816
 "7594","Sheppard, Tommy","aid",0
-"7595","Sheppard, Tommy","comprehens",0
-"7596","Sheppard, Tommy","legal",0
+"7595","Sheppard, Tommy","legal",0
+"7596","Sheppard, Tommy","review",0
 "7597","Sherriff, Paula","champion",0.68087450811568
 "7598","Sherriff, Paula","departmental",0.486909707159327
 "7599","Sherriff, Paula","diversity",0.444294346833318
 "7600","Sherriff, Paula","board",0.31926693321452
 "7601","Sherriff, Paula","aid",0
-"7602","Sherriff, Paula","comprehens",0
-"7603","Sherriff, Paula","legal",0
-"7604","Sherriff, Paula","review",0
-"7605","Sherriff, Paula","undertak",0
-"7606","Sherriff, Paula","will",0
-"7607","Sherriff, Paula","137525",0
-"7608","Sherriff, Paula","2018",0
+"7602","Sherriff, Paula","legal",0
+"7603","Sherriff, Paula","review",0
+"7604","Sherriff, Paula","undertak",0
+"7605","Sherriff, Paula","will",0
+"7606","Sherriff, Paula","137525",0
+"7607","Sherriff, Paula","2018",0
+"7608","Sherriff, Paula","answer",0
 "7609","Shuker, Gavin","concerted",0.915497612160872
 "7610","Shuker, Gavin","indiscipline",0.915497612160872
 "7611","Shuker, Gavin","calendar",0.507915940246468
@@ -7802,7 +7802,7 @@
 "7801","Sobel, Alex","made",2.59882364310883
 "7802","Sobel, Alex","level",2.33353737502168
 "7803","Sobel, Alex","effectiveness",1.91598451870344
-"7804","Sobel, Alex","legal",1.78855002271428
+"7804","Sobel, Alex","legal",1.88575383315279
 "7805","Sobel, Alex","adequacy",1.70177716718369
 "7806","Sobel, Alex","reoffending",1.64182250850185
 "7807","Sobel, Alex","ombudsman",1.62709501255267
@@ -7926,11 +7926,11 @@
 "7925","Stringer, Graham","will",0.176224580504079
 "7926","Stringer, Graham","prison",0.110147972706924
 "7927","Stringer, Graham","aid",0
-"7928","Stringer, Graham","comprehens",0
-"7929","Stringer, Graham","legal",0
-"7930","Stringer, Graham","review",0
-"7931","Stringer, Graham","undertak",0
-"7932","Stringer, Graham","137525",0
+"7928","Stringer, Graham","legal",0
+"7929","Stringer, Graham","review",0
+"7930","Stringer, Graham","undertak",0
+"7931","Stringer, Graham","137525",0
+"7932","Stringer, Graham","2018",0
 "7933","Stuart, Graham","authority",0.703024286099754
 "7934","Stuart, Graham","compensation",0.701116045452915
 "7935","Stuart, Graham","application",0.666806804234951
@@ -8467,10 +8467,10 @@
 "8466","Warman, Matt","offenders",0.379955625242058
 "8467","Warman, Matt","prisons",0.309823532488479
 "8468","Warman, Matt","aid",0
-"8469","Warman, Matt","comprehens",0
-"8470","Warman, Matt","legal",0
-"8471","Warman, Matt","review",0
-"8472","Warman, Matt","undertak",0
+"8469","Warman, Matt","legal",0
+"8470","Warman, Matt","review",0
+"8471","Warman, Matt","undertak",0
+"8472","Warman, Matt","137525",0
 "8473","Watling, Giles","leaves",0.438079135252703
 "8474","Watling, Giles","operation",0.407309120242454
 "8475","Watling, Giles","effective",0.402711345767524
@@ -8479,10 +8479,10 @@
 "8478","Watling, Giles","uk",0.31883212610974
 "8479","Watling, Giles","legal",0.276000003968881
 "8480","Watling, Giles","aid",0
-"8481","Watling, Giles","comprehens",0
-"8482","Watling, Giles","review",0
-"8483","Watling, Giles","undertak",0
-"8484","Watling, Giles","will",0
+"8481","Watling, Giles","review",0
+"8482","Watling, Giles","undertak",0
+"8483","Watling, Giles","will",0
+"8484","Watling, Giles","137525",0
 "8485","Watson, Tom","violence",1.29789551143778
 "8486","Watson, Tom","domestic",1.29615810068568
 "8487","Watson, Tom","eligibility",1.19941553541993
@@ -8551,22 +8551,22 @@
 "8550","Whately, Helen","support",0.310715430143824
 "8551","Whately, Helen","staff",0.2590828759574
 "8552","Whately, Helen","aid",0
-"8553","Whately, Helen","comprehens",0
-"8554","Whately, Helen","legal",0
-"8555","Whately, Helen","review",0
-"8556","Whately, Helen","undertak",0
+"8553","Whately, Helen","legal",0
+"8554","Whately, Helen","review",0
+"8555","Whately, Helen","undertak",0
+"8556","Whately, Helen","will",0
 "8557","Wheeler, Heather","effectiveness",0.533867732586393
 "8558","Wheeler, Heather","female",0.509962892321431
 "8559","Wheeler, Heather","increase",0.500504465922471
 "8560","Wheeler, Heather","rehabilitation",0.426569183859333
 "8561","Wheeler, Heather","prisoners",0.149856943554409
 "8562","Wheeler, Heather","aid",0
-"8563","Wheeler, Heather","comprehens",0
-"8564","Wheeler, Heather","legal",0
-"8565","Wheeler, Heather","review",0
-"8566","Wheeler, Heather","undertak",0
-"8567","Wheeler, Heather","will",0
-"8568","Wheeler, Heather","137525",0
+"8563","Wheeler, Heather","legal",0
+"8564","Wheeler, Heather","review",0
+"8565","Wheeler, Heather","undertak",0
+"8566","Wheeler, Heather","will",0
+"8567","Wheeler, Heather","137525",0
+"8568","Wheeler, Heather","2018",0
 "8569","Whitford, Dr Philippa","scl",1.04276752113415
 "8570","Whitford, Dr Philippa","analytica",1.00602831179916
 "8571","Whitford, Dr Philippa","cambridge",1.00602831179916
@@ -8576,9 +8576,9 @@
 "8575","Whitford, Dr Philippa","agencies",0.268774318326857
 "8576","Whitford, Dr Philippa","contracts",0.2062686535263
 "8577","Whitford, Dr Philippa","aid",0
-"8578","Whitford, Dr Philippa","comprehens",0
-"8579","Whitford, Dr Philippa","legal",0
-"8580","Whitford, Dr Philippa","review",0
+"8578","Whitford, Dr Philippa","legal",0
+"8579","Whitford, Dr Philippa","review",0
+"8580","Whitford, Dr Philippa","undertak",0
 "8581","Whittaker, Craig","life",1.07452794540036
 "8582","Whittaker, Craig","todmorden",0.974864418195239
 "8583","Whittaker, Craig","rural",0.967940104831489
@@ -8596,13 +8596,13 @@
 "8595","Whittingdale, John","proceedings",0.411262269489365
 "8596","Whittingdale, John","court",0.194454075375052
 "8597","Whittingdale, John","aid",0
-"8598","Whittingdale, John","comprehens",0
-"8599","Whittingdale, John","legal",0
-"8600","Whittingdale, John","review",0
-"8601","Whittingdale, John","undertak",0
-"8602","Whittingdale, John","will",0
-"8603","Whittingdale, John","137525",0
-"8604","Whittingdale, John","2018",0
+"8598","Whittingdale, John","legal",0
+"8599","Whittingdale, John","review",0
+"8600","Whittingdale, John","undertak",0
+"8601","Whittingdale, John","will",0
+"8602","Whittingdale, John","137525",0
+"8603","Whittingdale, John","2018",0
+"8604","Whittingdale, John","answer",0
 "8605","Williams, Craig","education",0.96380732398739
 "8606","Williams, Craig","testify",0.753223959255578
 "8607","Williams, Craig","vulnerable",0.415075149360576
@@ -8611,10 +8611,10 @@
 "8610","Williams, Craig","prisons",0.266599779122689
 "8611","Williams, Craig","court",0.165619122846791
 "8612","Williams, Craig","aid",0
-"8613","Williams, Craig","comprehens",0
-"8614","Williams, Craig","legal",0
-"8615","Williams, Craig","review",0
-"8616","Williams, Craig","undertak",0
+"8613","Williams, Craig","legal",0
+"8614","Williams, Craig","review",0
+"8615","Williams, Craig","undertak",0
+"8616","Williams, Craig","will",0
 "8617","Williams, Dr Paul","smoke",1.03534723455175
 "8618","Williams, Dr Paul","ban",0.870397152513152
 "8619","Williams, Dr Paul","implementation",0.685237027572448
@@ -8694,11 +8694,11 @@
 "8693","Wilson, Rob","uk",0.253036627143624
 "8694","Wilson, Rob","legal",0.219043516561674
 "8695","Wilson, Rob","people",0.183842788096039
-"8696","Wilson, Rob","comprehens",0
-"8697","Wilson, Rob","review",0
-"8698","Wilson, Rob","undertak",0
-"8699","Wilson, Rob","will",0
-"8700","Wilson, Rob","137525",0
+"8696","Wilson, Rob","review",0
+"8697","Wilson, Rob","undertak",0
+"8698","Wilson, Rob","will",0
+"8699","Wilson, Rob","137525",0
+"8700","Wilson, Rob","2018",0
 "8701","Winnick, David","radicalised",0.588733118443695
 "8702","Winnick, David","extremism",0.588733118443695
 "8703","Winnick, David","religious",0.515246417339325
