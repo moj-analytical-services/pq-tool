@@ -19,9 +19,9 @@ opt = parse_args(opt_parser);
 
 iterations <- ceiling(opt$numOfQs / 1000)
 
-print("getting local data")
-localData <- read.csv(ARCHIVE_FILEPATH)
-localItems <- localData %>%
+print("getting s3 data")
+S3Data <- read_s3_archived_pqs
+S3Items <- S3Data %>%
   mutate_all(as.character)
 
 #startIndex <- nrow(localData) - opt$numOfQs + 1
@@ -60,31 +60,28 @@ for (iteration in c(1:iterations)){
   remoteItems <- rbind(remoteItems, remotePage)
 }
 
-
 remoteItems <- remoteItems %>%
   arrange(Answer_Date, Question_ID)
 
-localItems <- localItems %>%
+S3Items <- S3Items %>%
   arrange(Answer_Date, Question_ID)
 
 print("joining data up")
 allItems <- left_join(remoteItems,
-                      localItems,
+                      S3Items,
                       by = c("Question_ID",
                              "Answer_Date"),
-                   suffix = c(".remote", ".local")) %>%
+                      suffix = c(".remote", ".S3")) %>%
   unique() %>%
   arrange(Answer_Date, Question_ID)
 
-
-
 print("assessing similarities")
 results <- sapply(allItems$Question_ID,
-       function(x) {
-         index <- which(allItems$Question_ID == x)
-         test <- areRemoteAndLocalEqual(allItems[index,])
-         return(test)
-       })
+                  function(x) {
+                    index <- which(allItems$Question_ID == x)
+                    test <- areRemoteAndS3Equal(allItems[index,])
+                    return(test)
+                  })
 
 if (all(results)) {
   print(str_interp("most recent ${numOfQs} questions match up"))
@@ -99,5 +96,9 @@ if (all(results)) {
     filter(Question_ID %in% nonMatchingIDs)
   
   output <- cbind(nonMatchingQs, whereTheyDontMatch)
-  write.csv(output, file = "./Data/nonMatchingQuestions.csv")
+  
+  s3tools::write_df_to_csv_in_s3(output, "alpha-pq-tool-data/Data/nonMatchingQuestions.csv", overwrite =TRUE)
+
 }
+
+
