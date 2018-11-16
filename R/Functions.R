@@ -101,13 +101,13 @@ summarise <- function(type = "cluster", #type can be either cluster or MP
 }
 
 summarise_old <- function(type = "cluster", #type can be either cluster or MP
-                      ID, #this is the cluster number if type == cluster, or the MPs name in "Surname, Forename" format if type == MP
-                      matr, #the tdm as a matrix
-                      data, #a hierarchy if type is cluster, or a list of answer MPs if type is MP
-                      numTerms, #how many terms to return
-                      listOfVectors, #the questions themselves
-                      totalClusters = NULL #the number of clusters if type is cluster 
-                      ){
+                          ID, #this is the cluster number if type == cluster, or the MPs name in "Surname, Forename" format if type == MP
+                          matr, #the tdm as a matrix
+                          data, #a hierarchy if type is cluster, or a list of answer MPs if type is MP
+                          numTerms, #how many terms to return
+                          listOfVectors, #the questions themselves
+                          totalClusters = NULL #the number of clusters if type is cluster 
+){
   if (type == "cluster"){
     set <- cutree(data, totalClusters)
   } else if (type == "MP"){
@@ -116,8 +116,8 @@ summarise_old <- function(type = "cluster", #type can be either cluster or MP
   relevantQs <- matr[, which(set == ID)]
   clusterDict <- cleanCorpus(Corpus(VectorSource(listOfVectors[which(set == ID)])))
   termsAndSums <- if (is.null(dim(relevantQs))){
-                    relevantQs
-                  } else rowSums(relevantQs)
+    relevantQs
+  } else rowSums(relevantQs)
   termsAndSumsN <- termsAndSums[order(termsAndSums, decreasing = T)[1:numTerms]]
   
   #we now complete the word stems, using the fromItoY function to deal with occasions
@@ -157,8 +157,8 @@ summarise_old <- function(type = "cluster", #type can be either cluster or MP
 
 #This gets the length of a vector
 normVec <- function(vec){
-             return(sqrt(sum(vec^2)))
-  }
+  return(sqrt(sum(vec^2)))
+}
 
 #This normalises the lengths of a matrix to length 1
 normalize <- function(mat){
@@ -354,7 +354,7 @@ urlName <- function(name){
 #Functions - these are only used here and hence have not been put into the main functions.R file
 #firstly to make up for the fact that the NA constituencies for the Lords tend to be judged as not matching
 testConstituencies <- function(line) {
-  if (is.na(line$MP_Constituency.local)) {
+  if (is.na(line$MP_Constituency.S3)) {
     if (line$MP_Constituency.remote == "NA" || is.na(line$MP_Constituency.remote)) {
       return(TRUE)
     }
@@ -362,20 +362,20 @@ testConstituencies <- function(line) {
       return(FALSE)
     }
   }
-  else return(identical(line$MP_Constituency.remote, line$MP_Constituency.local))
+  else return(identical(line$MP_Constituency.remote, line$MP_Constituency.S3))
 }
 #this compares the remote and local versions of the same question
-areRemoteAndLocalEqual <- function(line){
+areRemoteAndS3Equal <- function(line){
   equality <- rep(FALSE, 7)
-  equality[1] <- identical(line$Question_MP.remote, line$Question_MP.local)
-  equality[2] <- identical(line$Question_Date.remote, line$Question_Date.local)
-  equality[3] <- identical(line$Question_Text.remote, line$Question_Text.local)
-  equality[4] <- identical(line$Answer_MP.remote, line$Answer_MP.local)
-  #equality[5] <- identical(line$Answer_Date.remote, line$Answer_Date.local)
-  equality[5] <- identical(line$Answer_Text.remote, line$Answer_Text.local)
+  equality[1] <- identical(line$Question_MP.remote, line$Question_MP.S3)
+  equality[2] <- identical(line$Question_Date.remote, line$Question_Date.S3)
+  equality[3] <- identical(line$Question_Text.remote, line$Question_Text.S3)
+  equality[4] <- identical(line$Answer_MP.remote, line$Answer_MP.S3)
+  #equality[5] <- identical(line$Answer_Date.remote, line$Answer_Date.S3)
+  equality[5] <- identical(line$Answer_Text.remote, line$Answer_Text.S3)
   equality[6] <- testConstituencies(line)
-  identical(line$MP_Constituency.remote, line$MP_Constituency.local)
-  equality[7] <- identical(line$Party.remote, line$Party.local)
+  identical(line$MP_Constituency.remote, line$MP_Constituency.S3)
+  equality[7] <- identical(line$Party.remote, line$Party.S3)
   names(equality) <- c("MP",
                        "Qdate",
                        "Qtext",
@@ -389,7 +389,7 @@ areRemoteAndLocalEqual <- function(line){
 
 s3_file_exists <- function(s3_path) {
   p <- separate_bucket_path(s3_path)
-  objs <- aws.s3::get_bucket(p$bucket, prefix = p$object, check_region=TRUE)
+  objs <- aws.S3::get_bucket(p$bucket, prefix = p$object, check_region=TRUE)
   return(length(objs)>0)
 }
 

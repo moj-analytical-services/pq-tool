@@ -3,14 +3,13 @@ library(tidyverse)
 library(jsonlite)
 library(stringr)
 library(gtools)
-s3tools::get_credentials()
 devtools::install_github("moj-analytical-services/s3tools")
 library(s3tools)
+s3tools::get_credentials()
 
 s3_archived_pqs_exists <- s3_file_exists('alpha-pq-tool-data/Data/archived_pqs.csv')
 read_s3_archived_pqs <-s3tools::s3_path_to_full_df("alpha-pq-tool-data/Data/archived_pqs.csv", overwrite = FALSE)
-#write_s3_archived_pqs <- s3tools::write_file_to_s3("archived_pqs.csv", "alpha-pq-tool-data/Data/archived_pqs.csv", overwrite =TRUE)
-
+read_s3_archived_pqs <- read_s3_archived_pqs[2:10]
 
 number_in_archive <- function() {
   if((s3_archived_pqs_exists=='TRUE')) {
