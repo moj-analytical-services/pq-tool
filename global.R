@@ -1,5 +1,7 @@
 source('./R/Functions.R')
 
+s3_bucket <- 'alpha-pq-tool-data'
+
 library(shiny)
 library(DT)
 library(dplyr)
@@ -18,20 +20,24 @@ library(scales)
 library(readr)
 library(rintrojs)
 
+s3tools::download_file_from_s3("alpha-pq-tool-data/Data/searchSpace.rda", "./Data/searchSpace.rda", overwrite =TRUE)
 load(file = "./Data/searchSpace.rda")
+
 
 # Define R_date date type - to read in Long Date format in csv
 setAs("character", "R_date", function(from) as.Date(from, "%d %B %Y"))
 setClass("R_date")
 
+s3tools::download_file_from_s3("alpha-pq-tool-data/Data/MoJwrittenPQs.csv", "./Data/MoJwrittenPQs.csv", overwrite =TRUE)
 rawData <- read_csv("./Data/MoJwrittenPQs.csv")
 data <- data.frame(rawData)
 drops <- c("X1","Document_Number", "Corrected_Date")
 tables_data <- data[ , !(names(data) %in% drops)]
 
-
+s3tools::download_file_from_s3("alpha-pq-tool-data/Data/topDozenWordsPerTopic.csv", "./Data/topDozenWordsPerTopic.csv", overwrite =TRUE)
 topic_data <- read.csv("./Data/topDozenWordsPerTopic.csv")
 
+s3tools::download_file_from_s3("alpha-pq-tool-data/Data/topDozenWordsPerMember.csv", "./Data/topDozenWordsPerMember.csv", overwrite =TRUE)
 member_data <- read.csv("./Data/topDozenWordsPerMember.csv")
 
 merged_clusters <- ddply(
