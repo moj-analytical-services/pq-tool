@@ -86,7 +86,7 @@ results <- sapply(allItems$Question_ID,
 if (all(results)) {
   print(str_interp("most recent ${numOfQs} questions match up"))
 } else {
-  print(str_interp("mismatch in most recent ${numOfQs} questions. Mismatched questions in /Data/nonMatchingQuestions.csv."))
+  print(str_interp("mismatch in most recent ${numOfQs} questions. Mismatched questions in nonMatchingQuestions.csv."))
   resultsSummary <- sapply(1:ncol(results), function(x) all(results[,x]))
   names(resultsSummary) <- allItems$Question_ID
   
@@ -97,7 +97,7 @@ if (all(results)) {
   
   output <- cbind(nonMatchingQs, whereTheyDontMatch)
   
-  s3tools::write_df_to_csv_in_s3(output, "alpha-pq-tool-data/Data/nonMatchingQuestions.csv", overwrite =TRUE)
+  s3tools::write_df_to_csv_in_s3(output, "alpha-app-pq-tool/nonMatchingQuestions.csv", overwrite =TRUE)
 
 }
 
