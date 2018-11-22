@@ -630,3 +630,14 @@ Package: yaml
 Source: CRAN
 Version: 2.1.16
 Hash: 784ea5d8302d4a81f166a32a33c10711
+
+Package: s3tools
+Source: https://github.com/moj-analytical-services/s3tools
+Version: 0.0.6
+Hash: 
+
+Package: aws.s3
+Source: https://github.com/cloudyr/aws.s3
+Version: 0.3.20
+Hash: 
+

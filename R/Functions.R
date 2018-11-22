@@ -4,6 +4,7 @@ library(cluster)
 library(dplyr)
 library(slam)
 library(stringr)
+library(aws.s3)
 
 #FUNCTIONS
 
@@ -389,7 +390,7 @@ areRemoteAndS3Equal <- function(line){
 
 s3_file_exists <- function(s3_path) {
   p <- separate_bucket_path(s3_path)
-  objs <- aws.S3::get_bucket(p$bucket, prefix = p$object, check_region=TRUE)
+  objs <- aws.s3::get_bucket(p$bucket, prefix = p$object, check_region=TRUE)
   return(length(objs)>0)
 }
 
