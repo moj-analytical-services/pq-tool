@@ -20,11 +20,17 @@ If conflicts check the `nonMatchingQs` file to find out what the conflict if - i
 system("Rscript ./data_generators/DataCreator.R -e prod")
 
 (TERMINAL)
-git add Data/MoJwrittenPQs.csv
+
+git add Data/MoJwrittenPQs.csv 
+
 git add Data/archived_pqs.csv
-git add Data/searchSpace.rda
+
+git add Data/searchSpace.rda 
+
 git add Data/topDozenWordsPerMember.csv
+
 git add Data/topDozenWordsPerTopic.csv
+
 
 git commit -n -m "Data Update [insert date here (format = 23/12/18); x,xxx Questions"   (Where x,xxx is the number of questions now in the corpus)
 
