@@ -1,7 +1,8 @@
 
 (TERMINAL)
-1. checkout master - git pull
-2. checkout new branch - git checkout -b dataUpdate[insert-date-here]   (format for date = 231218, aka. 23rd Dec 2018) 
+1. git checkout master
+2. git pull
+3. git checkout -b dataUpdate[insert-date-here]   (format for date = 231218, aka. 23rd Dec 2018) 
 
 (CONSOLE)
 `source('./R/apiClient.R')`
