@@ -6,8 +6,10 @@ library(readr)
 library(purrr)
 
 s3_archived_pqs_exists <- s3_file_exists(ARCHIVE_FILEPATH)
-read_s3_archived_pqs <-s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)
-read_s3_archived_pqs <- read_s3_archived_pqs[2:10]
+if((s3_archived_pqs_exists=='TRUE')) {
+  read_s3_archived_pqs <- s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)
+  read_s3_archived_pqs <- read_s3_archived_pqs[2:10]
+}
 
 number_in_archive <- function() {
   if((s3_archived_pqs_exists=='TRUE')) {
@@ -67,8 +69,8 @@ parse_response <- function(raw_response) {
 }
 
 update_archive <- function(questions_tibble) {
-  archive    <- read_s3_archived_pqs
-  if(nrow(archive) > 0) {
+  if((s3_archived_pqs_exists=='TRUE')) {
+    archive    <- read_s3_archived_pqs
     updated_archive <- rbind(archive, questions_tibble)
   } else {
     updated_archive <- questions_tibble
@@ -135,6 +137,7 @@ fetch_questions <- function(show_progress = FALSE) {
     date_param  <- str_interp("_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%22${date}%22)")
     base_params <- str_interp("${date_param}&${MOJ_ONLY}&${MAX_DOWNLOAD}")
   } else {
+    #s3tools::write_df_to_csv_in_s3(output, "alpha-app-pq-tool/archived_pqs.csv", overwrite =TRUE)
     base_params <- str_interp("${MOJ_ONLY}&${MAX_DOWNLOAD}")
   }
   
