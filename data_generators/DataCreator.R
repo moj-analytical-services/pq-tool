@@ -231,10 +231,7 @@ print('Saving the output')
 #save(klusters,file = "klusters.rda")
 
 save_location = opt$output_dir
-#setwd(save_location)
-
-save(search.space, file = "searchSpace.rda")
-s3tools::write_file_to_s3("searchSpace.rda", str_interp("${save_location}/searchSpace.rda"), overwrite =TRUE)
+s3tools::write_file_to_s3("searchSpace.rda", str_interp("${save_location}searchSpace.rda"), overwrite =TRUE)
 file.remove("searchSpace.rda")
 
 
