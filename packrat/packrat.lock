@@ -632,12 +632,43 @@ Version: 2.1.16
 Hash: 784ea5d8302d4a81f166a32a33c10711
 
 Package: s3tools
-Source: https://github.com/moj-analytical-services/s3tools
-Version: 0.0.6
-Hash: 
+Source: github
+Version: 0.0.3
+Hash: 0f2307ded9e81e94e8ad530fc502c5d1
+Requires: aws.ec2metadata, aws.s3, aws.signature, digest, httr,
+    jsonlite
+GithubRepo: s3tools
+GithubUsername: moj-analytical-services
+GithubRef: master
+GithubSha1: f8fcdada410e37e79133cebb62215c00c3ee0986
+
+Package: aws.ec2metadata
+Source: github
+Version: 0.1.5
+Hash: 80e571d82c2736e8ee53a4963141e085
+Requires: curl, jsonlite
+GithubRepo: aws.ec2metadata
+GithubUsername: cloudyr
+GithubRef: master
+GithubSha1: 9289862d10a7bdc8d2e9a4c3aadfda75ee46977f
 
 Package: aws.s3
-Source: https://github.com/cloudyr/aws.s3
-Version: 0.3.20
-Hash: 
+Source: github
+Version: 0.3.12
+Hash: 32276425322de599a07c66e0a84d6857
+Requires: aws.signature, base64enc, digest, httr, xml2
+GithubRepo: aws.s3
+GithubUsername: cloudyr
+GithubRef: master
+GithubSha1: 4738bbbb6cd34d450e34447e82170a33797ef5ef
+
+Package: aws.signature
+Source: github
+Version: 0.4.3
+Hash: a6b240c66fd2933883f3777bedf2825a
+Requires: base64enc, digest
+GithubRepo: aws.signature
+GithubUsername: cloudyr
+GithubRef: master
+GithubSha1: eef6bdd3b549826750d475efb049cbddf92ae62f
 
