@@ -1,12 +1,12 @@
 source('./R/Functions.R')
-library(tidyverse)
 library(jsonlite)
 library(stringr)
 library(gtools)
-library(s3tools)
+library(readr)
+library(purrr)
 
-s3_archived_pqs_exists <- s3_file_exists('alpha-app-pq-tool/archived_pqs.csv')
-read_s3_archived_pqs <-s3tools::s3_path_to_full_df("alpha-app-pq-tool/archived_pqs.csv", overwrite = FALSE)
+s3_archived_pqs_exists <- s3_file_exists(ARCHIVE_FILEPATH)
+read_s3_archived_pqs <-s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)
 read_s3_archived_pqs <- read_s3_archived_pqs[2:10]
 
 number_in_archive <- function() {
@@ -42,7 +42,7 @@ number_to_fetch <- function() {
   }
   
 
-get_constituencies <- function(raw_response) 
+get_constituencies <- function(raw_response) {
   map_chr(1:nrow(raw_response), function(n) {
     constituency <- raw_response$tablingMemberConstituency$'_value'[n]
     
@@ -51,7 +51,7 @@ get_constituencies <- function(raw_response)
     } else {
       constituency
     }
-  })
+  })}
 
 parse_response <- function(raw_response) {
   tibble(
@@ -135,14 +135,11 @@ fetch_questions <- function(show_progress = FALSE) {
     date_param  <- str_interp("_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%22${date}%22)")
     base_params <- str_interp("${date_param}&${MOJ_ONLY}&${MAX_DOWNLOAD}")
   } else {
-    # Question
-    #file.create(ARCHIVE_FILEPATH)
-    s3tools::write_df_to_csv_in_s3(output, "alpha-app-pq-tool/archived_pqs.csv", overwrite =TRUE)
     base_params <- str_interp("${MOJ_ONLY}&${MAX_DOWNLOAD}")
   }
   
   if( (number_to_fetch + number_in_archive) < number_held_remotely ) {
-    stop("An error has occurred. Please delete archived_pqs.csv and re-run `fetch_questions()`")
+    stop("An error has occurred. Please delete archived_pqs.csv (on S3) and re-run `fetch_questions()`")
   }
   
   for(iteration in c(1:iterations)) {
