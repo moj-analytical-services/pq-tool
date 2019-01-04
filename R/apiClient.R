@@ -3,9 +3,7 @@ library(tidyverse)
 library(jsonlite)
 library(stringr)
 library(gtools)
-#devtools::install_github("moj-analytical-services/s3tools")
 library(s3tools)
-#s3tools::get_credentials()
 
 s3_archived_pqs_exists <- s3_file_exists('alpha-app-pq-tool/archived_pqs.csv')
 read_s3_archived_pqs <-s3tools::s3_path_to_full_df("alpha-app-pq-tool/archived_pqs.csv", overwrite = FALSE)
@@ -78,8 +76,7 @@ update_archive <- function(questions_tibble) {
   
   duplicates_filter <- duplicated(updated_archive)
   updated_archive   <- updated_archive[!duplicates_filter,]
-  #write_csv(updated_archive, ARCHIVE_FILEPATH)
-  s3tools::write_df_to_csv_in_s3(updated_archive, "alpha-app-pq-tool/archived_pqs.csv", overwrite =TRUE)
+  s3tools::write_df_to_csv_in_s3(updated_archive, ARCHIVE_FILEPATH, overwrite =TRUE)
   
 }
 
