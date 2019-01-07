@@ -20,7 +20,7 @@ opt = parse_args(opt_parser);
 iterations <- ceiling(opt$numOfQs / 1000)
 
 print("getting s3 data")
-S3Data <- read_s3_archived_pqs
+S3Data <- s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)[2:10]
 S3Items <- S3Data %>%
   mutate_all(as.character)
 
