@@ -5,22 +5,20 @@ library(gtools)
 library(readr)
 library(purrr)
 
-s3_archived_pqs_exists <- s3_file_exists(ARCHIVE_FILEPATH)
-if((s3_archived_pqs_exists=='TRUE')) {
-  read_s3_archived_pqs <- s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)
-  read_s3_archived_pqs <- read_s3_archived_pqs[2:10]
+if((s3_file_exists(ARCHIVE_FILEPATH)=='TRUE')) {
+  s3_archived_pqs <- s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)[2:10]
 }
 
 number_in_archive <- function() {
-  if((s3_archived_pqs_exists=='TRUE')) {
-    nrow(read_s3_archived_pqs)
+  if((s3_file_exists(ARCHIVE_FILEPATH)=='TRUE')) {
+    nrow(s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)[2:10])
   } else {
     0
   }
 }
 
 last_answer_date <- function() {
-  archive_not_NA <- read_s3_archived_pqs %>%
+  archive_not_NA <- s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)[2:10] %>%
     filter(!(is.na(Answer_Date)))
   max(archive_not_NA$Answer_Date)
 }
@@ -31,7 +29,7 @@ number_held_remotely <- function() {
 }
   
 number_to_fetch <- function() {
-  if ((s3_archived_pqs_exists=='TRUE')) {
+  if ((s3_file_exists(ARCHIVE_FILEPATH)=='TRUE')) {
       date        <- last_answer_date()
       date_filter <- str_interp(
         "_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%22${date}%22)"
@@ -69,8 +67,8 @@ parse_response <- function(raw_response) {
 }
 
 update_archive <- function(questions_tibble) {
-  if((s3_archived_pqs_exists=='TRUE')) {
-    archive    <- read_s3_archived_pqs
+  if((s3_file_exists(ARCHIVE_FILEPATH)=='TRUE')) {
+    archive    <- s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)[2:10]
     updated_archive <- rbind(archive, questions_tibble)
   } else {
     updated_archive <- questions_tibble
@@ -132,7 +130,7 @@ fetch_questions <- function(show_progress = FALSE) {
   
   questions <- tibble()
   
-  if((s3_archived_pqs_exists=='TRUE')) {
+  if((s3_file_exists(ARCHIVE_FILEPATH)=='TRUE')) {
     date        <- last_answer_date()
     date_param  <- str_interp("_where=?item%20parl:answer%20?a1.?a1%20parl:dateOfAnswer%20?dt.%20filter(str(?dt)%3E=%22${date}%22)")
     base_params <- str_interp("${date_param}&${MOJ_ONLY}&${MAX_DOWNLOAD}")
