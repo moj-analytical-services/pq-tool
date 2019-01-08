@@ -99,6 +99,7 @@ if( opt$environment == 'test' ) {
 }
 
 
+
 print(str_interp('X has been set to ${opt$x_dims}'))
 print(str_interp('K has been set to ${opt$k_clusters}'))
 print(str_interp('Reading from file ${opt$input_file}'))
@@ -231,6 +232,9 @@ print('Saving the output')
 #save(klusters,file = "klusters.rda")
 
 save_location = opt$output_dir
+
+save(search.space, file = "searchSpace.rda")
+
 s3tools::write_file_to_s3("searchSpace.rda", str_interp("${save_location}searchSpace.rda"), overwrite =TRUE)
 file.remove("searchSpace.rda")
 

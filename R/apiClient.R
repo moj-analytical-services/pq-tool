@@ -68,7 +68,7 @@ parse_response <- function(raw_response) {
 
 update_archive <- function(questions_tibble) {
   if((s3_file_exists(ARCHIVE_FILEPATH)=='TRUE')) {
-    archive    <- s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)[2:10]
+    archive <- s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)[2:10]
     updated_archive <- rbind(archive, questions_tibble)
   } else {
     updated_archive <- questions_tibble
