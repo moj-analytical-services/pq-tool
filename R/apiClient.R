@@ -4,6 +4,8 @@ library(stringr)
 library(gtools)
 library(readr)
 library(purrr)
+library(sendmailR)
+
 
 if((s3_file_exists(ARCHIVE_FILEPATH)=='TRUE')) {
   s3_archived_pqs <- s3tools::s3_path_to_full_df(ARCHIVE_FILEPATH, overwrite = FALSE)[2:10]
