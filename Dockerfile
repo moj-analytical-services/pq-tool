@@ -1,4 +1,5 @@
 FROM rocker/shiny@sha256:627a2b7b3b6b1f6e33d37bdba835bbbd854acf70d74010645af71fc3ff6c32b6
+FROM r-base
 
 WORKDIR /srv/shiny-server
 
@@ -38,4 +39,4 @@ RUN sed -i 's/3838/80/g' /etc/shiny-server/shiny-server.conf
 EXPOSE 80
 
 # Run update commands
-source('./update_commands.R')
+CMD ["Rscript", "update_commands.R"]
