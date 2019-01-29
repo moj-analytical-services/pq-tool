@@ -99,6 +99,21 @@ if (all(results)) {
   
   s3tools::write_df_to_csv_in_s3(output, "alpha-app-pq-tool/nonMatchingQuestions.csv", overwrite =TRUE)
 
+  sender <- "moj.datascience.error.alerts@gmail.com"
+  recipients <- c("jamie.fraser@digital.justice.com")
+  send.mail(from = sender,
+        to = recipients,
+        subject = "PQ-Tool Notification: mismatch in most recent ${numOfQs} questions. Please check the S3 bucket 'alpha-app-pq', the mismatched questions are in nonMatchingQuestions.csv",
+        body = "Please check the nonMatchingQs file to find out what the conflict if - if it appears like an error (introducing an NA, something nonsensical then ignore). If it is due to a change in polictical party or other legitimate mismatch then you will need to:
+                1. Delete the archived_pqs.csv
+                2. Clone the pq-tool repo onto the platform instance of RStudio.
+                3. Run update_commands.R"
+        smtp = list(host.name = "smtp.gmail.com", port = 465, 
+              user.name = "moj.datascience.error.alerts@gmail.com",            
+              passwd = "moj.datascience.error.alerts1", ssl = TRUE),
+        authenticate = TRUE,
+        send = TRUE)
+
 }
 
 
