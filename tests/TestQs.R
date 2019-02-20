@@ -100,7 +100,7 @@ if (all(results)) {
   s3tools::write_df_to_csv_in_s3(output, "alpha-app-pq-tool/nonMatchingQuestions.csv", overwrite =TRUE)
 
   sender <- "moj.datascience.error.alerts@gmail.com"
-  recipients <- c("jamie.fraser@digital.justice.com")
+  recipients <- c("jamie.fraser@digital.justice.gov.uk")
   send.mail(from = sender,
         to = recipients,
         subject = "PQ-Tool Notification: mismatch in most recent ${numOfQs} questions. Please check the S3 bucket 'alpha-app-pq', the mismatched questions are in nonMatchingQuestions.csv",
