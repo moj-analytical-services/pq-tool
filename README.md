@@ -215,4 +215,4 @@ git remote add external git@github.com:moj-analytical-services/pq-tool-external.
 
 ### Then you can push to that repo (and deploy from the Jenkins console using the pq-tool-external job - here you can also give a list of email addresses for the people you wish to give access)
 ```
-git push external branch-to-deploy
+git push external branch-to-deployy
