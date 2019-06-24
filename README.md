@@ -12,6 +12,11 @@ To access the deployed tool within the Ministry of Justice go to https://pq-tool
 
 If you have been given access to our external tool, the corresponding code is on the GTrebase branch of this repo.
 
+## Data is now stored in S3
+This version of the app stores data in the AWS S3 bucket 'alpha-app-pq-tool'.
+If there are any errors with mismatching questions in archived_pqs.csv, check to make sure that the mismatching questions look sensible (for example a change in an MP's political party), then rename or delete archived_pqs.csv, and re-run the scraping commands below.
+
+
 ## Some variables are defined in .Rprofile
 
 Variables in block capitals are defined in .Rprofile because they're used in serveral different R files.  This should load automatically whenever you start a new R session from the comand line.  If you make changes to .Rprofile, remember that you will either need to open a new R session to load the changes or do `source('./Rprofile')`
@@ -48,7 +53,7 @@ fetch_questions(show_progress = TRUE)
 
 #### What this code does
 
-- When the `fetch_questions()` function is called for the first time, and no archive exists, it will create `archived_pqs.csv` in the Data directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
+- When the `fetch_questions()` function is called for the first time, and no archive exists, it will create `archived_pqs.csv` in the s3 directory and download all answered PQs, that were posed to the MoJ, from http://lda.data.parliament.uk/answeredquestions. This takes about 8.5 minutes on a 2016 MacBook Pro.
 
 - When an archive already exists, the function will update `archived_pqs.csv` by appending newly answered questions (downloaded from the same endpoint).
 
