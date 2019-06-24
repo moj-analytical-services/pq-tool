@@ -14,7 +14,7 @@ If you have been given access to our external tool, the corresponding code is on
 
 ## Data is now stored in S3
 This version of the app stores data in the AWS S3 bucket 'alpha-app-pq-tool'.
-If there are any errors with mismatching questions in archived_pqs.csv, check to make sure that the mismatching questions look sensible (for example a change in an MP's political party), then rename or delete archived_pqs.csv, and re-run the scraping commands below.
+If there are any errors with mismatching questions in archived_pqs.csv, check to make sure that the mismatching questions look sensible (for example a change in an MP's political party), then rename or delete archived_pqs.csv and then re-run the scraping commands below.
 
 
 ## Some variables are defined in .Rprofile
