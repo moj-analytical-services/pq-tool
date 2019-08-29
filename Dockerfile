@@ -1,5 +1,4 @@
-FROM rocker/shiny@sha256:627a2b7b3b6b1f6e33d37bdba835bbbd854acf70d74010645af71fc3ff6c32b6
-
+FROM rocker/shiny@sha256:a8296007af76d81df316e22d0f80fb065f2cf24e6fd76342e9f9f39bdd73acc6
 WORKDIR /srv/shiny-server
 
 RUN sed -i 's%deb.debian.org%mirror.bytemark.co.uk%' /etc/apt/sources.list
