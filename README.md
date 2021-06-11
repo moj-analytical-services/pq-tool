@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/moj-analytical-services/PQTool.svg?branch=master)](https://travis-ci.org/moj-analytical-services/pq-tool)
 
+11-06-21: think that the data update steps of this are now automated via Airflow: https://github.com/moj-analytical-services/airflow-pq-tool
+At least I've just checked the tool and 1: it's still working, and 2: it's got recent questions in it
+(ST)
+
 # PQ Tool
 ## Introduction
 This is a prototype tool for analysing and comparing written Parliamentary Questions for answer by the Ministry of Justice. Questions have been taken from the API provided by Parliament (accessed via http://www.data.parliament.uk/).
