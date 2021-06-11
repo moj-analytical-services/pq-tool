@@ -1,4 +1,4 @@
-FROM rocker/shiny@sha256:a8296007af76d81df316e22d0f80fb065f2cf24e6fd76342e9f9f39bdd73acc6
+FROM 593291632749.dkr.ecr.eu-west-1.amazonaws.com/rocker:shiny-3.4.2
 
 WORKDIR /srv/shiny-server
 
